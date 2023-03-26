@@ -1,0 +1,2325 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = {
+	ScreenGui = Instance.new("ScreenGui"),
+	Frame = Instance.new("Frame"),
+	UICorner = Instance.new("UICorner"),
+	LE = Instance.new("Frame"),
+	UICorner_2 = Instance.new("UICorner"),
+	Logo = Instance.new("TextLabel"),
+	UICorner_3 = Instance.new("UICorner"),
+	TextLabel = Instance.new("TextLabel"),
+	TextLabel_2 = Instance.new("TextLabel"),
+	GButtons = Instance.new("Frame"),
+	UIListLayout = Instance.new("UIListLayout"),
+	Home = Instance.new("TextButton"),
+	UICorner_4 = Instance.new("UICorner"),
+	AutoFarm = Instance.new("TextButton"),
+	UICorner_5 = Instance.new("UICorner"),
+	SelectMaterial = Instance.new("TextButton"),
+	UICorner_6 = Instance.new("UICorner"),
+	CoreEscape = Instance.new("TextButton"),
+	UICorner_7 = Instance.new("UICorner"),
+	Modifiers = Instance.new("TextButton"),
+	UICorner_8 = Instance.new("UICorner"),
+	Settings = Instance.new("TextButton"),
+	UICorner_9 = Instance.new("UICorner"),
+	HomeUi = Instance.new("Frame"),
+	UICorner_10 = Instance.new("UICorner"),
+	Credits = Instance.new("TextLabel"),
+	YTDC = Instance.new("TextLabel"),
+	TextCredits = Instance.new("TextLabel"),
+	Frame_2 = Instance.new("Frame"),
+	UICorner_11 = Instance.new("UICorner"),
+	ImageLabelYT = Instance.new("ImageLabel"),
+	UICorner_12 = Instance.new("UICorner"),
+	NameChannel = Instance.new("TextLabel"),
+	NameChannel_2 = Instance.new("TextLabel"),
+	ImageLabelDC = Instance.new("ImageLabel"),
+	UICorner_13 = Instance.new("UICorner"),
+	NameDC = Instance.new("TextLabel"),
+	TextButtonDC = Instance.new("TextButton"),
+	UICorner_14 = Instance.new("UICorner"),
+	TextButtonYT = Instance.new("TextButton"),
+	UICorner_15 = Instance.new("UICorner"),
+	CoreEscapeUI = Instance.new("Frame"),
+	UICorner_16 = Instance.new("UICorner"),
+	SpawnerCarTxt = Instance.new("TextLabel"),
+	BreakGlassButton = Instance.new("TextButton"),
+	UICorner_17 = Instance.new("UICorner"),
+	TextLabel_3 = Instance.new("TextLabel"),
+	Frame_3 = Instance.new("Frame"),
+	UICorner_18 = Instance.new("UICorner"),
+	EnableCoreButton = Instance.new("TextButton"),
+	UICorner_19 = Instance.new("UICorner"),
+	TextLabel_4 = Instance.new("TextLabel"),
+	Frame_4 = Instance.new("Frame"),
+	UICorner_20 = Instance.new("UICorner"),
+	MeltdownButton = Instance.new("TextButton"),
+	UICorner_21 = Instance.new("UICorner"),
+	TextLabel_5 = Instance.new("TextLabel"),
+	Frame_5 = Instance.new("Frame"),
+	UICorner_22 = Instance.new("UICorner"),
+	CoreFrame = Instance.new("Frame"),
+	UICorner_23 = Instance.new("UICorner"),
+	Timetxt = Instance.new("TextLabel"),
+	Glasstxt = Instance.new("TextLabel"),
+	Meltodowntxt = Instance.new("TextLabel"),
+	EscapeButton = Instance.new("TextButton"),
+	UICorner_24 = Instance.new("UICorner"),
+	TextLabel_6 = Instance.new("TextLabel"),
+	Frame_6 = Instance.new("Frame"),
+	UICorner_25 = Instance.new("UICorner"),
+	AutoFarmUi = Instance.new("Frame"),
+	UICorner_26 = Instance.new("UICorner"),
+	AutofarmTxt = Instance.new("TextLabel"),
+	autofarm1 = Instance.new("TextButton"),
+	UICorner_27 = Instance.new("UICorner"),
+	TextLabel_7 = Instance.new("TextLabel"),
+	TextLabel_8 = Instance.new("TextLabel"),
+	Frame_7 = Instance.new("Frame"),
+	UICorner_28 = Instance.new("UICorner"),
+	autofarm2 = Instance.new("TextButton"),
+	UICorner_29 = Instance.new("UICorner"),
+	Frame_8 = Instance.new("Frame"),
+	UICorner_30 = Instance.new("UICorner"),
+	TextLabel_9 = Instance.new("TextLabel"),
+	TextLabel_10 = Instance.new("TextLabel"),
+	MoneyTotal = Instance.new("Frame"),
+	UICorner_31 = Instance.new("UICorner"),
+	TxtMoney = Instance.new("TextLabel"),
+	Seacher = Instance.new("Frame"),
+	UICorner_32 = Instance.new("UICorner"),
+	ImageLabel = Instance.new("ImageLabel"),
+	TxtBoxAutoFarm = Instance.new("TextBox"),
+	UICorner_33 = Instance.new("UICorner"),
+	CarSelected = Instance.new("Frame"),
+	UICorner_34 = Instance.new("UICorner"),
+	NamecarAutoFarm = Instance.new("TextLabel"),
+	CarList = Instance.new("Frame"),
+	UICorner_35 = Instance.new("UICorner"),
+	ScrollingFrameAutoFarm = Instance.new("ScrollingFrame"),
+	TextButtonAutoFarm = Instance.new("TextButton"),
+	UICorner_36 = Instance.new("UICorner"),
+	UIListLayout_2 = Instance.new("UIListLayout"),
+	SelectMaterialUI = Instance.new("Frame"),
+	UICorner_37 = Instance.new("UICorner"),
+	SpawnerCarTxt_2 = Instance.new("TextLabel"),
+	Seacher_2 = Instance.new("Frame"),
+	UICorner_38 = Instance.new("UICorner"),
+	ImageLabel_2 = Instance.new("ImageLabel"),
+	TxtBoxMaterial = Instance.new("TextBox"),
+	UICorner_39 = Instance.new("UICorner"),
+	CarList_2 = Instance.new("Frame"),
+	UICorner_40 = Instance.new("UICorner"),
+	SFCarMaterial = Instance.new("ScrollingFrame"),
+	UIListLayout_3 = Instance.new("UIListLayout"),
+	TxtButtonMaterial = Instance.new("TextButton"),
+	UICorner_41 = Instance.new("UICorner"),
+	CarSelected_2 = Instance.new("Frame"),
+	UICorner_42 = Instance.new("UICorner"),
+	NameMaterial = Instance.new("TextLabel"),
+	ButtonMaterial = Instance.new("TextButton"),
+	UICorner_43 = Instance.new("UICorner"),
+	TextLabel_11 = Instance.new("TextLabel"),
+	TextLabel_12 = Instance.new("TextLabel"),
+	Frame_9 = Instance.new("Frame"),
+	UICorner_44 = Instance.new("UICorner"),
+	SpawnerCarTxt_3 = Instance.new("TextLabel"),
+	Modifiers_2 = Instance.new("Frame"),
+	UICorner_45 = Instance.new("UICorner"),
+	ModifiersTxt = Instance.new("TextLabel"),
+	ButtonSpeedCar = Instance.new("TextButton"),
+	UICorner_46 = Instance.new("UICorner"),
+	TextLabel_13 = Instance.new("TextLabel"),
+	Frame_10 = Instance.new("Frame"),
+	UICorner_47 = Instance.new("UICorner"),
+	SliderSC = Instance.new("Frame"),
+	UICorner_48 = Instance.new("UICorner"),
+	ButtonslideSC = Instance.new("TextButton"),
+	UICorner_49 = Instance.new("UICorner"),
+	ButtonFlyCar = Instance.new("TextButton"),
+	UICorner_50 = Instance.new("UICorner"),
+	TextLabel_14 = Instance.new("TextLabel"),
+	Frame_11 = Instance.new("Frame"),
+	UICorner_51 = Instance.new("UICorner"),
+	SliderFC = Instance.new("Frame"),
+	UICorner_52 = Instance.new("UICorner"),
+	ButtonFC = Instance.new("TextButton"),
+	UICorner_53 = Instance.new("UICorner"),
+	ButtonSpeedPlayer = Instance.new("TextButton"),
+	UICorner_54 = Instance.new("UICorner"),
+	TextLabel_15 = Instance.new("TextLabel"),
+	Frame_12 = Instance.new("Frame"),
+	UICorner_55 = Instance.new("UICorner"),
+	SliderSC_2 = Instance.new("Frame"),
+	UICorner_56 = Instance.new("UICorner"),
+	ButtonslideSC_2 = Instance.new("TextButton"),
+	UICorner_57 = Instance.new("UICorner"),
+	SettingsUI = Instance.new("Frame"),
+	UICorner_58 = Instance.new("UICorner"),
+	SpawnerCarTxt_4 = Instance.new("TextLabel"),
+	IDK = Instance.new("Frame"),
+	UICorner_59 = Instance.new("UICorner"),
+	TextBox = Instance.new("TextBox"),
+	UICorner_60 = Instance.new("UICorner"),
+	TextLabel_16 = Instance.new("TextLabel"),
+	TextLabel_17 = Instance.new("TextLabel"),
+	ActiveToogleTxt = Instance.new("TextButton"),
+	UICorner_61 = Instance.new("UICorner"),
+	IDK_2 = Instance.new("Frame"),
+	UICorner_62 = Instance.new("UICorner"),
+	AntAFKButton = Instance.new("TextButton"),
+	UICorner_63 = Instance.new("UICorner"),
+	TextLabel_18 = Instance.new("TextLabel"),
+	TextLabel_19 = Instance.new("TextLabel"),
+	Frame_13 = Instance.new("Frame"),
+	UICorner_64 = Instance.new("UICorner"),
+	IDK_3 = Instance.new("Frame"),
+	UICorner_65 = Instance.new("UICorner"),
+	DeleteButton = Instance.new("TextButton"),
+	UICorner_66 = Instance.new("UICorner"),
+	TextLabel_20 = Instance.new("TextLabel"),
+	TextLabel_21 = Instance.new("TextLabel"),
+	Frame_14 = Instance.new("Frame"),
+	UICorner_67 = Instance.new("UICorner"),
+	Warn = Instance.new("Frame"),
+	UICorner_68 = Instance.new("UICorner"),
+	Dwarn = Instance.new("Frame"),
+	UICorner_69 = Instance.new("UICorner"),
+	Frame_15 = Instance.new("Frame"),
+	UICorner_70 = Instance.new("UICorner"),
+	Yes = Instance.new("TextButton"),
+	UICorner_71 = Instance.new("UICorner"),
+	No = Instance.new("TextButton"),
+	UICorner_72 = Instance.new("UICorner"),
+	TextLabel_22 = Instance.new("TextLabel"),
+	TextLabel_23 = Instance.new("TextLabel"),
+	Wwarn = Instance.new("Frame"),
+	UICorner_73 = Instance.new("UICorner"),
+	Frame_16 = Instance.new("Frame"),
+	UICorner_74 = Instance.new("UICorner"),
+	Okay = Instance.new("TextButton"),
+	UICorner_75 = Instance.new("UICorner"),
+	TextLabel_24 = Instance.new("TextLabel"),
+	TextLabel_25 = Instance.new("TextLabel"),
+}
+
+--Properties:
+
+ScreenGui.ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+ScreenGui.Frame.Parent = ScreenGui.ScreenGui
+ScreenGui.Frame.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+ScreenGui.Frame.Position = UDim2.new(0.313664556, 0, 0.321052641, 0)
+ScreenGui.Frame.Size = UDim2.new(0.372049779, 0, 0.357894748, 0)
+
+ScreenGui.UICorner.Parent = ScreenGui.Frame
+
+ScreenGui.LE.Name = "LE"
+ScreenGui.LE.Parent = ScreenGui.Frame
+ScreenGui.LE.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+ScreenGui.LE.Position = UDim2.new(-0.00166725798, 0, 0, 0)
+ScreenGui.LE.Size = UDim2.new(0.263566554, 0, 1.00000012, 0)
+
+ScreenGui.UICorner_2.Parent = ScreenGui.LE
+
+ScreenGui.Logo.Name = "Logo"
+ScreenGui.Logo.Parent = ScreenGui.LE
+ScreenGui.Logo.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
+ScreenGui.Logo.Position = UDim2.new(0.0950112194, 0, 0.0441176444, 0)
+ScreenGui.Logo.Size = UDim2.new(0.285033107, 0, 0.132352933, 0)
+ScreenGui.Logo.Font = Enum.Font.SciFi
+ScreenGui.Logo.Text = "LDS"
+ScreenGui.Logo.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.Logo.TextScaled = true
+ScreenGui.Logo.TextSize = 20.000
+ScreenGui.Logo.TextWrapped = true
+
+ScreenGui.UICorner_3.CornerRadius = UDim.new(0, 99999999)
+ScreenGui.UICorner_3.Parent = ScreenGui.Logo
+
+ScreenGui.TextLabel.Parent = ScreenGui.Logo
+ScreenGui.TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel.BackgroundTransparency = 1.000
+ScreenGui.TextLabel.Position = UDim2.new(1, 0, 0, 0)
+ScreenGui.TextLabel.Size = UDim2.new(2.08888888, 0, 1, 0)
+ScreenGui.TextLabel.Font = Enum.Font.SciFi
+ScreenGui.TextLabel.Text = "HUB"
+ScreenGui.TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel.TextScaled = true
+ScreenGui.TextLabel.TextSize = 14.000
+ScreenGui.TextLabel.TextWrapped = true
+
+ScreenGui.TextLabel_2.Parent = ScreenGui.Logo
+ScreenGui.TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_2.BackgroundTransparency = 1.000
+ScreenGui.TextLabel_2.Position = UDim2.new(-0.245627344, 0, 6.49903965, 0)
+ScreenGui.TextLabel_2.Size = UDim2.new(3.29029179, 0, 0.634293616, 0)
+ScreenGui.TextLabel_2.Font = Enum.Font.SciFi
+ScreenGui.TextLabel_2.Text = "v. 1.0 beta"
+ScreenGui.TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_2.TextScaled = true
+ScreenGui.TextLabel_2.TextSize = 14.000
+ScreenGui.TextLabel_2.TextWrapped = true
+
+ScreenGui.GButtons.Name = "GButtons"
+ScreenGui.GButtons.Parent = ScreenGui.LE
+ScreenGui.GButtons.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.GButtons.BackgroundTransparency = 1.000
+ScreenGui.GButtons.Position = UDim2.new(0.00632575667, 0, 0.211764693, 0)
+ScreenGui.GButtons.Size = UDim2.new(0.993674219, 0, 0.764705896, 0)
+
+ScreenGui.UIListLayout.Parent = ScreenGui.GButtons
+ScreenGui.UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+ScreenGui.UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+ScreenGui.UIListLayout.Padding = UDim.new(0.0199999996, 0)
+
+ScreenGui.Home.Name = "Home"
+ScreenGui.Home.Parent = ScreenGui.GButtons
+ScreenGui.Home.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
+ScreenGui.Home.Position = UDim2.new(0.0382463485, 0, 0, 0)
+ScreenGui.Home.Size = UDim2.new(0.937043905, 0, 0.13257575, 0)
+ScreenGui.Home.Font = Enum.Font.DenkOne
+ScreenGui.Home.Text = "Home"
+ScreenGui.Home.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.Home.TextScaled = true
+ScreenGui.Home.TextSize = 14.000
+ScreenGui.Home.TextWrapped = true
+
+ScreenGui.UICorner_4.Parent = ScreenGui.Home
+
+ScreenGui.AutoFarm.Name = "AutoFarm"
+ScreenGui.AutoFarm.Parent = ScreenGui.GButtons
+ScreenGui.AutoFarm.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+ScreenGui.AutoFarm.Position = UDim2.new(0.0382463485, 0, 0, 0)
+ScreenGui.AutoFarm.Size = UDim2.new(0.937043905, 0, 0.13257575, 0)
+ScreenGui.AutoFarm.Font = Enum.Font.DenkOne
+ScreenGui.AutoFarm.Text = "Auto Farm"
+ScreenGui.AutoFarm.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.AutoFarm.TextScaled = true
+ScreenGui.AutoFarm.TextSize = 14.000
+ScreenGui.AutoFarm.TextWrapped = true
+
+ScreenGui.UICorner_5.Parent = ScreenGui.AutoFarm
+
+ScreenGui.SelectMaterial.Name = "SelectMaterial"
+ScreenGui.SelectMaterial.Parent = ScreenGui.GButtons
+ScreenGui.SelectMaterial.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+ScreenGui.SelectMaterial.Position = UDim2.new(0.0382463485, 0, 0, 0)
+ScreenGui.SelectMaterial.Size = UDim2.new(0.937043905, 0, 0.13257575, 0)
+ScreenGui.SelectMaterial.Font = Enum.Font.DenkOne
+ScreenGui.SelectMaterial.Text = "Select Material"
+ScreenGui.SelectMaterial.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.SelectMaterial.TextScaled = true
+ScreenGui.SelectMaterial.TextSize = 14.000
+ScreenGui.SelectMaterial.TextWrapped = true
+
+ScreenGui.UICorner_6.Parent = ScreenGui.SelectMaterial
+
+ScreenGui.CoreEscape.Name = "CoreEscape"
+ScreenGui.CoreEscape.Parent = ScreenGui.GButtons
+ScreenGui.CoreEscape.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+ScreenGui.CoreEscape.Position = UDim2.new(0.0382463485, 0, 0, 0)
+ScreenGui.CoreEscape.Size = UDim2.new(0.937043905, 0, 0.13257575, 0)
+ScreenGui.CoreEscape.Font = Enum.Font.DenkOne
+ScreenGui.CoreEscape.Text = "Core Escape"
+ScreenGui.CoreEscape.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.CoreEscape.TextScaled = true
+ScreenGui.CoreEscape.TextSize = 14.000
+ScreenGui.CoreEscape.TextWrapped = true
+
+ScreenGui.UICorner_7.Parent = ScreenGui.CoreEscape
+
+ScreenGui.Modifiers.Name = "Modifiers"
+ScreenGui.Modifiers.Parent = ScreenGui.GButtons
+ScreenGui.Modifiers.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+ScreenGui.Modifiers.Position = UDim2.new(0.0382463485, 0, 0, 0)
+ScreenGui.Modifiers.Size = UDim2.new(0.937043905, 0, 0.13257575, 0)
+ScreenGui.Modifiers.Font = Enum.Font.DenkOne
+ScreenGui.Modifiers.Text = "Modifiers"
+ScreenGui.Modifiers.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.Modifiers.TextScaled = true
+ScreenGui.Modifiers.TextSize = 14.000
+ScreenGui.Modifiers.TextWrapped = true
+
+ScreenGui.UICorner_8.Parent = ScreenGui.Modifiers
+
+ScreenGui.Settings.Name = "Settings"
+ScreenGui.Settings.Parent = ScreenGui.GButtons
+ScreenGui.Settings.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+ScreenGui.Settings.Position = UDim2.new(0.0382463485, 0, 0, 0)
+ScreenGui.Settings.Size = UDim2.new(0.937043905, 0, 0.13257575, 0)
+ScreenGui.Settings.Font = Enum.Font.DenkOne
+ScreenGui.Settings.Text = "Settings"
+ScreenGui.Settings.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.Settings.TextScaled = true
+ScreenGui.Settings.TextSize = 14.000
+ScreenGui.Settings.TextWrapped = true
+
+ScreenGui.UICorner_9.Parent = ScreenGui.Settings
+
+ScreenGui.HomeUi.Name = "HomeUi"
+ScreenGui.HomeUi.Parent = ScreenGui.Frame
+ScreenGui.HomeUi.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+ScreenGui.HomeUi.Position = UDim2.new(0.273959696, 0, 0.0941176489, 0)
+ScreenGui.HomeUi.Size = UDim2.new(0.712676346, 0, 0.533351243, 0)
+
+ScreenGui.UICorner_10.Parent = ScreenGui.HomeUi
+
+ScreenGui.Credits.Name = "Credits"
+ScreenGui.Credits.Parent = ScreenGui.HomeUi
+ScreenGui.Credits.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.Credits.BackgroundTransparency = 1.000
+ScreenGui.Credits.Position = UDim2.new(0, 0, -0.0937468559, 0)
+ScreenGui.Credits.Size = UDim2.new(0.252276182, 0, 0.172821864, 0)
+ScreenGui.Credits.Font = Enum.Font.Unknown
+ScreenGui.Credits.Text = "Credits"
+ScreenGui.Credits.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.Credits.TextScaled = true
+ScreenGui.Credits.TextSize = 14.000
+ScreenGui.Credits.TextWrapped = true
+
+ScreenGui.YTDC.Name = "YTDC"
+ScreenGui.YTDC.Parent = ScreenGui.HomeUi
+ScreenGui.YTDC.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.YTDC.BackgroundTransparency = 1.000
+ScreenGui.YTDC.Position = UDim2.new(0.0187516958, 0, 1.03385592, 0)
+ScreenGui.YTDC.Size = UDim2.new(0.392913878, 0, 0.142608792, 0)
+ScreenGui.YTDC.ZIndex = 10
+ScreenGui.YTDC.Font = Enum.Font.Unknown
+ScreenGui.YTDC.Text = "Youtube | Discord"
+ScreenGui.YTDC.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.YTDC.TextScaled = true
+ScreenGui.YTDC.TextSize = 14.000
+ScreenGui.YTDC.TextWrapped = true
+
+ScreenGui.TextCredits.Name = "TextCredits"
+ScreenGui.TextCredits.Parent = ScreenGui.HomeUi
+ScreenGui.TextCredits.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextCredits.BackgroundTransparency = 1.000
+ScreenGui.TextCredits.Position = UDim2.new(0.0187516958, 0, 0.121319458, 0)
+ScreenGui.TextCredits.Size = UDim2.new(0.962496758, 0, 0.823535323, 0)
+ScreenGui.TextCredits.Font = Enum.Font.FredokaOne
+ScreenGui.TextCredits.Text = "Well if you're seeing this, then everything worked out, and I'm very happy about it, I want to give my credit to my friend Ali, who helped me A LOT with doubts regarding the scripts, this is the first HUB I created so wait for many others coming soon :3"
+ScreenGui.TextCredits.TextColor3 = Color3.fromRGB(170, 0, 255)
+ScreenGui.TextCredits.TextScaled = true
+ScreenGui.TextCredits.TextSize = 14.000
+ScreenGui.TextCredits.TextWrapped = true
+
+ScreenGui.Frame_2.Parent = ScreenGui.HomeUi
+ScreenGui.Frame_2.BackgroundColor3 = Color3.fromRGB(51, 51, 51)
+ScreenGui.Frame_2.Position = UDim2.new(0, 0, 1.09561825, 0)
+ScreenGui.Frame_2.Size = UDim2.new(0.999999881, 0, 0.548003972, 0)
+ScreenGui.Frame_2.ZIndex = 0
+
+ScreenGui.UICorner_11.Parent = ScreenGui.Frame_2
+
+ScreenGui.ImageLabelYT.Name = "ImageLabelYT"
+ScreenGui.ImageLabelYT.Parent = ScreenGui.Frame_2
+ScreenGui.ImageLabelYT.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.ImageLabelYT.Position = UDim2.new(0.0187516958, 0, 0.158772826, 0)
+ScreenGui.ImageLabelYT.Size = UDim2.new(0, 65, 0, 65)
+ScreenGui.ImageLabelYT.Image = "rbxassetid://12772776120"
+
+ScreenGui.UICorner_12.CornerRadius = UDim.new(0, 99999999)
+ScreenGui.UICorner_12.Parent = ScreenGui.ImageLabelYT
+
+ScreenGui.NameChannel.Name = "NameChannel"
+ScreenGui.NameChannel.Parent = ScreenGui.Frame_2
+ScreenGui.NameChannel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.NameChannel.BackgroundTransparency = 1.000
+ScreenGui.NameChannel.Position = UDim2.new(0.119542062, 0, 0.218616888, 0)
+ScreenGui.NameChannel.Size = UDim2.new(0.392913878, 0, 0.362135261, 0)
+ScreenGui.NameChannel.ZIndex = 10
+ScreenGui.NameChannel.Font = Enum.Font.SciFi
+ScreenGui.NameChannel.Text = "Sr. LDS"
+ScreenGui.NameChannel.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.NameChannel.TextScaled = true
+ScreenGui.NameChannel.TextSize = 14.000
+ScreenGui.NameChannel.TextWrapped = true
+
+ScreenGui.NameChannel_2.Name = "NameChannel"
+ScreenGui.NameChannel_2.Parent = ScreenGui.Frame_2
+ScreenGui.NameChannel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.NameChannel_2.BackgroundTransparency = 1.000
+ScreenGui.NameChannel_2.Position = UDim2.new(0.168765277, 0, 0.532225609, 0)
+ScreenGui.NameChannel_2.Size = UDim2.new(0.292123526, 0, 0.201496333, 0)
+ScreenGui.NameChannel_2.ZIndex = 10
+ScreenGui.NameChannel_2.Font = Enum.Font.SciFi
+ScreenGui.NameChannel_2.Text = "@limaspeedy"
+ScreenGui.NameChannel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.NameChannel_2.TextScaled = true
+ScreenGui.NameChannel_2.TextSize = 14.000
+ScreenGui.NameChannel_2.TextWrapped = true
+
+ScreenGui.ImageLabelDC.Name = "ImageLabelDC"
+ScreenGui.ImageLabelDC.Parent = ScreenGui.Frame_2
+ScreenGui.ImageLabelDC.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ScreenGui.ImageLabelDC.Position = UDim2.new(0.489888072, 0, 0.158772826, 0)
+ScreenGui.ImageLabelDC.Size = UDim2.new(0, 65, 0, 65)
+ScreenGui.ImageLabelDC.Image = "http://www.roblox.com/asset/?id=1999278264"
+
+ScreenGui.UICorner_13.CornerRadius = UDim.new(0, 99999999)
+ScreenGui.UICorner_13.Parent = ScreenGui.ImageLabelDC
+
+ScreenGui.NameDC.Name = "NameDC"
+ScreenGui.NameDC.Parent = ScreenGui.Frame_2
+ScreenGui.NameDC.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.NameDC.BackgroundTransparency = 1.000
+ScreenGui.NameDC.Position = UDim2.new(0.658653319, 0, 0.239524141, 0)
+ScreenGui.NameDC.Size = UDim2.new(0.322595268, 0, 0.504140854, 0)
+ScreenGui.NameDC.ZIndex = 10
+ScreenGui.NameDC.Font = Enum.Font.SciFi
+ScreenGui.NameDC.Text = "https://discord.gg/DABC3eFusQ"
+ScreenGui.NameDC.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.NameDC.TextScaled = true
+ScreenGui.NameDC.TextSize = 14.000
+ScreenGui.NameDC.TextWrapped = true
+
+ScreenGui.TextButtonDC.Name = "TextButtonDC"
+ScreenGui.TextButtonDC.Parent = ScreenGui.Frame_2
+ScreenGui.TextButtonDC.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+ScreenGui.TextButtonDC.Position = UDim2.new(0.658653319, 0, 0.773568153, 0)
+ScreenGui.TextButtonDC.Size = UDim2.new(0.322595119, 0, 0.149138987, 0)
+ScreenGui.TextButtonDC.Font = Enum.Font.SciFi
+ScreenGui.TextButtonDC.Text = "Click here for copy"
+ScreenGui.TextButtonDC.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextButtonDC.TextSize = 14.000
+
+ScreenGui.UICorner_14.Parent = ScreenGui.TextButtonDC
+
+ScreenGui.TextButtonYT.Name = "TextButtonYT"
+ScreenGui.TextButtonYT.Parent = ScreenGui.Frame_2
+ScreenGui.TextButtonYT.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+ScreenGui.TextButtonYT.Position = UDim2.new(0.154701471, 0, 0.773568153, 0)
+ScreenGui.TextButtonYT.Size = UDim2.new(0.322595119, 0, 0.149138987, 0)
+ScreenGui.TextButtonYT.Font = Enum.Font.SciFi
+ScreenGui.TextButtonYT.Text = "Click here for copy"
+ScreenGui.TextButtonYT.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextButtonYT.TextSize = 14.000
+
+ScreenGui.UICorner_15.Parent = ScreenGui.TextButtonYT
+
+ScreenGui.CoreEscapeUI.Name = "CoreEscapeUI"
+ScreenGui.CoreEscapeUI.Parent = ScreenGui.Frame
+ScreenGui.CoreEscapeUI.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+ScreenGui.CoreEscapeUI.Position = UDim2.new(0.273959696, 0, 0.0941176489, 0)
+ScreenGui.CoreEscapeUI.Size = UDim2.new(0.707664907, 0, 0.871586502, 0)
+ScreenGui.CoreEscapeUI.Visible = false
+
+ScreenGui.UICorner_16.Parent = ScreenGui.CoreEscapeUI
+
+ScreenGui.SpawnerCarTxt.Name = "SpawnerCarTxt"
+ScreenGui.SpawnerCarTxt.Parent = ScreenGui.CoreEscapeUI
+ScreenGui.SpawnerCarTxt.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.SpawnerCarTxt.BackgroundTransparency = 1.000
+ScreenGui.SpawnerCarTxt.Position = UDim2.new(0.0234396327, 0, -0.107984282, 0)
+ScreenGui.SpawnerCarTxt.Size = UDim2.new(0.435991913, 0, 0.202470586, 0)
+ScreenGui.SpawnerCarTxt.Font = Enum.Font.Unknown
+ScreenGui.SpawnerCarTxt.Text = "Core Escape"
+ScreenGui.SpawnerCarTxt.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.SpawnerCarTxt.TextScaled = true
+ScreenGui.SpawnerCarTxt.TextSize = 14.000
+ScreenGui.SpawnerCarTxt.TextWrapped = true
+
+ScreenGui.BreakGlassButton.Name = "BreakGlassButton"
+ScreenGui.BreakGlassButton.Parent = ScreenGui.CoreEscapeUI
+ScreenGui.BreakGlassButton.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+ScreenGui.BreakGlassButton.Position = UDim2.new(0.0212713126, 0, 0.0944863111, 0)
+ScreenGui.BreakGlassButton.Size = UDim2.new(0, 69, 0, 31)
+ScreenGui.BreakGlassButton.Font = Enum.Font.SourceSans
+ScreenGui.BreakGlassButton.Text = ""
+ScreenGui.BreakGlassButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+ScreenGui.BreakGlassButton.TextSize = 14.000
+
+ScreenGui.UICorner_17.Parent = ScreenGui.BreakGlassButton
+
+ScreenGui.TextLabel_3.Parent = ScreenGui.BreakGlassButton
+ScreenGui.TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_3.BackgroundTransparency = 1.000
+ScreenGui.TextLabel_3.Position = UDim2.new(1.173913, 0, 0, 0)
+ScreenGui.TextLabel_3.Size = UDim2.new(2.18840575, 0, 1, 0)
+ScreenGui.TextLabel_3.Font = Enum.Font.FredokaOne
+ScreenGui.TextLabel_3.Text = "Break Glass"
+ScreenGui.TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_3.TextScaled = true
+ScreenGui.TextLabel_3.TextSize = 14.000
+ScreenGui.TextLabel_3.TextWrapped = true
+ScreenGui.TextLabel_3.TextXAlignment = Enum.TextXAlignment.Left
+
+ScreenGui.Frame_3.Parent = ScreenGui.BreakGlassButton
+ScreenGui.Frame_3.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+ScreenGui.Frame_3.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
+ScreenGui.Frame_3.Size = UDim2.new(0, 30, 0, 27)
+
+ScreenGui.UICorner_18.Parent = ScreenGui.Frame_3
+
+ScreenGui.EnableCoreButton.Name = "EnableCoreButton"
+ScreenGui.EnableCoreButton.Parent = ScreenGui.CoreEscapeUI
+ScreenGui.EnableCoreButton.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+ScreenGui.EnableCoreButton.Position = UDim2.new(0.0212713126, 0, 0.249713719, 0)
+ScreenGui.EnableCoreButton.Size = UDim2.new(0, 69, 0, 31)
+ScreenGui.EnableCoreButton.Font = Enum.Font.SourceSans
+ScreenGui.EnableCoreButton.Text = ""
+ScreenGui.EnableCoreButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+ScreenGui.EnableCoreButton.TextSize = 14.000
+
+ScreenGui.UICorner_19.Parent = ScreenGui.EnableCoreButton
+
+ScreenGui.TextLabel_4.Parent = ScreenGui.EnableCoreButton
+ScreenGui.TextLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_4.BackgroundTransparency = 1.000
+ScreenGui.TextLabel_4.Position = UDim2.new(1.173913, 0, 0, 0)
+ScreenGui.TextLabel_4.Size = UDim2.new(2.18840575, 0, 1, 0)
+ScreenGui.TextLabel_4.Font = Enum.Font.FredokaOne
+ScreenGui.TextLabel_4.Text = "Enable Core"
+ScreenGui.TextLabel_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_4.TextScaled = true
+ScreenGui.TextLabel_4.TextSize = 14.000
+ScreenGui.TextLabel_4.TextWrapped = true
+ScreenGui.TextLabel_4.TextXAlignment = Enum.TextXAlignment.Left
+
+ScreenGui.Frame_4.Parent = ScreenGui.EnableCoreButton
+ScreenGui.Frame_4.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+ScreenGui.Frame_4.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
+ScreenGui.Frame_4.Size = UDim2.new(0, 30, 0, 27)
+
+ScreenGui.UICorner_20.Parent = ScreenGui.Frame_4
+
+ScreenGui.MeltdownButton.Name = "MeltdownButton"
+ScreenGui.MeltdownButton.Parent = ScreenGui.CoreEscapeUI
+ScreenGui.MeltdownButton.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+ScreenGui.MeltdownButton.Position = UDim2.new(0.0212713126, 0, 0.401566625, 0)
+ScreenGui.MeltdownButton.Size = UDim2.new(0, 69, 0, 31)
+ScreenGui.MeltdownButton.Font = Enum.Font.SourceSans
+ScreenGui.MeltdownButton.Text = ""
+ScreenGui.MeltdownButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+ScreenGui.MeltdownButton.TextSize = 14.000
+
+ScreenGui.UICorner_21.Parent = ScreenGui.MeltdownButton
+
+ScreenGui.TextLabel_5.Parent = ScreenGui.MeltdownButton
+ScreenGui.TextLabel_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_5.BackgroundTransparency = 1.000
+ScreenGui.TextLabel_5.Position = UDim2.new(1.173913, 0, -0.156794399, 0)
+ScreenGui.TextLabel_5.Size = UDim2.new(3.0289855, 0, 1.44741035, 0)
+ScreenGui.TextLabel_5.Font = Enum.Font.FredokaOne
+ScreenGui.TextLabel_5.Text = "Enable Meltdown"
+ScreenGui.TextLabel_5.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_5.TextScaled = true
+ScreenGui.TextLabel_5.TextSize = 14.000
+ScreenGui.TextLabel_5.TextWrapped = true
+ScreenGui.TextLabel_5.TextXAlignment = Enum.TextXAlignment.Left
+
+ScreenGui.Frame_5.Parent = ScreenGui.MeltdownButton
+ScreenGui.Frame_5.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+ScreenGui.Frame_5.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
+ScreenGui.Frame_5.Size = UDim2.new(0, 30, 0, 27)
+
+ScreenGui.UICorner_22.Parent = ScreenGui.Frame_5
+
+ScreenGui.CoreFrame.Name = "CoreFrame"
+ScreenGui.CoreFrame.Parent = ScreenGui.CoreEscapeUI
+ScreenGui.CoreFrame.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+ScreenGui.CoreFrame.Position = UDim2.new(0.0234396812, 0, 0.715426564, 0)
+ScreenGui.CoreFrame.Size = UDim2.new(0.953042388, 0, 0.247453824, 0)
+
+ScreenGui.UICorner_23.Parent = ScreenGui.CoreFrame
+
+ScreenGui.Timetxt.Name = "Timetxt"
+ScreenGui.Timetxt.Parent = ScreenGui.CoreFrame
+ScreenGui.Timetxt.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.Timetxt.BackgroundTransparency = 1.000
+ScreenGui.Timetxt.Position = UDim2.new(0.00493533351, 0, 0.0474945158, 0)
+ScreenGui.Timetxt.Size = UDim2.new(0.995064974, 0, 0.258605033, 0)
+ScreenGui.Timetxt.Font = Enum.Font.FredokaOne
+ScreenGui.Timetxt.Text = "Estimated Time Left:"
+ScreenGui.Timetxt.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.Timetxt.TextScaled = true
+ScreenGui.Timetxt.TextSize = 14.000
+ScreenGui.Timetxt.TextWrapped = true
+ScreenGui.Timetxt.TextXAlignment = Enum.TextXAlignment.Left
+
+ScreenGui.Glasstxt.Name = "Glasstxt"
+ScreenGui.Glasstxt.Parent = ScreenGui.CoreFrame
+ScreenGui.Glasstxt.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.Glasstxt.BackgroundTransparency = 1.000
+ScreenGui.Glasstxt.Position = UDim2.new(0.00493533351, 0, 0.680755019, 0)
+ScreenGui.Glasstxt.Size = UDim2.new(0.995064974, 0, 0.258605063, 0)
+ScreenGui.Glasstxt.Font = Enum.Font.FredokaOne
+ScreenGui.Glasstxt.Text = "Glass Status: normal"
+ScreenGui.Glasstxt.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.Glasstxt.TextScaled = true
+ScreenGui.Glasstxt.TextSize = 14.000
+ScreenGui.Glasstxt.TextWrapped = true
+ScreenGui.Glasstxt.TextXAlignment = Enum.TextXAlignment.Left
+
+ScreenGui.Meltodowntxt.Name = "Meltodowntxt"
+ScreenGui.Meltodowntxt.Parent = ScreenGui.CoreFrame
+ScreenGui.Meltodowntxt.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.Meltodowntxt.BackgroundTransparency = 1.000
+ScreenGui.Meltodowntxt.Position = UDim2.new(0.00493533351, 0, 0.364125162, 0)
+ScreenGui.Meltodowntxt.Size = UDim2.new(0.995064974, 0, 0.258605033, 0)
+ScreenGui.Meltodowntxt.Font = Enum.Font.FredokaOne
+ScreenGui.Meltodowntxt.Text = "Meltdown Status:"
+ScreenGui.Meltodowntxt.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.Meltodowntxt.TextScaled = true
+ScreenGui.Meltodowntxt.TextSize = 14.000
+ScreenGui.Meltodowntxt.TextWrapped = true
+ScreenGui.Meltodowntxt.TextXAlignment = Enum.TextXAlignment.Left
+
+ScreenGui.EscapeButton.Name = "EscapeButton"
+ScreenGui.EscapeButton.Parent = ScreenGui.CoreEscapeUI
+ScreenGui.EscapeButton.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+ScreenGui.EscapeButton.Position = UDim2.new(0.0212713126, 0, 0.563543081, 0)
+ScreenGui.EscapeButton.Size = UDim2.new(0, 69, 0, 31)
+ScreenGui.EscapeButton.Font = Enum.Font.SourceSans
+ScreenGui.EscapeButton.Text = ""
+ScreenGui.EscapeButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+ScreenGui.EscapeButton.TextSize = 14.000
+
+ScreenGui.UICorner_24.Parent = ScreenGui.EscapeButton
+
+ScreenGui.TextLabel_6.Parent = ScreenGui.EscapeButton
+ScreenGui.TextLabel_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_6.BackgroundTransparency = 1.000
+ScreenGui.TextLabel_6.Position = UDim2.new(1.173913, 0, 0, 0)
+ScreenGui.TextLabel_6.Size = UDim2.new(2.18840575, 0, 1, 0)
+ScreenGui.TextLabel_6.Font = Enum.Font.FredokaOne
+ScreenGui.TextLabel_6.Text = "Escape Core"
+ScreenGui.TextLabel_6.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_6.TextScaled = true
+ScreenGui.TextLabel_6.TextSize = 14.000
+ScreenGui.TextLabel_6.TextWrapped = true
+ScreenGui.TextLabel_6.TextXAlignment = Enum.TextXAlignment.Left
+
+ScreenGui.Frame_6.Parent = ScreenGui.EscapeButton
+ScreenGui.Frame_6.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+ScreenGui.Frame_6.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
+ScreenGui.Frame_6.Size = UDim2.new(0, 30, 0, 27)
+
+ScreenGui.UICorner_25.Parent = ScreenGui.Frame_6
+
+ScreenGui.AutoFarmUi.Name = "AutoFarmUi"
+ScreenGui.AutoFarmUi.Parent = ScreenGui.Frame
+ScreenGui.AutoFarmUi.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+ScreenGui.AutoFarmUi.Position = UDim2.new(0.273959696, 0, 0.0941176489, 0)
+ScreenGui.AutoFarmUi.Size = UDim2.new(0.707664907, 0, 0.871586502, 0)
+ScreenGui.AutoFarmUi.Visible = false
+
+ScreenGui.UICorner_26.Parent = ScreenGui.AutoFarmUi
+
+ScreenGui.AutofarmTxt.Name = "AutofarmTxt"
+ScreenGui.AutofarmTxt.Parent = ScreenGui.AutoFarmUi
+ScreenGui.AutofarmTxt.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.AutofarmTxt.BackgroundTransparency = 1.000
+ScreenGui.AutofarmTxt.Position = UDim2.new(0.0234396197, 0, -0.093746841, 0)
+ScreenGui.AutofarmTxt.Size = UDim2.new(0.353066534, 0, 0.188233122, 0)
+ScreenGui.AutofarmTxt.Font = Enum.Font.Unknown
+ScreenGui.AutofarmTxt.Text = "Auto Farm"
+ScreenGui.AutofarmTxt.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.AutofarmTxt.TextScaled = true
+ScreenGui.AutofarmTxt.TextSize = 14.000
+ScreenGui.AutofarmTxt.TextWrapped = true
+
+ScreenGui.autofarm1.Name = "autofarm1"
+ScreenGui.autofarm1.Parent = ScreenGui.AutoFarmUi
+ScreenGui.autofarm1.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+ScreenGui.autofarm1.Position = UDim2.new(0.0283266865, 0, 0.249713719, 0)
+ScreenGui.autofarm1.Size = UDim2.new(0, 69, 0, 31)
+ScreenGui.autofarm1.Font = Enum.Font.SourceSans
+ScreenGui.autofarm1.Text = ""
+ScreenGui.autofarm1.TextColor3 = Color3.fromRGB(0, 0, 0)
+ScreenGui.autofarm1.TextSize = 14.000
+
+ScreenGui.UICorner_27.Parent = ScreenGui.autofarm1
+
+ScreenGui.TextLabel_7.Parent = ScreenGui.autofarm1
+ScreenGui.TextLabel_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_7.BackgroundTransparency = 1.000
+ScreenGui.TextLabel_7.Position = UDim2.new(1.0869565, 0, -0.0967741907, 0)
+ScreenGui.TextLabel_7.Size = UDim2.new(2.18840575, 0, 1, 0)
+ScreenGui.TextLabel_7.Font = Enum.Font.FredokaOne
+ScreenGui.TextLabel_7.Text = "Auto Farm Up"
+ScreenGui.TextLabel_7.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_7.TextScaled = true
+ScreenGui.TextLabel_7.TextSize = 14.000
+ScreenGui.TextLabel_7.TextWrapped = true
+ScreenGui.TextLabel_7.TextXAlignment = Enum.TextXAlignment.Left
+
+ScreenGui.TextLabel_8.Parent = ScreenGui.autofarm1
+ScreenGui.TextLabel_8.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_8.BackgroundTransparency = 1.000
+ScreenGui.TextLabel_8.Position = UDim2.new(0.0434782617, 0, 1.22580647, 0)
+ScreenGui.TextLabel_8.Size = UDim2.new(3.231884, 0, 1.82189739, 0)
+ScreenGui.TextLabel_8.Font = Enum.Font.FredokaOne
+ScreenGui.TextLabel_8.Text = "Activate this auto farm, to farm according to your last released car."
+ScreenGui.TextLabel_8.TextColor3 = Color3.fromRGB(170, 0, 255)
+ScreenGui.TextLabel_8.TextScaled = true
+ScreenGui.TextLabel_8.TextSize = 14.000
+ScreenGui.TextLabel_8.TextWrapped = true
+
+ScreenGui.Frame_7.Parent = ScreenGui.autofarm1
+ScreenGui.Frame_7.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+ScreenGui.Frame_7.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
+ScreenGui.Frame_7.Size = UDim2.new(0, 30, 0, 27)
+
+ScreenGui.UICorner_28.Parent = ScreenGui.Frame_7
+
+ScreenGui.autofarm2.Name = "autofarm2"
+ScreenGui.autofarm2.Parent = ScreenGui.AutoFarmUi
+ScreenGui.autofarm2.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+ScreenGui.autofarm2.Position = UDim2.new(0.0283266865, 0, 0.651280284, 0)
+ScreenGui.autofarm2.Size = UDim2.new(0, 69, 0, 31)
+ScreenGui.autofarm2.Font = Enum.Font.SourceSans
+ScreenGui.autofarm2.Text = ""
+ScreenGui.autofarm2.TextColor3 = Color3.fromRGB(0, 0, 0)
+ScreenGui.autofarm2.TextSize = 14.000
+
+ScreenGui.UICorner_29.Parent = ScreenGui.autofarm2
+
+ScreenGui.Frame_8.Parent = ScreenGui.autofarm2
+ScreenGui.Frame_8.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+ScreenGui.Frame_8.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
+ScreenGui.Frame_8.Size = UDim2.new(0, 30, 0, 27)
+
+ScreenGui.UICorner_30.Parent = ScreenGui.Frame_8
+
+ScreenGui.TextLabel_9.Parent = ScreenGui.autofarm2
+ScreenGui.TextLabel_9.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_9.BackgroundTransparency = 1.000
+ScreenGui.TextLabel_9.Position = UDim2.new(1.0869565, 0, -0.0322580636, 0)
+ScreenGui.TextLabel_9.Size = UDim2.new(2.18840575, 0, 1, 0)
+ScreenGui.TextLabel_9.Font = Enum.Font.FredokaOne
+ScreenGui.TextLabel_9.Text = "Auto Farm Car"
+ScreenGui.TextLabel_9.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_9.TextScaled = true
+ScreenGui.TextLabel_9.TextSize = 14.000
+ScreenGui.TextLabel_9.TextWrapped = true
+ScreenGui.TextLabel_9.TextXAlignment = Enum.TextXAlignment.Left
+
+ScreenGui.TextLabel_10.Parent = ScreenGui.autofarm2
+ScreenGui.TextLabel_10.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_10.BackgroundTransparency = 1.000
+ScreenGui.TextLabel_10.Position = UDim2.new(0.0434782617, 0, 1.22580647, 0)
+ScreenGui.TextLabel_10.Size = UDim2.new(3.231884, 0, 1.82189739, 0)
+ScreenGui.TextLabel_10.Font = Enum.Font.FredokaOne
+ScreenGui.TextLabel_10.Text = "Activate this auto farm, to farm according to the car you selected, it will only farm the selected car!"
+ScreenGui.TextLabel_10.TextColor3 = Color3.fromRGB(170, 0, 255)
+ScreenGui.TextLabel_10.TextScaled = true
+ScreenGui.TextLabel_10.TextSize = 14.000
+ScreenGui.TextLabel_10.TextWrapped = true
+
+ScreenGui.MoneyTotal.Name = "MoneyTotal"
+ScreenGui.MoneyTotal.Parent = ScreenGui.AutoFarmUi
+ScreenGui.MoneyTotal.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+ScreenGui.MoneyTotal.Position = UDim2.new(0.0234395377, 0, 0.0944861472, 0)
+ScreenGui.MoneyTotal.Size = UDim2.new(0.327387303, 0, 0.103495322, 0)
+
+ScreenGui.UICorner_31.Parent = ScreenGui.MoneyTotal
+
+ScreenGui.TxtMoney.Name = "TxtMoney"
+ScreenGui.TxtMoney.Parent = ScreenGui.MoneyTotal
+ScreenGui.TxtMoney.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TxtMoney.BackgroundTransparency = 1.000
+ScreenGui.TxtMoney.Size = UDim2.new(1, 0, 1, 0)
+ScreenGui.TxtMoney.Font = Enum.Font.FredokaOne
+ScreenGui.TxtMoney.Text = "Earned Money: 0"
+ScreenGui.TxtMoney.TextColor3 = Color3.fromRGB(85, 255, 0)
+ScreenGui.TxtMoney.TextScaled = true
+ScreenGui.TxtMoney.TextSize = 14.000
+ScreenGui.TxtMoney.TextWrapped = true
+
+ScreenGui.Seacher.Name = "Seacher "
+ScreenGui.Seacher.Parent = ScreenGui.AutoFarmUi
+ScreenGui.Seacher.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+ScreenGui.Seacher.Position = UDim2.new(0.37650618, 0, 0.0944861472, 0)
+ScreenGui.Seacher.Size = UDim2.new(0.602248847, 0, 0.103495322, 0)
+
+ScreenGui.UICorner_32.Parent = ScreenGui.Seacher
+
+ScreenGui.ImageLabel.Parent = ScreenGui.Seacher
+ScreenGui.ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.ImageLabel.BackgroundTransparency = 1.000
+ScreenGui.ImageLabel.Position = UDim2.new(0.0235172249, 0, 0.0218360275, 0)
+ScreenGui.ImageLabel.Size = UDim2.new(0.11417561, 0, 0.945557475, 0)
+ScreenGui.ImageLabel.Image = "rbxassetid://12772973193"
+
+ScreenGui.TxtBoxAutoFarm.Name = "TxtBoxAutoFarm"
+ScreenGui.TxtBoxAutoFarm.Parent = ScreenGui.Seacher
+ScreenGui.TxtBoxAutoFarm.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TxtBoxAutoFarm.Position = UDim2.new(0.141104788, 0, 0.15225783, 0)
+ScreenGui.TxtBoxAutoFarm.Size = UDim2.new(0.831458151, 0, 0.749924839, 0)
+ScreenGui.TxtBoxAutoFarm.Font = Enum.Font.SourceSans
+ScreenGui.TxtBoxAutoFarm.PlaceholderText = "Seacher"
+ScreenGui.TxtBoxAutoFarm.Text = ""
+ScreenGui.TxtBoxAutoFarm.TextColor3 = Color3.fromRGB(0, 0, 0)
+ScreenGui.TxtBoxAutoFarm.TextScaled = true
+ScreenGui.TxtBoxAutoFarm.TextSize = 14.000
+ScreenGui.TxtBoxAutoFarm.TextWrapped = true
+
+ScreenGui.UICorner_33.Parent = ScreenGui.TxtBoxAutoFarm
+
+ScreenGui.CarSelected.Name = "CarSelected"
+ScreenGui.CarSelected.Parent = ScreenGui.AutoFarmUi
+ScreenGui.CarSelected.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+ScreenGui.CarSelected.Position = UDim2.new(0.598398924, 0, 0.920627594, 0)
+ScreenGui.CarSelected.Size = UDim2.new(0.380356163, 0, 0.056865342, 0)
+
+ScreenGui.UICorner_34.Parent = ScreenGui.CarSelected
+
+ScreenGui.NamecarAutoFarm.Name = "NamecarAutoFarm"
+ScreenGui.NamecarAutoFarm.Parent = ScreenGui.CarSelected
+ScreenGui.NamecarAutoFarm.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.NamecarAutoFarm.BackgroundTransparency = 1.000
+ScreenGui.NamecarAutoFarm.Size = UDim2.new(1, 0, 1, 0)
+ScreenGui.NamecarAutoFarm.Font = Enum.Font.FredokaOne
+ScreenGui.NamecarAutoFarm.Text = "Spawn Name Car"
+ScreenGui.NamecarAutoFarm.TextColor3 = Color3.fromRGB(170, 0, 255)
+ScreenGui.NamecarAutoFarm.TextScaled = true
+ScreenGui.NamecarAutoFarm.TextSize = 14.000
+ScreenGui.NamecarAutoFarm.TextWrapped = true
+
+ScreenGui.CarList.Name = "CarList"
+ScreenGui.CarList.Parent = ScreenGui.AutoFarmUi
+ScreenGui.CarList.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+ScreenGui.CarList.Position = UDim2.new(0.598398924, 0, 0.249713555, 0)
+ScreenGui.CarList.Size = UDim2.new(0.380356163, 0, 0.64679116, 0)
+
+ScreenGui.UICorner_35.Parent = ScreenGui.CarList
+
+ScreenGui.ScrollingFrameAutoFarm.Name = "ScrollingFrameAutoFarm"
+ScreenGui.ScrollingFrameAutoFarm.Parent = ScreenGui.CarList
+ScreenGui.ScrollingFrameAutoFarm.Active = true
+ScreenGui.ScrollingFrameAutoFarm.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.ScrollingFrameAutoFarm.BackgroundTransparency = 1.000
+ScreenGui.ScrollingFrameAutoFarm.Position = UDim2.new(0.0370299891, 0, 0.0295806173, 0)
+ScreenGui.ScrollingFrameAutoFarm.Size = UDim2.new(0.962970018, 0, 0.939115465, 0)
+ScreenGui.ScrollingFrameAutoFarm.CanvasSize = UDim2.new(0, 0, 200, 0)
+
+ScreenGui.UIListLayout_2.Parent = ScreenGui.ScrollingFrameAutoFarm
+ScreenGui.UIListLayout_2.SortOrder = Enum.SortOrder.Name
+ScreenGui.UIListLayout_2.Padding = UDim.new(9.99999975e-05, 0)
+
+ScreenGui.SelectMaterialUI.Name = "SelectMaterialUI"
+ScreenGui.SelectMaterialUI.Parent = ScreenGui.Frame
+ScreenGui.SelectMaterialUI.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+ScreenGui.SelectMaterialUI.Position = UDim2.new(0.273959696, 0, 0.0941176489, 0)
+ScreenGui.SelectMaterialUI.Size = UDim2.new(0.707664907, 0, 0.871586502, 0)
+ScreenGui.SelectMaterialUI.Visible = false
+
+ScreenGui.UICorner_37.Parent = ScreenGui.SelectMaterialUI
+
+ScreenGui.SpawnerCarTxt_2.Name = "SpawnerCarTxt"
+ScreenGui.SpawnerCarTxt_2.Parent = ScreenGui.SelectMaterialUI
+ScreenGui.SpawnerCarTxt_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.SpawnerCarTxt_2.BackgroundTransparency = 1.000
+ScreenGui.SpawnerCarTxt_2.Position = UDim2.new(-7.82310963e-05, 0, -0.121482313, 0)
+ScreenGui.SpawnerCarTxt_2.Size = UDim2.new(0.542533875, 0, 0.229466662, 0)
+ScreenGui.SpawnerCarTxt_2.Font = Enum.Font.Unknown
+ScreenGui.SpawnerCarTxt_2.Text = "Select Material"
+ScreenGui.SpawnerCarTxt_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.SpawnerCarTxt_2.TextScaled = true
+ScreenGui.SpawnerCarTxt_2.TextSize = 14.000
+ScreenGui.SpawnerCarTxt_2.TextWrapped = true
+
+ScreenGui.Seacher_2.Name = "Seacher "
+ScreenGui.Seacher_2.Parent = ScreenGui.SelectMaterialUI
+ScreenGui.Seacher_2.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+ScreenGui.Seacher_2.Position = UDim2.new(0.37650618, 0, 0.0944861472, 0)
+ScreenGui.Seacher_2.Size = UDim2.new(0.602248847, 0, 0.103495322, 0)
+
+ScreenGui.UICorner_38.Parent = ScreenGui.Seacher_2
+
+ScreenGui.ImageLabel_2.Parent = ScreenGui.Seacher_2
+ScreenGui.ImageLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.ImageLabel_2.BackgroundTransparency = 1.000
+ScreenGui.ImageLabel_2.Position = UDim2.new(0.0235172249, 0, 0.0218360275, 0)
+ScreenGui.ImageLabel_2.Size = UDim2.new(0.11417561, 0, 0.945557475, 0)
+ScreenGui.ImageLabel_2.Image = "rbxassetid://12772973193"
+
+ScreenGui.TxtBoxMaterial.Name = "TxtBoxMaterial"
+ScreenGui.TxtBoxMaterial.Parent = ScreenGui.Seacher_2
+ScreenGui.TxtBoxMaterial.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TxtBoxMaterial.Position = UDim2.new(0.141104788, 0, 0.15225783, 0)
+ScreenGui.TxtBoxMaterial.Size = UDim2.new(0.831458151, 0, 0.749924839, 0)
+ScreenGui.TxtBoxMaterial.Font = Enum.Font.SourceSans
+ScreenGui.TxtBoxMaterial.PlaceholderText = "Seacher"
+ScreenGui.TxtBoxMaterial.Text = ""
+ScreenGui.TxtBoxMaterial.TextColor3 = Color3.fromRGB(0, 0, 0)
+ScreenGui.TxtBoxMaterial.TextScaled = true
+ScreenGui.TxtBoxMaterial.TextSize = 14.000
+ScreenGui.TxtBoxMaterial.TextWrapped = true
+
+ScreenGui.UICorner_39.Parent = ScreenGui.TxtBoxMaterial
+
+ScreenGui.CarList_2.Name = "CarList"
+ScreenGui.CarList_2.Parent = ScreenGui.SelectMaterialUI
+ScreenGui.CarList_2.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+ScreenGui.CarList_2.Position = UDim2.new(0.598398924, 0, 0.249713555, 0)
+ScreenGui.CarList_2.Size = UDim2.new(0.380356163, 0, 0.64679116, 0)
+
+ScreenGui.UICorner_40.Parent = ScreenGui.CarList_2
+
+ScreenGui.SFCarMaterial.Name = "SFCarMaterial"
+ScreenGui.SFCarMaterial.Parent = ScreenGui.CarList_2
+ScreenGui.SFCarMaterial.Active = true
+ScreenGui.SFCarMaterial.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.SFCarMaterial.BackgroundTransparency = 1.000
+ScreenGui.SFCarMaterial.Position = UDim2.new(0.0372371152, 0, 0.0295806173, 0)
+ScreenGui.SFCarMaterial.Size = UDim2.new(0.962762892, 0, 0.939115465, 0)
+
+ScreenGui.UIListLayout_3.Parent = ScreenGui.SFCarMaterial
+ScreenGui.UIListLayout_3.SortOrder = Enum.SortOrder.LayoutOrder
+ScreenGui.UIListLayout_3.Padding = UDim.new(0.00999999978, 0)
+
+ScreenGui.CarSelected_2.Name = "CarSelected"
+ScreenGui.CarSelected_2.Parent = ScreenGui.SelectMaterialUI
+ScreenGui.CarSelected_2.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+ScreenGui.CarSelected_2.Position = UDim2.new(0.598398924, 0, 0.920627594, 0)
+ScreenGui.CarSelected_2.Size = UDim2.new(0.380356163, 0, 0.056865342, 0)
+
+ScreenGui.UICorner_42.Parent = ScreenGui.CarSelected_2
+
+ScreenGui.NameMaterial.Name = "NameMaterial"
+ScreenGui.NameMaterial.Parent = ScreenGui.CarSelected_2
+ScreenGui.NameMaterial.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.NameMaterial.BackgroundTransparency = 1.000
+ScreenGui.NameMaterial.Size = UDim2.new(1, 0, 1, 0)
+ScreenGui.NameMaterial.Font = Enum.Font.FredokaOne
+ScreenGui.NameMaterial.Text = "Name Car"
+ScreenGui.NameMaterial.TextColor3 = Color3.fromRGB(170, 0, 255)
+ScreenGui.NameMaterial.TextScaled = true
+ScreenGui.NameMaterial.TextSize = 14.000
+ScreenGui.NameMaterial.TextWrapped = true
+
+ScreenGui.ButtonMaterial.Name = "ButtonMaterial"
+ScreenGui.ButtonMaterial.Parent = ScreenGui.SelectMaterialUI
+ScreenGui.ButtonMaterial.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+ScreenGui.ButtonMaterial.Position = UDim2.new(0.0283266865, 0, 0.249713719, 0)
+ScreenGui.ButtonMaterial.Size = UDim2.new(0, 69, 0, 31)
+ScreenGui.ButtonMaterial.Font = Enum.Font.SourceSans
+ScreenGui.ButtonMaterial.Text = ""
+ScreenGui.ButtonMaterial.TextColor3 = Color3.fromRGB(0, 0, 0)
+ScreenGui.ButtonMaterial.TextSize = 14.000
+
+ScreenGui.UICorner_43.Parent = ScreenGui.ButtonMaterial
+
+ScreenGui.TextLabel_11.Parent = ScreenGui.ButtonMaterial
+ScreenGui.TextLabel_11.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_11.BackgroundTransparency = 1.000
+ScreenGui.TextLabel_11.Position = UDim2.new(1.0869565, 0, -0.0967741907, 0)
+ScreenGui.TextLabel_11.Size = UDim2.new(2.41302323, 0, 1.26893759, 0)
+ScreenGui.TextLabel_11.Font = Enum.Font.FredokaOne
+ScreenGui.TextLabel_11.Text = "Select Material"
+ScreenGui.TextLabel_11.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_11.TextScaled = true
+ScreenGui.TextLabel_11.TextSize = 14.000
+ScreenGui.TextLabel_11.TextWrapped = true
+ScreenGui.TextLabel_11.TextXAlignment = Enum.TextXAlignment.Left
+
+ScreenGui.TextLabel_12.Parent = ScreenGui.ButtonMaterial
+ScreenGui.TextLabel_12.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_12.BackgroundTransparency = 1.000
+ScreenGui.TextLabel_12.Position = UDim2.new(0.0434782617, 0, 1.22580647, 0)
+ScreenGui.TextLabel_12.Size = UDim2.new(3.231884, 0, 4.07575846, 0)
+ScreenGui.TextLabel_12.Font = Enum.Font.FredokaOne
+ScreenGui.TextLabel_12.Text = "Select the livery you have available, note: (you need the gamepass) after that just activate the button and your car will automatically change to the selected livery!"
+ScreenGui.TextLabel_12.TextColor3 = Color3.fromRGB(170, 0, 255)
+ScreenGui.TextLabel_12.TextScaled = true
+ScreenGui.TextLabel_12.TextSize = 14.000
+ScreenGui.TextLabel_12.TextWrapped = true
+
+ScreenGui.Frame_9.Parent = ScreenGui.ButtonMaterial
+ScreenGui.Frame_9.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+ScreenGui.Frame_9.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
+ScreenGui.Frame_9.Size = UDim2.new(0, 30, 0, 27)
+
+ScreenGui.UICorner_44.Parent = ScreenGui.Frame_9
+
+ScreenGui.SpawnerCarTxt_3.Name = "SpawnerCarTxt"
+ScreenGui.SpawnerCarTxt_3.Parent = ScreenGui.SelectMaterialUI
+ScreenGui.SpawnerCarTxt_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.SpawnerCarTxt_3.BackgroundTransparency = 1.000
+ScreenGui.SpawnerCarTxt_3.Position = UDim2.new(0.540403962, 0, -0.0067490181, 0)
+ScreenGui.SpawnerCarTxt_3.Size = UDim2.new(0.345727861, 0, 0.0573666655, 0)
+ScreenGui.SpawnerCarTxt_3.Font = Enum.Font.Unknown
+ScreenGui.SpawnerCarTxt_3.Text = "(Need Gamepass)"
+ScreenGui.SpawnerCarTxt_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.SpawnerCarTxt_3.TextScaled = true
+ScreenGui.SpawnerCarTxt_3.TextSize = 14.000
+ScreenGui.SpawnerCarTxt_3.TextWrapped = true
+
+ScreenGui.Modifiers_2.Name = "Modifiers"
+ScreenGui.Modifiers_2.Parent = ScreenGui.Frame
+ScreenGui.Modifiers_2.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+ScreenGui.Modifiers_2.Position = UDim2.new(0.273959696, 0, 0.0941176489, 0)
+ScreenGui.Modifiers_2.Size = UDim2.new(0.707664907, 0, 0.871586502, 0)
+ScreenGui.Modifiers_2.Visible = false
+
+ScreenGui.UICorner_45.Parent = ScreenGui.Modifiers_2
+
+ScreenGui.ModifiersTxt.Name = "ModifiersTxt"
+ScreenGui.ModifiersTxt.Parent = ScreenGui.Modifiers_2
+ScreenGui.ModifiersTxt.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.ModifiersTxt.BackgroundTransparency = 1.000
+ScreenGui.ModifiersTxt.Position = UDim2.new(0.0234396327, 0, -0.0776137039, 0)
+ScreenGui.ModifiersTxt.Size = UDim2.new(0.346421987, 0, 0.148478433, 0)
+ScreenGui.ModifiersTxt.Font = Enum.Font.Unknown
+ScreenGui.ModifiersTxt.Text = "Modifiers"
+ScreenGui.ModifiersTxt.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.ModifiersTxt.TextScaled = true
+ScreenGui.ModifiersTxt.TextSize = 14.000
+ScreenGui.ModifiersTxt.TextWrapped = true
+
+ScreenGui.ButtonSpeedCar.Name = "ButtonSpeedCar"
+ScreenGui.ButtonSpeedCar.Parent = ScreenGui.Modifiers_2
+ScreenGui.ButtonSpeedCar.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+ScreenGui.ButtonSpeedCar.Position = UDim2.new(0.0212713126, 0, 0.236215681, 0)
+ScreenGui.ButtonSpeedCar.Size = UDim2.new(0, 69, 0, 31)
+ScreenGui.ButtonSpeedCar.Font = Enum.Font.SourceSans
+ScreenGui.ButtonSpeedCar.Text = ""
+ScreenGui.ButtonSpeedCar.TextColor3 = Color3.fromRGB(0, 0, 0)
+ScreenGui.ButtonSpeedCar.TextSize = 14.000
+
+ScreenGui.UICorner_46.Parent = ScreenGui.ButtonSpeedCar
+
+ScreenGui.TextLabel_13.Parent = ScreenGui.ButtonSpeedCar
+ScreenGui.TextLabel_13.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_13.BackgroundTransparency = 1.000
+ScreenGui.TextLabel_13.Position = UDim2.new(-0.014491871, 0, -1.48387098, 0)
+ScreenGui.TextLabel_13.Size = UDim2.new(2.16664624, 0, 1.09677422, 0)
+ScreenGui.TextLabel_13.Font = Enum.Font.FredokaOne
+ScreenGui.TextLabel_13.Text = "Car Speed:"
+ScreenGui.TextLabel_13.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_13.TextScaled = true
+ScreenGui.TextLabel_13.TextSize = 14.000
+ScreenGui.TextLabel_13.TextWrapped = true
+ScreenGui.TextLabel_13.TextXAlignment = Enum.TextXAlignment.Left
+
+ScreenGui.Frame_10.Parent = ScreenGui.ButtonSpeedCar
+ScreenGui.Frame_10.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+ScreenGui.Frame_10.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
+ScreenGui.Frame_10.Size = UDim2.new(0, 30, 0, 27)
+
+ScreenGui.UICorner_47.Parent = ScreenGui.Frame_10
+
+ScreenGui.SliderSC.Name = "SliderSC"
+ScreenGui.SliderSC.Parent = ScreenGui.ButtonSpeedCar
+ScreenGui.SliderSC.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+ScreenGui.SliderSC.Position = UDim2.new(1.20289946, 0, 0, 0)
+ScreenGui.SliderSC.Size = UDim2.new(4.73913193, 0, 1, 0)
+
+ScreenGui.UICorner_48.Parent = ScreenGui.SliderSC
+
+ScreenGui.ButtonslideSC.Name = "ButtonslideSC"
+ScreenGui.ButtonslideSC.Parent = ScreenGui.SliderSC
+ScreenGui.ButtonslideSC.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
+ScreenGui.ButtonslideSC.Position = UDim2.new(-1.78813934e-07, 0, -0.258064508, 0)
+ScreenGui.ButtonslideSC.Size = UDim2.new(0.1009176, 0, 1.49481988, 0)
+ScreenGui.ButtonslideSC.Font = Enum.Font.SciFi
+ScreenGui.ButtonslideSC.Text = "0"
+ScreenGui.ButtonslideSC.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.ButtonslideSC.TextScaled = true
+ScreenGui.ButtonslideSC.TextSize = 14.000
+ScreenGui.ButtonslideSC.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.ButtonslideSC.TextWrapped = true
+
+ScreenGui.UICorner_49.Parent = ScreenGui.ButtonslideSC
+
+ScreenGui.ButtonFlyCar.Name = "ButtonFlyCar"
+ScreenGui.ButtonFlyCar.Parent = ScreenGui.Modifiers_2
+ScreenGui.ButtonFlyCar.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+ScreenGui.ButtonFlyCar.Position = UDim2.new(0.0212713126, 0, 0.533172488, 0)
+ScreenGui.ButtonFlyCar.Size = UDim2.new(0, 69, 0, 31)
+ScreenGui.ButtonFlyCar.Font = Enum.Font.SourceSans
+ScreenGui.ButtonFlyCar.Text = ""
+ScreenGui.ButtonFlyCar.TextColor3 = Color3.fromRGB(0, 0, 0)
+ScreenGui.ButtonFlyCar.TextSize = 14.000
+
+ScreenGui.UICorner_50.Parent = ScreenGui.ButtonFlyCar
+
+ScreenGui.TextLabel_14.Parent = ScreenGui.ButtonFlyCar
+ScreenGui.TextLabel_14.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_14.BackgroundTransparency = 1.000
+ScreenGui.TextLabel_14.Position = UDim2.new(-0.0144918691, 0, -1.48387098, 0)
+ScreenGui.TextLabel_14.Size = UDim2.new(2.89128447, 0, 1.09677422, 0)
+ScreenGui.TextLabel_14.Font = Enum.Font.FredokaOne
+ScreenGui.TextLabel_14.Text = "Fly Car Speed:"
+ScreenGui.TextLabel_14.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_14.TextScaled = true
+ScreenGui.TextLabel_14.TextSize = 14.000
+ScreenGui.TextLabel_14.TextWrapped = true
+ScreenGui.TextLabel_14.TextXAlignment = Enum.TextXAlignment.Left
+
+ScreenGui.Frame_11.Parent = ScreenGui.ButtonFlyCar
+ScreenGui.Frame_11.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+ScreenGui.Frame_11.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
+ScreenGui.Frame_11.Size = UDim2.new(0, 30, 0, 27)
+
+ScreenGui.UICorner_51.Parent = ScreenGui.Frame_11
+
+ScreenGui.SliderFC.Name = "SliderFC"
+ScreenGui.SliderFC.Parent = ScreenGui.ButtonFlyCar
+ScreenGui.SliderFC.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+ScreenGui.SliderFC.Position = UDim2.new(1.20289946, 0, 0, 0)
+ScreenGui.SliderFC.Size = UDim2.new(4.73913193, 0, 1, 0)
+
+ScreenGui.UICorner_52.Parent = ScreenGui.SliderFC
+
+ScreenGui.ButtonFC.Name = "ButtonFC"
+ScreenGui.ButtonFC.Parent = ScreenGui.SliderFC
+ScreenGui.ButtonFC.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
+ScreenGui.ButtonFC.Position = UDim2.new(-1.78813934e-07, 0, -0.258064508, 0)
+ScreenGui.ButtonFC.Size = UDim2.new(0.1009176, 0, 1.49481988, 0)
+ScreenGui.ButtonFC.Font = Enum.Font.SciFi
+ScreenGui.ButtonFC.Text = "0"
+ScreenGui.ButtonFC.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.ButtonFC.TextScaled = true
+ScreenGui.ButtonFC.TextSize = 14.000
+ScreenGui.ButtonFC.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.ButtonFC.TextWrapped = true
+
+ScreenGui.UICorner_53.Parent = ScreenGui.ButtonFC
+
+ScreenGui.ButtonSpeedPlayer.Name = "ButtonSpeedPlayer"
+ScreenGui.ButtonSpeedPlayer.Parent = ScreenGui.Modifiers_2
+ScreenGui.ButtonSpeedPlayer.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+ScreenGui.ButtonSpeedPlayer.Position = UDim2.new(0.0212713126, 0, 0.843627274, 0)
+ScreenGui.ButtonSpeedPlayer.Size = UDim2.new(0, 69, 0, 31)
+ScreenGui.ButtonSpeedPlayer.Font = Enum.Font.SourceSans
+ScreenGui.ButtonSpeedPlayer.Text = ""
+ScreenGui.ButtonSpeedPlayer.TextColor3 = Color3.fromRGB(0, 0, 0)
+ScreenGui.ButtonSpeedPlayer.TextSize = 14.000
+
+ScreenGui.UICorner_54.Parent = ScreenGui.ButtonSpeedPlayer
+
+ScreenGui.TextLabel_15.Parent = ScreenGui.ButtonSpeedPlayer
+ScreenGui.TextLabel_15.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_15.BackgroundTransparency = 1.000
+ScreenGui.TextLabel_15.Position = UDim2.new(-0.0144918691, 0, -1.48387098, 0)
+ScreenGui.TextLabel_15.Size = UDim2.new(2.89128494, 0, 1.09677422, 0)
+ScreenGui.TextLabel_15.Font = Enum.Font.FredokaOne
+ScreenGui.TextLabel_15.Text = "Player Speed:"
+ScreenGui.TextLabel_15.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_15.TextScaled = true
+ScreenGui.TextLabel_15.TextSize = 14.000
+ScreenGui.TextLabel_15.TextWrapped = true
+ScreenGui.TextLabel_15.TextXAlignment = Enum.TextXAlignment.Left
+
+ScreenGui.Frame_12.Parent = ScreenGui.ButtonSpeedPlayer
+ScreenGui.Frame_12.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+ScreenGui.Frame_12.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
+ScreenGui.Frame_12.Size = UDim2.new(0, 30, 0, 27)
+
+ScreenGui.UICorner_55.Parent = ScreenGui.Frame_12
+
+ScreenGui.SliderSC_2.Name = "SliderSC"
+ScreenGui.SliderSC_2.Parent = ScreenGui.ButtonSpeedPlayer
+ScreenGui.SliderSC_2.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+ScreenGui.SliderSC_2.Position = UDim2.new(1.20289946, 0, 0, 0)
+ScreenGui.SliderSC_2.Size = UDim2.new(4.73913193, 0, 1, 0)
+
+ScreenGui.UICorner_56.Parent = ScreenGui.SliderSC_2
+
+ScreenGui.ButtonslideSC_2.Name = "ButtonslideSC"
+ScreenGui.ButtonslideSC_2.Parent = ScreenGui.SliderSC_2
+ScreenGui.ButtonslideSC_2.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
+ScreenGui.ButtonslideSC_2.Position = UDim2.new(-1.78813934e-07, 0, -0.258064508, 0)
+ScreenGui.ButtonslideSC_2.Size = UDim2.new(0.1009176, 0, 1.49481988, 0)
+ScreenGui.ButtonslideSC_2.Font = Enum.Font.SciFi
+ScreenGui.ButtonslideSC_2.Text = "0"
+ScreenGui.ButtonslideSC_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.ButtonslideSC_2.TextScaled = true
+ScreenGui.ButtonslideSC_2.TextSize = 14.000
+ScreenGui.ButtonslideSC_2.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.ButtonslideSC_2.TextWrapped = true
+
+ScreenGui.UICorner_57.Parent = ScreenGui.ButtonslideSC_2
+
+ScreenGui.SettingsUI.Name = "SettingsUI"
+ScreenGui.SettingsUI.Parent = ScreenGui.Frame
+ScreenGui.SettingsUI.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+ScreenGui.SettingsUI.Position = UDim2.new(0.273959696, 0, 0.0941176489, 0)
+ScreenGui.SettingsUI.Size = UDim2.new(0.707664907, 0, 0.871586502, 0)
+ScreenGui.SettingsUI.Visible = false
+
+ScreenGui.UICorner_58.Parent = ScreenGui.SettingsUI
+
+ScreenGui.SpawnerCarTxt_4.Name = "SpawnerCarTxt"
+ScreenGui.SpawnerCarTxt_4.Parent = ScreenGui.SettingsUI
+ScreenGui.SpawnerCarTxt_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.SpawnerCarTxt_4.BackgroundTransparency = 1.000
+ScreenGui.SpawnerCarTxt_4.Position = UDim2.new(-3.46731395e-05, 0, -0.0708646849, 0)
+ScreenGui.SpawnerCarTxt_4.Size = UDim2.new(0.407053292, 0, 0.165350974, 0)
+ScreenGui.SpawnerCarTxt_4.Font = Enum.Font.Unknown
+ScreenGui.SpawnerCarTxt_4.Text = "Settings"
+ScreenGui.SpawnerCarTxt_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.SpawnerCarTxt_4.TextScaled = true
+ScreenGui.SpawnerCarTxt_4.TextSize = 14.000
+ScreenGui.SpawnerCarTxt_4.TextWrapped = true
+
+ScreenGui.IDK.Name = "IDK"
+ScreenGui.IDK.Parent = ScreenGui.SettingsUI
+ScreenGui.IDK.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+ScreenGui.IDK.Position = UDim2.new(0.0164320152, 0, 0.536577582, 0)
+ScreenGui.IDK.Size = UDim2.new(0.962441206, 1, 0.443175077, 0)
+
+ScreenGui.UICorner_59.Parent = ScreenGui.IDK
+
+ScreenGui.TextBox.Parent = ScreenGui.IDK
+ScreenGui.TextBox.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+ScreenGui.TextBox.Position = UDim2.new(0.153299093, 0, 0.36807552, 0)
+ScreenGui.TextBox.Size = UDim2.new(0.69513613, 0, 0.236046121, 0)
+ScreenGui.TextBox.Font = Enum.Font.FredokaOne
+ScreenGui.TextBox.PlaceholderText = "\"Place here you keybind (Not Working)\""
+ScreenGui.TextBox.Text = ""
+ScreenGui.TextBox.TextColor3 = Color3.fromRGB(170, 0, 255)
+ScreenGui.TextBox.TextScaled = true
+ScreenGui.TextBox.TextSize = 14.000
+ScreenGui.TextBox.TextWrapped = true
+
+ScreenGui.UICorner_60.Parent = ScreenGui.TextBox
+
+ScreenGui.TextLabel_16.Parent = ScreenGui.IDK
+ScreenGui.TextLabel_16.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_16.BackgroundTransparency = 1.000
+ScreenGui.TextLabel_16.Position = UDim2.new(0, 0, -0.00761392713, 0)
+ScreenGui.TextLabel_16.Size = UDim2.new(1, 0, 0.375689745, 0)
+ScreenGui.TextLabel_16.Font = Enum.Font.SciFi
+ScreenGui.TextLabel_16.Text = "If you want to change the defined key to make the HUB invisible, put the desired key in the field below!"
+ScreenGui.TextLabel_16.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_16.TextScaled = true
+ScreenGui.TextLabel_16.TextSize = 14.000
+ScreenGui.TextLabel_16.TextWrapped = true
+
+ScreenGui.TextLabel_17.Parent = ScreenGui.IDK
+ScreenGui.TextLabel_17.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_17.BackgroundTransparency = 1.000
+ScreenGui.TextLabel_17.Position = UDim2.new(0.220155805, 0, 0.738596737, 0)
+ScreenGui.TextLabel_17.Size = UDim2.new(0.553439558, 0, 0.304506034, 0)
+ScreenGui.TextLabel_17.Font = Enum.Font.SciFi
+ScreenGui.TextLabel_17.Text = "Defined key: Right Shift"
+ScreenGui.TextLabel_17.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_17.TextScaled = true
+ScreenGui.TextLabel_17.TextSize = 14.000
+ScreenGui.TextLabel_17.TextWrapped = true
+
+ScreenGui.ActiveToogleTxt.Name = "ActiveToogleTxt"
+ScreenGui.ActiveToogleTxt.Parent = ScreenGui.IDK
+ScreenGui.ActiveToogleTxt.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+ScreenGui.ActiveToogleTxt.Position = UDim2.new(0.368758351, 0, 0.654228806, 0)
+ScreenGui.ActiveToogleTxt.Size = UDim2.new(0, 107, 0, 21)
+ScreenGui.ActiveToogleTxt.Font = Enum.Font.FredokaOne
+ScreenGui.ActiveToogleTxt.Text = "Active"
+ScreenGui.ActiveToogleTxt.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.ActiveToogleTxt.TextScaled = true
+ScreenGui.ActiveToogleTxt.TextSize = 14.000
+ScreenGui.ActiveToogleTxt.TextWrapped = true
+
+ScreenGui.UICorner_61.Parent = ScreenGui.ActiveToogleTxt
+
+ScreenGui.IDK_2.Name = "IDK "
+ScreenGui.IDK_2.Parent = ScreenGui.SettingsUI
+ScreenGui.IDK_2.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+ScreenGui.IDK_2.Position = UDim2.new(0.0164320152, 0, 0.134980157, 0)
+ScreenGui.IDK_2.Size = UDim2.new(0.457743645, 1, 0.362217754, 0)
+
+ScreenGui.UICorner_62.Parent = ScreenGui.IDK_2
+
+ScreenGui.AntAFKButton.Name = "AntAFKButton"
+ScreenGui.AntAFKButton.Parent = ScreenGui.IDK_2
+ScreenGui.AntAFKButton.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+ScreenGui.AntAFKButton.Position = UDim2.new(0.25792107, 0, 0.314927578, 0)
+ScreenGui.AntAFKButton.Size = UDim2.new(0, 93, 0, 33)
+ScreenGui.AntAFKButton.Font = Enum.Font.SourceSans
+ScreenGui.AntAFKButton.Text = ""
+ScreenGui.AntAFKButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+ScreenGui.AntAFKButton.TextSize = 14.000
+
+ScreenGui.UICorner_63.Parent = ScreenGui.AntAFKButton
+
+ScreenGui.TextLabel_18.Parent = ScreenGui.AntAFKButton
+ScreenGui.TextLabel_18.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_18.BackgroundTransparency = 1.000
+ScreenGui.TextLabel_18.Position = UDim2.new(-0.398266196, 0, -1.02436781, 0)
+ScreenGui.TextLabel_18.Size = UDim2.new(1.77940321, 0, 1.02436817, 0)
+ScreenGui.TextLabel_18.Font = Enum.Font.FredokaOne
+ScreenGui.TextLabel_18.Text = "Ant AFK"
+ScreenGui.TextLabel_18.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_18.TextScaled = true
+ScreenGui.TextLabel_18.TextSize = 14.000
+ScreenGui.TextLabel_18.TextWrapped = true
+
+ScreenGui.TextLabel_19.Parent = ScreenGui.AntAFKButton
+ScreenGui.TextLabel_19.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_19.BackgroundTransparency = 1.000
+ScreenGui.TextLabel_19.Position = UDim2.new(-0.543569267, 0, 1, 0)
+ScreenGui.TextLabel_19.Size = UDim2.new(2.10750294, 0, 1.21227443, 0)
+ScreenGui.TextLabel_19.Font = Enum.Font.FredokaOne
+ScreenGui.TextLabel_19.Text = "When activated you will not be kicked for inactivity"
+ScreenGui.TextLabel_19.TextColor3 = Color3.fromRGB(170, 0, 255)
+ScreenGui.TextLabel_19.TextScaled = true
+ScreenGui.TextLabel_19.TextSize = 14.000
+ScreenGui.TextLabel_19.TextWrapped = true
+
+ScreenGui.Frame_13.Parent = ScreenGui.AntAFKButton
+ScreenGui.Frame_13.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+ScreenGui.Frame_13.Position = UDim2.new(0.0568263568, 0, 0.1777464, 0)
+ScreenGui.Frame_13.Size = UDim2.new(0, 42, 0, 23)
+
+ScreenGui.UICorner_64.Parent = ScreenGui.Frame_13
+
+ScreenGui.IDK_3.Name = "IDK"
+ScreenGui.IDK_3.Parent = ScreenGui.SettingsUI
+ScreenGui.IDK_3.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+ScreenGui.IDK_3.Position = UDim2.new(0.521129549, 0, 0.134980157, 0)
+ScreenGui.IDK_3.Size = UDim2.new(0.457743645, 1, 0.362217754, 0)
+
+ScreenGui.UICorner_65.Parent = ScreenGui.IDK_3
+
+ScreenGui.DeleteButton.Name = "DeleteButton"
+ScreenGui.DeleteButton.Parent = ScreenGui.IDK_3
+ScreenGui.DeleteButton.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+ScreenGui.DeleteButton.Position = UDim2.new(0.25792107, 0, 0.314927578, 0)
+ScreenGui.DeleteButton.Size = UDim2.new(0, 93, 0, 33)
+ScreenGui.DeleteButton.Font = Enum.Font.SourceSans
+ScreenGui.DeleteButton.Text = ""
+ScreenGui.DeleteButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+ScreenGui.DeleteButton.TextSize = 14.000
+
+ScreenGui.UICorner_66.Parent = ScreenGui.DeleteButton
+
+ScreenGui.TextLabel_20.Parent = ScreenGui.DeleteButton
+ScreenGui.TextLabel_20.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_20.BackgroundTransparency = 1.000
+ScreenGui.TextLabel_20.Position = UDim2.new(-0.398266196, 0, -0.882007003, 0)
+ScreenGui.TextLabel_20.Size = UDim2.new(1.80090857, 0, 0.882007301, 0)
+ScreenGui.TextLabel_20.Font = Enum.Font.FredokaOne
+ScreenGui.TextLabel_20.Text = "Delete Hub"
+ScreenGui.TextLabel_20.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_20.TextScaled = true
+ScreenGui.TextLabel_20.TextSize = 14.000
+ScreenGui.TextLabel_20.TextWrapped = true
+
+ScreenGui.TextLabel_21.Parent = ScreenGui.DeleteButton
+ScreenGui.TextLabel_21.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_21.BackgroundTransparency = 1.000
+ScreenGui.TextLabel_21.Position = UDim2.new(-0.543569267, 0, 1, 0)
+ScreenGui.TextLabel_21.Size = UDim2.new(2.10750294, 0, 1.21227443, 0)
+ScreenGui.TextLabel_21.Font = Enum.Font.FredokaOne
+ScreenGui.TextLabel_21.Text = "When activating this option the Hub will disappear forever, to open it again you will have to run the script again!"
+ScreenGui.TextLabel_21.TextColor3 = Color3.fromRGB(170, 0, 255)
+ScreenGui.TextLabel_21.TextScaled = true
+ScreenGui.TextLabel_21.TextSize = 14.000
+ScreenGui.TextLabel_21.TextWrapped = true
+
+ScreenGui.Frame_14.Parent = ScreenGui.DeleteButton
+ScreenGui.Frame_14.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+ScreenGui.Frame_14.Position = UDim2.new(0.0568263568, 0, 0.1777464, 0)
+ScreenGui.Frame_14.Size = UDim2.new(0, 42, 0, 23)
+
+ScreenGui.UICorner_67.Parent = ScreenGui.Frame_14
+
+ScreenGui.Warn.Name = "Warn"
+ScreenGui.Warn.Parent = ScreenGui.Frame
+ScreenGui.Warn.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
+ScreenGui.Warn.BackgroundTransparency = 0.300
+ScreenGui.Warn.Position = UDim2.new(-1.01579595e-07, 0, 0, 0)
+ScreenGui.Warn.Size = UDim2.new(1.00000024, 0, 1, 0)
+ScreenGui.Warn.Visible = false
+
+ScreenGui.UICorner_68.Parent = ScreenGui.Warn
+
+ScreenGui.Dwarn.Name = "Dwarn"
+ScreenGui.Dwarn.Parent = ScreenGui.Warn
+ScreenGui.Dwarn.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+ScreenGui.Dwarn.Position = UDim2.new(0.168092147, 0, 0.193146184, 0)
+ScreenGui.Dwarn.Size = UDim2.new(0.665079296, 0, 0.671559691, 0)
+ScreenGui.Dwarn.Visible = false
+
+ScreenGui.UICorner_69.Parent = ScreenGui.Dwarn
+
+ScreenGui.Frame_15.Parent = ScreenGui.Dwarn
+ScreenGui.Frame_15.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+ScreenGui.Frame_15.Position = UDim2.new(0.0200190227, 0, 0.375200927, 0)
+ScreenGui.Frame_15.Size = UDim2.new(0.959961951, 0, 0.576623321, 0)
+
+ScreenGui.UICorner_70.Parent = ScreenGui.Frame_15
+
+ScreenGui.Yes.Name = "Yes"
+ScreenGui.Yes.Parent = ScreenGui.Frame_15
+ScreenGui.Yes.BackgroundColor3 = Color3.fromRGB(85, 255, 127)
+ScreenGui.Yes.Position = UDim2.new(0.552630305, 0, 0.281025678, 0)
+ScreenGui.Yes.Size = UDim2.new(0.392323554, 0, 0.437948585, 0)
+ScreenGui.Yes.Font = Enum.Font.SciFi
+ScreenGui.Yes.Text = "Yes"
+ScreenGui.Yes.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.Yes.TextScaled = true
+ScreenGui.Yes.TextSize = 14.000
+ScreenGui.Yes.TextWrapped = true
+
+ScreenGui.UICorner_71.Parent = ScreenGui.Yes
+
+ScreenGui.No.Name = "No"
+ScreenGui.No.Parent = ScreenGui.Frame_15
+ScreenGui.No.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+ScreenGui.No.Position = UDim2.new(0.0560000017, 0, 0.281025678, 0)
+ScreenGui.No.Size = UDim2.new(0.392323554, 0, 0.437948585, 0)
+ScreenGui.No.Font = Enum.Font.SciFi
+ScreenGui.No.Text = "No"
+ScreenGui.No.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.No.TextScaled = true
+ScreenGui.No.TextSize = 14.000
+ScreenGui.No.TextWrapped = true
+
+ScreenGui.UICorner_72.Parent = ScreenGui.No
+
+ScreenGui.TextLabel_22.Parent = ScreenGui.Dwarn
+ScreenGui.TextLabel_22.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_22.BackgroundTransparency = 1.000
+ScreenGui.TextLabel_22.Position = UDim2.new(0.0200190227, 0, 0.15911302, 0)
+ScreenGui.TextLabel_22.Size = UDim2.new(0.959961772, 0, 0.232730389, 0)
+ScreenGui.TextLabel_22.Font = Enum.Font.FredokaOne
+ScreenGui.TextLabel_22.Text = "Are you sure you want to proceed?"
+ScreenGui.TextLabel_22.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_22.TextScaled = true
+ScreenGui.TextLabel_22.TextSize = 14.000
+ScreenGui.TextLabel_22.TextWrapped = true
+
+ScreenGui.TextLabel_23.Parent = ScreenGui.Dwarn
+ScreenGui.TextLabel_23.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
+ScreenGui.TextLabel_23.BackgroundTransparency = 1.000
+ScreenGui.TextLabel_23.Position = UDim2.new(0.0175166447, 0, 0.00582630653, 0)
+ScreenGui.TextLabel_23.Size = UDim2.new(0.959961772, 0, 0.204395592, 0)
+ScreenGui.TextLabel_23.Font = Enum.Font.FredokaOne
+ScreenGui.TextLabel_23.Text = "(warning)"
+ScreenGui.TextLabel_23.TextColor3 = Color3.fromRGB(170, 0, 255)
+ScreenGui.TextLabel_23.TextScaled = true
+ScreenGui.TextLabel_23.TextSize = 14.000
+ScreenGui.TextLabel_23.TextWrapped = true
+
+ScreenGui.Wwarn.Name = "Wwarn"
+ScreenGui.Wwarn.Parent = ScreenGui.Warn
+ScreenGui.Wwarn.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+ScreenGui.Wwarn.Position = UDim2.new(0.168092147, 0, 0.193146184, 0)
+ScreenGui.Wwarn.Size = UDim2.new(0.665079296, 0, 0.671559691, 0)
+ScreenGui.Wwarn.Visible = false
+
+ScreenGui.UICorner_73.Parent = ScreenGui.Wwarn
+
+ScreenGui.Frame_16.Parent = ScreenGui.Wwarn
+ScreenGui.Frame_16.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+ScreenGui.Frame_16.Position = UDim2.new(0.0200190227, 0, 0.375200927, 0)
+ScreenGui.Frame_16.Size = UDim2.new(0.959961951, 0, 0.576623321, 0)
+
+ScreenGui.UICorner_74.Parent = ScreenGui.Frame_16
+
+ScreenGui.Okay.Name = "Okay"
+ScreenGui.Okay.Parent = ScreenGui.Frame_16
+ScreenGui.Okay.BackgroundColor3 = Color3.fromRGB(85, 255, 127)
+ScreenGui.Okay.Position = UDim2.new(0.300244689, 0, 0.281025678, 0)
+ScreenGui.Okay.Size = UDim2.new(0.392323554, 0, 0.437948585, 0)
+ScreenGui.Okay.Font = Enum.Font.SciFi
+ScreenGui.Okay.Text = "Okay"
+ScreenGui.Okay.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.Okay.TextScaled = true
+ScreenGui.Okay.TextSize = 14.000
+ScreenGui.Okay.TextWrapped = true
+
+ScreenGui.UICorner_75.Parent = ScreenGui.Okay
+
+ScreenGui.TextLabel_24.Parent = ScreenGui.Wwarn
+ScreenGui.TextLabel_24.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_24.BackgroundTransparency = 1.000
+ScreenGui.TextLabel_24.Position = UDim2.new(0.0200187974, 0, 0.201462671, 0)
+ScreenGui.TextLabel_24.Size = UDim2.new(0.959961772, 0, 0.190380752, 0)
+ScreenGui.TextLabel_24.Font = Enum.Font.FredokaOne
+ScreenGui.TextLabel_24.Text = "This option is still under development!"
+ScreenGui.TextLabel_24.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScreenGui.TextLabel_24.TextScaled = true
+ScreenGui.TextLabel_24.TextSize = 14.000
+ScreenGui.TextLabel_24.TextWrapped = true
+
+ScreenGui.TextLabel_25.Parent = ScreenGui.Wwarn
+ScreenGui.TextLabel_25.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
+ScreenGui.TextLabel_25.BackgroundTransparency = 1.000
+ScreenGui.TextLabel_25.Position = UDim2.new(0.0175166447, 0, 0.00582630653, 0)
+ScreenGui.TextLabel_25.Size = UDim2.new(0.959961772, 0, 0.204395592, 0)
+ScreenGui.TextLabel_25.Font = Enum.Font.FredokaOne
+ScreenGui.TextLabel_25.Text = "(warning)"
+ScreenGui.TextLabel_25.TextColor3 = Color3.fromRGB(170, 0, 255)
+ScreenGui.TextLabel_25.TextScaled = true
+ScreenGui.TextLabel_25.TextSize = 14.000
+ScreenGui.TextLabel_25.TextWrapped = true
+
+--scripts >
+
+--Delete
+ScreenGui.DeleteButton.MouseButton1Click:Connect(function()
+	ScreenGui.Warn.Visible = true
+	ScreenGui.Dwarn.Visible = true
+end)
+
+ScreenGui.Yes.MouseButton1Click:Connect(function()
+	ScreenGui.ScreenGui:Destroy()
+end)
+
+ScreenGui.No.MouseButton1Click:Connect(function()
+	ScreenGui.Warn.Visible = false
+	ScreenGui.Dwarn.Visible = false
+end)
+
+ScreenGui.Okay.MouseButton1Click:Connect(function()
+	ScreenGui.Warn.Visible = false
+	ScreenGui.Wwarn.Visible = false
+end)
+--Anti AFK
+
+ScreenGui.AntAFKButton.MouseButton1Click:Connect(function()
+	ScreenGui.Frame_13.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+
+	local bb=game:service'VirtualUser'
+	game:service'Players'.LocalPlayer.Idled:connect(function()
+		bb:CaptureController()bb:ClickButton2(Vector2.new())
+	end)
+
+end)
+
+--Drag Ui
+ScreenGui.Frame.Draggable = true
+ScreenGui.Frame.Selectable = true
+ScreenGui.Frame.Active = true
+
+--ToogleGui
+
+local FrameObject = ScreenGui.Frame
+local Open = false
+
+local PositionClosed = UDim2.new(-0.317, 0,0351, 0)
+local PositionOpen = UDim2.new(0, 407,0, 255)
+
+local UserInputService = game:GetService("UserInputService")
+
+UserInputService.InputBegan:Connect(function(KeyCode)
+	if KeyCode.KeyCode == Enum.KeyCode.RightShift then
+		if Open then
+			FrameObject:TweenPosition((PositionClosed), "Out", "Quart")
+			Open = false
+		else
+			Open = true
+			FrameObject:TweenPosition((PositionOpen), "Out", "Quint")
+		end
+	end
+end)
+
+--Active
+
+ScreenGui.ActiveToogleTxt.MouseButton1Click:Connect(function()
+	ScreenGui.Warn.Visible = true
+	ScreenGui.Wwarn.Visible = true
+end)
+
+--Abrir UI
+
+ScreenGui.Home.MouseButton1Click:Connect(function()
+
+	--Ui
+
+	ScreenGui.HomeUi.Visible = not ScreenGui.HomeUi.Visible
+	ScreenGui.Home.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
+
+	--Bugs
+
+	if ScreenGui.AutoFarmUi.Visible == true or ScreenGui.CoreEscapeUI.Visible == true or ScreenGui.SelectMaterialUI.Visible == true or ScreenGui.Modifiers_2.Visible == true or ScreenGui.SettingsUI.Visible == true then
+		ScreenGui.AutoFarmUi.Visible = false
+		ScreenGui.CoreEscapeUI.Visible = false
+		ScreenGui.SelectMaterialUI.Visible = false
+		ScreenGui.Modifiers_2.Visible = false
+		ScreenGui.SettingsUI.Visible = false
+	end
+
+	if ScreenGui.AutoFarm.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.CoreEscape.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.SelectMaterial.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.Modifiers.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.Settings.BackgroundColor3 == Color3.fromRGB(170, 0, 255) then
+		ScreenGui.AutoFarm.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+		ScreenGui.CoreEscape.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+		ScreenGui.SelectMaterial.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+		ScreenGui.Modifiers.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+		ScreenGui.Settings.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+	end
+end)
+
+ScreenGui.AutoFarm.MouseButton1Click:Connect(function()
+
+	--Ui
+
+	ScreenGui.AutoFarmUi.Visible = not ScreenGui.AutoFarmUi.Visible
+	ScreenGui.AutoFarm.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
+
+	--Bugs
+
+	if ScreenGui.HomeUi.Visible == true or ScreenGui.CoreEscapeUI.Visible == true or ScreenGui.SelectMaterialUI.Visible == true or ScreenGui.Modifiers_2.Visible == true or ScreenGui.SettingsUI.Visible == true then
+		ScreenGui.HomeUi.Visible = false
+		ScreenGui.CoreEscapeUI.Visible = false
+		ScreenGui.SelectMaterialUI.Visible = false
+		ScreenGui.Modifiers_2.Visible = false
+		ScreenGui.SettingsUI.Visible = false
+	end
+
+	if ScreenGui.Home.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.CoreEscape.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.SelectMaterial.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.Modifiers.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.Settings.BackgroundColor3 == Color3.fromRGB(170, 0, 255) then
+		ScreenGui.Home.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+		ScreenGui.CoreEscape.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+		ScreenGui.SelectMaterial.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+		ScreenGui.Modifiers.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+		ScreenGui.Settings.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+	end
+end)
+
+ScreenGui.CoreEscape.MouseButton1Click:Connect(function()
+
+	--Ui
+
+	ScreenGui.CoreEscapeUI.Visible = not ScreenGui.CoreEscapeUI.Visible
+	ScreenGui.CoreEscape.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
+
+	--Bugs
+
+	if ScreenGui.HomeUi.Visible == true or ScreenGui.AutoFarmUi.Visible == true or ScreenGui.SelectMaterialUI.Visible == true or ScreenGui.Modifiers_2.Visible == true or ScreenGui.SettingsUI.Visible == true then
+		ScreenGui.HomeUi.Visible = false
+		ScreenGui.AutoFarmUi.Visible = false
+		ScreenGui.SelectMaterialUI.Visible = false
+		ScreenGui.Modifiers_2.Visible = false
+		ScreenGui.SettingsUI.Visible = false
+	end
+
+	if ScreenGui.Home.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.AutoFarm.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.SelectMaterial.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.Modifiers.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.Settings.BackgroundColor3 == Color3.fromRGB(170, 0, 255) then
+		ScreenGui.Home.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+		ScreenGui.AutoFarm.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+		ScreenGui.SelectMaterial.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+		ScreenGui.Modifiers.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+		ScreenGui.Settings.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+	end
+end)
+
+ScreenGui.SelectMaterial.MouseButton1Click:Connect(function()
+
+	--Ui
+
+	ScreenGui.SelectMaterialUI.Visible = not ScreenGui.SelectMaterialUI.Visible
+	ScreenGui.SelectMaterial.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
+
+	--Bugs
+
+	if ScreenGui.HomeUi.Visible == true or ScreenGui.CoreEscapeUI.Visible == true or ScreenGui.AutoFarmUi.Visible == true or ScreenGui.Modifiers_2.Visible == true or ScreenGui.SettingsUI.Visible == true then
+		ScreenGui.HomeUi.Visible = false
+		ScreenGui.CoreEscapeUI.Visible = false
+		ScreenGui.AutoFarmUi.Visible = false
+		ScreenGui.Modifiers_2.Visible = false
+		ScreenGui.SettingsUI.Visible = false
+	end
+
+	if ScreenGui.Home.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.CoreEscape.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.AutoFarm.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.Modifiers.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.Settings.BackgroundColor3 == Color3.fromRGB(170, 0, 255) then
+		ScreenGui.Home.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+		ScreenGui.CoreEscape.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+		ScreenGui.AutoFarm.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+		ScreenGui.Modifiers.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+		ScreenGui.Settings.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+	end
+end)
+
+ScreenGui.Modifiers.MouseButton1Click:Connect(function()
+
+	--Ui
+
+	ScreenGui.Modifiers_2.Visible = not ScreenGui.Modifiers_2.Visible
+	ScreenGui.Modifiers.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
+
+	--Bugs
+
+	if ScreenGui.HomeUi.Visible == true or ScreenGui.CoreEscapeUI.Visible == true or ScreenGui.SelectMaterialUI.Visible == true or ScreenGui.AutoFarmUi.Visible == true or ScreenGui.SettingsUI.Visible == true then
+		ScreenGui.HomeUi.Visible = false
+		ScreenGui.CoreEscapeUI.Visible = false
+		ScreenGui.SelectMaterialUI.Visible = false
+		ScreenGui.AutoFarmUi.Visible = false
+		ScreenGui.SettingsUI.Visible = false
+	end
+
+	if ScreenGui.Home.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.CoreEscape.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.SelectMaterial.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.AutoFarm.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.Settings.BackgroundColor3 == Color3.fromRGB(170, 0, 255) then
+		ScreenGui.Home.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+		ScreenGui.CoreEscape.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+		ScreenGui.SelectMaterial.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+		ScreenGui.AutoFarm.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+		ScreenGui.Settings.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+	end
+end)
+
+ScreenGui.Settings.MouseButton1Click:Connect(function()
+
+	--Ui
+
+	ScreenGui.SettingsUI.Visible = not ScreenGui.SettingsUI.Visible
+	ScreenGui.Settings.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
+
+	--Bugs
+
+	if ScreenGui.HomeUi.Visible == true or ScreenGui.CoreEscapeUI.Visible == true or ScreenGui.SelectMaterialUI.Visible == true or ScreenGui.Modifiers_2.Visible == true or ScreenGui.AutoFarmUi.Visible == true then
+		ScreenGui.HomeUi.Visible = false
+		ScreenGui.CoreEscapeUI.Visible = false
+		ScreenGui.SelectMaterialUI.Visible = false
+		ScreenGui.Modifiers_2.Visible = false
+		ScreenGui.AutoFarmUi.Visible = false
+	end
+
+	if ScreenGui.Home.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.CoreEscape.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.SelectMaterial.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.Modifiers.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.AutoFarm.BackgroundColor3 == Color3.fromRGB(170, 0, 255) then
+		ScreenGui.Home.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+		ScreenGui.CoreEscape.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+		ScreenGui.SelectMaterial.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+		ScreenGui.Modifiers.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+		ScreenGui.AutoFarm.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+	end
+end)
+
+--Auto Farm
+
+local scroll = ScreenGui.ScrollingFrameAutoFarm
+local textBox = ScreenGui.TxtBoxAutoFarm
+
+textBox.Changed:Connect(function()
+	local text = textBox.Text:lower()
+	if text ~= "" then
+		local buttons = scroll:GetDescendants()
+		for _, button in pairs(buttons) do
+			if button:IsA("TextButton") then
+				local buttonText = button.Text:lower()
+				if string.find(buttonText, text) then 
+					button.Visible = true 
+				else 
+					button.Visible = false
+				end
+			end
+		end
+	else 
+		local buttons = scroll:GetDescendants()
+		for _, button in pairs(buttons) do
+			if button:IsA("TextButton") then
+				button.Visible = true
+			end
+		end
+	end
+end)
+
+local folder = game:GetService("ReplicatedStorage").VehicleInformation
+
+for i, v in pairs (folder:GetChildren()) do
+
+	local TxtButtonAutoFarm = Instance.new("TextButton")
+	local CarTesteName = Instance.new("TextLabel")
+	local UICorner_28 = Instance.new("UICorner")
+
+	TxtButtonAutoFarm.Name =  v:FindFirstChild("Name").Value
+	TxtButtonAutoFarm.Parent = ScreenGui.ScrollingFrameAutoFarm
+	TxtButtonAutoFarm.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TxtButtonAutoFarm.Size = UDim2.new(0.900701046, 0, 0.00079999998, 0)
+	TxtButtonAutoFarm.Font = Enum.Font.SourceSans
+	TxtButtonAutoFarm.Text =  v:FindFirstChild("Name").Value
+	TxtButtonAutoFarm.TextColor3 = Color3.fromRGB(0, 0, 0)
+	TxtButtonAutoFarm.TextScaled = true
+	TxtButtonAutoFarm.TextSize = 14.000
+	TxtButtonAutoFarm.TextWrapped = true
+	UICorner_28.Parent = TxtButtonAutoFarm
+
+	CarTesteName.Name = v.Name
+	CarTesteName.Parent = TxtButtonAutoFarm
+	CarTesteName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	CarTesteName.BackgroundTransparency = 1.000
+	CarTesteName.Font = Enum.Font.SourceSans
+	CarTesteName.TextColor3 = Color3.fromRGB(0, 0, 0)
+	CarTesteName.TextSize = 14.000
+
+	TxtButtonAutoFarm.MouseButton1Click:Connect(function()
+
+		ScreenGui.NamecarAutoFarm.Text = CarTesteName.Name
+
+	end)
+
+end
+
+local G = getgenv
+G().AutoFarm = false 
+ScreenGui.autofarm2.MouseButton1Click:Connect(function()
+
+	local plr = game:GetService("Players").LocalPlayer
+
+	local CarName = ScreenGui.NamecarAutoFarm.Text
+
+	G().AutoFarm = not G().AutoFarm
+	wait(0.1)
+	if G().AutoFarm == true then
+		ScreenGui.Frame_8.BackgroundColor3 = Color3.fromRGB(85, 255, 0) else
+		ScreenGui.Frame_8.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+	end
+
+	while G().AutoFarm do task.wait()
+		if game:GetService("Workspace").CarCollection:FindFirstChild(plr.Name) then
+			local Car = game:GetService("Workspace").CarCollection:FindFirstChild(plr.Name)
+			pcall(function()
+				local mainHitbox = Car.Car.Body.HitBoxes.Main
+				mainHitbox.CFrame = mainHitbox.CFrame * CFrame.new(0, 60, 0)
+				mainHitbox.Velocity = mainHitbox.CFrame.lookVector * 1000
+				task.wait(0.5)
+			end)
+			if plr.SpawnTimer.Value == 0 then
+				game:GetService("ReplicatedStorage").rF.SpawnVehicle:InvokeServer(CarName)
+				task.wait(2)
+			end
+		else
+			game:GetService("ReplicatedStorage").rF.SpawnVehicle:InvokeServer(CarName)
+		end
+
+	end
+
+end)
+
+ScreenGui.autofarm1.MouseButton1Click:Connect(function()
+
+	-- services
+	local players = game:GetService("Players")
+	local vu = game:GetService("VirtualUser")
+
+
+	-- variables
+	local lp = players.LocalPlayer
+	local carCollection = workspace.CarCollection
+	local guiScript = getsenv(lp.PlayerGui:WaitForChild("GUIs"))
+	local openFunc = guiScript["OpenDealership"]
+	local spawnFunc = guiScript["SpawnButton"]
+	local doBreak = false
+
+	-- functions
+	local function getCurrentCar()
+		local car = carCollection:FindFirstChild(lp.Name)
+		if not car then return nil end
+
+		local model = car:FindFirstChild("Car")
+		if not model then return nil end
+
+		local isNotBroken =
+			model:FindFirstChild("Wheels"):FindFirstChildOfClass("Part") and
+			model:FindFirstChild("Body"):FindFirstChild("Engine"):FindFirstChildOfClass("MeshPart")
+
+		return isNotBroken and model or nil
+	end
+
+	local function getCharacter()
+		return lp.Character or lp.CHaracterAdded:Wait()
+	end
+
+	local function canSpawn()
+		return lp.SpawnTimer.Value <= 0
+	end
+
+	local function spawnBestCar()
+		openFunc()
+		spawnFunc(true, Enum.UserInputState.Begin)
+	end
+
+	local function destroyCar()
+		local hum = getCharacter():FindFirstChildOfClass("Humanoid")
+		local hrp = getCharacter():FindFirstChild("HumanoidRootPart")
+
+		if not hum or not hrp then return end
+
+		local car = getCurrentCar()
+
+		repeat task.wait() until car.PrimaryPart ~= nil
+
+		-- Death to the car!!!
+		repeat task.wait()
+			car = getCurrentCar()
+			if not car then return end
+
+			task.wait(1)
+
+			pcall(function()
+				if not car.PrimaryPart then return end
+				car.PrimaryPart.CFrame = car.PrimaryPart.CFrame * CFrame.new(0,70,0)
+				car.PrimaryPart.Velocity = car.PrimaryPart.CFrame.lookVector * 1000
+			end)
+
+			task.wait(1)
+
+			pcall(function()
+				if not car.PrimaryPart then return end
+				car.PrimaryPart.CFrame = car.PrimaryPart.CFrame * CFrame.new(0,70,0)
+				car.PrimaryPart.Velocity = car.PrimaryPart.CFrame.lookVector * 1000
+			end)
+
+		until not doBreak
+	end
+
+	-- main
+	lp.Idled:Connect(function()
+		vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+		wait(1)
+		vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+	end)
+
+	while task.wait() do
+		local character = getCharacter()
+
+		if not character then return end
+
+		if canSpawn() then
+			doBreak = true
+			task.delay(10, function() doBreak = false end)
+			pcall(function()
+				spawnBestCar()
+				destroyCar()
+			end)
+		end
+	end
+
+end)
+
+-- Select Material
+
+local scroll = ScreenGui.SFCarMaterial
+local textBox = ScreenGui.TxtBoxMaterial
+
+textBox.Changed:Connect(function()
+	local text = textBox.Text:lower()
+	if text ~= "" then
+		local buttons = scroll:GetDescendants()
+		for _, button in pairs(buttons) do
+			if button:IsA("TextButton") then
+				local buttonText = button.Text:lower()
+				if string.find(buttonText, text) then 
+					button.Visible = true 
+				else 
+					button.Visible = false
+				end
+			end
+		end
+	else 
+		local buttons = scroll:GetDescendants()
+		for _, button in pairs(buttons) do
+			if button:IsA("TextButton") then
+				button.Visible = true
+			end
+		end
+	end
+end)
+
+local Pintura = game:GetService("Players").LocalPlayer.PlayerGui.Dealership.Customize.Paint.Materials.Grid
+
+for i, v in pairs(Pintura:GetChildren()) do
+
+	if v:IsA("Frame") then
+		local TxtButtonMaterial = Instance.new("TextButton")
+		local UICorner_41 = Instance.new("UICorner")
+
+		TxtButtonMaterial.Name = v.Name
+		TxtButtonMaterial.Parent = ScreenGui.SFCarMaterial
+		TxtButtonMaterial.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		TxtButtonMaterial.Size = UDim2.new(0.900701046, 0, 0.119999997, 0)
+		TxtButtonMaterial.Font = Enum.Font.SciFi
+		TxtButtonMaterial.Text = v.Name
+		TxtButtonMaterial.TextColor3 = Color3.fromRGB(0, 0, 0)
+		TxtButtonMaterial.TextScaled = true
+		TxtButtonMaterial.TextSize = 14.000
+		TxtButtonMaterial.TextWrapped = true
+		UICorner_41.Parent = TxtButtonMaterial
+
+		ScreenGui.TxtButtonMaterial.MouseButton1Click:Connect(function()
+
+			ScreenGui.NameMaterial.TextColor3 = Color3.fromRGB(255, 0, 0)
+			ScreenGui.NameMaterial.Name = ScreenGui.TxtButtonMaterial.Text
+		end)
+	end
+end
+
+--Colocar Material
+ScreenGui.ButtonMaterial.MouseButton1Click:Connect(function()
+
+	ScreenGui.NameMaterial.TextColor3 = Color3.fromRGB(85, 255, 0)
+
+	local args = {
+		[1] = {
+			["BoosterPaint"] = {
+				["Paint2"] = {
+					["Material"] = ScreenGui.NameMaterial.Name
+				},
+				["Paint"] = {
+					["Color"] = {
+						[1] = 0.6392157077789307,
+						[2] = 0.6352941393852234,
+						[3] = 0.6470588445663452
+					}
+				},
+				["Paint3"] = {
+					["Color"] = {
+						[1] = 0,
+						[2] = 1,
+						[3] = 0.6352941393852234
+					},
+					["Material"] = ScreenGui.NameMaterial.Name
+				}
+			},
+			["RPM"] = true,
+			["Scraps"] = 1634,
+			["BodyPaint"] = {
+				["Paint2"] = {
+					["Color"] = {
+						[1] = 0,
+						[2] = 1,
+						[3] = 0.6352941393852234
+					},
+					["Material"] = ScreenGui.NameMaterial.Name
+				},
+				["Paint"] = {
+					["Material"] = ScreenGui.NameMaterial.Name
+				}
+			},
+			["Combustion"] = true,
+			["WindowTint"] = 0.75,
+			["Airflow"] = true
+		},
+		[2] = ScreenGui.NamecarAutoFarm.Text
+	}
+
+	game:GetService("ReplicatedStorage"):WaitForChild("rE"):WaitForChild("SaveCustoms"):FireServer(unpack(args))
+
+end)
+
+--Modifiers >
+
+--Speed Car
+local handle = ScreenGui.ButtonslideSC
+local slider = ScreenGui.SliderSC
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+local dragging = false
+
+handle.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 then
+		dragging = true
+		while dragging  do
+			local percentage = math.round(Snap(math.clamp((mouse.X - slider.AbsolutePosition.X)/slider.AbsoluteSize.X, 0, 1), .02)*100)/100
+			handle.Position = UDim2.new(percentage, 0, handle.Position.Y.Scale, 0)
+			task.wait(.01)
+			local value = ((-0 * (1 - percentage)) + (100 * percentage))
+			print(value)
+			handle.Text = value
+		end
+	end
+end)
+
+handle.InputEnded:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 then
+		dragging = false
+	end
+end)
+
+function Snap(value, snapValue)
+	return value - (value % snapValue)
+end
+
+ScreenGui.ButtonSpeedCar.MouseButton1Click:Connect(function()
+	ScreenGui.Warn.Visible = true
+	ScreenGui.Wwarn.Visible = true
+end)
+
+--fly
+
+handle.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 then
+		dragging = true
+		while dragging  do
+			local percentage = math.round(Snap(math.clamp((mouse.X - slider.AbsolutePosition.X)/slider.AbsoluteSize.X, 0, 1), .02)*100)/100
+			handle.Position = UDim2.new(percentage, 0, handle.Position.Y.Scale, 0)
+			task.wait(.01)
+			local value = ((-0 * (1 - percentage)) + (100 * percentage))
+			print(value)
+			handle.Text = value
+		end
+	end
+end)
+
+handle.InputEnded:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 then
+		dragging = false
+	end
+end)
+
+function Snap(value, snapValue)
+	return value - (value % snapValue)
+end
+
+ScreenGui.ButtonFlyCar.MouseButton1Click:Connect(function()
+	ScreenGui.Warn.Visible = true
+	ScreenGui.Wwarn.Visible = true
+end)
+
+--Player Speed
+
+local handle = ScreenGui.ButtonslideSC_2
+local slider = ScreenGui.SliderSC_2
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+local dragging = false
+
+handle.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 then
+		dragging = true
+		while dragging  do
+			local percentage = math.round(Snap(math.clamp((mouse.X - slider.AbsolutePosition.X)/slider.AbsoluteSize.X, 0, 1), .02)*100)/100
+			handle.Position = UDim2.new(percentage, 0, handle.Position.Y.Scale, 0)
+			task.wait(.01)
+			local value = ((-0 * (1 - percentage)) + (100 * percentage))
+			print(value)
+			handle.Text = value
+		end
+	end
+end)
+
+handle.InputEnded:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 then
+		dragging = false
+	end
+end)
+
+function Snap(value, snapValue)
+	return value - (value % snapValue)
+end
+
+ScreenGui.ButtonSpeedPlayer.MouseButton1Click:Connect(function()
+	local plr = game.Workspace:FindFirstChild(player.Name)
+	if plr then
+		local char = plr
+		char.Humanoid.WalkSpeed = ScreenGui.ButtonslideSC_2.Text
+	end
+end)
+
+--core >
+
+local tfg = game:GetService("Workspace").EnergyCore.ControlRoom.Screens.Energy.UI.Frame.Time
+local sfg = game:GetService("Workspace").EnergyCore.ControlRoom.Screens.Temp.UI.Frame.Status
+local ssoe = game:GetService("Workspace").EnergyCore.ControlRoom.Screens.Energy.UI.Frame.Status
+
+ScreenGui.BreakGlassButton.MouseButton1Click:Connect(function()
+	local GlassPos = game:GetService("Workspace").EnergyCore.ControlRoom.Glass.Position
+
+	ScreenGui.Frame_3.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+	ScreenGui.Glasstxt.Text = "Glass Status: Broken"
+	local b61 = game:GetService("Workspace").EnergyCore.ControlRoom.Glass.ClickDetector
+	fireclickdetector(b61)
+
+	if GlassPos == Vector3.new(128.231, -60.1063, 24.911) then	
+		ScreenGui.Glasstxt.Text = "It's already broken!!"
+	else
+		ScreenGui.Glasstxt.Text = "Glass Status: Breaking..."
+		wait(1)
+		ScreenGui.Glasstxt.Text = "Glass Status: Broken"
+	end
+end)
+
+ScreenGui.EnableCoreButton.MouseButton1Click:Connect(function()
+	local verificador = game:GetService("Workspace").EnergyCore.ControlRoom.Enable.Indicator.BrickColor
+
+	if verificador == BrickColor.new(255, 0, 0) then
+		ScreenGui.Frame_4.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+
+		local b62 = game:GetService("Workspace").EnergyCore.ControlRoom.Enable.ClickDetector
+		fireclickdetector(b62)
+	end
+end)
+
+ScreenGui.EnableCoreButton.MouseButton1Click:Connect(function()
+	if ScreenGui.Meltodowntxt.Text == "Meltdown Status: Ready for meltdown!!" then
+		ScreenGui.Frame_4.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+
+		local b63 = game:GetService("Workspace").EnergyCore.ControlRoom.Enable.ClickDetector
+		fireclickdetector(b63)
+	end
+end)
+
+repeat
+	if ssoe.Text == "FILLING" then	
+		ScreenGui.Timetxt.Text = "Energy Status: Filling"
+	end
+	if tfg.Text == "Estimated Time Left: 20 Minutes" then
+		ScreenGui.Timetxt.Text = "Time left: 21 Minutes"
+	end
+	if tfg.Text == "Estimated Time Left: 19 Minutes" then
+		ScreenGui.Timetxt.Text = "Time left: 20 Minutes"
+	end
+	if tfg.Text == "Estimated Time Left: 18 Minutes" then
+		ScreenGui.Timetxt.Text = "Time left: 19 Minutes"
+	end
+	if tfg.Text == "Estimated Time Left: 17 Minutes" then
+		ScreenGui.Timetxt.Text = "Time left: 18 Minutes"
+	end
+	if tfg.Text == "Estimated Time Left: 16 Minutes" then
+		ScreenGui.Timetxt.Text = "Time left: 17 Minutes"
+	end
+	if tfg.Text == "Estimated Time Left: 15 Minutes" then
+		ScreenGui.Timetxt.Text = "Time left: 16 Minutes"
+	end
+	if tfg.Text == "Estimated Time Left: 14 Minutes" then
+		ScreenGui.Timetxt.Text = "Time left: 15 Minutes"
+	end
+	if tfg.Text == "Estimated Time Left: 13 Minutes" then
+		ScreenGui.Timetxt.Text = "Time left: 14 Minutes"
+	end
+	if tfg.Text == "Estimated Time Left: 12 Minutes" then
+		ScreenGui.Timetxt.Text = "Time left: 13 Minutes"
+	end
+	if tfg.Text == "Estimated Time Left: 11 Minutes" then
+		ScreenGui.Timetxt.Text = "Time left: 12 Minutes"
+	end
+	if tfg.Text == "Estimated Time Left: 10 Minutes" then
+		ScreenGui.Timetxt.Text = "Time left: 11 Minutes"
+	end
+	if tfg.Text == "Estimated Time Left: 9 Minutes" then
+		ScreenGui.Timetxt.Text = "Time left: 10 Minutes"
+	end
+	if tfg.Text == "Estimated Time Left: 8 Minutes" then
+		ScreenGui.Timetxt.Text = "Time left: 9 Minutes"
+	end
+	if tfg.Text == "Estimated Time Left: 7 Minutes" then
+		ScreenGui.Timetxt.Text = "Time left: 8 Minutes"
+	end
+	if tfg.Text == "Estimated Time Left: 6 Minutes" then
+		ScreenGui.Timetxt.Text = "Time left: 7 Minutes"
+	end
+	if tfg.Text == "Estimated Time Left: 5 Minutes" then
+		ScreenGui.Timetxt.Text = "Time left: 6 Minutes"
+	end
+	if tfg.Text == "Estimated Time Left: 4 Minutes" then
+		ScreenGui.Timetxt.Text = "Time left: 5 Minutes"
+	end
+	if tfg.Text == "Estimated Time Left: 3 Minutes" then
+		ScreenGui.Timetxt.Text = "Time left: 4 Minutes"
+	end
+	if tfg.Text == "Estimated Time Left: 2 Minutes" then
+		ScreenGui.Timetxt.Text = "Time left: 3 Minutes"
+	end
+	if tfg.Text == "Estimated Time Left: 1 Minutes" then
+		ScreenGui.Timetxt.Text = "Time left: 2 Minutes"
+	end
+	if tfg.Text == "Estimated Time Left: 0 Minutes" then
+		ScreenGui.Timetxt.Text = "Time left: 1 Minutes"
+		ScreenGui.Meltodowntxt.Text = "Meltdown Status: Ready for meltdown!!"
+	end
+	if tfg.Visible == false then
+		ScreenGui.Timetxt.Text = "25000/25000 MWh | Ready"
+	end
+	if ssoe.Text == "NOT FILLING" then
+		ScreenGui.Timetxt.Text = "Enable core filling."
+	end
+	wait(5)
+until false
