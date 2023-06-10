@@ -1,7 +1,8 @@
--- Gui to Lua
--- Version: 3.2
 
--- Instances:
+           --╔════•ೋೋ•════╗--
+           --      LDS HUB      --
+           --╚════•ೋೋ•════╝--
+          
 
 local ScreenGui = {
 	ScreenGui = Instance.new("ScreenGui"),
@@ -1350,7 +1351,7 @@ ScreenGui.TextLabel_18.BackgroundTransparency = 1.000
 ScreenGui.TextLabel_18.Position = UDim2.new(-0.398266196, 0, -1.02436781, 0)
 ScreenGui.TextLabel_18.Size = UDim2.new(1.77940321, 0, 1.02436817, 0)
 ScreenGui.TextLabel_18.Font = Enum.Font.FredokaOne
-ScreenGui.TextLabel_18.Text = "Ant AFK"
+ScreenGui.TextLabel_18.Text = "Anti AFK"
 ScreenGui.TextLabel_18.TextColor3 = Color3.fromRGB(255, 255, 255)
 ScreenGui.TextLabel_18.TextScaled = true
 ScreenGui.TextLabel_18.TextSize = 14.000
@@ -1626,162 +1627,73 @@ ScreenGui.ActiveToogleTxt.MouseButton1Click:Connect(function()
 end)
 
 --Abrir UI
+local function toggleFrame(frame, button)
+	local isVisible = not frame.Visible
+	frame.Visible = isVisible
+	button.BackgroundColor3 = isVisible and Color3.fromRGB(170, 0, 255) or Color3.fromRGB(126, 126, 126)
+end
+
+local function hideFrames()
+	ScreenGui.HomeUi.Visible = false
+	ScreenGui.AutoFarmUi.Visible = false
+	ScreenGui.CoreEscapeUI.Visible = false
+	ScreenGui.SelectMaterialUI.Visible = false
+	ScreenGui.Modifiers_2.Visible = false
+	ScreenGui.SettingsUI.Visible = false
+end
+
+local function resetButtons()
+	ScreenGui.Home.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+	ScreenGui.AutoFarm.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+	ScreenGui.CoreEscape.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+	ScreenGui.SelectMaterial.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+	ScreenGui.Modifiers.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+	ScreenGui.Settings.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+end
+
+local function resetFrames(excludeFrame, excludeButton)
+	hideFrames()
+	resetButtons()
+
+	if excludeFrame and excludeButton then
+		excludeFrame.Visible = true
+		excludeButton.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
+	end
+end
 
 ScreenGui.Home.MouseButton1Click:Connect(function()
-
-	--Ui
-
-	ScreenGui.HomeUi.Visible = not ScreenGui.HomeUi.Visible
-	ScreenGui.Home.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
-
-	--Bugs
-
-	if ScreenGui.AutoFarmUi.Visible == true or ScreenGui.CoreEscapeUI.Visible == true or ScreenGui.SelectMaterialUI.Visible == true or ScreenGui.Modifiers_2.Visible == true or ScreenGui.SettingsUI.Visible == true then
-		ScreenGui.AutoFarmUi.Visible = false
-		ScreenGui.CoreEscapeUI.Visible = false
-		ScreenGui.SelectMaterialUI.Visible = false
-		ScreenGui.Modifiers_2.Visible = false
-		ScreenGui.SettingsUI.Visible = false
-	end
-
-	if ScreenGui.AutoFarm.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.CoreEscape.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.SelectMaterial.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.Modifiers.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.Settings.BackgroundColor3 == Color3.fromRGB(170, 0, 255) then
-		ScreenGui.AutoFarm.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-		ScreenGui.CoreEscape.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-		ScreenGui.SelectMaterial.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-		ScreenGui.Modifiers.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-		ScreenGui.Settings.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-	end
+	toggleFrame(ScreenGui.HomeUi, ScreenGui.Home)
+	resetFrames(ScreenGui.HomeUi, ScreenGui.Home)
 end)
 
 ScreenGui.AutoFarm.MouseButton1Click:Connect(function()
-
-	--Ui
-
-	ScreenGui.AutoFarmUi.Visible = not ScreenGui.AutoFarmUi.Visible
-	ScreenGui.AutoFarm.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
-
-	--Bugs
-
-	if ScreenGui.HomeUi.Visible == true or ScreenGui.CoreEscapeUI.Visible == true or ScreenGui.SelectMaterialUI.Visible == true or ScreenGui.Modifiers_2.Visible == true or ScreenGui.SettingsUI.Visible == true then
-		ScreenGui.HomeUi.Visible = false
-		ScreenGui.CoreEscapeUI.Visible = false
-		ScreenGui.SelectMaterialUI.Visible = false
-		ScreenGui.Modifiers_2.Visible = false
-		ScreenGui.SettingsUI.Visible = false
-	end
-
-	if ScreenGui.Home.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.CoreEscape.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.SelectMaterial.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.Modifiers.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.Settings.BackgroundColor3 == Color3.fromRGB(170, 0, 255) then
-		ScreenGui.Home.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-		ScreenGui.CoreEscape.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-		ScreenGui.SelectMaterial.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-		ScreenGui.Modifiers.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-		ScreenGui.Settings.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-	end
+	toggleFrame(ScreenGui.AutoFarmUi, ScreenGui.AutoFarm)
+	resetFrames(ScreenGui.AutoFarmUi, ScreenGui.AutoFarm)
 end)
 
 ScreenGui.CoreEscape.MouseButton1Click:Connect(function()
-
-	--Ui
-
-	ScreenGui.CoreEscapeUI.Visible = not ScreenGui.CoreEscapeUI.Visible
-	ScreenGui.CoreEscape.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
-
-	--Bugs
-
-	if ScreenGui.HomeUi.Visible == true or ScreenGui.AutoFarmUi.Visible == true or ScreenGui.SelectMaterialUI.Visible == true or ScreenGui.Modifiers_2.Visible == true or ScreenGui.SettingsUI.Visible == true then
-		ScreenGui.HomeUi.Visible = false
-		ScreenGui.AutoFarmUi.Visible = false
-		ScreenGui.SelectMaterialUI.Visible = false
-		ScreenGui.Modifiers_2.Visible = false
-		ScreenGui.SettingsUI.Visible = false
-	end
-
-	if ScreenGui.Home.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.AutoFarm.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.SelectMaterial.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.Modifiers.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.Settings.BackgroundColor3 == Color3.fromRGB(170, 0, 255) then
-		ScreenGui.Home.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-		ScreenGui.AutoFarm.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-		ScreenGui.SelectMaterial.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-		ScreenGui.Modifiers.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-		ScreenGui.Settings.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-	end
+	toggleFrame(ScreenGui.CoreEscapeUI, ScreenGui.CoreEscape)
+	resetFrames(ScreenGui.CoreEscapeUI, ScreenGui.CoreEscape)
 end)
 
 ScreenGui.SelectMaterial.MouseButton1Click:Connect(function()
-
-	--Ui
-
-	ScreenGui.SelectMaterialUI.Visible = not ScreenGui.SelectMaterialUI.Visible
-	ScreenGui.SelectMaterial.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
-
-	--Bugs
-
-	if ScreenGui.HomeUi.Visible == true or ScreenGui.CoreEscapeUI.Visible == true or ScreenGui.AutoFarmUi.Visible == true or ScreenGui.Modifiers_2.Visible == true or ScreenGui.SettingsUI.Visible == true then
-		ScreenGui.HomeUi.Visible = false
-		ScreenGui.CoreEscapeUI.Visible = false
-		ScreenGui.AutoFarmUi.Visible = false
-		ScreenGui.Modifiers_2.Visible = false
-		ScreenGui.SettingsUI.Visible = false
-	end
-
-	if ScreenGui.Home.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.CoreEscape.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.AutoFarm.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.Modifiers.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.Settings.BackgroundColor3 == Color3.fromRGB(170, 0, 255) then
-		ScreenGui.Home.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-		ScreenGui.CoreEscape.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-		ScreenGui.AutoFarm.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-		ScreenGui.Modifiers.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-		ScreenGui.Settings.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-	end
+	toggleFrame(ScreenGui.SelectMaterialUI, ScreenGui.SelectMaterial)
+	resetFrames(ScreenGui.SelectMaterialUI, ScreenGui.SelectMaterial)
 end)
 
 ScreenGui.Modifiers.MouseButton1Click:Connect(function()
-
-	--Ui
-
-	ScreenGui.Modifiers_2.Visible = not ScreenGui.Modifiers_2.Visible
-	ScreenGui.Modifiers.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
-
-	--Bugs
-
-	if ScreenGui.HomeUi.Visible == true or ScreenGui.CoreEscapeUI.Visible == true or ScreenGui.SelectMaterialUI.Visible == true or ScreenGui.AutoFarmUi.Visible == true or ScreenGui.SettingsUI.Visible == true then
-		ScreenGui.HomeUi.Visible = false
-		ScreenGui.CoreEscapeUI.Visible = false
-		ScreenGui.SelectMaterialUI.Visible = false
-		ScreenGui.AutoFarmUi.Visible = false
-		ScreenGui.SettingsUI.Visible = false
-	end
-
-	if ScreenGui.Home.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.CoreEscape.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.SelectMaterial.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.AutoFarm.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.Settings.BackgroundColor3 == Color3.fromRGB(170, 0, 255) then
-		ScreenGui.Home.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-		ScreenGui.CoreEscape.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-		ScreenGui.SelectMaterial.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-		ScreenGui.AutoFarm.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-		ScreenGui.Settings.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-	end
+	toggleFrame(ScreenGui.Modifiers_2, ScreenGui.Modifiers)
+	resetFrames(ScreenGui.Modifiers_2, ScreenGui.Modifiers)
 end)
 
 ScreenGui.Settings.MouseButton1Click:Connect(function()
-
-	--Ui
-
-	ScreenGui.SettingsUI.Visible = not ScreenGui.SettingsUI.Visible
-	ScreenGui.Settings.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
-
-	--Bugs
-
-	if ScreenGui.HomeUi.Visible == true or ScreenGui.CoreEscapeUI.Visible == true or ScreenGui.SelectMaterialUI.Visible == true or ScreenGui.Modifiers_2.Visible == true or ScreenGui.AutoFarmUi.Visible == true then
-		ScreenGui.HomeUi.Visible = false
-		ScreenGui.CoreEscapeUI.Visible = false
-		ScreenGui.SelectMaterialUI.Visible = false
-		ScreenGui.Modifiers_2.Visible = false
-		ScreenGui.AutoFarmUi.Visible = false
-	end
-
-	if ScreenGui.Home.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.CoreEscape.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.SelectMaterial.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.Modifiers.BackgroundColor3 == Color3.fromRGB(170, 0, 255) or ScreenGui.AutoFarm.BackgroundColor3 == Color3.fromRGB(170, 0, 255) then
-		ScreenGui.Home.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-		ScreenGui.CoreEscape.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-		ScreenGui.SelectMaterial.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-		ScreenGui.Modifiers.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-		ScreenGui.AutoFarm.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-	end
+	toggleFrame(ScreenGui.SettingsUI, ScreenGui.Settings)
+	resetFrames(ScreenGui.SettingsUI, ScreenGui.Settings)
 end)
+
+-- Esconder todos os frames ao iniciar
+hideFrames()
+ScreenGui.HomeUi.Visible = true
 
 --Auto Farm
 
@@ -1848,22 +1760,25 @@ for i, v in pairs (folder:GetChildren()) do
 
 end
 
-local G = getgenv
-G().AutoFarm = false 
+local G = getgenv()
+
+G.AutoFarm = false
+
 ScreenGui.autofarm2.MouseButton1Click:Connect(function()
-
 	local plr = game:GetService("Players").LocalPlayer
-
 	local CarName = ScreenGui.NamecarAutoFarm.Text
 
-	G().AutoFarm = not G().AutoFarm
+	G.AutoFarm = not G.AutoFarm
 	wait(0.1)
-	if G().AutoFarm == true then
-		ScreenGui.Frame_8.BackgroundColor3 = Color3.fromRGB(85, 255, 0) else
+
+	if G.AutoFarm then
+		ScreenGui.Frame_8.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+	else
 		ScreenGui.Frame_8.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 	end
 
-	while G().AutoFarm do task.wait()
+	while G.AutoFarm do
+		task.wait()
 		if game:GetService("Workspace").CarCollection:FindFirstChild(plr.Name) then
 			local Car = game:GetService("Workspace").CarCollection:FindFirstChild(plr.Name)
 			pcall(function()
@@ -1879,17 +1794,24 @@ ScreenGui.autofarm2.MouseButton1Click:Connect(function()
 		else
 			game:GetService("ReplicatedStorage").rF.SpawnVehicle:InvokeServer(CarName)
 		end
-
 	end
-
 end)
 
-ScreenGui.autofarm1.MouseButton1Click:Connect(function()
 
+G.AutoFarm1 = false
+
+ScreenGui.autofarm1.MouseButton1Click:Connect(function()
+	G.AutoFarm1 = not G.AutoFarm1
+
+	if G.AutoFarm1 then
+		ScreenGui.Frame_7.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+	else
+		ScreenGui.Frame_7.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+	end
+	
 	-- services
 	local players = game:GetService("Players")
 	local vu = game:GetService("VirtualUser")
-
 
 	-- variables
 	local lp = players.LocalPlayer
@@ -1915,7 +1837,7 @@ ScreenGui.autofarm1.MouseButton1Click:Connect(function()
 	end
 
 	local function getCharacter()
-		return lp.Character or lp.CHaracterAdded:Wait()
+		return lp.Character or lp.CharacterAdded:Wait()
 	end
 
 	local function canSpawn()
@@ -1937,7 +1859,7 @@ ScreenGui.autofarm1.MouseButton1Click:Connect(function()
 
 		repeat task.wait() until car.PrimaryPart ~= nil
 
-		-- Death to the car!!!
+		-- Destruction of the car!!!
 		repeat task.wait()
 			car = getCurrentCar()
 			if not car then return end
@@ -1947,7 +1869,7 @@ ScreenGui.autofarm1.MouseButton1Click:Connect(function()
 			pcall(function()
 				if not car.PrimaryPart then return end
 				car.PrimaryPart.CFrame = car.PrimaryPart.CFrame * CFrame.new(0,70,0)
-				car.PrimaryPart.Velocity = car.PrimaryPart.CFrame.lookVector * 1000
+				car.PrimaryPart.Velocity = car.PrimaryPart.CFrame.LookVector * 1000
 			end)
 
 			task.wait(1)
@@ -1955,7 +1877,7 @@ ScreenGui.autofarm1.MouseButton1Click:Connect(function()
 			pcall(function()
 				if not car.PrimaryPart then return end
 				car.PrimaryPart.CFrame = car.PrimaryPart.CFrame * CFrame.new(0,70,0)
-				car.PrimaryPart.Velocity = car.PrimaryPart.CFrame.lookVector * 1000
+				car.PrimaryPart.Velocity = car.PrimaryPart.CFrame.LookVector * 1000
 			end)
 
 		until not doBreak
@@ -1969,6 +1891,10 @@ ScreenGui.autofarm1.MouseButton1Click:Connect(function()
 	end)
 
 	while task.wait() do
+		if not G.AutoFarm1 then
+			break
+		end
+
 		local character = getCharacter()
 
 		if not character then return end
@@ -1982,8 +1908,8 @@ ScreenGui.autofarm1.MouseButton1Click:Connect(function()
 			end)
 		end
 	end
-
 end)
+
 
 -- Select Material
 
@@ -2206,120 +2132,23 @@ end)
 
 --core >
 
-local tfg = game:GetService("Workspace").EnergyCore.ControlRoom.Screens.Energy.UI.Frame.Time
-local sfg = game:GetService("Workspace").EnergyCore.ControlRoom.Screens.Temp.UI.Frame.Status
-local ssoe = game:GetService("Workspace").EnergyCore.ControlRoom.Screens.Energy.UI.Frame.Status
-
 ScreenGui.BreakGlassButton.MouseButton1Click:Connect(function()
-	local GlassPos = game:GetService("Workspace").EnergyCore.ControlRoom.Glass.Position
-
-	ScreenGui.Frame_3.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
-	ScreenGui.Glasstxt.Text = "Glass Status: Broken"
-	local b61 = game:GetService("Workspace").EnergyCore.ControlRoom.Glass.ClickDetector
-	fireclickdetector(b61)
-
-	if GlassPos == Vector3.new(128.231, -60.1063, 24.911) then	
-		ScreenGui.Glasstxt.Text = "It's already broken!!"
-	else
-		ScreenGui.Glasstxt.Text = "Glass Status: Breaking..."
-		wait(1)
-		ScreenGui.Glasstxt.Text = "Glass Status: Broken"
-	end
+	ScreenGui.Warn.Visible = true
+	ScreenGui.Wwarn.Visible = true
 end)
 
 ScreenGui.EnableCoreButton.MouseButton1Click:Connect(function()
-	local verificador = game:GetService("Workspace").EnergyCore.ControlRoom.Enable.Indicator.BrickColor
-
-	if verificador == BrickColor.new(255, 0, 0) then
-		ScreenGui.Frame_4.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
-
-		local b62 = game:GetService("Workspace").EnergyCore.ControlRoom.Enable.ClickDetector
-		fireclickdetector(b62)
-	end
+	ScreenGui.Warn.Visible = true
+	ScreenGui.Wwarn.Visible = true
 end)
 
-ScreenGui.EnableCoreButton.MouseButton1Click:Connect(function()
-	if ScreenGui.Meltodowntxt.Text == "Meltdown Status: Ready for meltdown!!" then
-		ScreenGui.Frame_4.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
-
-		local b63 = game:GetService("Workspace").EnergyCore.ControlRoom.Enable.ClickDetector
-		fireclickdetector(b63)
-	end
+ScreenGui.MeltdownButton.MouseButton1Click:Connect(function()
+	ScreenGui.Warn.Visible = true
+	ScreenGui.Wwarn.Visible = true
 end)
 
-repeat
-	if ssoe.Text == "FILLING" then	
-		ScreenGui.Timetxt.Text = "Energy Status: Filling"
-	end
-	if tfg.Text == "Estimated Time Left: 20 Minutes" then
-		ScreenGui.Timetxt.Text = "Time left: 21 Minutes"
-	end
-	if tfg.Text == "Estimated Time Left: 19 Minutes" then
-		ScreenGui.Timetxt.Text = "Time left: 20 Minutes"
-	end
-	if tfg.Text == "Estimated Time Left: 18 Minutes" then
-		ScreenGui.Timetxt.Text = "Time left: 19 Minutes"
-	end
-	if tfg.Text == "Estimated Time Left: 17 Minutes" then
-		ScreenGui.Timetxt.Text = "Time left: 18 Minutes"
-	end
-	if tfg.Text == "Estimated Time Left: 16 Minutes" then
-		ScreenGui.Timetxt.Text = "Time left: 17 Minutes"
-	end
-	if tfg.Text == "Estimated Time Left: 15 Minutes" then
-		ScreenGui.Timetxt.Text = "Time left: 16 Minutes"
-	end
-	if tfg.Text == "Estimated Time Left: 14 Minutes" then
-		ScreenGui.Timetxt.Text = "Time left: 15 Minutes"
-	end
-	if tfg.Text == "Estimated Time Left: 13 Minutes" then
-		ScreenGui.Timetxt.Text = "Time left: 14 Minutes"
-	end
-	if tfg.Text == "Estimated Time Left: 12 Minutes" then
-		ScreenGui.Timetxt.Text = "Time left: 13 Minutes"
-	end
-	if tfg.Text == "Estimated Time Left: 11 Minutes" then
-		ScreenGui.Timetxt.Text = "Time left: 12 Minutes"
-	end
-	if tfg.Text == "Estimated Time Left: 10 Minutes" then
-		ScreenGui.Timetxt.Text = "Time left: 11 Minutes"
-	end
-	if tfg.Text == "Estimated Time Left: 9 Minutes" then
-		ScreenGui.Timetxt.Text = "Time left: 10 Minutes"
-	end
-	if tfg.Text == "Estimated Time Left: 8 Minutes" then
-		ScreenGui.Timetxt.Text = "Time left: 9 Minutes"
-	end
-	if tfg.Text == "Estimated Time Left: 7 Minutes" then
-		ScreenGui.Timetxt.Text = "Time left: 8 Minutes"
-	end
-	if tfg.Text == "Estimated Time Left: 6 Minutes" then
-		ScreenGui.Timetxt.Text = "Time left: 7 Minutes"
-	end
-	if tfg.Text == "Estimated Time Left: 5 Minutes" then
-		ScreenGui.Timetxt.Text = "Time left: 6 Minutes"
-	end
-	if tfg.Text == "Estimated Time Left: 4 Minutes" then
-		ScreenGui.Timetxt.Text = "Time left: 5 Minutes"
-	end
-	if tfg.Text == "Estimated Time Left: 3 Minutes" then
-		ScreenGui.Timetxt.Text = "Time left: 4 Minutes"
-	end
-	if tfg.Text == "Estimated Time Left: 2 Minutes" then
-		ScreenGui.Timetxt.Text = "Time left: 3 Minutes"
-	end
-	if tfg.Text == "Estimated Time Left: 1 Minutes" then
-		ScreenGui.Timetxt.Text = "Time left: 2 Minutes"
-	end
-	if tfg.Text == "Estimated Time Left: 0 Minutes" then
-		ScreenGui.Timetxt.Text = "Time left: 1 Minutes"
-		ScreenGui.Meltodowntxt.Text = "Meltdown Status: Ready for meltdown!!"
-	end
-	if tfg.Visible == false then
-		ScreenGui.Timetxt.Text = "25000/25000 MWh | Ready"
-	end
-	if ssoe.Text == "NOT FILLING" then
-		ScreenGui.Timetxt.Text = "Enable core filling."
-	end
-	wait(5)
-until false
+ScreenGui.EscapeButton.MouseButton1Click:Connect(function()
+	ScreenGui.Warn.Visible = true
+	ScreenGui.Wwarn.Visible = true
+end)
+
