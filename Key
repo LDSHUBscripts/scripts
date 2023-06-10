@@ -130,6 +130,7 @@ end
 
 local function KeyCerta()
 	print("Carregando o script!")
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/LDSHUBscripts/scripts/main/HubLDS"))()
 	Key:Destroy()
 end
 
