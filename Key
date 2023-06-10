@@ -1,5 +1,17 @@
--- Gui to Lua
--- Version: 3.2
+local KeyGratis = "BetaRealised"
+local tableofkeys = {
+		-- Free Keys
+		"T7gtVH#5qgk4Fxxu",
+		KeyGratis,
+		-- Dev Keys
+		"LimasKey",
+		"TeteuKey",
+		"BielKey"
+			}
+			
+		local whitelistedusers = {
+		0 -- Booster Profile ID
+			}
 
 -- Instances:
 
@@ -112,7 +124,7 @@ FreeKey.Position = UDim2.new(0.0177088641, 0, 0.391461134, 0)
 FreeKey.Size = UDim2.new(0.95996207, 0, 0.0816831291, 0)
 FreeKey.ZIndex = 10
 FreeKey.Font = Enum.Font.FredokaOne
-FreeKey.Text = "Free Key Here: Not available"
+FreeKey.Text = "Free Key Here: " .. KeyGratis
 FreeKey.TextColor3 = Color3.fromRGB(85, 255, 0)
 FreeKey.TextScaled = true
 FreeKey.TextSize = 14.000
@@ -133,21 +145,7 @@ local function KeyCerta()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/LDSHUBscripts/scripts/main/HubLDS"))()
 	Key:Destroy()
 end
-			local tableofkeys = {
-				-- Free Keys
-				"T7gtVH#5qgk4Fxxu",
-				
-				-- Dev Keys
-				"LimasKey",
-				"TeteuKey",
-				"BielKey"
-			}
 			
-			local whitelistedusers = {
-				0 -- Booster Profile ID
-			}
-
-
 			VerifyKey.MouseButton1Click:Connect(function()
 				if table.find(tableofkeys, tostring(TextBox.Text)) then
 					KeyCerta()
