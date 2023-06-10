@@ -112,64 +112,60 @@ FreeKey.Position = UDim2.new(0.0177088641, 0, 0.391461134, 0)
 FreeKey.Size = UDim2.new(0.95996207, 0, 0.0816831291, 0)
 FreeKey.ZIndex = 10
 FreeKey.Font = Enum.Font.FredokaOne
-FreeKey.Text = "Free Key Here: BetaRealised"
+FreeKey.Text = "Free Key Here: Not available"
 FreeKey.TextColor3 = Color3.fromRGB(85, 255, 0)
 FreeKey.TextScaled = true
 FreeKey.TextSize = 14.000
 FreeKey.TextWrapped = true
 
+local plrGui = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
+
+local function KeyErrada()
+	setclipboard("https://discord.gg/DABC3eFusQ")
+	TextBox.PlaceholderText = "Wrong key! Try Again"
+	TextBox.Text = ""
+	wait(3)
+	TextBox.PlaceholderText = "Key Here!"
+end
+
+local function KeyCerta()
+	print("Carregando o script!")
+	Key:Destroy()
+end
+
+for i, v in pairs(plrGui:GetChildren()) do
+	if v:IsA("ScreenGui") and v.Enabled then
+		if v.Name == "Chat" or v.Name == "BubbleChat" or v.Name == "Freecam" then
+			-- Código relacionado a esses ScreenGuies específicos (se necessário)
+		else
+			local tableofkeys = {
+				-- Free Keys
+				"T7gtVH#5qgk4Fxxu",
+				
+				-- Dev Keys
+				"LimasKey",
+				"TeteuKey",
+				"BielKey"
+			}
+			
+			local whitelistedusers = {
+				0 -- Booster Profile ID
+			}
 
 
-				VerifyKey.MouseButton1Click:Connect(function()
-
-					TextBox.PlaceholderText = "Key Here!"
-
-					local tableofkeys = {
-						--Free Keys
-		                "T7gtVH#5qgk4Fxxu",
-		                "BetaRealised",
-
-						--Boosters Key
-						"",
-
-						--Dev Key
-
-						"LimasKey",
-						"TeteuKey",
-		                "BielKey",
-	                 	"BurgerKey",
-	                	"ELEGEBETEQUEIAPEENEMAIS"
-
-					}
-
-					--
-					local boosterskeys = {
-						"BetaRealised",
-						"",
-						""
-
-					}
-
-					local whitelistedusers = {
-						0, --Booster Profile ID
-
-					}
-
-					if table.find(tableofkeys, tostring(TextBox.Text)) then
-
-						if table.find(boosterskeys, (TextBox.Text)) then
-							if table.find(whitelistedusers, tonumber(game:GetService("Players").LocalPlayer.UserId)) then
-								print("yes")
-							end
-						end
-
-						TextBox.PlaceholderText = "Correct Key!!!"
-
-						Frame.Visible = false
-						print("There")
-		                loadstring(game:HttpGet("https://raw.githubusercontent.com/limaspeedy/limaspeedy/main/HUB"))()
-					else
-						TextBox.PlaceholderText = "Wrong Key Hoe!!!" 
-					end
-
-				end)
+			VerifyKey.MouseButton1Click:Connect(function()
+				if table.find(tableofkeys, tostring(TextBox.Text)) then
+					KeyCerta()
+				else
+					KeyErrada()
+				end
+				
+				if table.find(whitelistedusers, tonumber(game:GetService("Players").LocalPlayer.UserId)) then
+					KeyCerta()
+				else
+					KeyErrada()
+				end
+			end)
+		end
+	end
+end
