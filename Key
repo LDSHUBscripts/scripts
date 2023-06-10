@@ -133,12 +133,6 @@ local function KeyCerta()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/LDSHUBscripts/scripts/main/HubLDS"))()
 	Key:Destroy()
 end
-
-for i, v in pairs(plrGui:GetChildren()) do
-	if v:IsA("ScreenGui") and v.Enabled then
-		if v.Name == "Chat" or v.Name == "BubbleChat" or v.Name == "Freecam" then
-			-- Código relacionado a esses ScreenGuies específicos (se necessário)
-		else
 			local tableofkeys = {
 				-- Free Keys
 				"T7gtVH#5qgk4Fxxu",
@@ -167,6 +161,3 @@ for i, v in pairs(plrGui:GetChildren()) do
 					KeyErrada()
 				end
 			end)
-		end
-	end
-end
