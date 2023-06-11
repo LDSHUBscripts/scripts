@@ -2024,27 +2024,46 @@ end)
 --Modifiers >
 
 --Speed Car
-local handle = ScreenGui.ButtonslideSC
+local handle1 = ScreenGui.ButtonslideSC
 local slider = ScreenGui.SliderSC
 local player = game.Players.LocalPlayer
 local mouse = player:GetMouse()
 local dragging = false
+G.SpeedCar = false
 
-handle.InputBegan:Connect(function(input)
-	if input.UserInputType == Enum.UserInputType.MouseButton1 then
-		dragging = true
-		while dragging  do
-			local percentage = math.round(Snap(math.clamp((mouse.X - slider.AbsolutePosition.X)/slider.AbsoluteSize.X, 0, 1), .02)*100)/100
-			handle.Position = UDim2.new(percentage, 0, handle.Position.Y.Scale, 0)
-			task.wait(.01)
-			local value = ((-0 * (1 - percentage)) + (100 * percentage))
-			print(value)
-			handle.Text = value
+if not handle1 or not slider or not player or not mouse then
+	print("Erro: Um ou mais objetos estão faltando.")
+	return
+end
+
+handle1.Changed:Connect(function(property)
+	if property == "Text" then
+		local maxSpeed = tonumber(handle1.Text)
+		if not maxSpeed then
+			print("Erro: Valor máximo de velocidade inválido.")
+			return
+		end
+		if maxSpeed <= 0 or maxSpeed > 1000 then
+			print("Aviso: Valor máximo de velocidade está fora do intervalo esperado.")
 		end
 	end
 end)
 
-handle.InputEnded:Connect(function(input)
+handle1.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 then
+		dragging = true
+		while dragging do
+			local percentage = math.round(Snap(math.clamp((mouse.X - slider.AbsolutePosition.X) / slider.AbsoluteSize.X, 0, 1), 0.02) * 100) / 100
+			handle1.Position = UDim2.new(percentage, 0, handle1.Position.Y.Scale, 0)
+			task.wait(0.01)
+			local value = math.floor((-0 * (1 - percentage)) + (100 * percentage))
+			print(value)
+			handle1.Text = tostring(value)
+		end
+	end
+end)
+
+handle1.InputEnded:Connect(function(input)
 	if input.UserInputType == Enum.UserInputType.MouseButton1 then
 		dragging = false
 	end
@@ -2055,40 +2074,78 @@ function Snap(value, snapValue)
 end
 
 ScreenGui.ButtonSpeedCar.MouseButton1Click:Connect(function()
-	ScreenGui.Warn.Visible = true
-	ScreenGui.Wwarn.Visible = true
-end)
+	G.SpeedCar = not G.SpeedCar
+	if G.SpeedCar then
+		ScreenGui.Frame_10.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+	else
+		ScreenGui.Frame_10.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+	end
 
---fly
+	local Players = game:GetService("Players")
+	local RunService = game:GetService("RunService")
+	local UserInputService = game:GetService("UserInputService")
+	local LocalPlayer = Players.LocalPlayer
 
-handle.InputBegan:Connect(function(input)
-	if input.UserInputType == Enum.UserInputType.MouseButton1 then
-		dragging = true
-		while dragging  do
-			local percentage = math.round(Snap(math.clamp((mouse.X - slider.AbsolutePosition.X)/slider.AbsoluteSize.X, 0, 1), .02)*100)/100
-			handle.Position = UDim2.new(percentage, 0, handle.Position.Y.Scale, 0)
-			task.wait(.01)
-			local value = ((-0 * (1 - percentage)) + (100 * percentage))
-			print(value)
-			handle.Text = value
+	local speedEnabled = false
+	local accelerationMultiplier = 0.05
+	local maxSpeed = tonumber(handle1.Text * 15)
+
+	if not maxSpeed then
+		print("Erro: Valor máximo de velocidade inválido.")
+		return
+	end
+	-- Verificar se o valor máximo de velocidade está dentro de um intervalo razoável
+	if maxSpeed <= 0 or maxSpeed > 1000 then
+		print("Aviso: Valor máximo de velocidade está fora do intervalo esperado.")
+	end
+
+	local function ApplyAcceleration()
+		local Character = LocalPlayer.Character
+		if Character and typeof(Character) == "Instance" then
+			local Humanoid = Character:FindFirstChildWhichIsA("Humanoid")
+			if Humanoid and typeof(Humanoid) == "Instance" then
+				local SeatPart = Humanoid.SeatPart
+				if SeatPart and typeof(SeatPart) == "Instance" and SeatPart:IsA("VehicleSeat") then
+					local currentSpeed = SeatPart.AssemblyLinearVelocity.Magnitude
+					if speedEnabled and currentSpeed < maxSpeed then
+						SeatPart.AssemblyLinearVelocity *= Vector3.new(1 + accelerationMultiplier, 1, 1 + accelerationMultiplier)
+						-- Verificar se a velocidade excede o limite máximo e ajustá-la, se necessário
+						if SeatPart.AssemblyLinearVelocity.Magnitude > maxSpeed then
+							SeatPart.AssemblyLinearVelocity *= maxSpeed / SeatPart.AssemblyLinearVelocity.Magnitude
+						end
+					elseif currentSpeed > 0 then
+						-- Reduzir a velocidade gradualmente quando a tecla W não estiver mais sendo pressionada
+						local decelerationMultiplier = 0.95 -- Fator de desaceleração (pode ser ajustado)
+						SeatPart.AssemblyLinearVelocity *= Vector3.new(decelerationMultiplier, 1, decelerationMultiplier)
+						-- Verificar se a velocidade está abaixo de um limite mínimo e parar completamente
+						local minSpeed = 0.1 -- Limite mínimo de velocidade para parar (pode ser ajustado)
+						if SeatPart.AssemblyLinearVelocity.Magnitude < minSpeed then
+							SeatPart.AssemblyLinearVelocity = Vector3.new(0, 0, 0)
+						end
+					end
+				end
+			end
 		end
 	end
+
+	RunService:BindToRenderStep("ApplyAcceleration", Enum.RenderPriority.Input.Value, ApplyAcceleration)
+
+	UserInputService.InputBegan:Connect(function(input, isProcessed)
+		if isProcessed then return end
+		if input.KeyCode == Enum.KeyCode.W then
+			speedEnabled = true
+		end
+	end)
+
+	UserInputService.InputEnded:Connect(function(input, isProcessed)
+		if isProcessed then return end
+		if input.KeyCode == Enum.KeyCode.W then
+			speedEnabled = false
+		end
+	end)
 end)
 
-handle.InputEnded:Connect(function(input)
-	if input.UserInputType == Enum.UserInputType.MouseButton1 then
-		dragging = false
-	end
-end)
 
-function Snap(value, snapValue)
-	return value - (value % snapValue)
-end
-
-ScreenGui.ButtonFlyCar.MouseButton1Click:Connect(function()
-	ScreenGui.Warn.Visible = true
-	ScreenGui.Wwarn.Visible = true
-end)
 
 --Player Speed
 
