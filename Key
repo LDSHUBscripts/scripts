@@ -144,9 +144,11 @@ local function KeyCerta()
 	print("Carregando o script!")
 if game.PlaceId == "13127800756" then
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LDSHUBscripts/scripts/main/LDSHubArmWrestleSimulator"))()
+print("LDSHubArmWrestleSimulator")
 	Key:Destroy()
 else
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/LDSHUBscripts/scripts/main/HubLDS"))()
+print("LDSHubCC2")
 	Key:Destroy()
 end
 end
