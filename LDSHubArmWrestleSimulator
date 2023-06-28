@@ -1,0 +1,1181 @@
+
+local LDSHUB = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local LE = Instance.new("Frame")
+local UICorner_2 = Instance.new("UICorner")
+local Logo = Instance.new("TextLabel")
+local UICorner_3 = Instance.new("UICorner")
+local TextLabel = Instance.new("TextLabel")
+local TextLabel_2 = Instance.new("TextLabel")
+local GButtons = Instance.new("ScrollingFrame")
+local UIListLayout = Instance.new("UIListLayout")
+local Home = Instance.new("TextButton")
+local UICorner_4 = Instance.new("UICorner")
+local AutoFarm = Instance.new("TextButton")
+local UICorner_5 = Instance.new("UICorner")
+local Settings = Instance.new("TextButton")
+local UICorner_6 = Instance.new("UICorner")
+local UpdateNotes = Instance.new("TextButton")
+local UICorner_7 = Instance.new("UICorner")
+local UpdateNoteUi = Instance.new("Frame")
+local UICorner_8 = Instance.new("UICorner")
+local Updates = Instance.new("TextLabel")
+local Updates_2 = Instance.new("TextLabel")
+local TextCredits = Instance.new("TextLabel")
+local TextCredits_2 = Instance.new("TextLabel")
+local TextCredits_3 = Instance.new("TextLabel")
+local SettingsUI = Instance.new("Frame")
+local UICorner_9 = Instance.new("UICorner")
+local SpawnerCarTxt = Instance.new("TextLabel")
+local IDK = Instance.new("Frame")
+local UICorner_10 = Instance.new("UICorner")
+local TextBox = Instance.new("TextBox")
+local UICorner_11 = Instance.new("UICorner")
+local TextLabel_3 = Instance.new("TextLabel")
+local TextLabel_4 = Instance.new("TextLabel")
+local ActiveToogleTxt = Instance.new("TextButton")
+local UICorner_12 = Instance.new("UICorner")
+local IDK_2 = Instance.new("Frame")
+local UICorner_13 = Instance.new("UICorner")
+local AntAFKButton = Instance.new("TextButton")
+local UICorner_14 = Instance.new("UICorner")
+local TextLabel_5 = Instance.new("TextLabel")
+local TextLabel_6 = Instance.new("TextLabel")
+local Frame_2 = Instance.new("Frame")
+local UICorner_15 = Instance.new("UICorner")
+local IDK_3 = Instance.new("Frame")
+local UICorner_16 = Instance.new("UICorner")
+local DeleteButton = Instance.new("TextButton")
+local UICorner_17 = Instance.new("UICorner")
+local TextLabel_7 = Instance.new("TextLabel")
+local TextLabel_8 = Instance.new("TextLabel")
+local Frame_3 = Instance.new("Frame")
+local UICorner_18 = Instance.new("UICorner")
+local Warn = Instance.new("Frame")
+local UICorner_19 = Instance.new("UICorner")
+local Dwarn = Instance.new("Frame")
+local UICorner_20 = Instance.new("UICorner")
+local Frame_4 = Instance.new("Frame")
+local UICorner_21 = Instance.new("UICorner")
+local Yes = Instance.new("TextButton")
+local UICorner_22 = Instance.new("UICorner")
+local No = Instance.new("TextButton")
+local UICorner_23 = Instance.new("UICorner")
+local TextLabel_9 = Instance.new("TextLabel")
+local TextLabel_10 = Instance.new("TextLabel")
+local Wwarn = Instance.new("Frame")
+local UICorner_24 = Instance.new("UICorner")
+local Frame_5 = Instance.new("Frame")
+local UICorner_25 = Instance.new("UICorner")
+local Okay = Instance.new("TextButton")
+local UICorner_26 = Instance.new("UICorner")
+local TextLabel_11 = Instance.new("TextLabel")
+local TextLabel_12 = Instance.new("TextLabel")
+local AutoFarmUi = Instance.new("Frame")
+local UICorner_27 = Instance.new("UICorner")
+local AutofarmTxt = Instance.new("TextLabel")
+local autofarm1 = Instance.new("TextButton")
+local UICorner_28 = Instance.new("UICorner")
+local TextLabel_13 = Instance.new("TextLabel")
+local TextLabel_14 = Instance.new("TextLabel")
+local Frame_6 = Instance.new("Frame")
+local UICorner_29 = Instance.new("UICorner")
+local autofarm2 = Instance.new("TextButton")
+local UICorner_30 = Instance.new("UICorner")
+local Frame_7 = Instance.new("Frame")
+local UICorner_31 = Instance.new("UICorner")
+local TextLabel_15 = Instance.new("TextLabel")
+local TextLabel_16 = Instance.new("TextLabel")
+local HomeUi = Instance.new("Frame")
+local UICorner_32 = Instance.new("UICorner")
+local Credits = Instance.new("TextLabel")
+local YTDC = Instance.new("TextLabel")
+local TextCredits_4 = Instance.new("TextLabel")
+local Frame_8 = Instance.new("Frame")
+local UICorner_33 = Instance.new("UICorner")
+local ImageLabelYT = Instance.new("ImageLabel")
+local UICorner_34 = Instance.new("UICorner")
+local NameChannel = Instance.new("TextLabel")
+local NameChannel_2 = Instance.new("TextLabel")
+local ImageLabelDC = Instance.new("ImageLabel")
+local UICorner_35 = Instance.new("UICorner")
+local NameDC = Instance.new("TextLabel")
+local TextButtonDC = Instance.new("TextButton")
+local UICorner_36 = Instance.new("UICorner")
+local TextButtonYT = Instance.new("TextButton")
+local UICorner_37 = Instance.new("UICorner")
+
+--Properties:
+
+LDSHUB.Name = "LDSHUB"
+LDSHUB.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+LDSHUB.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = LDSHUB
+Frame.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+Frame.Position = UDim2.new(0.313664556, 0, 0.321052641, 0)
+Frame.Size = UDim2.new(0.372049779, 0, 0.357894748, 0)
+
+UICorner.Parent = Frame
+
+LE.Name = "LE"
+LE.Parent = Frame
+LE.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+LE.Position = UDim2.new(-0.00166725798, 0, 0, 0)
+LE.Size = UDim2.new(0.263566554, 0, 1.00000012, 0)
+
+UICorner_2.Parent = LE
+
+Logo.Name = "Logo"
+Logo.Parent = LE
+Logo.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
+Logo.Position = UDim2.new(0.0950112194, 0, 0.0441176444, 0)
+Logo.Size = UDim2.new(0.285033107, 0, 0.132352933, 0)
+Logo.Font = Enum.Font.SciFi
+Logo.Text = "LDS"
+Logo.TextColor3 = Color3.fromRGB(255, 255, 255)
+Logo.TextScaled = true
+Logo.TextSize = 20.000
+Logo.TextWrapped = true
+
+UICorner_3.CornerRadius = UDim.new(0, 99999999)
+UICorner_3.Parent = Logo
+
+TextLabel.Parent = Logo
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(1, 0, 0, 0)
+TextLabel.Size = UDim2.new(2.08888888, 0, 1, 0)
+TextLabel.Font = Enum.Font.SciFi
+TextLabel.Text = "HUB"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+TextLabel_2.Parent = Logo
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.Position = UDim2.new(-0.245627344, 0, 6.49903965, 0)
+TextLabel_2.Size = UDim2.new(3.29029179, 0, 0.634293616, 0)
+TextLabel_2.Font = Enum.Font.SciFi
+TextLabel_2.Text = "v. 2.0 beta"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextScaled = true
+TextLabel_2.TextSize = 14.000
+TextLabel_2.TextWrapped = true
+
+GButtons.Name = "GButtons"
+GButtons.Parent = LE
+GButtons.Active = true
+GButtons.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GButtons.BackgroundTransparency = 1.000
+GButtons.Position = UDim2.new(0.00599984685, 0, 0.212000027, 0)
+GButtons.Size = UDim2.new(0.994000077, 0, 0.68264699, 0)
+GButtons.CanvasSize = UDim2.new(0, 0, 1.5, 0)
+GButtons.VerticalScrollBarInset = Enum.ScrollBarInset.ScrollBar
+
+UIListLayout.Parent = GButtons
+UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.Padding = UDim.new(0.00999999978, 0)
+
+Home.Name = "Home"
+Home.Parent = GButtons
+Home.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
+Home.Position = UDim2.new(0.0193109754, 0, 2.62969223e-07, 0)
+Home.Size = UDim2.new(0.958000004, 0, 0.0850000009, 0)
+Home.Font = Enum.Font.DenkOne
+Home.Text = "Home"
+Home.TextColor3 = Color3.fromRGB(255, 255, 255)
+Home.TextScaled = true
+Home.TextSize = 14.000
+Home.TextWrapped = true
+
+UICorner_4.Parent = Home
+
+AutoFarm.Name = "AutoFarm"
+AutoFarm.Parent = GButtons
+AutoFarm.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+AutoFarm.Position = UDim2.new(0.0314781144, 0, 2.34660348e-07, 0)
+AutoFarm.Size = UDim2.new(0.958000004, 0, 0.0850000009, 0)
+AutoFarm.Font = Enum.Font.DenkOne
+AutoFarm.Text = "Auto Farm"
+AutoFarm.TextColor3 = Color3.fromRGB(255, 255, 255)
+AutoFarm.TextScaled = true
+AutoFarm.TextSize = 14.000
+AutoFarm.TextWrapped = true
+
+UICorner_5.Parent = AutoFarm
+
+Settings.Name = "Settings"
+Settings.Parent = GButtons
+Settings.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+Settings.Position = UDim2.new(0.0382463485, 0, 0, 0)
+Settings.Size = UDim2.new(0.958000004, 0, 0.0850000009, 0)
+Settings.Font = Enum.Font.DenkOne
+Settings.Text = "Settings"
+Settings.TextColor3 = Color3.fromRGB(255, 255, 255)
+Settings.TextScaled = true
+Settings.TextSize = 14.000
+Settings.TextWrapped = true
+
+UICorner_6.Parent = Settings
+
+UpdateNotes.Name = "UpdateNotes"
+UpdateNotes.Parent = GButtons
+UpdateNotes.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+UpdateNotes.Position = UDim2.new(0.0382463485, 0, 0, 0)
+UpdateNotes.Size = UDim2.new(0.958000004, 0, 0.0850000009, 0)
+UpdateNotes.Font = Enum.Font.DenkOne
+UpdateNotes.Text = "Update Notes"
+UpdateNotes.TextColor3 = Color3.fromRGB(255, 255, 255)
+UpdateNotes.TextScaled = true
+UpdateNotes.TextSize = 14.000
+UpdateNotes.TextWrapped = true
+
+UICorner_7.Parent = UpdateNotes
+
+UpdateNoteUi.Name = "UpdateNoteUi"
+UpdateNoteUi.Parent = Frame
+UpdateNoteUi.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+UpdateNoteUi.Position = UDim2.new(0.273959816, 0, 0.0941176489, 0)
+UpdateNoteUi.Size = UDim2.new(0.712676346, 0, 0.862762988, 0)
+UpdateNoteUi.Visible = false
+
+UICorner_8.Parent = UpdateNoteUi
+
+Updates.Name = "Updates"
+Updates.Parent = UpdateNoteUi
+Updates.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Updates.BackgroundTransparency = 1.000
+Updates.Position = UDim2.new(0, 0, -0.0937468559, 0)
+Updates.Size = UDim2.new(0.252276182, 0, 0.172821864, 0)
+Updates.Font = Enum.Font.Unknown
+Updates.Text = "Updates"
+Updates.TextColor3 = Color3.fromRGB(255, 255, 255)
+Updates.TextScaled = true
+Updates.TextSize = 14.000
+Updates.TextWrapped = true
+
+Updates_2.Name = "Updates"
+Updates_2.Parent = UpdateNoteUi
+Updates_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Updates_2.BackgroundTransparency = 1.000
+Updates_2.Position = UDim2.new(0.747148573, 0, -0.0937468559, 0)
+Updates_2.Size = UDim2.new(0.252276182, 0, 0.172821864, 0)
+Updates_2.Font = Enum.Font.Unknown
+Updates_2.Text = "v. 2.0 beta"
+Updates_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Updates_2.TextScaled = true
+Updates_2.TextSize = 14.000
+Updates_2.TextWrapped = true
+
+TextCredits.Name = "TextCredits"
+TextCredits.Parent = UpdateNoteUi
+TextCredits.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextCredits.BackgroundTransparency = 1.000
+TextCredits.Position = UDim2.new(0.0163722541, 0, 0.0463209786, 0)
+TextCredits.Size = UDim2.new(0.972014546, 0, 0.131504238, 0)
+TextCredits.Font = Enum.Font.FredokaOne
+TextCredits.Text = "・New Hub!!"
+TextCredits.TextColor3 = Color3.fromRGB(170, 170, 255)
+TextCredits.TextScaled = true
+TextCredits.TextSize = 14.000
+TextCredits.TextWrapped = true
+TextCredits.TextXAlignment = Enum.TextXAlignment.Left
+
+TextCredits_2.Name = "TextCredits"
+TextCredits_2.Parent = UpdateNoteUi
+TextCredits_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextCredits_2.BackgroundTransparency = 1.000
+TextCredits_2.Position = UDim2.new(0.0163722541, 0, 0.175863758, 0)
+TextCredits_2.Size = UDim2.new(0.972014546, 0, 0.24400191, 0)
+TextCredits_2.Font = Enum.Font.FredokaOne
+TextCredits_2.Text = "・New options now available in the \"AutoFarm\" tab\""
+TextCredits_2.TextColor3 = Color3.fromRGB(170, 170, 255)
+TextCredits_2.TextScaled = true
+TextCredits_2.TextSize = 14.000
+TextCredits_2.TextWrapped = true
+TextCredits_2.TextXAlignment = Enum.TextXAlignment.Left
+
+TextCredits_3.Name = "TextCredits"
+TextCredits_3.Parent = UpdateNoteUi
+TextCredits_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextCredits_3.BackgroundTransparency = 1.000
+TextCredits_3.Position = UDim2.new(0.0117103877, 0, 0.417904168, 0)
+TextCredits_3.Size = UDim2.new(0.972014546, 0, 0.138322279, 0)
+TextCredits_3.Font = Enum.Font.FredokaOne
+TextCredits_3.Text = "・New auto farm event!!"
+TextCredits_3.TextColor3 = Color3.fromRGB(170, 170, 255)
+TextCredits_3.TextScaled = true
+TextCredits_3.TextSize = 14.000
+TextCredits_3.TextWrapped = true
+TextCredits_3.TextXAlignment = Enum.TextXAlignment.Left
+
+SettingsUI.Name = "SettingsUI"
+SettingsUI.Parent = Frame
+SettingsUI.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+SettingsUI.Position = UDim2.new(0.273959696, 0, 0.0941176489, 0)
+SettingsUI.Size = UDim2.new(0.707664907, 0, 0.871586502, 0)
+SettingsUI.Visible = false
+
+UICorner_9.Parent = SettingsUI
+
+SpawnerCarTxt.Name = "SpawnerCarTxt"
+SpawnerCarTxt.Parent = SettingsUI
+SpawnerCarTxt.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SpawnerCarTxt.BackgroundTransparency = 1.000
+SpawnerCarTxt.Position = UDim2.new(-3.46731395e-05, 0, -0.0708646849, 0)
+SpawnerCarTxt.Size = UDim2.new(0.407053292, 0, 0.165350974, 0)
+SpawnerCarTxt.Font = Enum.Font.Unknown
+SpawnerCarTxt.Text = "Settings"
+SpawnerCarTxt.TextColor3 = Color3.fromRGB(255, 255, 255)
+SpawnerCarTxt.TextScaled = true
+SpawnerCarTxt.TextSize = 14.000
+SpawnerCarTxt.TextWrapped = true
+
+IDK.Name = "IDK"
+IDK.Parent = SettingsUI
+IDK.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+IDK.Position = UDim2.new(0.0164320152, 0, 0.536577582, 0)
+IDK.Size = UDim2.new(0.962441206, 1, 0.443175077, 0)
+
+UICorner_10.Parent = IDK
+
+TextBox.Parent = IDK
+TextBox.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+TextBox.Position = UDim2.new(0.153299093, 0, 0.36807552, 0)
+TextBox.Size = UDim2.new(0.69513613, 0, 0.236046121, 0)
+TextBox.Font = Enum.Font.FredokaOne
+TextBox.PlaceholderText = "\"Place here you keybind (Not Working)\""
+TextBox.Text = ""
+TextBox.TextColor3 = Color3.fromRGB(170, 0, 255)
+TextBox.TextScaled = true
+TextBox.TextSize = 14.000
+TextBox.TextWrapped = true
+
+UICorner_11.Parent = TextBox
+
+TextLabel_3.Parent = IDK
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.BackgroundTransparency = 1.000
+TextLabel_3.Position = UDim2.new(0, 0, -0.00761392713, 0)
+TextLabel_3.Size = UDim2.new(1, 0, 0.375689745, 0)
+TextLabel_3.Font = Enum.Font.SciFi
+TextLabel_3.Text = "If you want to change the defined key to make the HUB invisible, put the desired key in the field below!"
+TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.TextScaled = true
+TextLabel_3.TextSize = 14.000
+TextLabel_3.TextWrapped = true
+
+TextLabel_4.Parent = IDK
+TextLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_4.BackgroundTransparency = 1.000
+TextLabel_4.Position = UDim2.new(0.220155805, 0, 0.738596737, 0)
+TextLabel_4.Size = UDim2.new(0.553439558, 0, 0.304506034, 0)
+TextLabel_4.Font = Enum.Font.SciFi
+TextLabel_4.Text = "Defined key: Right Shift"
+TextLabel_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_4.TextScaled = true
+TextLabel_4.TextSize = 14.000
+TextLabel_4.TextWrapped = true
+
+ActiveToogleTxt.Name = "ActiveToogleTxt"
+ActiveToogleTxt.Parent = IDK
+ActiveToogleTxt.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+ActiveToogleTxt.Position = UDim2.new(0.368758351, 0, 0.654228806, 0)
+ActiveToogleTxt.Size = UDim2.new(0, 107, 0, 21)
+ActiveToogleTxt.Font = Enum.Font.FredokaOne
+ActiveToogleTxt.Text = "Active"
+ActiveToogleTxt.TextColor3 = Color3.fromRGB(255, 255, 255)
+ActiveToogleTxt.TextScaled = true
+ActiveToogleTxt.TextSize = 14.000
+ActiveToogleTxt.TextWrapped = true
+
+UICorner_12.Parent = ActiveToogleTxt
+
+IDK_2.Name = "IDK "
+IDK_2.Parent = SettingsUI
+IDK_2.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+IDK_2.Position = UDim2.new(0.0164320152, 0, 0.134980157, 0)
+IDK_2.Size = UDim2.new(0.457743645, 1, 0.362217754, 0)
+
+UICorner_13.Parent = IDK_2
+
+AntAFKButton.Name = "AntAFKButton"
+AntAFKButton.Parent = IDK_2
+AntAFKButton.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+AntAFKButton.Position = UDim2.new(0.25792107, 0, 0.314927578, 0)
+AntAFKButton.Size = UDim2.new(0, 93, 0, 33)
+AntAFKButton.Font = Enum.Font.SourceSans
+AntAFKButton.Text = ""
+AntAFKButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+AntAFKButton.TextSize = 14.000
+
+UICorner_14.Parent = AntAFKButton
+
+TextLabel_5.Parent = AntAFKButton
+TextLabel_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_5.BackgroundTransparency = 1.000
+TextLabel_5.Position = UDim2.new(-0.398266196, 0, -1.02436781, 0)
+TextLabel_5.Size = UDim2.new(1.77940321, 0, 1.02436817, 0)
+TextLabel_5.Font = Enum.Font.FredokaOne
+TextLabel_5.Text = "Anti AFK"
+TextLabel_5.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_5.TextScaled = true
+TextLabel_5.TextSize = 14.000
+TextLabel_5.TextWrapped = true
+
+TextLabel_6.Parent = AntAFKButton
+TextLabel_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_6.BackgroundTransparency = 1.000
+TextLabel_6.Position = UDim2.new(-0.543569267, 0, 1, 0)
+TextLabel_6.Size = UDim2.new(2.10750294, 0, 1.21227443, 0)
+TextLabel_6.Font = Enum.Font.FredokaOne
+TextLabel_6.Text = "When activated you will not be kicked for inactivity"
+TextLabel_6.TextColor3 = Color3.fromRGB(170, 0, 255)
+TextLabel_6.TextScaled = true
+TextLabel_6.TextSize = 14.000
+TextLabel_6.TextWrapped = true
+
+Frame_2.Parent = AntAFKButton
+Frame_2.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+Frame_2.Position = UDim2.new(0.0568263568, 0, 0.1777464, 0)
+Frame_2.Size = UDim2.new(0, 42, 0, 23)
+
+UICorner_15.Parent = Frame_2
+
+IDK_3.Name = "IDK"
+IDK_3.Parent = SettingsUI
+IDK_3.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+IDK_3.Position = UDim2.new(0.521129549, 0, 0.134980157, 0)
+IDK_3.Size = UDim2.new(0.457743645, 1, 0.362217754, 0)
+
+UICorner_16.Parent = IDK_3
+
+DeleteButton.Name = "DeleteButton"
+DeleteButton.Parent = IDK_3
+DeleteButton.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+DeleteButton.Position = UDim2.new(0.25792107, 0, 0.314927578, 0)
+DeleteButton.Size = UDim2.new(0, 93, 0, 33)
+DeleteButton.Font = Enum.Font.SourceSans
+DeleteButton.Text = ""
+DeleteButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+DeleteButton.TextSize = 14.000
+
+UICorner_17.Parent = DeleteButton
+
+TextLabel_7.Parent = DeleteButton
+TextLabel_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_7.BackgroundTransparency = 1.000
+TextLabel_7.Position = UDim2.new(-0.398266196, 0, -0.882007003, 0)
+TextLabel_7.Size = UDim2.new(1.80090857, 0, 0.882007301, 0)
+TextLabel_7.Font = Enum.Font.FredokaOne
+TextLabel_7.Text = "Delete Hub"
+TextLabel_7.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_7.TextScaled = true
+TextLabel_7.TextSize = 14.000
+TextLabel_7.TextWrapped = true
+
+TextLabel_8.Parent = DeleteButton
+TextLabel_8.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_8.BackgroundTransparency = 1.000
+TextLabel_8.Position = UDim2.new(-0.543569267, 0, 1, 0)
+TextLabel_8.Size = UDim2.new(2.10750294, 0, 1.21227443, 0)
+TextLabel_8.Font = Enum.Font.FredokaOne
+TextLabel_8.Text = "When activating this option the Hub will disappear forever, to open it again you will have to run the script again!"
+TextLabel_8.TextColor3 = Color3.fromRGB(170, 0, 255)
+TextLabel_8.TextScaled = true
+TextLabel_8.TextSize = 14.000
+TextLabel_8.TextWrapped = true
+
+Frame_3.Parent = DeleteButton
+Frame_3.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+Frame_3.Position = UDim2.new(0.0568263568, 0, 0.1777464, 0)
+Frame_3.Size = UDim2.new(0, 42, 0, 23)
+
+UICorner_18.Parent = Frame_3
+
+Warn.Name = "Warn"
+Warn.Parent = Frame
+Warn.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
+Warn.BackgroundTransparency = 0.300
+Warn.Position = UDim2.new(-1.01579595e-07, 0, 0, 0)
+Warn.Size = UDim2.new(1.00000024, 0, 1, 0)
+Warn.Visible = false
+Warn.ZIndex = 5
+
+UICorner_19.Parent = Warn
+
+Dwarn.Name = "Dwarn"
+Dwarn.Parent = Warn
+Dwarn.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+Dwarn.Position = UDim2.new(0.168092147, 0, 0.193146184, 0)
+Dwarn.Size = UDim2.new(0.665079296, 0, 0.671559691, 0)
+Dwarn.Visible = false
+
+UICorner_20.Parent = Dwarn
+
+Frame_4.Parent = Dwarn
+Frame_4.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+Frame_4.Position = UDim2.new(0.0200190227, 0, 0.375200927, 0)
+Frame_4.Size = UDim2.new(0.959961951, 0, 0.576623321, 0)
+
+UICorner_21.Parent = Frame_4
+
+Yes.Name = "Yes"
+Yes.Parent = Frame_4
+Yes.BackgroundColor3 = Color3.fromRGB(85, 255, 127)
+Yes.Position = UDim2.new(0.552630305, 0, 0.281025678, 0)
+Yes.Size = UDim2.new(0.392323554, 0, 0.437948585, 0)
+Yes.Font = Enum.Font.SciFi
+Yes.Text = "Yes"
+Yes.TextColor3 = Color3.fromRGB(255, 255, 255)
+Yes.TextScaled = true
+Yes.TextSize = 14.000
+Yes.TextWrapped = true
+
+UICorner_22.Parent = Yes
+
+No.Name = "No"
+No.Parent = Frame_4
+No.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+No.Position = UDim2.new(0.0560000017, 0, 0.281025678, 0)
+No.Size = UDim2.new(0.392323554, 0, 0.437948585, 0)
+No.Font = Enum.Font.SciFi
+No.Text = "No"
+No.TextColor3 = Color3.fromRGB(255, 255, 255)
+No.TextScaled = true
+No.TextSize = 14.000
+No.TextWrapped = true
+
+UICorner_23.Parent = No
+
+TextLabel_9.Parent = Dwarn
+TextLabel_9.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_9.BackgroundTransparency = 1.000
+TextLabel_9.Position = UDim2.new(0.0200190227, 0, 0.15911302, 0)
+TextLabel_9.Size = UDim2.new(0.959961772, 0, 0.232730389, 0)
+TextLabel_9.Font = Enum.Font.FredokaOne
+TextLabel_9.Text = "Are you sure you want to proceed?"
+TextLabel_9.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_9.TextScaled = true
+TextLabel_9.TextSize = 14.000
+TextLabel_9.TextWrapped = true
+
+TextLabel_10.Parent = Dwarn
+TextLabel_10.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
+TextLabel_10.BackgroundTransparency = 1.000
+TextLabel_10.Position = UDim2.new(0.0175166447, 0, 0.00582630653, 0)
+TextLabel_10.Size = UDim2.new(0.959961772, 0, 0.204395592, 0)
+TextLabel_10.Font = Enum.Font.FredokaOne
+TextLabel_10.Text = "(warning)"
+TextLabel_10.TextColor3 = Color3.fromRGB(170, 0, 255)
+TextLabel_10.TextScaled = true
+TextLabel_10.TextSize = 14.000
+TextLabel_10.TextWrapped = true
+
+Wwarn.Name = "Wwarn"
+Wwarn.Parent = Warn
+Wwarn.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+Wwarn.Position = UDim2.new(0.168092147, 0, 0.193146184, 0)
+Wwarn.Size = UDim2.new(0.665079296, 0, 0.671559691, 0)
+Wwarn.Visible = false
+
+UICorner_24.Parent = Wwarn
+
+Frame_5.Parent = Wwarn
+Frame_5.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+Frame_5.Position = UDim2.new(0.0200190227, 0, 0.375200927, 0)
+Frame_5.Size = UDim2.new(0.959961951, 0, 0.576623321, 0)
+
+UICorner_25.Parent = Frame_5
+
+Okay.Name = "Okay"
+Okay.Parent = Frame_5
+Okay.BackgroundColor3 = Color3.fromRGB(85, 255, 127)
+Okay.Position = UDim2.new(0.300244689, 0, 0.281025678, 0)
+Okay.Size = UDim2.new(0.392323554, 0, 0.437948585, 0)
+Okay.Font = Enum.Font.SciFi
+Okay.Text = "Okay"
+Okay.TextColor3 = Color3.fromRGB(255, 255, 255)
+Okay.TextScaled = true
+Okay.TextSize = 14.000
+Okay.TextWrapped = true
+
+UICorner_26.Parent = Okay
+
+TextLabel_11.Parent = Wwarn
+TextLabel_11.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_11.BackgroundTransparency = 1.000
+TextLabel_11.Position = UDim2.new(0.0200187974, 0, 0.201462671, 0)
+TextLabel_11.Size = UDim2.new(0.959961772, 0, 0.190380752, 0)
+TextLabel_11.Font = Enum.Font.FredokaOne
+TextLabel_11.Text = "This option is still under development!"
+TextLabel_11.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_11.TextScaled = true
+TextLabel_11.TextSize = 14.000
+TextLabel_11.TextWrapped = true
+
+TextLabel_12.Parent = Wwarn
+TextLabel_12.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
+TextLabel_12.BackgroundTransparency = 1.000
+TextLabel_12.Position = UDim2.new(0.0175166447, 0, 0.00582630653, 0)
+TextLabel_12.Size = UDim2.new(0.959961772, 0, 0.204395592, 0)
+TextLabel_12.Font = Enum.Font.FredokaOne
+TextLabel_12.Text = "(warning)"
+TextLabel_12.TextColor3 = Color3.fromRGB(170, 0, 255)
+TextLabel_12.TextScaled = true
+TextLabel_12.TextSize = 14.000
+TextLabel_12.TextWrapped = true
+
+AutoFarmUi.Name = "AutoFarmUi"
+AutoFarmUi.Parent = Frame
+AutoFarmUi.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+AutoFarmUi.Position = UDim2.new(0.273959696, 0, 0.0941176489, 0)
+AutoFarmUi.Size = UDim2.new(0.707664907, 0, 0.871586502, 0)
+AutoFarmUi.Visible = false
+
+UICorner_27.Parent = AutoFarmUi
+
+AutofarmTxt.Name = "AutofarmTxt"
+AutofarmTxt.Parent = AutoFarmUi
+AutofarmTxt.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AutofarmTxt.BackgroundTransparency = 1.000
+AutofarmTxt.Position = UDim2.new(0.0234396197, 0, -0.093746841, 0)
+AutofarmTxt.Size = UDim2.new(0.353066534, 0, 0.188233122, 0)
+AutofarmTxt.Font = Enum.Font.Unknown
+AutofarmTxt.Text = "Auto Farm"
+AutofarmTxt.TextColor3 = Color3.fromRGB(255, 255, 255)
+AutofarmTxt.TextScaled = true
+AutofarmTxt.TextSize = 14.000
+AutofarmTxt.TextWrapped = true
+
+autofarm1.Name = "autofarm1"
+autofarm1.Parent = AutoFarmUi
+autofarm1.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+autofarm1.Position = UDim2.new(0.0283266865, 0, 0.13498041, 0)
+autofarm1.Size = UDim2.new(0, 69, 0, 31)
+autofarm1.Font = Enum.Font.SourceSans
+autofarm1.Text = ""
+autofarm1.TextColor3 = Color3.fromRGB(0, 0, 0)
+autofarm1.TextSize = 14.000
+
+UICorner_28.Parent = autofarm1
+
+TextLabel_13.Parent = autofarm1
+TextLabel_13.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_13.BackgroundTransparency = 1.000
+TextLabel_13.Position = UDim2.new(1.0869565, 0, -0.0967741907, 0)
+TextLabel_13.Size = UDim2.new(2.18840575, 0, 1, 0)
+TextLabel_13.Font = Enum.Font.FredokaOne
+TextLabel_13.Text = "Auto Click"
+TextLabel_13.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_13.TextScaled = true
+TextLabel_13.TextSize = 14.000
+TextLabel_13.TextWrapped = true
+TextLabel_13.TextXAlignment = Enum.TextXAlignment.Left
+
+TextLabel_14.Parent = autofarm1
+TextLabel_14.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_14.BackgroundTransparency = 1.000
+TextLabel_14.Position = UDim2.new(0.0434782617, 0, 1.22580647, 0)
+TextLabel_14.Size = UDim2.new(5.95551682, 0, 2.69286513, 0)
+TextLabel_14.Font = Enum.Font.FredokaOne
+TextLabel_14.Text = "when activating this option, to keep clicking automatically for you, it does not affect the pc!"
+TextLabel_14.TextColor3 = Color3.fromRGB(170, 0, 255)
+TextLabel_14.TextScaled = true
+TextLabel_14.TextSize = 14.000
+TextLabel_14.TextWrapped = true
+
+Frame_6.Parent = autofarm1
+Frame_6.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+Frame_6.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
+Frame_6.Size = UDim2.new(0, 30, 0, 27)
+
+UICorner_29.Parent = Frame_6
+
+autofarm2.Name = "autofarm2"
+autofarm2.Parent = AutoFarmUi
+autofarm2.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+autofarm2.Position = UDim2.new(0.0283266865, 0, 0.566917539, 0)
+autofarm2.Size = UDim2.new(0, 69, 0, 31)
+autofarm2.Font = Enum.Font.SourceSans
+autofarm2.Text = ""
+autofarm2.TextColor3 = Color3.fromRGB(0, 0, 0)
+autofarm2.TextSize = 14.000
+
+UICorner_30.Parent = autofarm2
+
+Frame_7.Parent = autofarm2
+Frame_7.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+Frame_7.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
+Frame_7.Size = UDim2.new(0, 30, 0, 27)
+
+UICorner_31.Parent = Frame_7
+
+TextLabel_15.Parent = autofarm2
+TextLabel_15.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_15.BackgroundTransparency = 1.000
+TextLabel_15.Position = UDim2.new(1.0869565, 0, -0.0322580636, 0)
+TextLabel_15.Size = UDim2.new(2.47826076, 0, 1, 0)
+TextLabel_15.Font = Enum.Font.FredokaOne
+TextLabel_15.Text = "Auto Farm Event"
+TextLabel_15.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_15.TextScaled = true
+TextLabel_15.TextSize = 14.000
+TextLabel_15.TextWrapped = true
+TextLabel_15.TextXAlignment = Enum.TextXAlignment.Left
+
+TextLabel_16.Parent = autofarm2
+TextLabel_16.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_16.BackgroundTransparency = 1.000
+TextLabel_16.Position = UDim2.new(0.0434782617, 0, 1.22580254, 0)
+TextLabel_16.Size = UDim2.new(5.95551682, 0, 2.72062826, 0)
+TextLabel_16.Font = Enum.Font.FredokaOne
+TextLabel_16.Text = "when activating this option, he will farm the 5 bosses in the first area and then he will farm the other 5 in the second area, thus you will receive the egg"
+TextLabel_16.TextColor3 = Color3.fromRGB(170, 0, 255)
+TextLabel_16.TextScaled = true
+TextLabel_16.TextSize = 14.000
+TextLabel_16.TextWrapped = true
+
+HomeUi.Name = "HomeUi"
+HomeUi.Parent = Frame
+HomeUi.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+HomeUi.Position = UDim2.new(0.273959696, 0, 0.0941176489, 0)
+HomeUi.Size = UDim2.new(0.712676346, 0, 0.533351243, 0)
+
+UICorner_32.Parent = HomeUi
+
+Credits.Name = "Credits"
+Credits.Parent = HomeUi
+Credits.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Credits.BackgroundTransparency = 1.000
+Credits.Position = UDim2.new(0, 0, -0.0937468559, 0)
+Credits.Size = UDim2.new(0.252276182, 0, 0.172821864, 0)
+Credits.Font = Enum.Font.Unknown
+Credits.Text = "Credits"
+Credits.TextColor3 = Color3.fromRGB(255, 255, 255)
+Credits.TextScaled = true
+Credits.TextSize = 14.000
+Credits.TextWrapped = true
+
+YTDC.Name = "YTDC"
+YTDC.Parent = HomeUi
+YTDC.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+YTDC.BackgroundTransparency = 1.000
+YTDC.Position = UDim2.new(0.0187516958, 0, 1.03385592, 0)
+YTDC.Size = UDim2.new(0.392913878, 0, 0.142608792, 0)
+YTDC.ZIndex = 10
+YTDC.Font = Enum.Font.Unknown
+YTDC.Text = "Youtube | Discord"
+YTDC.TextColor3 = Color3.fromRGB(255, 255, 255)
+YTDC.TextScaled = true
+YTDC.TextSize = 14.000
+YTDC.TextWrapped = true
+
+TextCredits_4.Name = "TextCredits"
+TextCredits_4.Parent = HomeUi
+TextCredits_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextCredits_4.BackgroundTransparency = 1.000
+TextCredits_4.Position = UDim2.new(0.0187516958, 0, 0.121319458, 0)
+TextCredits_4.Size = UDim2.new(0.962496758, 0, 0.823535323, 0)
+TextCredits_4.Font = Enum.Font.FredokaOne
+TextCredits_4.Text = "Well if you're seeing this, then everything worked out, and I'm very happy about it, I want to give my credit to my friend Ali, who helped me A LOT with doubts regarding the scripts, this is the first HUB I created so wait for many others coming soon :3"
+TextCredits_4.TextColor3 = Color3.fromRGB(170, 0, 255)
+TextCredits_4.TextScaled = true
+TextCredits_4.TextSize = 14.000
+TextCredits_4.TextWrapped = true
+
+Frame_8.Parent = HomeUi
+Frame_8.BackgroundColor3 = Color3.fromRGB(51, 51, 51)
+Frame_8.Position = UDim2.new(0, 0, 1.09561825, 0)
+Frame_8.Size = UDim2.new(0.999999881, 0, 0.548003972, 0)
+Frame_8.ZIndex = 0
+
+UICorner_33.Parent = Frame_8
+
+ImageLabelYT.Name = "ImageLabelYT"
+ImageLabelYT.Parent = Frame_8
+ImageLabelYT.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabelYT.Position = UDim2.new(0.0187516958, 0, 0.158772826, 0)
+ImageLabelYT.Size = UDim2.new(0, 65, 0, 65)
+ImageLabelYT.Image = "rbxassetid://12772776120"
+
+UICorner_34.CornerRadius = UDim.new(0, 99999999)
+UICorner_34.Parent = ImageLabelYT
+
+NameChannel.Name = "NameChannel"
+NameChannel.Parent = Frame_8
+NameChannel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+NameChannel.BackgroundTransparency = 1.000
+NameChannel.Position = UDim2.new(0.119542062, 0, 0.218616888, 0)
+NameChannel.Size = UDim2.new(0.392913878, 0, 0.362135261, 0)
+NameChannel.ZIndex = 10
+NameChannel.Font = Enum.Font.SciFi
+NameChannel.Text = "Sr. LDS"
+NameChannel.TextColor3 = Color3.fromRGB(255, 255, 255)
+NameChannel.TextScaled = true
+NameChannel.TextSize = 14.000
+NameChannel.TextWrapped = true
+
+NameChannel_2.Name = "NameChannel"
+NameChannel_2.Parent = Frame_8
+NameChannel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+NameChannel_2.BackgroundTransparency = 1.000
+NameChannel_2.Position = UDim2.new(0.168765277, 0, 0.532225609, 0)
+NameChannel_2.Size = UDim2.new(0.292123526, 0, 0.201496333, 0)
+NameChannel_2.ZIndex = 10
+NameChannel_2.Font = Enum.Font.SciFi
+NameChannel_2.Text = "@Sr_LDS"
+NameChannel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+NameChannel_2.TextScaled = true
+NameChannel_2.TextSize = 14.000
+NameChannel_2.TextWrapped = true
+
+ImageLabelDC.Name = "ImageLabelDC"
+ImageLabelDC.Parent = Frame_8
+ImageLabelDC.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabelDC.Position = UDim2.new(0.489888072, 0, 0.158772826, 0)
+ImageLabelDC.Size = UDim2.new(0, 65, 0, 65)
+ImageLabelDC.Image = "http://www.roblox.com/asset/?id=1999278264"
+
+UICorner_35.CornerRadius = UDim.new(0, 99999999)
+UICorner_35.Parent = ImageLabelDC
+
+NameDC.Name = "NameDC"
+NameDC.Parent = Frame_8
+NameDC.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+NameDC.BackgroundTransparency = 1.000
+NameDC.Position = UDim2.new(0.658653319, 0, 0.239524141, 0)
+NameDC.Size = UDim2.new(0.322595268, 0, 0.504140854, 0)
+NameDC.ZIndex = 10
+NameDC.Font = Enum.Font.SciFi
+NameDC.Text = "https://discord.gg/DABC3eFusQ"
+NameDC.TextColor3 = Color3.fromRGB(255, 255, 255)
+NameDC.TextScaled = true
+NameDC.TextSize = 14.000
+NameDC.TextWrapped = true
+
+TextButtonDC.Name = "TextButtonDC"
+TextButtonDC.Parent = Frame_8
+TextButtonDC.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+TextButtonDC.Position = UDim2.new(0.658653319, 0, 0.773568153, 0)
+TextButtonDC.Size = UDim2.new(0.322595119, 0, 0.149138987, 0)
+TextButtonDC.Font = Enum.Font.SciFi
+TextButtonDC.Text = "Click here for copy"
+TextButtonDC.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButtonDC.TextSize = 14.000
+
+UICorner_36.Parent = TextButtonDC
+
+TextButtonYT.Name = "TextButtonYT"
+TextButtonYT.Parent = Frame_8
+TextButtonYT.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+TextButtonYT.Position = UDim2.new(0.154701471, 0, 0.773568153, 0)
+TextButtonYT.Size = UDim2.new(0.322595119, 0, 0.149138987, 0)
+TextButtonYT.Font = Enum.Font.SciFi
+TextButtonYT.Text = "Click here for copy"
+TextButtonYT.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButtonYT.TextSize = 14.000
+
+UICorner_37.Parent = TextButtonYT
+
+--Delete
+DeleteButton.MouseButton1Click:Connect(function()
+	Warn.Visible = true
+	Dwarn.Visible = true
+end)
+
+Yes.MouseButton1Click:Connect(function()
+	LDSHUB:Destroy()
+end)
+
+No.MouseButton1Click:Connect(function()
+	Warn.Visible = false
+	Dwarn.Visible = false
+end)
+
+Okay.MouseButton1Click:Connect(function()
+	Warn.Visible = false
+	Wwarn.Visible = false
+end)
+
+--Anti AFK
+
+AntAFKButton.MouseButton1Click:Connect(function()
+	Frame_2.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+	local bb=game:service'VirtualUser'
+	game:service'Players'.LocalPlayer.Idled:connect(function()
+		bb:CaptureController()bb:ClickButton2(Vector2.new())
+	end)
+
+end)
+
+--Drag Ui
+Frame.Draggable = true
+Frame.Selectable = true
+Frame.Active = true
+
+--ToogleGui
+
+local FrameObject = Frame
+local Open = false
+
+local PositionClosed = UDim2.new(-0.317, 0,0351, 0)
+local PositionOpen = UDim2.new(0, 407,0, 255)
+
+local UserInputService = game:GetService("UserInputService")
+
+UserInputService.InputBegan:Connect(function(KeyCode)
+	if KeyCode.KeyCode == Enum.KeyCode.RightShift then
+		if Open then
+			FrameObject:TweenPosition((PositionClosed), "Out", "Quart")
+			Open = false
+		else
+			Open = true
+			FrameObject:TweenPosition((PositionOpen), "Out", "Quint")
+		end
+	end
+end)
+
+--Active
+
+ActiveToogleTxt.MouseButton1Click:Connect(function()
+	Warn.Visible = true
+	Wwarn.Visible = true
+end)
+
+--Abrir UI
+local function toggleFrame(frame, button)
+	local isVisible = not frame.Visible
+	frame.Visible = isVisible
+	button.BackgroundColor3 = isVisible and Color3.fromRGB(170, 0, 255) or Color3.fromRGB(126, 126, 126)
+end
+
+local function hideFrames()
+	HomeUi.Visible = false
+	AutoFarmUi.Visible = false
+	SettingsUI.Visible = false
+	UpdateNoteUi.Visible = false
+end
+
+local function resetButtons()
+	Home.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+	AutoFarm.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+	Settings.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+	UpdateNotes.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+end
+
+local function resetFrames(excludeFrame, excludeButton)
+	hideFrames()
+	resetButtons()
+
+	if excludeFrame and excludeButton then
+		excludeFrame.Visible = true
+		excludeButton.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
+	end
+end
+
+Home.MouseButton1Click:Connect(function()
+	toggleFrame(HomeUi, Home)
+	resetFrames(HomeUi, Home)
+end)
+
+AutoFarm.MouseButton1Click:Connect(function()
+	toggleFrame(AutoFarmUi, AutoFarm)
+	resetFrames(AutoFarmUi, AutoFarm)
+end)
+
+Settings.MouseButton1Click:Connect(function()
+	toggleFrame(SettingsUI, Settings)
+	resetFrames(SettingsUI, Settings)
+end)
+
+UpdateNotes.MouseButton1Click:Connect(function()
+	toggleFrame(UpdateNoteUi, UpdateNotes)
+	resetFrames(UpdateNoteUi, UpdateNotes)
+end)
+
+-- Esconder todos os frames ao iniciar
+hideFrames()
+HomeUi.Visible = true
+
+-- Auto Farm
+local G = getgenv()
+
+G.AutoClick = false
+autofarm1.MouseButton1Click:Connect(function()
+	
+	G.AutoClick = not G.AutoClick
+	
+	if G.AutoClick then
+		Frame_6.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+	else
+		Frame_6.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+	end
+	
+	while G.AutoClick do
+		wait(0.1)
+		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onClickRequest"):FireServer()
+	end
+end)
+
+G.AutoFarm = false
+
+autofarm2.MouseButton1Click:Connect(function()
+	
+	G.AutoFarm = not G.AutoFarm
+	
+	if G.AutoFarm then
+		Frame_7.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+	else
+		Frame_7.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+	end
+	
+	while G.AutoFarm do
+	local Ui = game.Players.LocalPlayer.PlayerGui.GameUI.Wrestle
+	local Numeros = 1
+
+	local G = getgenv()
+
+	G.AutoClick = false
+
+	local npcData = {
+		[1] = {
+			name = "Bully",
+			npc = nil,
+		},
+		[2] = {
+			name = "Teacher",
+			npc = nil,
+		},
+		[3] = {
+			name = "GymRat",
+			npc = nil,
+		},
+		[4] = {
+			name = "MafiaBoss",
+			npc = nil,
+		},
+		[5] = {
+			name = "Champion",
+			npc = nil,
+		}
+	}
+
+	repeat
+		if Ui.Visible == false then
+			local data = npcData[Numeros]
+			print("Verificando NPC:", data.name)
+			local npc = workspace:WaitForChild("Zones"):WaitForChild("1"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild(data.name)
+			if npc then
+				print("NPC encontrado:", data.name)
+				data.npc = npc
+				local args = {
+					[1] = data.name,
+					[2] = npc,
+					[3] = "1"
+				}	
+
+				game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
+				print("NPC selecionado:", data.name)
+
+				-- Aguardar até que o NPC seja derrotado
+				wait(2)
+				repeat
+					wait()
+				until Ui.Visible == false
+				print("NPC derrotado:", data.name)
+			else
+				print("NPC não encontrado:", data.name)
+			end
+		end
+
+		-- Passar para o próximo NPC
+		Numeros = Numeros + 1
+		until Numeros > #npcData
+		
+		-- teleport
+		
+		local args = {
+			[1] = workspace:WaitForChild("Zones"):WaitForChild("2"):WaitForChild("Interactables"):WaitForChild("Teleports"):WaitForChild("Locations"):WaitForChild("Futuristic")
+		}
+
+		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ZoneService"):WaitForChild("RE"):WaitForChild("teleport"):FireServer(unpack(args))
+		
+		-- segundo mundo
+		
+		wait(1)
+	
+		local Numeros1 = 1
+
+		local npcData1 = {
+			[1] = {
+				name1 = "ScrapTrader",
+				npc1 = nil,
+			},
+			[2] = {
+				name1 = "CyberCop",
+				npc1 = nil,
+			},
+			[3] = {
+				name1 = "SlicerAssassin",
+				npc1 = nil,
+			},
+			[4] = {
+				name1 = "RipperDoc",
+				npc1 = nil,
+			},
+			[5] = {
+				name1 = "RogueAi",
+				npc1 = nil,
+			}
+		}
+
+		repeat
+			if Ui.Visible == false then
+				local data = npcData1[Numeros1]
+				print("Verificando NPC:", data.name1)
+				local npc = workspace:WaitForChild("Zones"):WaitForChild("2"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild(data.name1)
+				if npc then
+					print("NPC encontrado:", data.name1)
+					data.npc1 = npc
+					local args = {
+						[1] = data.name1,
+						[2] = npc,
+						[3] = "2"
+					}
+
+					game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
+					print("NPC selecionado:", data.name1)
+
+					-- Aguardar até que o NPC seja derrotado
+					wait(2)
+					repeat
+						wait()
+					until Ui.Visible == false
+					print("NPC derrotado:", data.name1)
+				else
+					print("NPC não encontrado:", data.name1)
+				end
+			end
+
+			-- Passar para o próximo NPC
+			Numeros1 = Numeros1 + 1
+		until Numeros1 > #npcData1
+
+		
+		--teleport
+		
+		local args = {
+			[1] = workspace:WaitForChild("Zones"):WaitForChild("1"):WaitForChild("Interactables"):WaitForChild("Teleports"):WaitForChild("Locations"):WaitForChild("BackToSchool")
+		}
+
+		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ZoneService"):WaitForChild("RE"):WaitForChild("teleport"):FireServer(unpack(args))
+
+		wait(1)
+	end
+end)
