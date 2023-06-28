@@ -142,8 +142,13 @@ end
 
 local function KeyCerta()
 	print("Carregando o script!")
+if game.PlaceId == "13127800756" then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LDSHUBscripts/scripts/main/LDSHubArmWrestleSimulator"))()
+	Key:Destroy()
+else
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/LDSHUBscripts/scripts/main/HubLDS"))()
 	Key:Destroy()
+end
 end
 			
 			VerifyKey.MouseButton1Click:Connect(function()
