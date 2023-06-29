@@ -1,4 +1,4 @@
-local KeyGratis = "BetaRealised"
+local KeyGratis = "Not Available!"
 local tableofkeys = {
 		-- Free Keys
 		"T7gtVH#5qgk4Fxxu",
@@ -133,6 +133,10 @@ FreeKey.TextSize = 14.000
 FreeKey.TextWrapped = true
 
 local plrGui = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
+
+GetKey.MouseButton1Click:Connect(function()
+setclipboard("https://discord.gg/DABC3eFusQ")
+end)
 
 local function KeyErrada()
 	setclipboard("https://discord.gg/DABC3eFusQ")
