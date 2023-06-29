@@ -1170,21 +1170,19 @@ autofarm3.MouseButton1Click:Connect(function()
 	}
 
 	game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ZoneService"):WaitForChild("RE"):WaitForChild("teleport"):FireServer(unpack(args))
-
+wait(.2)
 	while G.AutoFarm2 do
 		local Ui = game.Players.LocalPlayer.PlayerGui.GameUI.Wrestle
 		local Numeros = 1
 
-		local G = getgenv()
-
 		local npcData = {
 			[1] = {
-				name1 = "ScrapTrader",
-				npc1 = nil,
+				name = "ScrapTrader",
+				npc = nil,
 			},
 			[2] = {
-				name1 = "CyberCop",
-				npc1 = nil,
+				name = "CyberCop",
+				npc = nil,
 			}
 		}
 
@@ -1200,7 +1198,7 @@ autofarm3.MouseButton1Click:Connect(function()
 						[1] = data.name,
 						[2] = npc,
 						[3] = "2"
-					}	
+					}
 
 					game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
 					print("NPC selecionado:", data.name)
@@ -1219,6 +1217,6 @@ autofarm3.MouseButton1Click:Connect(function()
 			-- Passar para o próximo NPC
 			Numeros = Numeros + 1
 		until Numeros > #npcData
-		wait(0.1)
+wait(.1)
 	end
 end)
