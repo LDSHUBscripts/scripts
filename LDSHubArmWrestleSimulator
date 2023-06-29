@@ -1041,8 +1041,6 @@ autofarm2.MouseButton1Click:Connect(function()
 
 	local G = getgenv()
 
-	G.AutoClick = false
-
 	local npcData = {
 		[1] = {
 			name = "Bully",
