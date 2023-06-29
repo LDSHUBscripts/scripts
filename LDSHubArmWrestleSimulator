@@ -1,966 +1,1750 @@
--- Gui to Lua
--- Version: 3.2
 
--- Instances:
+--╔════•ೋೋ•════╗--
+--      LDS HUB      --
+--╚════•ೋೋ•════╝--
 
-local LDSHUB = Instance.new("ScreenGui")
-local Frame = Instance.new("Frame")
-local UICorner = Instance.new("UICorner")
-local LE = Instance.new("Frame")
-local UICorner_2 = Instance.new("UICorner")
-local Logo = Instance.new("TextLabel")
-local UICorner_3 = Instance.new("UICorner")
-local TextLabel = Instance.new("TextLabel")
-local TextLabel_2 = Instance.new("TextLabel")
-local GButtons = Instance.new("ScrollingFrame")
-local UIListLayout = Instance.new("UIListLayout")
-local Home = Instance.new("TextButton")
-local UICorner_4 = Instance.new("UICorner")
-local AutoFarm = Instance.new("TextButton")
-local UICorner_5 = Instance.new("UICorner")
-local Settings = Instance.new("TextButton")
-local UICorner_6 = Instance.new("UICorner")
-local UpdateNotes = Instance.new("TextButton")
-local UICorner_7 = Instance.new("UICorner")
-local UpdateNoteUi = Instance.new("Frame")
-local UICorner_8 = Instance.new("UICorner")
-local Updates = Instance.new("TextLabel")
-local Updates_2 = Instance.new("TextLabel")
-local TextCredits = Instance.new("TextLabel")
-local TextCredits_2 = Instance.new("TextLabel")
-local TextCredits_3 = Instance.new("TextLabel")
-local SettingsUI = Instance.new("Frame")
-local UICorner_9 = Instance.new("UICorner")
-local SpawnerCarTxt = Instance.new("TextLabel")
-local IDK = Instance.new("Frame")
-local UICorner_10 = Instance.new("UICorner")
-local TextBox = Instance.new("TextBox")
-local UICorner_11 = Instance.new("UICorner")
-local TextLabel_3 = Instance.new("TextLabel")
-local TextLabel_4 = Instance.new("TextLabel")
-local ActiveToogleTxt = Instance.new("TextButton")
-local UICorner_12 = Instance.new("UICorner")
-local IDK_2 = Instance.new("Frame")
-local UICorner_13 = Instance.new("UICorner")
-local AntAFKButton = Instance.new("TextButton")
-local UICorner_14 = Instance.new("UICorner")
-local TextLabel_5 = Instance.new("TextLabel")
-local TextLabel_6 = Instance.new("TextLabel")
-local Frame_2 = Instance.new("Frame")
-local UICorner_15 = Instance.new("UICorner")
-local IDK_3 = Instance.new("Frame")
-local UICorner_16 = Instance.new("UICorner")
-local DeleteButton = Instance.new("TextButton")
-local UICorner_17 = Instance.new("UICorner")
-local TextLabel_7 = Instance.new("TextLabel")
-local TextLabel_8 = Instance.new("TextLabel")
-local Frame_3 = Instance.new("Frame")
-local UICorner_18 = Instance.new("UICorner")
-local Warn = Instance.new("Frame")
-local UICorner_19 = Instance.new("UICorner")
-local Dwarn = Instance.new("Frame")
-local UICorner_20 = Instance.new("UICorner")
-local Frame_4 = Instance.new("Frame")
-local UICorner_21 = Instance.new("UICorner")
-local Yes = Instance.new("TextButton")
-local UICorner_22 = Instance.new("UICorner")
-local No = Instance.new("TextButton")
-local UICorner_23 = Instance.new("UICorner")
-local TextLabel_9 = Instance.new("TextLabel")
-local TextLabel_10 = Instance.new("TextLabel")
-local Wwarn = Instance.new("Frame")
-local UICorner_24 = Instance.new("UICorner")
-local Frame_5 = Instance.new("Frame")
-local UICorner_25 = Instance.new("UICorner")
-local Okay = Instance.new("TextButton")
-local UICorner_26 = Instance.new("UICorner")
-local TextLabel_11 = Instance.new("TextLabel")
-local TextLabel_12 = Instance.new("TextLabel")
-local AutoFarmUi = Instance.new("Frame")
-local UICorner_27 = Instance.new("UICorner")
-local AutofarmTxt = Instance.new("TextLabel")
-local autofarm1 = Instance.new("TextButton")
-local UICorner_28 = Instance.new("UICorner")
-local TextLabel_13 = Instance.new("TextLabel")
-local TextLabel_14 = Instance.new("TextLabel")
-local Frame_6 = Instance.new("Frame")
-local UICorner_29 = Instance.new("UICorner")
-local autofarm2 = Instance.new("TextButton")
-local UICorner_30 = Instance.new("UICorner")
-local Frame_7 = Instance.new("Frame")
-local UICorner_31 = Instance.new("UICorner")
-local TextLabel_15 = Instance.new("TextLabel")
-local TextLabel_16 = Instance.new("TextLabel")
-local autofarm3 = Instance.new("TextButton")
-local UICorner_32 = Instance.new("UICorner")
-local Frame_8 = Instance.new("Frame")
-local UICorner_33 = Instance.new("UICorner")
-local TextLabel_17 = Instance.new("TextLabel")
-local TextLabel_18 = Instance.new("TextLabel")
-local HomeUi = Instance.new("Frame")
-local UICorner_34 = Instance.new("UICorner")
-local Credits = Instance.new("TextLabel")
-local YTDC = Instance.new("TextLabel")
-local TextCredits_4 = Instance.new("TextLabel")
-local Frame_9 = Instance.new("Frame")
-local UICorner_35 = Instance.new("UICorner")
-local ImageLabelYT = Instance.new("ImageLabel")
-local UICorner_36 = Instance.new("UICorner")
-local NameChannel = Instance.new("TextLabel")
-local NameChannel_2 = Instance.new("TextLabel")
-local ImageLabelDC = Instance.new("ImageLabel")
-local UICorner_37 = Instance.new("UICorner")
-local NameDC = Instance.new("TextLabel")
-local TextButtonDC = Instance.new("TextButton")
-local UICorner_38 = Instance.new("UICorner")
-local TextButtonYT = Instance.new("TextButton")
-local UICorner_39 = Instance.new("UICorner")
+local LDSHUB = {
+	LDSHUB = Instance.new("ScreenGui"),
+	Frame = Instance.new("Frame"),
+	UICorner = Instance.new("UICorner"),
+	LE = Instance.new("Frame"),
+	UICorner_2 = Instance.new("UICorner"),
+	Logo = Instance.new("TextLabel"),
+	UICorner_3 = Instance.new("UICorner"),
+	TextLabel = Instance.new("TextLabel"),
+	TextLabel_2 = Instance.new("TextLabel"),
+	GButtons = Instance.new("ScrollingFrame"),
+	UIListLayout = Instance.new("UIListLayout"),
+	Home = Instance.new("TextButton"),
+	UICorner_4 = Instance.new("UICorner"),
+	Event = Instance.new("TextButton"),
+	UICorner_5 = Instance.new("UICorner"),
+	AutoFarm = Instance.new("TextButton"),
+	UICorner_6 = Instance.new("UICorner"),
+	AutoEgg = Instance.new("TextButton"),
+	UICorner_7 = Instance.new("UICorner"),
+	Converts = Instance.new("TextButton"),
+	UICorner_8 = Instance.new("UICorner"),
+	Misc = Instance.new("TextButton"),
+	UICorner_9 = Instance.new("UICorner"),
+	Settings = Instance.new("TextButton"),
+	UICorner_10 = Instance.new("UICorner"),
+	UpdateNotes = Instance.new("TextButton"),
+	UICorner_11 = Instance.new("UICorner"),
+	UpdateNoteUi = Instance.new("Frame"),
+	UICorner_12 = Instance.new("UICorner"),
+	Updates = Instance.new("TextLabel"),
+	Updates_2 = Instance.new("TextLabel"),
+	TextCredits = Instance.new("TextLabel"),
+	TextCredits_2 = Instance.new("TextLabel"),
+	TextCredits_3 = Instance.new("TextLabel"),
+	SettingsUI = Instance.new("Frame"),
+	UICorner_13 = Instance.new("UICorner"),
+	SpawnerCarTxt = Instance.new("TextLabel"),
+	IDK = Instance.new("Frame"),
+	UICorner_14 = Instance.new("UICorner"),
+	TextBox = Instance.new("TextBox"),
+	UICorner_15 = Instance.new("UICorner"),
+	TextLabel_3 = Instance.new("TextLabel"),
+	TextLabel_4 = Instance.new("TextLabel"),
+	ActiveToogleTxt = Instance.new("TextButton"),
+	UICorner_16 = Instance.new("UICorner"),
+	IDK_2 = Instance.new("Frame"),
+	UICorner_17 = Instance.new("UICorner"),
+	AntAFKButton = Instance.new("TextButton"),
+	UICorner_18 = Instance.new("UICorner"),
+	TextLabel_5 = Instance.new("TextLabel"),
+	TextLabel_6 = Instance.new("TextLabel"),
+	Frame_2 = Instance.new("Frame"),
+	UICorner_19 = Instance.new("UICorner"),
+	IDK_3 = Instance.new("Frame"),
+	UICorner_20 = Instance.new("UICorner"),
+	DeleteButton = Instance.new("TextButton"),
+	UICorner_21 = Instance.new("UICorner"),
+	TextLabel_7 = Instance.new("TextLabel"),
+	TextLabel_8 = Instance.new("TextLabel"),
+	Frame_3 = Instance.new("Frame"),
+	UICorner_22 = Instance.new("UICorner"),
+	Warn = Instance.new("Frame"),
+	UICorner_23 = Instance.new("UICorner"),
+	Dwarn = Instance.new("Frame"),
+	UICorner_24 = Instance.new("UICorner"),
+	Frame_4 = Instance.new("Frame"),
+	UICorner_25 = Instance.new("UICorner"),
+	Yes = Instance.new("TextButton"),
+	UICorner_26 = Instance.new("UICorner"),
+	No = Instance.new("TextButton"),
+	UICorner_27 = Instance.new("UICorner"),
+	TextLabel_9 = Instance.new("TextLabel"),
+	TextLabel_10 = Instance.new("TextLabel"),
+	Wwarn = Instance.new("Frame"),
+	UICorner_28 = Instance.new("UICorner"),
+	Frame_5 = Instance.new("Frame"),
+	UICorner_29 = Instance.new("UICorner"),
+	Okay = Instance.new("TextButton"),
+	UICorner_30 = Instance.new("UICorner"),
+	TextLabel_11 = Instance.new("TextLabel"),
+	TextLabel_12 = Instance.new("TextLabel"),
+	AutoFarmUi = Instance.new("Frame"),
+	UICorner_31 = Instance.new("UICorner"),
+	AutofarmTxt = Instance.new("TextLabel"),
+	autofarm1 = Instance.new("TextButton"),
+	UICorner_32 = Instance.new("UICorner"),
+	TextLabel_13 = Instance.new("TextLabel"),
+	TextLabel_14 = Instance.new("TextLabel"),
+	Frame_6 = Instance.new("Frame"),
+	UICorner_33 = Instance.new("UICorner"),
+	autofarm2 = Instance.new("TextButton"),
+	UICorner_34 = Instance.new("UICorner"),
+	Frame_7 = Instance.new("Frame"),
+	UICorner_35 = Instance.new("UICorner"),
+	TextLabel_15 = Instance.new("TextLabel"),
+	TextLabel_16 = Instance.new("TextLabel"),
+	Seacher = Instance.new("Frame"),
+	UICorner_36 = Instance.new("UICorner"),
+	ImageLabel = Instance.new("ImageLabel"),
+	TxtBoxBoss = Instance.new("TextBox"),
+	UICorner_37 = Instance.new("UICorner"),
+	BossSelected = Instance.new("Frame"),
+	UICorner_38 = Instance.new("UICorner"),
+	NameEgg = Instance.new("TextLabel"),
+	BossList = Instance.new("Frame"),
+	UICorner_39 = Instance.new("UICorner"),
+	ScrollingFrameEgg = Instance.new("ScrollingFrame"),
+	TextButtonEgg = Instance.new("TextButton"),
+	UICorner_40 = Instance.new("UICorner"),
+	UIListLayout_2 = Instance.new("UIListLayout"),
+	HomeUi = Instance.new("Frame"),
+	UICorner_41 = Instance.new("UICorner"),
+	Credits = Instance.new("TextLabel"),
+	YTDC = Instance.new("TextLabel"),
+	TextCredits_4 = Instance.new("TextLabel"),
+	Frame_8 = Instance.new("Frame"),
+	UICorner_42 = Instance.new("UICorner"),
+	ImageLabelYT = Instance.new("ImageLabel"),
+	UICorner_43 = Instance.new("UICorner"),
+	NameChannel = Instance.new("TextLabel"),
+	NameChannel_2 = Instance.new("TextLabel"),
+	ImageLabelDC = Instance.new("ImageLabel"),
+	UICorner_44 = Instance.new("UICorner"),
+	NameDC = Instance.new("TextLabel"),
+	TextButtonDC = Instance.new("TextButton"),
+	UICorner_45 = Instance.new("UICorner"),
+	TextButtonYT = Instance.new("TextButton"),
+	UICorner_46 = Instance.new("UICorner"),
+	EventUi = Instance.new("Frame"),
+	UICorner_47 = Instance.new("UICorner"),
+	AutofarmTxt_2 = Instance.new("TextLabel"),
+	EventButton1 = Instance.new("TextButton"),
+	UICorner_48 = Instance.new("UICorner"),
+	TextLabel_17 = Instance.new("TextLabel"),
+	TextLabel_18 = Instance.new("TextLabel"),
+	Frame_9 = Instance.new("Frame"),
+	UICorner_49 = Instance.new("UICorner"),
+	EventButton2 = Instance.new("TextButton"),
+	UICorner_50 = Instance.new("UICorner"),
+	Frame_10 = Instance.new("Frame"),
+	UICorner_51 = Instance.new("UICorner"),
+	TextLabel_19 = Instance.new("TextLabel"),
+	TextLabel_20 = Instance.new("TextLabel"),
+	EventButton3 = Instance.new("TextButton"),
+	UICorner_52 = Instance.new("UICorner"),
+	Frame_11 = Instance.new("Frame"),
+	UICorner_53 = Instance.new("UICorner"),
+	TextLabel_21 = Instance.new("TextLabel"),
+	TextLabel_22 = Instance.new("TextLabel"),
+	AutoEggUi = Instance.new("Frame"),
+	UICorner_54 = Instance.new("UICorner"),
+	AutofarmTxt_3 = Instance.new("TextLabel"),
+	autoegg1 = Instance.new("TextButton"),
+	UICorner_55 = Instance.new("UICorner"),
+	TextLabel_23 = Instance.new("TextLabel"),
+	TextLabel_24 = Instance.new("TextLabel"),
+	Frame_12 = Instance.new("Frame"),
+	UICorner_56 = Instance.new("UICorner"),
+	Seacher_2 = Instance.new("Frame"),
+	UICorner_57 = Instance.new("UICorner"),
+	ImageLabel_2 = Instance.new("ImageLabel"),
+	TxtBoxAutoFarm = Instance.new("TextBox"),
+	UICorner_58 = Instance.new("UICorner"),
+	EggSelected = Instance.new("Frame"),
+	UICorner_59 = Instance.new("UICorner"),
+	NameEgg_2 = Instance.new("TextLabel"),
+	EggList = Instance.new("Frame"),
+	UICorner_60 = Instance.new("UICorner"),
+	ScrollingFrameEgg_2 = Instance.new("ScrollingFrame"),
+	TextButtonEgg_2 = Instance.new("TextButton"),
+	UICorner_61 = Instance.new("UICorner"),
+	UIListLayout_3 = Instance.new("UIListLayout"),
+	visibleegg = Instance.new("TextButton"),
+	UICorner_62 = Instance.new("UICorner"),
+	TextLabel_25 = Instance.new("TextLabel"),
+	Frame_13 = Instance.new("Frame"),
+	UICorner_63 = Instance.new("UICorner"),
+	TextLabel_26 = Instance.new("TextLabel"),
+	_1egg = Instance.new("TextButton"),
+	UICorner_64 = Instance.new("UICorner"),
+	Frame_14 = Instance.new("Frame"),
+	UICorner_65 = Instance.new("UICorner"),
+	_3egg = Instance.new("TextButton"),
+	UICorner_66 = Instance.new("UICorner"),
+	Frame_15 = Instance.new("Frame"),
+	UICorner_67 = Instance.new("UICorner"),
+	_8egg = Instance.new("TextButton"),
+	UICorner_68 = Instance.new("UICorner"),
+	Frame_16 = Instance.new("Frame"),
+	UICorner_69 = Instance.new("UICorner"),
+	MiscUi = Instance.new("Frame"),
+	UICorner_70 = Instance.new("UICorner"),
+	AutofarmTxt_4 = Instance.new("TextLabel"),
+	MiscButton1 = Instance.new("TextButton"),
+	UICorner_71 = Instance.new("UICorner"),
+	TextLabel_27 = Instance.new("TextLabel"),
+	TextLabel_28 = Instance.new("TextLabel"),
+	Frame_17 = Instance.new("Frame"),
+	UICorner_72 = Instance.new("UICorner"),
+	MiscButton2 = Instance.new("TextButton"),
+	UICorner_73 = Instance.new("UICorner"),
+	Frame_18 = Instance.new("Frame"),
+	UICorner_74 = Instance.new("UICorner"),
+	TextLabel_29 = Instance.new("TextLabel"),
+	TextLabel_30 = Instance.new("TextLabel"),
+	MiscButton3 = Instance.new("TextButton"),
+	UICorner_75 = Instance.new("UICorner"),
+	Frame_19 = Instance.new("Frame"),
+	UICorner_76 = Instance.new("UICorner"),
+	TextLabel_31 = Instance.new("TextLabel"),
+	TextLabel_32 = Instance.new("TextLabel"),
+	AutoConvertUi = Instance.new("Frame"),
+	UICorner_77 = Instance.new("UICorner"),
+	AutofarmTxt_5 = Instance.new("TextLabel"),
+}
 
 --Properties:
 
-LDSHUB.Name = "LDSHUB"
-LDSHUB.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-LDSHUB.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-Frame.Parent = LDSHUB
-Frame.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
-Frame.Position = UDim2.new(0.313664556, 0, 0.321052641, 0)
-Frame.Size = UDim2.new(0.372049779, 0, 0.357894748, 0)
-
-UICorner.Parent = Frame
-
-LE.Name = "LE"
-LE.Parent = Frame
-LE.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
-LE.Position = UDim2.new(-0.00166725798, 0, 0, 0)
-LE.Size = UDim2.new(0.263566554, 0, 1.00000012, 0)
-
-UICorner_2.Parent = LE
-
-Logo.Name = "Logo"
-Logo.Parent = LE
-Logo.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
-Logo.Position = UDim2.new(0.0950112194, 0, 0.0441176444, 0)
-Logo.Size = UDim2.new(0.285033107, 0, 0.132352933, 0)
-Logo.Font = Enum.Font.SciFi
-Logo.Text = "LDS"
-Logo.TextColor3 = Color3.fromRGB(255, 255, 255)
-Logo.TextScaled = true
-Logo.TextSize = 20.000
-Logo.TextWrapped = true
-
-UICorner_3.CornerRadius = UDim.new(0, 99999999)
-UICorner_3.Parent = Logo
-
-TextLabel.Parent = Logo
-TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.BackgroundTransparency = 1.000
-TextLabel.Position = UDim2.new(1, 0, 0, 0)
-TextLabel.Size = UDim2.new(2.08888888, 0, 1, 0)
-TextLabel.Font = Enum.Font.SciFi
-TextLabel.Text = "HUB"
-TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.TextScaled = true
-TextLabel.TextSize = 14.000
-TextLabel.TextWrapped = true
-
-TextLabel_2.Parent = Logo
-TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_2.BackgroundTransparency = 1.000
-TextLabel_2.Position = UDim2.new(-0.245627344, 0, 6.49903965, 0)
-TextLabel_2.Size = UDim2.new(3.29029179, 0, 0.634293616, 0)
-TextLabel_2.Font = Enum.Font.SciFi
-TextLabel_2.Text = "v. 2.0 beta"
-TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_2.TextScaled = true
-TextLabel_2.TextSize = 14.000
-TextLabel_2.TextWrapped = true
-
-GButtons.Name = "GButtons"
-GButtons.Parent = LE
-GButtons.Active = true
-GButtons.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-GButtons.BackgroundTransparency = 1.000
-GButtons.Position = UDim2.new(0.00599984685, 0, 0.212000027, 0)
-GButtons.Size = UDim2.new(0.994000077, 0, 0.68264699, 0)
-GButtons.CanvasSize = UDim2.new(0, 0, 1.5, 0)
-GButtons.VerticalScrollBarInset = Enum.ScrollBarInset.ScrollBar
-
-UIListLayout.Parent = GButtons
-UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
-UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-UIListLayout.Padding = UDim.new(0.00999999978, 0)
-
-Home.Name = "Home"
-Home.Parent = GButtons
-Home.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
-Home.Position = UDim2.new(0.0193109754, 0, 2.62969223e-07, 0)
-Home.Size = UDim2.new(0.958000004, 0, 0.0850000009, 0)
-Home.Font = Enum.Font.DenkOne
-Home.Text = "Home"
-Home.TextColor3 = Color3.fromRGB(255, 255, 255)
-Home.TextScaled = true
-Home.TextSize = 14.000
-Home.TextWrapped = true
-
-UICorner_4.Parent = Home
-
-AutoFarm.Name = "AutoFarm"
-AutoFarm.Parent = GButtons
-AutoFarm.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-AutoFarm.Position = UDim2.new(0.0314781144, 0, 2.34660348e-07, 0)
-AutoFarm.Size = UDim2.new(0.958000004, 0, 0.0850000009, 0)
-AutoFarm.Font = Enum.Font.DenkOne
-AutoFarm.Text = "Auto Farm"
-AutoFarm.TextColor3 = Color3.fromRGB(255, 255, 255)
-AutoFarm.TextScaled = true
-AutoFarm.TextSize = 14.000
-AutoFarm.TextWrapped = true
-
-UICorner_5.Parent = AutoFarm
-
-Settings.Name = "Settings"
-Settings.Parent = GButtons
-Settings.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-Settings.Position = UDim2.new(0.0382463485, 0, 0, 0)
-Settings.Size = UDim2.new(0.958000004, 0, 0.0850000009, 0)
-Settings.Font = Enum.Font.DenkOne
-Settings.Text = "Settings"
-Settings.TextColor3 = Color3.fromRGB(255, 255, 255)
-Settings.TextScaled = true
-Settings.TextSize = 14.000
-Settings.TextWrapped = true
-
-UICorner_6.Parent = Settings
-
-UpdateNotes.Name = "UpdateNotes"
-UpdateNotes.Parent = GButtons
-UpdateNotes.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-UpdateNotes.Position = UDim2.new(0.0382463485, 0, 0, 0)
-UpdateNotes.Size = UDim2.new(0.958000004, 0, 0.0850000009, 0)
-UpdateNotes.Font = Enum.Font.DenkOne
-UpdateNotes.Text = "Update Notes"
-UpdateNotes.TextColor3 = Color3.fromRGB(255, 255, 255)
-UpdateNotes.TextScaled = true
-UpdateNotes.TextSize = 14.000
-UpdateNotes.TextWrapped = true
-
-UICorner_7.Parent = UpdateNotes
-
-UpdateNoteUi.Name = "UpdateNoteUi"
-UpdateNoteUi.Parent = Frame
-UpdateNoteUi.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-UpdateNoteUi.Position = UDim2.new(0.273959816, 0, 0.0941176489, 0)
-UpdateNoteUi.Size = UDim2.new(0.712676346, 0, 0.862762988, 0)
-UpdateNoteUi.Visible = false
-
-UICorner_8.Parent = UpdateNoteUi
-
-Updates.Name = "Updates"
-Updates.Parent = UpdateNoteUi
-Updates.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Updates.BackgroundTransparency = 1.000
-Updates.Position = UDim2.new(0, 0, -0.0937468559, 0)
-Updates.Size = UDim2.new(0.252276182, 0, 0.172821864, 0)
-Updates.Font = Enum.Font.Unknown
-Updates.Text = "Updates"
-Updates.TextColor3 = Color3.fromRGB(255, 255, 255)
-Updates.TextScaled = true
-Updates.TextSize = 14.000
-Updates.TextWrapped = true
-
-Updates_2.Name = "Updates"
-Updates_2.Parent = UpdateNoteUi
-Updates_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Updates_2.BackgroundTransparency = 1.000
-Updates_2.Position = UDim2.new(0.747148573, 0, -0.0937468559, 0)
-Updates_2.Size = UDim2.new(0.252276182, 0, 0.172821864, 0)
-Updates_2.Font = Enum.Font.Unknown
-Updates_2.Text = "v. 2.0 beta"
-Updates_2.TextColor3 = Color3.fromRGB(255, 255, 255)
-Updates_2.TextScaled = true
-Updates_2.TextSize = 14.000
-Updates_2.TextWrapped = true
-
-TextCredits.Name = "TextCredits"
-TextCredits.Parent = UpdateNoteUi
-TextCredits.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextCredits.BackgroundTransparency = 1.000
-TextCredits.Position = UDim2.new(0.0163722541, 0, 0.0463209786, 0)
-TextCredits.Size = UDim2.new(0.972014546, 0, 0.131504238, 0)
-TextCredits.Font = Enum.Font.FredokaOne
-TextCredits.Text = "・New Hub!!"
-TextCredits.TextColor3 = Color3.fromRGB(170, 170, 255)
-TextCredits.TextScaled = true
-TextCredits.TextSize = 14.000
-TextCredits.TextWrapped = true
-TextCredits.TextXAlignment = Enum.TextXAlignment.Left
-
-TextCredits_2.Name = "TextCredits"
-TextCredits_2.Parent = UpdateNoteUi
-TextCredits_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextCredits_2.BackgroundTransparency = 1.000
-TextCredits_2.Position = UDim2.new(0.0163722541, 0, 0.175863758, 0)
-TextCredits_2.Size = UDim2.new(0.972014546, 0, 0.24400191, 0)
-TextCredits_2.Font = Enum.Font.FredokaOne
-TextCredits_2.Text = "・New options now available in the \"AutoFarm\" tab\""
-TextCredits_2.TextColor3 = Color3.fromRGB(170, 170, 255)
-TextCredits_2.TextScaled = true
-TextCredits_2.TextSize = 14.000
-TextCredits_2.TextWrapped = true
-TextCredits_2.TextXAlignment = Enum.TextXAlignment.Left
-
-TextCredits_3.Name = "TextCredits"
-TextCredits_3.Parent = UpdateNoteUi
-TextCredits_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextCredits_3.BackgroundTransparency = 1.000
-TextCredits_3.Position = UDim2.new(0.0117103877, 0, 0.417904168, 0)
-TextCredits_3.Size = UDim2.new(0.972014546, 0, 0.138322279, 0)
-TextCredits_3.Font = Enum.Font.FredokaOne
-TextCredits_3.Text = "・New auto farm event!!"
-TextCredits_3.TextColor3 = Color3.fromRGB(170, 170, 255)
-TextCredits_3.TextScaled = true
-TextCredits_3.TextSize = 14.000
-TextCredits_3.TextWrapped = true
-TextCredits_3.TextXAlignment = Enum.TextXAlignment.Left
-
-SettingsUI.Name = "SettingsUI"
-SettingsUI.Parent = Frame
-SettingsUI.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-SettingsUI.Position = UDim2.new(0.273959696, 0, 0.0941176489, 0)
-SettingsUI.Size = UDim2.new(0.707664907, 0, 0.871586502, 0)
-SettingsUI.Visible = false
-
-UICorner_9.Parent = SettingsUI
-
-SpawnerCarTxt.Name = "SpawnerCarTxt"
-SpawnerCarTxt.Parent = SettingsUI
-SpawnerCarTxt.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-SpawnerCarTxt.BackgroundTransparency = 1.000
-SpawnerCarTxt.Position = UDim2.new(-3.46731395e-05, 0, -0.0708646849, 0)
-SpawnerCarTxt.Size = UDim2.new(0.407053292, 0, 0.165350974, 0)
-SpawnerCarTxt.Font = Enum.Font.Unknown
-SpawnerCarTxt.Text = "Settings"
-SpawnerCarTxt.TextColor3 = Color3.fromRGB(255, 255, 255)
-SpawnerCarTxt.TextScaled = true
-SpawnerCarTxt.TextSize = 14.000
-SpawnerCarTxt.TextWrapped = true
-
-IDK.Name = "IDK"
-IDK.Parent = SettingsUI
-IDK.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-IDK.Position = UDim2.new(0.0164320152, 0, 0.536577582, 0)
-IDK.Size = UDim2.new(0.964788616, 0, 0.443175077, 0)
-
-UICorner_10.Parent = IDK
-
-TextBox.Parent = IDK
-TextBox.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-TextBox.Position = UDim2.new(0.153299093, 0, 0.36807552, 0)
-TextBox.Size = UDim2.new(0.695136189, 0, 0.236046121, 0)
-TextBox.Font = Enum.Font.FredokaOne
-TextBox.PlaceholderText = "\"Place here you keybind (Not Working)\""
-TextBox.Text = ""
-TextBox.TextColor3 = Color3.fromRGB(170, 0, 255)
-TextBox.TextScaled = true
-TextBox.TextSize = 14.000
-TextBox.TextWrapped = true
-
-UICorner_11.Parent = TextBox
-
-TextLabel_3.Parent = IDK
-TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_3.BackgroundTransparency = 1.000
-TextLabel_3.Position = UDim2.new(0, 0, -0.00761392713, 0)
-TextLabel_3.Size = UDim2.new(1, 0, 0.375689745, 0)
-TextLabel_3.Font = Enum.Font.SciFi
-TextLabel_3.Text = "If you want to change the defined key to make the HUB invisible, put the desired key in the field below!"
-TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_3.TextScaled = true
-TextLabel_3.TextSize = 14.000
-TextLabel_3.TextWrapped = true
-
-TextLabel_4.Parent = IDK
-TextLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_4.BackgroundTransparency = 1.000
-TextLabel_4.Position = UDim2.new(0.220155805, 0, 0.738596737, 0)
-TextLabel_4.Size = UDim2.new(0.553439558, 0, 0.304506034, 0)
-TextLabel_4.Font = Enum.Font.SciFi
-TextLabel_4.Text = "Defined key: Right Shift"
-TextLabel_4.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_4.TextScaled = true
-TextLabel_4.TextSize = 14.000
-TextLabel_4.TextWrapped = true
-
-ActiveToogleTxt.Name = "ActiveToogleTxt"
-ActiveToogleTxt.Parent = IDK
-ActiveToogleTxt.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-ActiveToogleTxt.Position = UDim2.new(0.368758351, 0, 0.654228806, 0)
-ActiveToogleTxt.Size = UDim2.new(0.260342091, 0, 0.15990223, 0)
-ActiveToogleTxt.Font = Enum.Font.FredokaOne
-ActiveToogleTxt.Text = "Active"
-ActiveToogleTxt.TextColor3 = Color3.fromRGB(255, 255, 255)
-ActiveToogleTxt.TextScaled = true
-ActiveToogleTxt.TextSize = 14.000
-ActiveToogleTxt.TextWrapped = true
-
-UICorner_12.Parent = ActiveToogleTxt
-
-IDK_2.Name = "IDK "
-IDK_2.Parent = SettingsUI
-IDK_2.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-IDK_2.Position = UDim2.new(0.0164320152, 0, 0.134980157, 0)
-IDK_2.Size = UDim2.new(0.460091054, 0, 0.362217754, 0)
-
-UICorner_13.Parent = IDK_2
-
-AntAFKButton.Name = "AntAFKButton"
-AntAFKButton.Parent = IDK_2
-AntAFKButton.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-AntAFKButton.Position = UDim2.new(0.25792107, 0, 0.314927578, 0)
-AntAFKButton.Size = UDim2.new(0.474495292, 0, 0.307436049, 0)
-AntAFKButton.Font = Enum.Font.SourceSans
-AntAFKButton.Text = ""
-AntAFKButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-AntAFKButton.TextSize = 14.000
-
-UICorner_14.Parent = AntAFKButton
-
-TextLabel_5.Parent = AntAFKButton
-TextLabel_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_5.BackgroundTransparency = 1.000
-TextLabel_5.Position = UDim2.new(-0.398266196, 0, -1.02436781, 0)
-TextLabel_5.Size = UDim2.new(1.77940321, 0, 1.02436817, 0)
-TextLabel_5.Font = Enum.Font.FredokaOne
-TextLabel_5.Text = "Anti AFK"
-TextLabel_5.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_5.TextScaled = true
-TextLabel_5.TextSize = 14.000
-TextLabel_5.TextWrapped = true
-
-TextLabel_6.Parent = AntAFKButton
-TextLabel_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_6.BackgroundTransparency = 1.000
-TextLabel_6.Position = UDim2.new(-0.543569267, 0, 1, 0)
-TextLabel_6.Size = UDim2.new(2.10750294, 0, 1.21227443, 0)
-TextLabel_6.Font = Enum.Font.FredokaOne
-TextLabel_6.Text = "When activated you will not be kicked for inactivity"
-TextLabel_6.TextColor3 = Color3.fromRGB(170, 0, 255)
-TextLabel_6.TextScaled = true
-TextLabel_6.TextSize = 14.000
-TextLabel_6.TextWrapped = true
-
-Frame_2.Parent = AntAFKButton
-Frame_2.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-Frame_2.Position = UDim2.new(0.0568263568, 0, 0.1777464, 0)
-Frame_2.Size = UDim2.new(0.45161289, 0, 0.696969688, 0)
-
-UICorner_15.Parent = Frame_2
-
-IDK_3.Name = "IDK"
-IDK_3.Parent = SettingsUI
-IDK_3.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-IDK_3.Position = UDim2.new(0.521129549, 0, 0.134980157, 0)
-IDK_3.Size = UDim2.new(0.460091054, 0, 0.362217754, 0)
-
-UICorner_16.Parent = IDK_3
-
-DeleteButton.Name = "DeleteButton"
-DeleteButton.Parent = IDK_3
-DeleteButton.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-DeleteButton.Position = UDim2.new(0.25792107, 0, 0.314927578, 0)
-DeleteButton.Size = UDim2.new(0.474495292, 0, 0.307436049, 0)
-DeleteButton.Font = Enum.Font.SourceSans
-DeleteButton.Text = ""
-DeleteButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-DeleteButton.TextSize = 14.000
-
-UICorner_17.Parent = DeleteButton
-
-TextLabel_7.Parent = DeleteButton
-TextLabel_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_7.BackgroundTransparency = 1.000
-TextLabel_7.Position = UDim2.new(-0.398266196, 0, -0.882007003, 0)
-TextLabel_7.Size = UDim2.new(1.80090857, 0, 0.882007301, 0)
-TextLabel_7.Font = Enum.Font.FredokaOne
-TextLabel_7.Text = "Delete Hub"
-TextLabel_7.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_7.TextScaled = true
-TextLabel_7.TextSize = 14.000
-TextLabel_7.TextWrapped = true
-
-TextLabel_8.Parent = DeleteButton
-TextLabel_8.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_8.BackgroundTransparency = 1.000
-TextLabel_8.Position = UDim2.new(-0.543569267, 0, 1, 0)
-TextLabel_8.Size = UDim2.new(2.10750294, 0, 1.21227443, 0)
-TextLabel_8.Font = Enum.Font.FredokaOne
-TextLabel_8.Text = "When activating this option the Hub will disappear forever, to open it again you will have to run the script again!"
-TextLabel_8.TextColor3 = Color3.fromRGB(170, 0, 255)
-TextLabel_8.TextScaled = true
-TextLabel_8.TextSize = 14.000
-TextLabel_8.TextWrapped = true
-
-Frame_3.Parent = DeleteButton
-Frame_3.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-Frame_3.Position = UDim2.new(0.0568263568, 0, 0.1777464, 0)
-Frame_3.Size = UDim2.new(0.45161289, 0, 0.696969688, 0)
-
-UICorner_18.Parent = Frame_3
-
-Warn.Name = "Warn"
-Warn.Parent = Frame
-Warn.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
-Warn.BackgroundTransparency = 0.300
-Warn.Position = UDim2.new(-1.01579595e-07, 0, 0, 0)
-Warn.Size = UDim2.new(1.00000024, 0, 1, 0)
-Warn.Visible = false
-Warn.ZIndex = 5
-
-UICorner_19.Parent = Warn
-
-Dwarn.Name = "Dwarn"
-Dwarn.Parent = Warn
-Dwarn.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
-Dwarn.Position = UDim2.new(0.168092147, 0, 0.193146184, 0)
-Dwarn.Size = UDim2.new(0.665079296, 0, 0.671559691, 0)
-Dwarn.Visible = false
-
-UICorner_20.Parent = Dwarn
-
-Frame_4.Parent = Dwarn
-Frame_4.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-Frame_4.Position = UDim2.new(0.0200190227, 0, 0.375200927, 0)
-Frame_4.Size = UDim2.new(0.959961951, 0, 0.576623321, 0)
-
-UICorner_21.Parent = Frame_4
-
-Yes.Name = "Yes"
-Yes.Parent = Frame_4
-Yes.BackgroundColor3 = Color3.fromRGB(85, 255, 127)
-Yes.Position = UDim2.new(0.552630305, 0, 0.281025678, 0)
-Yes.Size = UDim2.new(0.392323554, 0, 0.437948585, 0)
-Yes.Font = Enum.Font.SciFi
-Yes.Text = "Yes"
-Yes.TextColor3 = Color3.fromRGB(255, 255, 255)
-Yes.TextScaled = true
-Yes.TextSize = 14.000
-Yes.TextWrapped = true
-
-UICorner_22.Parent = Yes
-
-No.Name = "No"
-No.Parent = Frame_4
-No.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-No.Position = UDim2.new(0.0560000017, 0, 0.281025678, 0)
-No.Size = UDim2.new(0.392323554, 0, 0.437948585, 0)
-No.Font = Enum.Font.SciFi
-No.Text = "No"
-No.TextColor3 = Color3.fromRGB(255, 255, 255)
-No.TextScaled = true
-No.TextSize = 14.000
-No.TextWrapped = true
-
-UICorner_23.Parent = No
-
-TextLabel_9.Parent = Dwarn
-TextLabel_9.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_9.BackgroundTransparency = 1.000
-TextLabel_9.Position = UDim2.new(0.0200190227, 0, 0.15911302, 0)
-TextLabel_9.Size = UDim2.new(0.959961772, 0, 0.232730389, 0)
-TextLabel_9.Font = Enum.Font.FredokaOne
-TextLabel_9.Text = "Are you sure you want to proceed?"
-TextLabel_9.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_9.TextScaled = true
-TextLabel_9.TextSize = 14.000
-TextLabel_9.TextWrapped = true
-
-TextLabel_10.Parent = Dwarn
-TextLabel_10.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
-TextLabel_10.BackgroundTransparency = 1.000
-TextLabel_10.Position = UDim2.new(0.0175166447, 0, 0.00582630653, 0)
-TextLabel_10.Size = UDim2.new(0.959961772, 0, 0.204395592, 0)
-TextLabel_10.Font = Enum.Font.FredokaOne
-TextLabel_10.Text = "(warning)"
-TextLabel_10.TextColor3 = Color3.fromRGB(170, 0, 255)
-TextLabel_10.TextScaled = true
-TextLabel_10.TextSize = 14.000
-TextLabel_10.TextWrapped = true
-
-Wwarn.Name = "Wwarn"
-Wwarn.Parent = Warn
-Wwarn.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
-Wwarn.Position = UDim2.new(0.168092147, 0, 0.193146184, 0)
-Wwarn.Size = UDim2.new(0.665079296, 0, 0.671559691, 0)
-Wwarn.Visible = false
-
-UICorner_24.Parent = Wwarn
-
-Frame_5.Parent = Wwarn
-Frame_5.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-Frame_5.Position = UDim2.new(0.0200190227, 0, 0.375200927, 0)
-Frame_5.Size = UDim2.new(0.959961951, 0, 0.576623321, 0)
-
-UICorner_25.Parent = Frame_5
-
-Okay.Name = "Okay"
-Okay.Parent = Frame_5
-Okay.BackgroundColor3 = Color3.fromRGB(85, 255, 127)
-Okay.Position = UDim2.new(0.300244689, 0, 0.281025678, 0)
-Okay.Size = UDim2.new(0.392323554, 0, 0.437948585, 0)
-Okay.Font = Enum.Font.SciFi
-Okay.Text = "Okay"
-Okay.TextColor3 = Color3.fromRGB(255, 255, 255)
-Okay.TextScaled = true
-Okay.TextSize = 14.000
-Okay.TextWrapped = true
-
-UICorner_26.Parent = Okay
-
-TextLabel_11.Parent = Wwarn
-TextLabel_11.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_11.BackgroundTransparency = 1.000
-TextLabel_11.Position = UDim2.new(0.0200187974, 0, 0.201462671, 0)
-TextLabel_11.Size = UDim2.new(0.959961772, 0, 0.190380752, 0)
-TextLabel_11.Font = Enum.Font.FredokaOne
-TextLabel_11.Text = "This option is still under development!"
-TextLabel_11.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_11.TextScaled = true
-TextLabel_11.TextSize = 14.000
-TextLabel_11.TextWrapped = true
-
-TextLabel_12.Parent = Wwarn
-TextLabel_12.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
-TextLabel_12.BackgroundTransparency = 1.000
-TextLabel_12.Position = UDim2.new(0.0175166447, 0, 0.00582630653, 0)
-TextLabel_12.Size = UDim2.new(0.959961772, 0, 0.204395592, 0)
-TextLabel_12.Font = Enum.Font.FredokaOne
-TextLabel_12.Text = "(warning)"
-TextLabel_12.TextColor3 = Color3.fromRGB(170, 0, 255)
-TextLabel_12.TextScaled = true
-TextLabel_12.TextSize = 14.000
-TextLabel_12.TextWrapped = true
-
-AutoFarmUi.Name = "AutoFarmUi"
-AutoFarmUi.Parent = Frame
-AutoFarmUi.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-AutoFarmUi.Position = UDim2.new(0.273959696, 0, 0.0941176489, 0)
-AutoFarmUi.Size = UDim2.new(0.707664907, 0, 0.871586502, 0)
-AutoFarmUi.Visible = false
-
-UICorner_27.Parent = AutoFarmUi
-
-AutofarmTxt.Name = "AutofarmTxt"
-AutofarmTxt.Parent = AutoFarmUi
-AutofarmTxt.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-AutofarmTxt.BackgroundTransparency = 1.000
-AutofarmTxt.Position = UDim2.new(0.0234396197, 0, -0.093746841, 0)
-AutofarmTxt.Size = UDim2.new(0.353066504, 0, 0.188233122, 0)
-AutofarmTxt.Font = Enum.Font.Unknown
-AutofarmTxt.Text = "Auto Farm"
-AutofarmTxt.TextColor3 = Color3.fromRGB(255, 255, 255)
-AutofarmTxt.TextScaled = true
-AutofarmTxt.TextSize = 14.000
-AutofarmTxt.TextWrapped = true
-
-autofarm1.Name = "autofarm1"
-autofarm1.Parent = AutoFarmUi
-autofarm1.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-autofarm1.Position = UDim2.new(0.0283266865, 0, 0.13498041, 0)
-autofarm1.Size = UDim2.new(0.161972716, 0, 0.104609773, 0)
-autofarm1.Font = Enum.Font.SourceSans
-autofarm1.Text = ""
-autofarm1.TextColor3 = Color3.fromRGB(0, 0, 0)
-autofarm1.TextSize = 14.000
-
-UICorner_28.Parent = autofarm1
-
-TextLabel_13.Parent = autofarm1
-TextLabel_13.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_13.BackgroundTransparency = 1.000
-TextLabel_13.Position = UDim2.new(1.0869565, 0, -0.0967741907, 0)
-TextLabel_13.Size = UDim2.new(2.18840575, 0, 1, 0)
-TextLabel_13.Font = Enum.Font.FredokaOne
-TextLabel_13.Text = "Auto Click"
-TextLabel_13.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_13.TextScaled = true
-TextLabel_13.TextSize = 14.000
-TextLabel_13.TextWrapped = true
-TextLabel_13.TextXAlignment = Enum.TextXAlignment.Left
-
-TextLabel_14.Parent = autofarm1
-TextLabel_14.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_14.BackgroundTransparency = 1.000
-TextLabel_14.Position = UDim2.new(-0.174886063, 0, 1.22580647, 0)
-TextLabel_14.Size = UDim2.new(6.17388105, 0, 1.20899427, 0)
-TextLabel_14.Font = Enum.Font.FredokaOne
-TextLabel_14.Text = "when activating this option, to keep clicking automatically for you, it does not affect the pc!"
-TextLabel_14.TextColor3 = Color3.fromRGB(170, 0, 255)
-TextLabel_14.TextScaled = true
-TextLabel_14.TextSize = 14.000
-TextLabel_14.TextWrapped = true
-
-Frame_6.Parent = autofarm1
-Frame_6.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-Frame_6.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
-Frame_6.Size = UDim2.new(0.434782594, 0, 0.870967746, 0)
-
-UICorner_29.Parent = Frame_6
-
-autofarm2.Name = "autofarm2"
-autofarm2.Parent = AutoFarmUi
-autofarm2.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-autofarm2.Position = UDim2.new(0.021284394, 0, 0.411690116, 0)
-autofarm2.Size = UDim2.new(0.161972716, 0, 0.104609773, 0)
-autofarm2.Font = Enum.Font.SourceSans
-autofarm2.Text = ""
-autofarm2.TextColor3 = Color3.fromRGB(0, 0, 0)
-autofarm2.TextSize = 14.000
-
-UICorner_30.Parent = autofarm2
-
-Frame_7.Parent = autofarm2
-Frame_7.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-Frame_7.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
-Frame_7.Size = UDim2.new(0.434782594, 0, 0.870967746, 0)
-
-UICorner_31.Parent = Frame_7
-
-TextLabel_15.Parent = autofarm2
-TextLabel_15.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_15.BackgroundTransparency = 1.000
-TextLabel_15.Position = UDim2.new(1.0869565, 0, -0.0322580673, 0)
-TextLabel_15.Size = UDim2.new(4.95551682, 0, 1.00000012, 0)
-TextLabel_15.Font = Enum.Font.FredokaOne
-TextLabel_15.Text = "Auto Farm Event (World 1 | 5 Boss)"
-TextLabel_15.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_15.TextScaled = true
-TextLabel_15.TextSize = 14.000
-TextLabel_15.TextWrapped = true
-TextLabel_15.TextXAlignment = Enum.TextXAlignment.Left
-
-TextLabel_16.Parent = autofarm2
-TextLabel_16.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_16.BackgroundTransparency = 1.000
-TextLabel_16.Position = UDim2.new(-0.131407812, 0, 1.22580254, 0)
-TextLabel_16.Size = UDim2.new(6.17388105, 0, 1.36578965, 0)
-TextLabel_16.Font = Enum.Font.FredokaOne
-TextLabel_16.Text = "Activating this option, you will only farm the 5 Bosses of the world school"
-TextLabel_16.TextColor3 = Color3.fromRGB(170, 0, 255)
-TextLabel_16.TextScaled = true
-TextLabel_16.TextSize = 14.000
-TextLabel_16.TextWrapped = true
-
-autofarm3.Name = "autofarm3"
-autofarm3.Parent = AutoFarmUi
-autofarm3.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-autofarm3.Position = UDim2.new(0.021284394, 0, 0.715395927, 0)
-autofarm3.Size = UDim2.new(0.161972716, 0, 0.104609773, 0)
-autofarm3.Font = Enum.Font.SourceSans
-autofarm3.Text = ""
-autofarm3.TextColor3 = Color3.fromRGB(0, 0, 0)
-autofarm3.TextSize = 14.000
-
-UICorner_32.Parent = autofarm3
-
-Frame_8.Parent = autofarm3
-Frame_8.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-Frame_8.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
-Frame_8.Size = UDim2.new(0.434782594, 0, 0.870967746, 0)
-
-UICorner_33.Parent = Frame_8
-
-TextLabel_17.Parent = autofarm3
-TextLabel_17.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_17.BackgroundTransparency = 1.000
-TextLabel_17.Position = UDim2.new(1.0869565, 0, -0.0322580673, 0)
-TextLabel_17.Size = UDim2.new(4.95551682, 0, 1.00000012, 0)
-TextLabel_17.Font = Enum.Font.FredokaOne
-TextLabel_17.Text = "Auto Farm Event (World 2 | 2 Boss)"
-TextLabel_17.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_17.TextScaled = true
-TextLabel_17.TextSize = 14.000
-TextLabel_17.TextWrapped = true
-TextLabel_17.TextXAlignment = Enum.TextXAlignment.Left
-
-TextLabel_18.Parent = autofarm3
-TextLabel_18.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_18.BackgroundTransparency = 1.000
-TextLabel_18.Position = UDim2.new(-0.131407812, 0, 1.22580254, 0)
-TextLabel_18.Size = UDim2.new(6.1738801, 0, 1.36578965, 0)
-TextLabel_18.Font = Enum.Font.FredokaOne
-TextLabel_18.Text = "Activating this option, you will only farm the 2 bosses of the world space"
-TextLabel_18.TextColor3 = Color3.fromRGB(170, 0, 255)
-TextLabel_18.TextScaled = true
-TextLabel_18.TextSize = 14.000
-TextLabel_18.TextWrapped = true
-
-HomeUi.Name = "HomeUi"
-HomeUi.Parent = Frame
-HomeUi.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-HomeUi.Position = UDim2.new(0.273959696, 0, 0.0941176489, 0)
-HomeUi.Size = UDim2.new(0.712676346, 0, 0.533351243, 0)
-
-UICorner_34.Parent = HomeUi
-
-Credits.Name = "Credits"
-Credits.Parent = HomeUi
-Credits.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Credits.BackgroundTransparency = 1.000
-Credits.Position = UDim2.new(0, 0, -0.0937468559, 0)
-Credits.Size = UDim2.new(0.252276182, 0, 0.172821864, 0)
-Credits.Font = Enum.Font.Unknown
-Credits.Text = "Credits"
-Credits.TextColor3 = Color3.fromRGB(255, 255, 255)
-Credits.TextScaled = true
-Credits.TextSize = 14.000
-Credits.TextWrapped = true
-
-YTDC.Name = "YTDC"
-YTDC.Parent = HomeUi
-YTDC.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-YTDC.BackgroundTransparency = 1.000
-YTDC.Position = UDim2.new(0.0187516958, 0, 1.03385592, 0)
-YTDC.Size = UDim2.new(0.392913878, 0, 0.142608792, 0)
-YTDC.ZIndex = 10
-YTDC.Font = Enum.Font.Unknown
-YTDC.Text = "Youtube | Discord"
-YTDC.TextColor3 = Color3.fromRGB(255, 255, 255)
-YTDC.TextScaled = true
-YTDC.TextSize = 14.000
-YTDC.TextWrapped = true
-
-TextCredits_4.Name = "TextCredits"
-TextCredits_4.Parent = HomeUi
-TextCredits_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextCredits_4.BackgroundTransparency = 1.000
-TextCredits_4.Position = UDim2.new(0.0187516958, 0, 0.121319458, 0)
-TextCredits_4.Size = UDim2.new(0.962496698, 0, 0.823535323, 0)
-TextCredits_4.Font = Enum.Font.FredokaOne
-TextCredits_4.Text = "Well if you're seeing this, then everything worked out, and I'm very happy about it, I want to give my credit to my friend Ali, who helped me A LOT with doubts regarding the scripts, this is the first HUB I created so wait for many others coming soon :3"
-TextCredits_4.TextColor3 = Color3.fromRGB(170, 0, 255)
-TextCredits_4.TextScaled = true
-TextCredits_4.TextSize = 14.000
-TextCredits_4.TextWrapped = true
-
-Frame_9.Parent = HomeUi
-Frame_9.BackgroundColor3 = Color3.fromRGB(51, 51, 51)
-Frame_9.Position = UDim2.new(0, 0, 1.09561825, 0)
-Frame_9.Size = UDim2.new(0.999999881, 0, 0.548003972, 0)
-Frame_9.ZIndex = 0
-
-UICorner_35.Parent = Frame_9
-
-ImageLabelYT.Name = "ImageLabelYT"
-ImageLabelYT.Parent = Frame_9
-ImageLabelYT.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ImageLabelYT.Position = UDim2.new(0.0187516958, 0, 0.158772826, 0)
-ImageLabelYT.Size = UDim2.new(0.15151006, 0, 0.654089928, 0)
-ImageLabelYT.Image = "rbxassetid://12772776120"
-
-UICorner_36.CornerRadius = UDim.new(0, 99999999)
-UICorner_36.Parent = ImageLabelYT
-
-NameChannel.Name = "NameChannel"
-NameChannel.Parent = Frame_9
-NameChannel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-NameChannel.BackgroundTransparency = 1.000
-NameChannel.Position = UDim2.new(0.119542062, 0, 0.218616888, 0)
-NameChannel.Size = UDim2.new(0.392913878, 0, 0.362135291, 0)
-NameChannel.ZIndex = 10
-NameChannel.Font = Enum.Font.SciFi
-NameChannel.Text = "Sr. LDS"
-NameChannel.TextColor3 = Color3.fromRGB(255, 255, 255)
-NameChannel.TextScaled = true
-NameChannel.TextSize = 14.000
-NameChannel.TextWrapped = true
-
-NameChannel_2.Name = "NameChannel"
-NameChannel_2.Parent = Frame_9
-NameChannel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-NameChannel_2.BackgroundTransparency = 1.000
-NameChannel_2.Position = UDim2.new(0.168765277, 0, 0.532225609, 0)
-NameChannel_2.Size = UDim2.new(0.292123526, 0, 0.201496333, 0)
-NameChannel_2.ZIndex = 10
-NameChannel_2.Font = Enum.Font.SciFi
-NameChannel_2.Text = "@Sr_LDS"
-NameChannel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
-NameChannel_2.TextScaled = true
-NameChannel_2.TextSize = 14.000
-NameChannel_2.TextWrapped = true
-
-ImageLabelDC.Name = "ImageLabelDC"
-ImageLabelDC.Parent = Frame_9
-ImageLabelDC.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-ImageLabelDC.Position = UDim2.new(0.489888072, 0, 0.158772826, 0)
-ImageLabelDC.Size = UDim2.new(0.15151006, 0, 0.654089928, 0)
-ImageLabelDC.Image = "http://www.roblox.com/asset/?id=1999278264"
-
-UICorner_37.CornerRadius = UDim.new(0, 99999999)
-UICorner_37.Parent = ImageLabelDC
-
-NameDC.Name = "NameDC"
-NameDC.Parent = Frame_9
-NameDC.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-NameDC.BackgroundTransparency = 1.000
-NameDC.Position = UDim2.new(0.658653319, 0, 0.239524141, 0)
-NameDC.Size = UDim2.new(0.322595239, 0, 0.504140854, 0)
-NameDC.ZIndex = 10
-NameDC.Font = Enum.Font.SciFi
-NameDC.Text = "https://discord.gg/DABC3eFusQ"
-NameDC.TextColor3 = Color3.fromRGB(255, 255, 255)
-NameDC.TextScaled = true
-NameDC.TextSize = 14.000
-NameDC.TextWrapped = true
-
-TextButtonDC.Name = "TextButtonDC"
-TextButtonDC.Parent = Frame_9
-TextButtonDC.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-TextButtonDC.Position = UDim2.new(0.658653319, 0, 0.773568153, 0)
-TextButtonDC.Size = UDim2.new(0.322595119, 0, 0.149138987, 0)
-TextButtonDC.Font = Enum.Font.SciFi
-TextButtonDC.Text = "Click here for copy"
-TextButtonDC.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextButtonDC.TextSize = 14.000
-
-UICorner_38.Parent = TextButtonDC
-
-TextButtonYT.Name = "TextButtonYT"
-TextButtonYT.Parent = Frame_9
-TextButtonYT.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-TextButtonYT.Position = UDim2.new(0.154701471, 0, 0.773568153, 0)
-TextButtonYT.Size = UDim2.new(0.322595119, 0, 0.149138987, 0)
-TextButtonYT.Font = Enum.Font.SciFi
-TextButtonYT.Text = "Click here for copy"
-TextButtonYT.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextButtonYT.TextSize = 14.000
-
-UICorner_39.Parent = TextButtonYT
+LDSHUB.LDSHUB.Name = "LDSHUB"
+LDSHUB.LDSHUB.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+LDSHUB.LDSHUB.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+LDSHUB.Frame.Parent = LDSHUB.LDSHUB
+LDSHUB.Frame.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+LDSHUB.Frame.Position = UDim2.new(0.313664556, 0, 0.321052641, 0)
+LDSHUB.Frame.Size = UDim2.new(0.372049779, 0, 0.357894748, 0)
+
+LDSHUB.UICorner.Parent = LDSHUB.Frame
+
+LDSHUB.LE.Name = "LE"
+LDSHUB.LE.Parent = LDSHUB.Frame
+LDSHUB.LE.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+LDSHUB.LE.Position = UDim2.new(-0.00166725798, 0, 0, 0)
+LDSHUB.LE.Size = UDim2.new(0.263566554, 0, 1.00000012, 0)
+
+LDSHUB.UICorner_2.Parent = LDSHUB.LE
+
+LDSHUB.Logo.Name = "Logo"
+LDSHUB.Logo.Parent = LDSHUB.LE
+LDSHUB.Logo.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.Logo.Position = UDim2.new(0.0950112194, 0, 0.0441176444, 0)
+LDSHUB.Logo.Size = UDim2.new(0.285033107, 0, 0.132352933, 0)
+LDSHUB.Logo.Font = Enum.Font.SciFi
+LDSHUB.Logo.Text = "LDS"
+LDSHUB.Logo.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.Logo.TextScaled = true
+LDSHUB.Logo.TextSize = 20.000
+LDSHUB.Logo.TextWrapped = true
+
+LDSHUB.UICorner_3.CornerRadius = UDim.new(0, 99999999)
+LDSHUB.UICorner_3.Parent = LDSHUB.Logo
+
+LDSHUB.TextLabel.Parent = LDSHUB.Logo
+LDSHUB.TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel.BackgroundTransparency = 1.000
+LDSHUB.TextLabel.Position = UDim2.new(1, 0, 0, 0)
+LDSHUB.TextLabel.Size = UDim2.new(2.08888888, 0, 1, 0)
+LDSHUB.TextLabel.Font = Enum.Font.SciFi
+LDSHUB.TextLabel.Text = "HUB"
+LDSHUB.TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel.TextScaled = true
+LDSHUB.TextLabel.TextSize = 14.000
+LDSHUB.TextLabel.TextWrapped = true
+
+LDSHUB.TextLabel_2.Parent = LDSHUB.Logo
+LDSHUB.TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_2.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_2.Position = UDim2.new(-0.245627344, 0, 6.49903965, 0)
+LDSHUB.TextLabel_2.Size = UDim2.new(3.29029179, 0, 0.634293616, 0)
+LDSHUB.TextLabel_2.Font = Enum.Font.SciFi
+LDSHUB.TextLabel_2.Text = "v. 2.0 beta"
+LDSHUB.TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_2.TextScaled = true
+LDSHUB.TextLabel_2.TextSize = 14.000
+LDSHUB.TextLabel_2.TextWrapped = true
+
+LDSHUB.GButtons.Name = "GButtons"
+LDSHUB.GButtons.Parent = LDSHUB.LE
+LDSHUB.GButtons.Active = true
+LDSHUB.GButtons.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.GButtons.BackgroundTransparency = 1.000
+LDSHUB.GButtons.Position = UDim2.new(0.00599984685, 0, 0.212000027, 0)
+LDSHUB.GButtons.Size = UDim2.new(0.994000077, 0, 0.68264699, 0)
+LDSHUB.GButtons.CanvasSize = UDim2.new(0, 0, 1.5, 0)
+LDSHUB.GButtons.VerticalScrollBarInset = Enum.ScrollBarInset.ScrollBar
+
+LDSHUB.UIListLayout.Parent = LDSHUB.GButtons
+LDSHUB.UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+LDSHUB.UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+LDSHUB.UIListLayout.Padding = UDim.new(0.00999999978, 0)
+
+LDSHUB.Home.Name = "Home"
+LDSHUB.Home.Parent = LDSHUB.GButtons
+LDSHUB.Home.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.Home.Position = UDim2.new(0.0193109754, 0, 2.62969223e-07, 0)
+LDSHUB.Home.Size = UDim2.new(0.958000004, 0, 0.0850000009, 0)
+LDSHUB.Home.Font = Enum.Font.DenkOne
+LDSHUB.Home.Text = "Home"
+LDSHUB.Home.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.Home.TextScaled = true
+LDSHUB.Home.TextSize = 14.000
+LDSHUB.Home.TextWrapped = true
+
+LDSHUB.UICorner_4.Parent = LDSHUB.Home
+
+LDSHUB.Event.Name = "Event"
+LDSHUB.Event.Parent = LDSHUB.GButtons
+LDSHUB.Event.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.Event.Position = UDim2.new(0.0314781144, 0, 2.34660348e-07, 0)
+LDSHUB.Event.Size = UDim2.new(0.958000004, 0, 0.0850000009, 0)
+LDSHUB.Event.Font = Enum.Font.DenkOne
+LDSHUB.Event.Text = "Event"
+LDSHUB.Event.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.Event.TextScaled = true
+LDSHUB.Event.TextSize = 14.000
+LDSHUB.Event.TextWrapped = true
+
+LDSHUB.UICorner_5.Parent = LDSHUB.Event
+
+LDSHUB.AutoFarm.Name = "AutoFarm"
+LDSHUB.AutoFarm.Parent = LDSHUB.GButtons
+LDSHUB.AutoFarm.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.AutoFarm.Position = UDim2.new(0.0314781144, 0, 2.34660348e-07, 0)
+LDSHUB.AutoFarm.Size = UDim2.new(0.958000004, 0, 0.0850000009, 0)
+LDSHUB.AutoFarm.Font = Enum.Font.DenkOne
+LDSHUB.AutoFarm.Text = "Auto Farm"
+LDSHUB.AutoFarm.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.AutoFarm.TextScaled = true
+LDSHUB.AutoFarm.TextSize = 14.000
+LDSHUB.AutoFarm.TextWrapped = true
+
+LDSHUB.UICorner_6.Parent = LDSHUB.AutoFarm
+
+LDSHUB.AutoEgg.Name = "AutoEgg"
+LDSHUB.AutoEgg.Parent = LDSHUB.GButtons
+LDSHUB.AutoEgg.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.AutoEgg.Position = UDim2.new(0.0314781144, 0, 2.34660348e-07, 0)
+LDSHUB.AutoEgg.Size = UDim2.new(0.958000004, 0, 0.0850000009, 0)
+LDSHUB.AutoEgg.Font = Enum.Font.DenkOne
+LDSHUB.AutoEgg.Text = "Auto Egg"
+LDSHUB.AutoEgg.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.AutoEgg.TextScaled = true
+LDSHUB.AutoEgg.TextSize = 14.000
+LDSHUB.AutoEgg.TextWrapped = true
+
+LDSHUB.UICorner_7.Parent = LDSHUB.AutoEgg
+
+LDSHUB.Converts.Name = "Converts"
+LDSHUB.Converts.Parent = LDSHUB.GButtons
+LDSHUB.Converts.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.Converts.Position = UDim2.new(0.0314781144, 0, 2.34660348e-07, 0)
+LDSHUB.Converts.Size = UDim2.new(0.958000004, 0, 0.0850000009, 0)
+LDSHUB.Converts.Font = Enum.Font.DenkOne
+LDSHUB.Converts.Text = "Converts"
+LDSHUB.Converts.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.Converts.TextScaled = true
+LDSHUB.Converts.TextSize = 14.000
+LDSHUB.Converts.TextWrapped = true
+
+LDSHUB.UICorner_8.Parent = LDSHUB.Converts
+
+LDSHUB.Misc.Name = "Misc"
+LDSHUB.Misc.Parent = LDSHUB.GButtons
+LDSHUB.Misc.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.Misc.Position = UDim2.new(0.0382463485, 0, 0, 0)
+LDSHUB.Misc.Size = UDim2.new(0.958000004, 0, 0.0850000009, 0)
+LDSHUB.Misc.Font = Enum.Font.DenkOne
+LDSHUB.Misc.Text = "Misc"
+LDSHUB.Misc.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.Misc.TextScaled = true
+LDSHUB.Misc.TextSize = 14.000
+LDSHUB.Misc.TextWrapped = true
+
+LDSHUB.UICorner_9.Parent = LDSHUB.Misc
+
+LDSHUB.Settings.Name = "Settings"
+LDSHUB.Settings.Parent = LDSHUB.GButtons
+LDSHUB.Settings.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.Settings.Position = UDim2.new(0.0382463485, 0, 0, 0)
+LDSHUB.Settings.Size = UDim2.new(0.958000004, 0, 0.0850000009, 0)
+LDSHUB.Settings.Font = Enum.Font.DenkOne
+LDSHUB.Settings.Text = "Settings"
+LDSHUB.Settings.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.Settings.TextScaled = true
+LDSHUB.Settings.TextSize = 14.000
+LDSHUB.Settings.TextWrapped = true
+
+LDSHUB.UICorner_10.Parent = LDSHUB.Settings
+
+LDSHUB.UpdateNotes.Name = "UpdateNotes"
+LDSHUB.UpdateNotes.Parent = LDSHUB.GButtons
+LDSHUB.UpdateNotes.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.UpdateNotes.Position = UDim2.new(0.0382463485, 0, 0, 0)
+LDSHUB.UpdateNotes.Size = UDim2.new(0.958000004, 0, 0.0850000009, 0)
+LDSHUB.UpdateNotes.Font = Enum.Font.DenkOne
+LDSHUB.UpdateNotes.Text = "Update Notes"
+LDSHUB.UpdateNotes.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.UpdateNotes.TextScaled = true
+LDSHUB.UpdateNotes.TextSize = 14.000
+LDSHUB.UpdateNotes.TextWrapped = true
+
+LDSHUB.UICorner_11.Parent = LDSHUB.UpdateNotes
+
+LDSHUB.UpdateNoteUi.Name = "UpdateNoteUi"
+LDSHUB.UpdateNoteUi.Parent = LDSHUB.Frame
+LDSHUB.UpdateNoteUi.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+LDSHUB.UpdateNoteUi.Position = UDim2.new(0.273959816, 0, 0.0941176489, 0)
+LDSHUB.UpdateNoteUi.Size = UDim2.new(0.712676346, 0, 0.862762988, 0)
+LDSHUB.UpdateNoteUi.Visible = false
+
+LDSHUB.UICorner_12.Parent = LDSHUB.UpdateNoteUi
+
+LDSHUB.Updates.Name = "Updates"
+LDSHUB.Updates.Parent = LDSHUB.UpdateNoteUi
+LDSHUB.Updates.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.Updates.BackgroundTransparency = 1.000
+LDSHUB.Updates.Position = UDim2.new(0, 0, -0.0937468559, 0)
+LDSHUB.Updates.Size = UDim2.new(0.252276182, 0, 0.172821864, 0)
+LDSHUB.Updates.Font = Enum.Font.Unknown
+LDSHUB.Updates.Text = "Updates"
+LDSHUB.Updates.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.Updates.TextScaled = true
+LDSHUB.Updates.TextSize = 14.000
+LDSHUB.Updates.TextWrapped = true
+
+LDSHUB.Updates_2.Name = "Updates"
+LDSHUB.Updates_2.Parent = LDSHUB.UpdateNoteUi
+LDSHUB.Updates_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.Updates_2.BackgroundTransparency = 1.000
+LDSHUB.Updates_2.Position = UDim2.new(0.747148573, 0, -0.0937468559, 0)
+LDSHUB.Updates_2.Size = UDim2.new(0.252276182, 0, 0.172821864, 0)
+LDSHUB.Updates_2.Font = Enum.Font.Unknown
+LDSHUB.Updates_2.Text = "v. 2.0 beta"
+LDSHUB.Updates_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.Updates_2.TextScaled = true
+LDSHUB.Updates_2.TextSize = 14.000
+LDSHUB.Updates_2.TextWrapped = true
+
+LDSHUB.TextCredits.Name = "TextCredits"
+LDSHUB.TextCredits.Parent = LDSHUB.UpdateNoteUi
+LDSHUB.TextCredits.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextCredits.BackgroundTransparency = 1.000
+LDSHUB.TextCredits.Position = UDim2.new(0.0163722541, 0, 0.0463209786, 0)
+LDSHUB.TextCredits.Size = UDim2.new(0.972014546, 0, 0.131504238, 0)
+LDSHUB.TextCredits.Font = Enum.Font.FredokaOne
+LDSHUB.TextCredits.Text = "・New Hub!!"
+LDSHUB.TextCredits.TextColor3 = Color3.fromRGB(170, 170, 255)
+LDSHUB.TextCredits.TextScaled = true
+LDSHUB.TextCredits.TextSize = 14.000
+LDSHUB.TextCredits.TextWrapped = true
+LDSHUB.TextCredits.TextXAlignment = Enum.TextXAlignment.Left
+
+LDSHUB.TextCredits_2.Name = "TextCredits"
+LDSHUB.TextCredits_2.Parent = LDSHUB.UpdateNoteUi
+LDSHUB.TextCredits_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextCredits_2.BackgroundTransparency = 1.000
+LDSHUB.TextCredits_2.Position = UDim2.new(0.0163722541, 0, 0.175863758, 0)
+LDSHUB.TextCredits_2.Size = UDim2.new(0.972014546, 0, 0.24400191, 0)
+LDSHUB.TextCredits_2.Font = Enum.Font.FredokaOne
+LDSHUB.TextCredits_2.Text = "・New options now available in the \"AutoFarm\" tab\""
+LDSHUB.TextCredits_2.TextColor3 = Color3.fromRGB(170, 170, 255)
+LDSHUB.TextCredits_2.TextScaled = true
+LDSHUB.TextCredits_2.TextSize = 14.000
+LDSHUB.TextCredits_2.TextWrapped = true
+LDSHUB.TextCredits_2.TextXAlignment = Enum.TextXAlignment.Left
+
+LDSHUB.TextCredits_3.Name = "TextCredits"
+LDSHUB.TextCredits_3.Parent = LDSHUB.UpdateNoteUi
+LDSHUB.TextCredits_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextCredits_3.BackgroundTransparency = 1.000
+LDSHUB.TextCredits_3.Position = UDim2.new(0.0117103877, 0, 0.417904168, 0)
+LDSHUB.TextCredits_3.Size = UDim2.new(0.972014546, 0, 0.138322279, 0)
+LDSHUB.TextCredits_3.Font = Enum.Font.FredokaOne
+LDSHUB.TextCredits_3.Text = "・New auto farm event!!"
+LDSHUB.TextCredits_3.TextColor3 = Color3.fromRGB(170, 170, 255)
+LDSHUB.TextCredits_3.TextScaled = true
+LDSHUB.TextCredits_3.TextSize = 14.000
+LDSHUB.TextCredits_3.TextWrapped = true
+LDSHUB.TextCredits_3.TextXAlignment = Enum.TextXAlignment.Left
+
+LDSHUB.SettingsUI.Name = "SettingsUI"
+LDSHUB.SettingsUI.Parent = LDSHUB.Frame
+LDSHUB.SettingsUI.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+LDSHUB.SettingsUI.Position = UDim2.new(0.273959696, 0, 0.0941176489, 0)
+LDSHUB.SettingsUI.Size = UDim2.new(0.707664907, 0, 0.871586502, 0)
+LDSHUB.SettingsUI.Visible = false
+
+LDSHUB.UICorner_13.Parent = LDSHUB.SettingsUI
+
+LDSHUB.SpawnerCarTxt.Name = "SpawnerCarTxt"
+LDSHUB.SpawnerCarTxt.Parent = LDSHUB.SettingsUI
+LDSHUB.SpawnerCarTxt.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.SpawnerCarTxt.BackgroundTransparency = 1.000
+LDSHUB.SpawnerCarTxt.Position = UDim2.new(-3.46731395e-05, 0, -0.0708646849, 0)
+LDSHUB.SpawnerCarTxt.Size = UDim2.new(0.407053292, 0, 0.165350974, 0)
+LDSHUB.SpawnerCarTxt.Font = Enum.Font.Unknown
+LDSHUB.SpawnerCarTxt.Text = "Settings"
+LDSHUB.SpawnerCarTxt.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.SpawnerCarTxt.TextScaled = true
+LDSHUB.SpawnerCarTxt.TextSize = 14.000
+LDSHUB.SpawnerCarTxt.TextWrapped = true
+
+LDSHUB.IDK.Name = "IDK"
+LDSHUB.IDK.Parent = LDSHUB.SettingsUI
+LDSHUB.IDK.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.IDK.Position = UDim2.new(0.0164320152, 0, 0.536577582, 0)
+LDSHUB.IDK.Size = UDim2.new(0.964788616, 0, 0.443175077, 0)
+
+LDSHUB.UICorner_14.Parent = LDSHUB.IDK
+
+LDSHUB.TextBox.Parent = LDSHUB.IDK
+LDSHUB.TextBox.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+LDSHUB.TextBox.Position = UDim2.new(0.153299093, 0, 0.36807552, 0)
+LDSHUB.TextBox.Size = UDim2.new(0.695136189, 0, 0.236046121, 0)
+LDSHUB.TextBox.Font = Enum.Font.FredokaOne
+LDSHUB.TextBox.PlaceholderText = "\"Place here you keybind (Not Working)\""
+LDSHUB.TextBox.Text = ""
+LDSHUB.TextBox.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.TextBox.TextScaled = true
+LDSHUB.TextBox.TextSize = 14.000
+LDSHUB.TextBox.TextWrapped = true
+
+LDSHUB.UICorner_15.Parent = LDSHUB.TextBox
+
+LDSHUB.TextLabel_3.Parent = LDSHUB.IDK
+LDSHUB.TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_3.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_3.Position = UDim2.new(0, 0, -0.00761392713, 0)
+LDSHUB.TextLabel_3.Size = UDim2.new(1, 0, 0.375689745, 0)
+LDSHUB.TextLabel_3.Font = Enum.Font.SciFi
+LDSHUB.TextLabel_3.Text = "If you want to change the defined key to make the HUB invisible, put the desired key in the field below!"
+LDSHUB.TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_3.TextScaled = true
+LDSHUB.TextLabel_3.TextSize = 14.000
+LDSHUB.TextLabel_3.TextWrapped = true
+
+LDSHUB.TextLabel_4.Parent = LDSHUB.IDK
+LDSHUB.TextLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_4.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_4.Position = UDim2.new(0.220155805, 0, 0.738596737, 0)
+LDSHUB.TextLabel_4.Size = UDim2.new(0.553439558, 0, 0.304506034, 0)
+LDSHUB.TextLabel_4.Font = Enum.Font.SciFi
+LDSHUB.TextLabel_4.Text = "Defined key: Right Shift"
+LDSHUB.TextLabel_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_4.TextScaled = true
+LDSHUB.TextLabel_4.TextSize = 14.000
+LDSHUB.TextLabel_4.TextWrapped = true
+
+LDSHUB.ActiveToogleTxt.Name = "ActiveToogleTxt"
+LDSHUB.ActiveToogleTxt.Parent = LDSHUB.IDK
+LDSHUB.ActiveToogleTxt.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+LDSHUB.ActiveToogleTxt.Position = UDim2.new(0.368758351, 0, 0.654228806, 0)
+LDSHUB.ActiveToogleTxt.Size = UDim2.new(0.260342091, 0, 0.15990223, 0)
+LDSHUB.ActiveToogleTxt.Font = Enum.Font.FredokaOne
+LDSHUB.ActiveToogleTxt.Text = "Active"
+LDSHUB.ActiveToogleTxt.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.ActiveToogleTxt.TextScaled = true
+LDSHUB.ActiveToogleTxt.TextSize = 14.000
+LDSHUB.ActiveToogleTxt.TextWrapped = true
+
+LDSHUB.UICorner_16.Parent = LDSHUB.ActiveToogleTxt
+
+LDSHUB.IDK_2.Name = "IDK "
+LDSHUB.IDK_2.Parent = LDSHUB.SettingsUI
+LDSHUB.IDK_2.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.IDK_2.Position = UDim2.new(0.0164320152, 0, 0.134980157, 0)
+LDSHUB.IDK_2.Size = UDim2.new(0.460091054, 0, 0.362217754, 0)
+
+LDSHUB.UICorner_17.Parent = LDSHUB.IDK_2
+
+LDSHUB.AntAFKButton.Name = "AntAFKButton"
+LDSHUB.AntAFKButton.Parent = LDSHUB.IDK_2
+LDSHUB.AntAFKButton.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+LDSHUB.AntAFKButton.Position = UDim2.new(0.25792107, 0, 0.314927578, 0)
+LDSHUB.AntAFKButton.Size = UDim2.new(0.474495292, 0, 0.307436049, 0)
+LDSHUB.AntAFKButton.Font = Enum.Font.SourceSans
+LDSHUB.AntAFKButton.Text = ""
+LDSHUB.AntAFKButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+LDSHUB.AntAFKButton.TextSize = 14.000
+
+LDSHUB.UICorner_18.Parent = LDSHUB.AntAFKButton
+
+LDSHUB.TextLabel_5.Parent = LDSHUB.AntAFKButton
+LDSHUB.TextLabel_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_5.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_5.Position = UDim2.new(-0.398266196, 0, -1.02436781, 0)
+LDSHUB.TextLabel_5.Size = UDim2.new(1.77940321, 0, 1.02436817, 0)
+LDSHUB.TextLabel_5.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_5.Text = "Anti AFK"
+LDSHUB.TextLabel_5.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_5.TextScaled = true
+LDSHUB.TextLabel_5.TextSize = 14.000
+LDSHUB.TextLabel_5.TextWrapped = true
+
+LDSHUB.TextLabel_6.Parent = LDSHUB.AntAFKButton
+LDSHUB.TextLabel_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_6.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_6.Position = UDim2.new(-0.543569267, 0, 1, 0)
+LDSHUB.TextLabel_6.Size = UDim2.new(2.10750294, 0, 1.21227443, 0)
+LDSHUB.TextLabel_6.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_6.Text = "When activated you will not be kicked for inactivity"
+LDSHUB.TextLabel_6.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.TextLabel_6.TextScaled = true
+LDSHUB.TextLabel_6.TextSize = 14.000
+LDSHUB.TextLabel_6.TextWrapped = true
+
+LDSHUB.Frame_2.Parent = LDSHUB.AntAFKButton
+LDSHUB.Frame_2.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+LDSHUB.Frame_2.Position = UDim2.new(0.0568263568, 0, 0.1777464, 0)
+LDSHUB.Frame_2.Size = UDim2.new(0.45161289, 0, 0.696969688, 0)
+
+LDSHUB.UICorner_19.Parent = LDSHUB.Frame_2
+
+LDSHUB.IDK_3.Name = "IDK"
+LDSHUB.IDK_3.Parent = LDSHUB.SettingsUI
+LDSHUB.IDK_3.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.IDK_3.Position = UDim2.new(0.521129549, 0, 0.134980157, 0)
+LDSHUB.IDK_3.Size = UDim2.new(0.460091054, 0, 0.362217754, 0)
+
+LDSHUB.UICorner_20.Parent = LDSHUB.IDK_3
+
+LDSHUB.DeleteButton.Name = "DeleteButton"
+LDSHUB.DeleteButton.Parent = LDSHUB.IDK_3
+LDSHUB.DeleteButton.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+LDSHUB.DeleteButton.Position = UDim2.new(0.25792107, 0, 0.314927578, 0)
+LDSHUB.DeleteButton.Size = UDim2.new(0.474495292, 0, 0.307436049, 0)
+LDSHUB.DeleteButton.Font = Enum.Font.SourceSans
+LDSHUB.DeleteButton.Text = ""
+LDSHUB.DeleteButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+LDSHUB.DeleteButton.TextSize = 14.000
+
+LDSHUB.UICorner_21.Parent = LDSHUB.DeleteButton
+
+LDSHUB.TextLabel_7.Parent = LDSHUB.DeleteButton
+LDSHUB.TextLabel_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_7.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_7.Position = UDim2.new(-0.398266196, 0, -0.882007003, 0)
+LDSHUB.TextLabel_7.Size = UDim2.new(1.80090857, 0, 0.882007301, 0)
+LDSHUB.TextLabel_7.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_7.Text = "Delete Hub"
+LDSHUB.TextLabel_7.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_7.TextScaled = true
+LDSHUB.TextLabel_7.TextSize = 14.000
+LDSHUB.TextLabel_7.TextWrapped = true
+
+LDSHUB.TextLabel_8.Parent = LDSHUB.DeleteButton
+LDSHUB.TextLabel_8.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_8.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_8.Position = UDim2.new(-0.543569267, 0, 1, 0)
+LDSHUB.TextLabel_8.Size = UDim2.new(2.10750294, 0, 1.21227443, 0)
+LDSHUB.TextLabel_8.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_8.Text = "When activating this option the Hub will disappear forever, to open it again you will have to run the script again!"
+LDSHUB.TextLabel_8.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.TextLabel_8.TextScaled = true
+LDSHUB.TextLabel_8.TextSize = 14.000
+LDSHUB.TextLabel_8.TextWrapped = true
+
+LDSHUB.Frame_3.Parent = LDSHUB.DeleteButton
+LDSHUB.Frame_3.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+LDSHUB.Frame_3.Position = UDim2.new(0.0568263568, 0, 0.1777464, 0)
+LDSHUB.Frame_3.Size = UDim2.new(0.45161289, 0, 0.696969688, 0)
+
+LDSHUB.UICorner_22.Parent = LDSHUB.Frame_3
+
+LDSHUB.Warn.Name = "Warn"
+LDSHUB.Warn.Parent = LDSHUB.Frame
+LDSHUB.Warn.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
+LDSHUB.Warn.BackgroundTransparency = 0.300
+LDSHUB.Warn.Position = UDim2.new(-1.01579595e-07, 0, 0, 0)
+LDSHUB.Warn.Size = UDim2.new(1.00000024, 0, 1, 0)
+LDSHUB.Warn.Visible = false
+LDSHUB.Warn.ZIndex = 5
+
+LDSHUB.UICorner_23.Parent = LDSHUB.Warn
+
+LDSHUB.Dwarn.Name = "Dwarn"
+LDSHUB.Dwarn.Parent = LDSHUB.Warn
+LDSHUB.Dwarn.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+LDSHUB.Dwarn.Position = UDim2.new(0.168092147, 0, 0.193146184, 0)
+LDSHUB.Dwarn.Size = UDim2.new(0.665079296, 0, 0.671559691, 0)
+LDSHUB.Dwarn.Visible = false
+
+LDSHUB.UICorner_24.Parent = LDSHUB.Dwarn
+
+LDSHUB.Frame_4.Parent = LDSHUB.Dwarn
+LDSHUB.Frame_4.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+LDSHUB.Frame_4.Position = UDim2.new(0.0200190227, 0, 0.375200927, 0)
+LDSHUB.Frame_4.Size = UDim2.new(0.959961951, 0, 0.576623321, 0)
+
+LDSHUB.UICorner_25.Parent = LDSHUB.Frame_4
+
+LDSHUB.Yes.Name = "Yes"
+LDSHUB.Yes.Parent = LDSHUB.Frame_4
+LDSHUB.Yes.BackgroundColor3 = Color3.fromRGB(85, 255, 127)
+LDSHUB.Yes.Position = UDim2.new(0.552630305, 0, 0.281025678, 0)
+LDSHUB.Yes.Size = UDim2.new(0.392323554, 0, 0.437948585, 0)
+LDSHUB.Yes.Font = Enum.Font.SciFi
+LDSHUB.Yes.Text = "Yes"
+LDSHUB.Yes.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.Yes.TextScaled = true
+LDSHUB.Yes.TextSize = 14.000
+LDSHUB.Yes.TextWrapped = true
+
+LDSHUB.UICorner_26.Parent = LDSHUB.Yes
+
+LDSHUB.No.Name = "No"
+LDSHUB.No.Parent = LDSHUB.Frame_4
+LDSHUB.No.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+LDSHUB.No.Position = UDim2.new(0.0560000017, 0, 0.281025678, 0)
+LDSHUB.No.Size = UDim2.new(0.392323554, 0, 0.437948585, 0)
+LDSHUB.No.Font = Enum.Font.SciFi
+LDSHUB.No.Text = "No"
+LDSHUB.No.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.No.TextScaled = true
+LDSHUB.No.TextSize = 14.000
+LDSHUB.No.TextWrapped = true
+
+LDSHUB.UICorner_27.Parent = LDSHUB.No
+
+LDSHUB.TextLabel_9.Parent = LDSHUB.Dwarn
+LDSHUB.TextLabel_9.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_9.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_9.Position = UDim2.new(0.0200190227, 0, 0.15911302, 0)
+LDSHUB.TextLabel_9.Size = UDim2.new(0.959961772, 0, 0.232730389, 0)
+LDSHUB.TextLabel_9.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_9.Text = "Are you sure you want to proceed?"
+LDSHUB.TextLabel_9.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_9.TextScaled = true
+LDSHUB.TextLabel_9.TextSize = 14.000
+LDSHUB.TextLabel_9.TextWrapped = true
+
+LDSHUB.TextLabel_10.Parent = LDSHUB.Dwarn
+LDSHUB.TextLabel_10.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.TextLabel_10.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_10.Position = UDim2.new(0.0175166447, 0, 0.00582630653, 0)
+LDSHUB.TextLabel_10.Size = UDim2.new(0.959961772, 0, 0.204395592, 0)
+LDSHUB.TextLabel_10.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_10.Text = "(warning)"
+LDSHUB.TextLabel_10.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.TextLabel_10.TextScaled = true
+LDSHUB.TextLabel_10.TextSize = 14.000
+LDSHUB.TextLabel_10.TextWrapped = true
+
+LDSHUB.Wwarn.Name = "Wwarn"
+LDSHUB.Wwarn.Parent = LDSHUB.Warn
+LDSHUB.Wwarn.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+LDSHUB.Wwarn.Position = UDim2.new(0.168092147, 0, 0.193146184, 0)
+LDSHUB.Wwarn.Size = UDim2.new(0.665079296, 0, 0.671559691, 0)
+LDSHUB.Wwarn.Visible = false
+
+LDSHUB.UICorner_28.Parent = LDSHUB.Wwarn
+
+LDSHUB.Frame_5.Parent = LDSHUB.Wwarn
+LDSHUB.Frame_5.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+LDSHUB.Frame_5.Position = UDim2.new(0.0200190227, 0, 0.375200927, 0)
+LDSHUB.Frame_5.Size = UDim2.new(0.959961951, 0, 0.576623321, 0)
+
+LDSHUB.UICorner_29.Parent = LDSHUB.Frame_5
+
+LDSHUB.Okay.Name = "Okay"
+LDSHUB.Okay.Parent = LDSHUB.Frame_5
+LDSHUB.Okay.BackgroundColor3 = Color3.fromRGB(85, 255, 127)
+LDSHUB.Okay.Position = UDim2.new(0.300244689, 0, 0.281025678, 0)
+LDSHUB.Okay.Size = UDim2.new(0.392323554, 0, 0.437948585, 0)
+LDSHUB.Okay.Font = Enum.Font.SciFi
+LDSHUB.Okay.Text = "Okay"
+LDSHUB.Okay.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.Okay.TextScaled = true
+LDSHUB.Okay.TextSize = 14.000
+LDSHUB.Okay.TextWrapped = true
+
+LDSHUB.UICorner_30.Parent = LDSHUB.Okay
+
+LDSHUB.TextLabel_11.Parent = LDSHUB.Wwarn
+LDSHUB.TextLabel_11.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_11.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_11.Position = UDim2.new(0.0200187974, 0, 0.201462671, 0)
+LDSHUB.TextLabel_11.Size = UDim2.new(0.959961772, 0, 0.190380752, 0)
+LDSHUB.TextLabel_11.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_11.Text = "This option is still under development!"
+LDSHUB.TextLabel_11.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_11.TextScaled = true
+LDSHUB.TextLabel_11.TextSize = 14.000
+LDSHUB.TextLabel_11.TextWrapped = true
+
+LDSHUB.TextLabel_12.Parent = LDSHUB.Wwarn
+LDSHUB.TextLabel_12.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.TextLabel_12.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_12.Position = UDim2.new(0.0175166447, 0, 0.00582630653, 0)
+LDSHUB.TextLabel_12.Size = UDim2.new(0.959961772, 0, 0.204395592, 0)
+LDSHUB.TextLabel_12.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_12.Text = "(warning)"
+LDSHUB.TextLabel_12.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.TextLabel_12.TextScaled = true
+LDSHUB.TextLabel_12.TextSize = 14.000
+LDSHUB.TextLabel_12.TextWrapped = true
+
+LDSHUB.AutoFarmUi.Name = "AutoFarmUi"
+LDSHUB.AutoFarmUi.Parent = LDSHUB.Frame
+LDSHUB.AutoFarmUi.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+LDSHUB.AutoFarmUi.Position = UDim2.new(0.273959696, 0, 0.0941176489, 0)
+LDSHUB.AutoFarmUi.Size = UDim2.new(0.707664907, 0, 0.871586502, 0)
+LDSHUB.AutoFarmUi.Visible = false
+
+LDSHUB.UICorner_31.Parent = LDSHUB.AutoFarmUi
+
+LDSHUB.AutofarmTxt.Name = "AutofarmTxt"
+LDSHUB.AutofarmTxt.Parent = LDSHUB.AutoFarmUi
+LDSHUB.AutofarmTxt.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.AutofarmTxt.BackgroundTransparency = 1.000
+LDSHUB.AutofarmTxt.Position = UDim2.new(0.0234396197, 0, -0.093746841, 0)
+LDSHUB.AutofarmTxt.Size = UDim2.new(0.353066504, 0, 0.188233122, 0)
+LDSHUB.AutofarmTxt.Font = Enum.Font.Unknown
+LDSHUB.AutofarmTxt.Text = "Auto Farm"
+LDSHUB.AutofarmTxt.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.AutofarmTxt.TextScaled = true
+LDSHUB.AutofarmTxt.TextSize = 14.000
+LDSHUB.AutofarmTxt.TextWrapped = true
+
+LDSHUB.autofarm1.Name = "autofarm1"
+LDSHUB.autofarm1.Parent = LDSHUB.AutoFarmUi
+LDSHUB.autofarm1.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.autofarm1.Position = UDim2.new(0.0283266865, 0, 0.229466662, 0)
+LDSHUB.autofarm1.Size = UDim2.new(0.161972716, 0, 0.104609773, 0)
+LDSHUB.autofarm1.Font = Enum.Font.SourceSans
+LDSHUB.autofarm1.Text = ""
+LDSHUB.autofarm1.TextColor3 = Color3.fromRGB(0, 0, 0)
+LDSHUB.autofarm1.TextSize = 14.000
+
+LDSHUB.UICorner_32.Parent = LDSHUB.autofarm1
+
+LDSHUB.TextLabel_13.Parent = LDSHUB.autofarm1
+LDSHUB.TextLabel_13.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_13.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_13.Position = UDim2.new(1.0869565, 0, -0.0967741907, 0)
+LDSHUB.TextLabel_13.Size = UDim2.new(2.18840575, 0, 1, 0)
+LDSHUB.TextLabel_13.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_13.Text = "Auto Click"
+LDSHUB.TextLabel_13.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_13.TextScaled = true
+LDSHUB.TextLabel_13.TextSize = 14.000
+LDSHUB.TextLabel_13.TextWrapped = true
+LDSHUB.TextLabel_13.TextXAlignment = Enum.TextXAlignment.Left
+
+LDSHUB.TextLabel_14.Parent = LDSHUB.autofarm1
+LDSHUB.TextLabel_14.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_14.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_14.Position = UDim2.new(-0.174886063, 0, 1.25806451, 0)
+LDSHUB.TextLabel_14.Size = UDim2.new(3.26083779, 0, 2.20899439, 0)
+LDSHUB.TextLabel_14.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_14.Text = "when activating this option, to keep clicking automatically for you, it does not affect the pc!"
+LDSHUB.TextLabel_14.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.TextLabel_14.TextScaled = true
+LDSHUB.TextLabel_14.TextSize = 14.000
+LDSHUB.TextLabel_14.TextWrapped = true
+
+LDSHUB.Frame_6.Parent = LDSHUB.autofarm1
+LDSHUB.Frame_6.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+LDSHUB.Frame_6.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
+LDSHUB.Frame_6.Size = UDim2.new(0.434782594, 0, 0.870967746, 0)
+
+LDSHUB.UICorner_33.Parent = LDSHUB.Frame_6
+
+LDSHUB.autofarm2.Name = "autofarm2"
+LDSHUB.autofarm2.Parent = LDSHUB.AutoFarmUi
+LDSHUB.autofarm2.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.autofarm2.Position = UDim2.new(0.021284394, 0, 0.607411623, 0)
+LDSHUB.autofarm2.Size = UDim2.new(0.161972716, 0, 0.104609773, 0)
+LDSHUB.autofarm2.Font = Enum.Font.SourceSans
+LDSHUB.autofarm2.Text = ""
+LDSHUB.autofarm2.TextColor3 = Color3.fromRGB(0, 0, 0)
+LDSHUB.autofarm2.TextSize = 14.000
+
+LDSHUB.UICorner_34.Parent = LDSHUB.autofarm2
+
+LDSHUB.Frame_7.Parent = LDSHUB.autofarm2
+LDSHUB.Frame_7.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+LDSHUB.Frame_7.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
+LDSHUB.Frame_7.Size = UDim2.new(0.434782594, 0, 0.870967746, 0)
+
+LDSHUB.UICorner_35.Parent = LDSHUB.Frame_7
+
+LDSHUB.TextLabel_15.Parent = LDSHUB.autofarm2
+LDSHUB.TextLabel_15.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_15.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_15.Position = UDim2.new(1.0869565, 0, -0.0322580673, 0)
+LDSHUB.TextLabel_15.Size = UDim2.new(2.04247332, 0, 1.00000012, 0)
+LDSHUB.TextLabel_15.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_15.Text = "Auto Boss"
+LDSHUB.TextLabel_15.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_15.TextScaled = true
+LDSHUB.TextLabel_15.TextSize = 14.000
+LDSHUB.TextLabel_15.TextWrapped = true
+LDSHUB.TextLabel_15.TextXAlignment = Enum.TextXAlignment.Left
+
+LDSHUB.TextLabel_16.Parent = LDSHUB.autofarm2
+LDSHUB.TextLabel_16.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_16.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_16.Position = UDim2.new(-0.131407812, 0, 0.999996126, 0)
+LDSHUB.TextLabel_16.Size = UDim2.new(3.26083779, 0, 2.75288463, 0)
+LDSHUB.TextLabel_16.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_16.Text = "By activating this option you will start farming the boss you selected in the box beside"
+LDSHUB.TextLabel_16.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.TextLabel_16.TextScaled = true
+LDSHUB.TextLabel_16.TextSize = 14.000
+LDSHUB.TextLabel_16.TextWrapped = true
+
+LDSHUB.Seacher.Name = "Seacher "
+LDSHUB.Seacher.Parent = LDSHUB.AutoFarmUi
+LDSHUB.Seacher.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.Seacher.Position = UDim2.new(0.37650618, 0, 0.0944861472, 0)
+LDSHUB.Seacher.Size = UDim2.new(0.602248847, 0, 0.103495322, 0)
+
+LDSHUB.UICorner_36.Parent = LDSHUB.Seacher
+
+LDSHUB.ImageLabel.Parent = LDSHUB.Seacher
+LDSHUB.ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.ImageLabel.BackgroundTransparency = 1.000
+LDSHUB.ImageLabel.Position = UDim2.new(0.0235172249, 0, 0.0218360275, 0)
+LDSHUB.ImageLabel.Size = UDim2.new(0.11417561, 0, 0.945557475, 0)
+LDSHUB.ImageLabel.Image = "rbxassetid://12772973193"
+
+LDSHUB.TxtBoxBoss.Name = "TxtBoxBoss"
+LDSHUB.TxtBoxBoss.Parent = LDSHUB.Seacher
+LDSHUB.TxtBoxBoss.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TxtBoxBoss.Position = UDim2.new(0.141104788, 0, 0.15225783, 0)
+LDSHUB.TxtBoxBoss.Size = UDim2.new(0.831458151, 0, 0.749924839, 0)
+LDSHUB.TxtBoxBoss.Font = Enum.Font.SourceSans
+LDSHUB.TxtBoxBoss.PlaceholderText = "Seacher"
+LDSHUB.TxtBoxBoss.Text = ""
+LDSHUB.TxtBoxBoss.TextColor3 = Color3.fromRGB(0, 0, 0)
+LDSHUB.TxtBoxBoss.TextScaled = true
+LDSHUB.TxtBoxBoss.TextSize = 14.000
+LDSHUB.TxtBoxBoss.TextWrapped = true
+
+LDSHUB.UICorner_37.Parent = LDSHUB.TxtBoxBoss
+
+LDSHUB.BossSelected.Name = "BossSelected"
+LDSHUB.BossSelected.Parent = LDSHUB.AutoFarmUi
+LDSHUB.BossSelected.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.BossSelected.Position = UDim2.new(0.598398924, 0, 0.920627594, 0)
+LDSHUB.BossSelected.Size = UDim2.new(0.380356163, 0, 0.056865342, 0)
+
+LDSHUB.UICorner_38.Parent = LDSHUB.BossSelected
+
+LDSHUB.NameEgg.Name = "NameEgg"
+LDSHUB.NameEgg.Parent = LDSHUB.BossSelected
+LDSHUB.NameEgg.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.NameEgg.BackgroundTransparency = 1.000
+LDSHUB.NameEgg.Size = UDim2.new(1, 0, 1, 0)
+LDSHUB.NameEgg.Font = Enum.Font.FredokaOne
+LDSHUB.NameEgg.Text = "Name Area"
+LDSHUB.NameEgg.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.NameEgg.TextScaled = true
+LDSHUB.NameEgg.TextSize = 14.000
+LDSHUB.NameEgg.TextWrapped = true
+
+LDSHUB.BossList.Name = "BossList"
+LDSHUB.BossList.Parent = LDSHUB.AutoFarmUi
+LDSHUB.BossList.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.BossList.Position = UDim2.new(0.598398924, 0, 0.249713555, 0)
+LDSHUB.BossList.Size = UDim2.new(0.380356163, 0, 0.64679116, 0)
+
+LDSHUB.UICorner_39.Parent = LDSHUB.BossList
+
+LDSHUB.ScrollingFrameEgg.Name = "ScrollingFrameEgg"
+LDSHUB.ScrollingFrameEgg.Parent = LDSHUB.BossList
+LDSHUB.ScrollingFrameEgg.Active = true
+LDSHUB.ScrollingFrameEgg.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.ScrollingFrameEgg.BackgroundTransparency = 1.000
+LDSHUB.ScrollingFrameEgg.Position = UDim2.new(0.0370299891, 0, 0.0295806173, 0)
+LDSHUB.ScrollingFrameEgg.Size = UDim2.new(0.962970018, 0, 0.939115465, 0)
+LDSHUB.ScrollingFrameEgg.CanvasSize = UDim2.new(0, 0, 200, 0)
+
+LDSHUB.TextButtonEgg.Name = "TextButtonEgg"
+LDSHUB.TextButtonEgg.Parent = LDSHUB.ScrollingFrameEgg
+LDSHUB.TextButtonEgg.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextButtonEgg.Size = UDim2.new(0.899999976, 0, 0.000899999985, 0)
+LDSHUB.TextButtonEgg.Font = Enum.Font.SciFi
+LDSHUB.TextButtonEgg.Text = "BossName"
+LDSHUB.TextButtonEgg.TextColor3 = Color3.fromRGB(0, 0, 0)
+LDSHUB.TextButtonEgg.TextScaled = true
+LDSHUB.TextButtonEgg.TextSize = 14.000
+LDSHUB.TextButtonEgg.TextWrapped = true
+
+LDSHUB.UICorner_40.Parent = LDSHUB.TextButtonEgg
+
+LDSHUB.UIListLayout_2.Parent = LDSHUB.ScrollingFrameEgg
+LDSHUB.UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+LDSHUB.UIListLayout_2.Padding = UDim.new(9.99999975e-05, 0)
+
+LDSHUB.HomeUi.Name = "HomeUi"
+LDSHUB.HomeUi.Parent = LDSHUB.Frame
+LDSHUB.HomeUi.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+LDSHUB.HomeUi.Position = UDim2.new(0.273959696, 0, 0.0941176489, 0)
+LDSHUB.HomeUi.Size = UDim2.new(0.712676346, 0, 0.533351243, 0)
+
+LDSHUB.UICorner_41.Parent = LDSHUB.HomeUi
+
+LDSHUB.Credits.Name = "Credits"
+LDSHUB.Credits.Parent = LDSHUB.HomeUi
+LDSHUB.Credits.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.Credits.BackgroundTransparency = 1.000
+LDSHUB.Credits.Position = UDim2.new(0, 0, -0.0937468559, 0)
+LDSHUB.Credits.Size = UDim2.new(0.252276182, 0, 0.172821864, 0)
+LDSHUB.Credits.Font = Enum.Font.Unknown
+LDSHUB.Credits.Text = "Credits"
+LDSHUB.Credits.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.Credits.TextScaled = true
+LDSHUB.Credits.TextSize = 14.000
+LDSHUB.Credits.TextWrapped = true
+
+LDSHUB.YTDC.Name = "YTDC"
+LDSHUB.YTDC.Parent = LDSHUB.HomeUi
+LDSHUB.YTDC.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.YTDC.BackgroundTransparency = 1.000
+LDSHUB.YTDC.Position = UDim2.new(0.0187516958, 0, 1.03385592, 0)
+LDSHUB.YTDC.Size = UDim2.new(0.392913878, 0, 0.142608792, 0)
+LDSHUB.YTDC.ZIndex = 10
+LDSHUB.YTDC.Font = Enum.Font.Unknown
+LDSHUB.YTDC.Text = "Youtube | Discord"
+LDSHUB.YTDC.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.YTDC.TextScaled = true
+LDSHUB.YTDC.TextSize = 14.000
+LDSHUB.YTDC.TextWrapped = true
+
+LDSHUB.TextCredits_4.Name = "TextCredits"
+LDSHUB.TextCredits_4.Parent = LDSHUB.HomeUi
+LDSHUB.TextCredits_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextCredits_4.BackgroundTransparency = 1.000
+LDSHUB.TextCredits_4.Position = UDim2.new(0.0187516958, 0, 0.121319458, 0)
+LDSHUB.TextCredits_4.Size = UDim2.new(0.962496698, 0, 0.823535323, 0)
+LDSHUB.TextCredits_4.Font = Enum.Font.FredokaOne
+LDSHUB.TextCredits_4.Text = "Well if you're seeing this, then everything worked out, and I'm very happy about it, I want to give my credit to my friend Ali, who helped me A LOT with doubts regarding the scripts, this is the first HUB I created so wait for many others coming soon :3"
+LDSHUB.TextCredits_4.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.TextCredits_4.TextScaled = true
+LDSHUB.TextCredits_4.TextSize = 14.000
+LDSHUB.TextCredits_4.TextWrapped = true
+
+LDSHUB.Frame_8.Parent = LDSHUB.HomeUi
+LDSHUB.Frame_8.BackgroundColor3 = Color3.fromRGB(51, 51, 51)
+LDSHUB.Frame_8.Position = UDim2.new(0, 0, 1.09561825, 0)
+LDSHUB.Frame_8.Size = UDim2.new(0.999999881, 0, 0.548003972, 0)
+LDSHUB.Frame_8.ZIndex = 0
+
+LDSHUB.UICorner_42.Parent = LDSHUB.Frame_8
+
+LDSHUB.ImageLabelYT.Name = "ImageLabelYT"
+LDSHUB.ImageLabelYT.Parent = LDSHUB.Frame_8
+LDSHUB.ImageLabelYT.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.ImageLabelYT.Position = UDim2.new(0.0187516958, 0, 0.158772826, 0)
+LDSHUB.ImageLabelYT.Size = UDim2.new(0.15151006, 0, 0.654089928, 0)
+LDSHUB.ImageLabelYT.Image = "rbxassetid://12772776120"
+
+LDSHUB.UICorner_43.CornerRadius = UDim.new(0, 99999999)
+LDSHUB.UICorner_43.Parent = LDSHUB.ImageLabelYT
+
+LDSHUB.NameChannel.Name = "NameChannel"
+LDSHUB.NameChannel.Parent = LDSHUB.Frame_8
+LDSHUB.NameChannel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.NameChannel.BackgroundTransparency = 1.000
+LDSHUB.NameChannel.Position = UDim2.new(0.119542062, 0, 0.218616888, 0)
+LDSHUB.NameChannel.Size = UDim2.new(0.392913878, 0, 0.362135291, 0)
+LDSHUB.NameChannel.ZIndex = 10
+LDSHUB.NameChannel.Font = Enum.Font.SciFi
+LDSHUB.NameChannel.Text = "Sr. LDS"
+LDSHUB.NameChannel.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.NameChannel.TextScaled = true
+LDSHUB.NameChannel.TextSize = 14.000
+LDSHUB.NameChannel.TextWrapped = true
+
+LDSHUB.NameChannel_2.Name = "NameChannel"
+LDSHUB.NameChannel_2.Parent = LDSHUB.Frame_8
+LDSHUB.NameChannel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.NameChannel_2.BackgroundTransparency = 1.000
+LDSHUB.NameChannel_2.Position = UDim2.new(0.168765277, 0, 0.532225609, 0)
+LDSHUB.NameChannel_2.Size = UDim2.new(0.292123526, 0, 0.201496333, 0)
+LDSHUB.NameChannel_2.ZIndex = 10
+LDSHUB.NameChannel_2.Font = Enum.Font.SciFi
+LDSHUB.NameChannel_2.Text = "@Sr_LDS"
+LDSHUB.NameChannel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.NameChannel_2.TextScaled = true
+LDSHUB.NameChannel_2.TextSize = 14.000
+LDSHUB.NameChannel_2.TextWrapped = true
+
+LDSHUB.ImageLabelDC.Name = "ImageLabelDC"
+LDSHUB.ImageLabelDC.Parent = LDSHUB.Frame_8
+LDSHUB.ImageLabelDC.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+LDSHUB.ImageLabelDC.Position = UDim2.new(0.489888072, 0, 0.158772826, 0)
+LDSHUB.ImageLabelDC.Size = UDim2.new(0.15151006, 0, 0.654089928, 0)
+LDSHUB.ImageLabelDC.Image = "http://www.roblox.com/asset/?id=1999278264"
+
+LDSHUB.UICorner_44.CornerRadius = UDim.new(0, 99999999)
+LDSHUB.UICorner_44.Parent = LDSHUB.ImageLabelDC
+
+LDSHUB.NameDC.Name = "NameDC"
+LDSHUB.NameDC.Parent = LDSHUB.Frame_8
+LDSHUB.NameDC.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.NameDC.BackgroundTransparency = 1.000
+LDSHUB.NameDC.Position = UDim2.new(0.658653319, 0, 0.239524141, 0)
+LDSHUB.NameDC.Size = UDim2.new(0.322595239, 0, 0.504140854, 0)
+LDSHUB.NameDC.ZIndex = 10
+LDSHUB.NameDC.Font = Enum.Font.SciFi
+LDSHUB.NameDC.Text = "https://discord.gg/DABC3eFusQ"
+LDSHUB.NameDC.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.NameDC.TextScaled = true
+LDSHUB.NameDC.TextSize = 14.000
+LDSHUB.NameDC.TextWrapped = true
+
+LDSHUB.TextButtonDC.Name = "TextButtonDC"
+LDSHUB.TextButtonDC.Parent = LDSHUB.Frame_8
+LDSHUB.TextButtonDC.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.TextButtonDC.Position = UDim2.new(0.658653319, 0, 0.773568153, 0)
+LDSHUB.TextButtonDC.Size = UDim2.new(0.322595119, 0, 0.149138987, 0)
+LDSHUB.TextButtonDC.Font = Enum.Font.SciFi
+LDSHUB.TextButtonDC.Text = "Click here for copy"
+LDSHUB.TextButtonDC.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextButtonDC.TextSize = 14.000
+
+LDSHUB.UICorner_45.Parent = LDSHUB.TextButtonDC
+
+LDSHUB.TextButtonYT.Name = "TextButtonYT"
+LDSHUB.TextButtonYT.Parent = LDSHUB.Frame_8
+LDSHUB.TextButtonYT.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.TextButtonYT.Position = UDim2.new(0.154701471, 0, 0.773568153, 0)
+LDSHUB.TextButtonYT.Size = UDim2.new(0.322595119, 0, 0.149138987, 0)
+LDSHUB.TextButtonYT.Font = Enum.Font.SciFi
+LDSHUB.TextButtonYT.Text = "Click here for copy"
+LDSHUB.TextButtonYT.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextButtonYT.TextSize = 14.000
+
+LDSHUB.UICorner_46.Parent = LDSHUB.TextButtonYT
+
+LDSHUB.EventUi.Name = "EventUi"
+LDSHUB.EventUi.Parent = LDSHUB.Frame
+LDSHUB.EventUi.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+LDSHUB.EventUi.Position = UDim2.new(0.273959696, 0, 0.0941176489, 0)
+LDSHUB.EventUi.Size = UDim2.new(0.707664907, 0, 0.871586502, 0)
+LDSHUB.EventUi.Visible = false
+
+LDSHUB.UICorner_47.Parent = LDSHUB.EventUi
+
+LDSHUB.AutofarmTxt_2.Name = "AutofarmTxt"
+LDSHUB.AutofarmTxt_2.Parent = LDSHUB.EventUi
+LDSHUB.AutofarmTxt_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.AutofarmTxt_2.BackgroundTransparency = 1.000
+LDSHUB.AutofarmTxt_2.Position = UDim2.new(0.0234396197, 0, -0.093746841, 0)
+LDSHUB.AutofarmTxt_2.Size = UDim2.new(0.353066504, 0, 0.188233122, 0)
+LDSHUB.AutofarmTxt_2.Font = Enum.Font.Unknown
+LDSHUB.AutofarmTxt_2.Text = "Events"
+LDSHUB.AutofarmTxt_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.AutofarmTxt_2.TextScaled = true
+LDSHUB.AutofarmTxt_2.TextSize = 14.000
+LDSHUB.AutofarmTxt_2.TextWrapped = true
+
+LDSHUB.EventButton1.Name = "EventButton1"
+LDSHUB.EventButton1.Parent = LDSHUB.EventUi
+LDSHUB.EventButton1.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.EventButton1.Position = UDim2.new(0.0283266865, 0, 0.13498041, 0)
+LDSHUB.EventButton1.Size = UDim2.new(0.161972716, 0, 0.104609773, 0)
+LDSHUB.EventButton1.Font = Enum.Font.SourceSans
+LDSHUB.EventButton1.Text = ""
+LDSHUB.EventButton1.TextColor3 = Color3.fromRGB(0, 0, 0)
+LDSHUB.EventButton1.TextSize = 14.000
+
+LDSHUB.UICorner_48.Parent = LDSHUB.EventButton1
+
+LDSHUB.TextLabel_17.Parent = LDSHUB.EventButton1
+LDSHUB.TextLabel_17.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_17.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_17.Position = UDim2.new(1.0869565, 0, -0.0967741981, 0)
+LDSHUB.TextLabel_17.Size = UDim2.new(4.63768101, 0, 1.00000012, 0)
+LDSHUB.TextLabel_17.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_17.Text = "Auto Open Egg ( Event )"
+LDSHUB.TextLabel_17.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_17.TextScaled = true
+LDSHUB.TextLabel_17.TextSize = 14.000
+LDSHUB.TextLabel_17.TextWrapped = true
+LDSHUB.TextLabel_17.TextXAlignment = Enum.TextXAlignment.Left
+
+LDSHUB.TextLabel_18.Parent = LDSHUB.EventButton1
+LDSHUB.TextLabel_18.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_18.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_18.Position = UDim2.new(-0.174886063, 0, 1.22580647, 0)
+LDSHUB.TextLabel_18.Size = UDim2.new(6.17388105, 0, 1.20899427, 0)
+LDSHUB.TextLabel_18.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_18.Text = "Activating the option, you start opening event eggs automatically!"
+LDSHUB.TextLabel_18.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.TextLabel_18.TextScaled = true
+LDSHUB.TextLabel_18.TextSize = 14.000
+LDSHUB.TextLabel_18.TextWrapped = true
+
+LDSHUB.Frame_9.Parent = LDSHUB.EventButton1
+LDSHUB.Frame_9.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+LDSHUB.Frame_9.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
+LDSHUB.Frame_9.Size = UDim2.new(0.434782594, 0, 0.870967746, 0)
+
+LDSHUB.UICorner_49.Parent = LDSHUB.Frame_9
+
+LDSHUB.EventButton2.Name = "EventButton2"
+LDSHUB.EventButton2.Parent = LDSHUB.EventUi
+LDSHUB.EventButton2.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.EventButton2.Position = UDim2.new(0.021284394, 0, 0.411690116, 0)
+LDSHUB.EventButton2.Size = UDim2.new(0.161972716, 0, 0.104609773, 0)
+LDSHUB.EventButton2.Font = Enum.Font.SourceSans
+LDSHUB.EventButton2.Text = ""
+LDSHUB.EventButton2.TextColor3 = Color3.fromRGB(0, 0, 0)
+LDSHUB.EventButton2.TextSize = 14.000
+
+LDSHUB.UICorner_50.Parent = LDSHUB.EventButton2
+
+LDSHUB.Frame_10.Parent = LDSHUB.EventButton2
+LDSHUB.Frame_10.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+LDSHUB.Frame_10.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
+LDSHUB.Frame_10.Size = UDim2.new(0.434782594, 0, 0.870967746, 0)
+
+LDSHUB.UICorner_51.Parent = LDSHUB.Frame_10
+
+LDSHUB.TextLabel_19.Parent = LDSHUB.EventButton2
+LDSHUB.TextLabel_19.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_19.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_19.Position = UDim2.new(1.0869565, 0, -0.0322580673, 0)
+LDSHUB.TextLabel_19.Size = UDim2.new(4.95551682, 0, 1.00000012, 0)
+LDSHUB.TextLabel_19.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_19.Text = "Auto Farm Event (World 1 | 5 Boss)"
+LDSHUB.TextLabel_19.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_19.TextScaled = true
+LDSHUB.TextLabel_19.TextSize = 14.000
+LDSHUB.TextLabel_19.TextWrapped = true
+LDSHUB.TextLabel_19.TextXAlignment = Enum.TextXAlignment.Left
+
+LDSHUB.TextLabel_20.Parent = LDSHUB.EventButton2
+LDSHUB.TextLabel_20.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_20.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_20.Position = UDim2.new(-0.131407812, 0, 1.22580254, 0)
+LDSHUB.TextLabel_20.Size = UDim2.new(6.17388105, 0, 1.36578965, 0)
+LDSHUB.TextLabel_20.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_20.Text = "Activating this option, you will only farm the 5 Bosses of the world school"
+LDSHUB.TextLabel_20.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.TextLabel_20.TextScaled = true
+LDSHUB.TextLabel_20.TextSize = 14.000
+LDSHUB.TextLabel_20.TextWrapped = true
+
+LDSHUB.EventButton3.Name = "EventButton3"
+LDSHUB.EventButton3.Parent = LDSHUB.EventUi
+LDSHUB.EventButton3.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.EventButton3.Position = UDim2.new(0.021284394, 0, 0.715395927, 0)
+LDSHUB.EventButton3.Size = UDim2.new(0.161972716, 0, 0.104609773, 0)
+LDSHUB.EventButton3.Font = Enum.Font.SourceSans
+LDSHUB.EventButton3.Text = ""
+LDSHUB.EventButton3.TextColor3 = Color3.fromRGB(0, 0, 0)
+LDSHUB.EventButton3.TextSize = 14.000
+
+LDSHUB.UICorner_52.Parent = LDSHUB.EventButton3
+
+LDSHUB.Frame_11.Parent = LDSHUB.EventButton3
+LDSHUB.Frame_11.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+LDSHUB.Frame_11.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
+LDSHUB.Frame_11.Size = UDim2.new(0.434782594, 0, 0.870967746, 0)
+
+LDSHUB.UICorner_53.Parent = LDSHUB.Frame_11
+
+LDSHUB.TextLabel_21.Parent = LDSHUB.EventButton3
+LDSHUB.TextLabel_21.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_21.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_21.Position = UDim2.new(1.0869565, 0, -0.0322580673, 0)
+LDSHUB.TextLabel_21.Size = UDim2.new(4.95551682, 0, 1.00000012, 0)
+LDSHUB.TextLabel_21.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_21.Text = "Auto Farm Event (World 2 | 2 Boss)"
+LDSHUB.TextLabel_21.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_21.TextScaled = true
+LDSHUB.TextLabel_21.TextSize = 14.000
+LDSHUB.TextLabel_21.TextWrapped = true
+LDSHUB.TextLabel_21.TextXAlignment = Enum.TextXAlignment.Left
+
+LDSHUB.TextLabel_22.Parent = LDSHUB.EventButton3
+LDSHUB.TextLabel_22.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_22.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_22.Position = UDim2.new(-0.131407812, 0, 1.22580254, 0)
+LDSHUB.TextLabel_22.Size = UDim2.new(6.1738801, 0, 1.36578965, 0)
+LDSHUB.TextLabel_22.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_22.Text = "Activating this option, you will only farm the 2 bosses of the world space"
+LDSHUB.TextLabel_22.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.TextLabel_22.TextScaled = true
+LDSHUB.TextLabel_22.TextSize = 14.000
+LDSHUB.TextLabel_22.TextWrapped = true
+
+LDSHUB.AutoEggUi.Name = "AutoEggUi"
+LDSHUB.AutoEggUi.Parent = LDSHUB.Frame
+LDSHUB.AutoEggUi.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+LDSHUB.AutoEggUi.Position = UDim2.new(0.273959696, 0, 0.0941176489, 0)
+LDSHUB.AutoEggUi.Size = UDim2.new(0.707664907, 0, 0.871586502, 0)
+LDSHUB.AutoEggUi.Visible = false
+
+LDSHUB.UICorner_54.Parent = LDSHUB.AutoEggUi
+
+LDSHUB.AutofarmTxt_3.Name = "AutofarmTxt"
+LDSHUB.AutofarmTxt_3.Parent = LDSHUB.AutoEggUi
+LDSHUB.AutofarmTxt_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.AutofarmTxt_3.BackgroundTransparency = 1.000
+LDSHUB.AutofarmTxt_3.Position = UDim2.new(0.0234396197, 0, -0.093746841, 0)
+LDSHUB.AutofarmTxt_3.Size = UDim2.new(0.353066534, 0, 0.188233122, 0)
+LDSHUB.AutofarmTxt_3.Font = Enum.Font.Unknown
+LDSHUB.AutofarmTxt_3.Text = "Auto Egg"
+LDSHUB.AutofarmTxt_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.AutofarmTxt_3.TextScaled = true
+LDSHUB.AutofarmTxt_3.TextSize = 14.000
+LDSHUB.AutofarmTxt_3.TextWrapped = true
+
+LDSHUB.autoegg1.Name = "autoegg1"
+LDSHUB.autoegg1.Parent = LDSHUB.AutoEggUi
+LDSHUB.autoegg1.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.autoegg1.Position = UDim2.new(0.0283266865, 0, 0.249713719, 0)
+LDSHUB.autoegg1.Size = UDim2.new(0, 69, 0, 31)
+LDSHUB.autoegg1.Font = Enum.Font.SourceSans
+LDSHUB.autoegg1.Text = ""
+LDSHUB.autoegg1.TextColor3 = Color3.fromRGB(0, 0, 0)
+LDSHUB.autoegg1.TextSize = 14.000
+
+LDSHUB.UICorner_55.Parent = LDSHUB.autoegg1
+
+LDSHUB.TextLabel_23.Parent = LDSHUB.autoegg1
+LDSHUB.TextLabel_23.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_23.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_23.Position = UDim2.new(1.0869565, 0, -0.0322580636, 0)
+LDSHUB.TextLabel_23.Size = UDim2.new(2.18840575, 0, 1, 0)
+LDSHUB.TextLabel_23.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_23.Text = "Auto Open Egg"
+LDSHUB.TextLabel_23.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_23.TextScaled = true
+LDSHUB.TextLabel_23.TextSize = 14.000
+LDSHUB.TextLabel_23.TextWrapped = true
+LDSHUB.TextLabel_23.TextXAlignment = Enum.TextXAlignment.Left
+
+LDSHUB.TextLabel_24.Parent = LDSHUB.autoegg1
+LDSHUB.TextLabel_24.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_24.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_24.Position = UDim2.new(0.0434782617, 0, 0.935452342, 0)
+LDSHUB.TextLabel_24.Size = UDim2.new(3.231884, 0, 2.11225152, 0)
+LDSHUB.TextLabel_24.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_24.Text = "Activating the option, you start to open eggs according to the option marked in the box beside"
+LDSHUB.TextLabel_24.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.TextLabel_24.TextScaled = true
+LDSHUB.TextLabel_24.TextSize = 14.000
+LDSHUB.TextLabel_24.TextWrapped = true
+
+LDSHUB.Frame_12.Parent = LDSHUB.autoegg1
+LDSHUB.Frame_12.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+LDSHUB.Frame_12.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
+LDSHUB.Frame_12.Size = UDim2.new(0, 30, 0, 27)
+
+LDSHUB.UICorner_56.Parent = LDSHUB.Frame_12
+
+LDSHUB.Seacher_2.Name = "Seacher "
+LDSHUB.Seacher_2.Parent = LDSHUB.AutoEggUi
+LDSHUB.Seacher_2.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.Seacher_2.Position = UDim2.new(0.37650618, 0, 0.0944861472, 0)
+LDSHUB.Seacher_2.Size = UDim2.new(0.602248847, 0, 0.103495322, 0)
+
+LDSHUB.UICorner_57.Parent = LDSHUB.Seacher_2
+
+LDSHUB.ImageLabel_2.Parent = LDSHUB.Seacher_2
+LDSHUB.ImageLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.ImageLabel_2.BackgroundTransparency = 1.000
+LDSHUB.ImageLabel_2.Position = UDim2.new(0.0235172249, 0, 0.0218360275, 0)
+LDSHUB.ImageLabel_2.Size = UDim2.new(0.11417561, 0, 0.945557475, 0)
+LDSHUB.ImageLabel_2.Image = "rbxassetid://12772973193"
+
+LDSHUB.TxtBoxAutoFarm.Name = "TxtBoxAutoFarm"
+LDSHUB.TxtBoxAutoFarm.Parent = LDSHUB.Seacher_2
+LDSHUB.TxtBoxAutoFarm.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TxtBoxAutoFarm.Position = UDim2.new(0.141104788, 0, 0.15225783, 0)
+LDSHUB.TxtBoxAutoFarm.Size = UDim2.new(0.831458151, 0, 0.749924839, 0)
+LDSHUB.TxtBoxAutoFarm.Font = Enum.Font.SourceSans
+LDSHUB.TxtBoxAutoFarm.PlaceholderText = "Seacher"
+LDSHUB.TxtBoxAutoFarm.Text = ""
+LDSHUB.TxtBoxAutoFarm.TextColor3 = Color3.fromRGB(0, 0, 0)
+LDSHUB.TxtBoxAutoFarm.TextScaled = true
+LDSHUB.TxtBoxAutoFarm.TextSize = 14.000
+LDSHUB.TxtBoxAutoFarm.TextWrapped = true
+
+LDSHUB.UICorner_58.Parent = LDSHUB.TxtBoxAutoFarm
+
+LDSHUB.EggSelected.Name = "EggSelected"
+LDSHUB.EggSelected.Parent = LDSHUB.AutoEggUi
+LDSHUB.EggSelected.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.EggSelected.Position = UDim2.new(0.598398924, 0, 0.920627594, 0)
+LDSHUB.EggSelected.Size = UDim2.new(0.380356163, 0, 0.056865342, 0)
+
+LDSHUB.UICorner_59.Parent = LDSHUB.EggSelected
+
+LDSHUB.NameEgg_2.Name = "NameEgg"
+LDSHUB.NameEgg_2.Parent = LDSHUB.EggSelected
+LDSHUB.NameEgg_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.NameEgg_2.BackgroundTransparency = 1.000
+LDSHUB.NameEgg_2.Size = UDim2.new(1, 0, 1, 0)
+LDSHUB.NameEgg_2.Font = Enum.Font.FredokaOne
+LDSHUB.NameEgg_2.Text = "Name Area"
+LDSHUB.NameEgg_2.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.NameEgg_2.TextScaled = true
+LDSHUB.NameEgg_2.TextSize = 14.000
+LDSHUB.NameEgg_2.TextWrapped = true
+
+LDSHUB.EggList.Name = "EggList"
+LDSHUB.EggList.Parent = LDSHUB.AutoEggUi
+LDSHUB.EggList.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.EggList.Position = UDim2.new(0.598398924, 0, 0.249713555, 0)
+LDSHUB.EggList.Size = UDim2.new(0.380356163, 0, 0.64679116, 0)
+
+LDSHUB.UICorner_60.Parent = LDSHUB.EggList
+
+LDSHUB.ScrollingFrameEgg_2.Name = "ScrollingFrameEgg"
+LDSHUB.ScrollingFrameEgg_2.Parent = LDSHUB.EggList
+LDSHUB.ScrollingFrameEgg_2.Active = true
+LDSHUB.ScrollingFrameEgg_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.ScrollingFrameEgg_2.BackgroundTransparency = 1.000
+LDSHUB.ScrollingFrameEgg_2.Position = UDim2.new(0.0370299891, 0, 0.0295806173, 0)
+LDSHUB.ScrollingFrameEgg_2.Size = UDim2.new(0.962970018, 0, 0.939115465, 0)
+LDSHUB.ScrollingFrameEgg_2.CanvasSize = UDim2.new(0, 0, 200, 0)
+
+LDSHUB.TextButtonEgg_2.Name = "TextButtonEgg"
+LDSHUB.TextButtonEgg_2.Parent = LDSHUB.ScrollingFrameEgg_2
+LDSHUB.TextButtonEgg_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextButtonEgg_2.Size = UDim2.new(0.899999976, 0, 0.000899999985, 0)
+LDSHUB.TextButtonEgg_2.Font = Enum.Font.SciFi
+LDSHUB.TextButtonEgg_2.Text = "EggName"
+LDSHUB.TextButtonEgg_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+LDSHUB.TextButtonEgg_2.TextScaled = true
+LDSHUB.TextButtonEgg_2.TextSize = 14.000
+LDSHUB.TextButtonEgg_2.TextWrapped = true
+
+LDSHUB.UICorner_61.Parent = LDSHUB.TextButtonEgg_2
+
+LDSHUB.UIListLayout_3.Parent = LDSHUB.ScrollingFrameEgg_2
+LDSHUB.UIListLayout_3.SortOrder = Enum.SortOrder.LayoutOrder
+LDSHUB.UIListLayout_3.Padding = UDim.new(9.99999975e-05, 0)
+
+LDSHUB.visibleegg.Name = "visibleegg"
+LDSHUB.visibleegg.Parent = LDSHUB.AutoEggUi
+LDSHUB.visibleegg.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.visibleegg.Position = UDim2.new(0.0283266865, 0, 0.566917539, 0)
+LDSHUB.visibleegg.Size = UDim2.new(0, 69, 0, 31)
+LDSHUB.visibleegg.Font = Enum.Font.SourceSans
+LDSHUB.visibleegg.Text = ""
+LDSHUB.visibleegg.TextColor3 = Color3.fromRGB(0, 0, 0)
+LDSHUB.visibleegg.TextSize = 14.000
+
+LDSHUB.UICorner_62.Parent = LDSHUB.visibleegg
+
+LDSHUB.TextLabel_25.Parent = LDSHUB.visibleegg
+LDSHUB.TextLabel_25.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_25.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_25.Position = UDim2.new(1.0869565, 0, -0.0322580636, 0)
+LDSHUB.TextLabel_25.Size = UDim2.new(2.18840575, 0, 1, 0)
+LDSHUB.TextLabel_25.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_25.Text = "Egg Invisible"
+LDSHUB.TextLabel_25.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_25.TextScaled = true
+LDSHUB.TextLabel_25.TextSize = 14.000
+LDSHUB.TextLabel_25.TextWrapped = true
+LDSHUB.TextLabel_25.TextXAlignment = Enum.TextXAlignment.Left
+
+LDSHUB.Frame_13.Parent = LDSHUB.visibleegg
+LDSHUB.Frame_13.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+LDSHUB.Frame_13.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
+LDSHUB.Frame_13.Size = UDim2.new(0, 30, 0, 27)
+
+LDSHUB.UICorner_63.Parent = LDSHUB.Frame_13
+
+LDSHUB.TextLabel_26.Parent = LDSHUB.visibleegg
+LDSHUB.TextLabel_26.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_26.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_26.Position = UDim2.new(0.0434782617, 0, 1, 0)
+LDSHUB.TextLabel_26.Size = UDim2.new(3.231884, 0, 1.67741942, 0)
+LDSHUB.TextLabel_26.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_26.Text = "Activating this option, the egg animations will be invisible"
+LDSHUB.TextLabel_26.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.TextLabel_26.TextScaled = true
+LDSHUB.TextLabel_26.TextSize = 14.000
+LDSHUB.TextLabel_26.TextWrapped = true
+
+LDSHUB._1egg.Name = "1egg"
+LDSHUB._1egg.Parent = LDSHUB.AutoEggUi
+LDSHUB._1egg.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB._1egg.Position = UDim2.new(0.0283266865, 0, 0.847001791, 0)
+LDSHUB._1egg.Size = UDim2.new(0, 69, 0, 31)
+LDSHUB._1egg.Font = Enum.Font.SourceSans
+LDSHUB._1egg.Text = ""
+LDSHUB._1egg.TextColor3 = Color3.fromRGB(0, 0, 0)
+LDSHUB._1egg.TextSize = 14.000
+
+LDSHUB.UICorner_64.Parent = LDSHUB._1egg
+
+LDSHUB.Frame_14.Parent = LDSHUB._1egg
+LDSHUB.Frame_14.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+LDSHUB.Frame_14.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
+LDSHUB.Frame_14.Size = UDim2.new(0, 30, 0, 27)
+
+LDSHUB.UICorner_65.Parent = LDSHUB.Frame_14
+
+LDSHUB._3egg.Name = "3egg"
+LDSHUB._3egg.Parent = LDSHUB.AutoEggUi
+LDSHUB._3egg.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB._3egg.Position = UDim2.new(0.218471512, 0, 0.847001791, 0)
+LDSHUB._3egg.Size = UDim2.new(0, 69, 0, 31)
+LDSHUB._3egg.Font = Enum.Font.SourceSans
+LDSHUB._3egg.Text = ""
+LDSHUB._3egg.TextColor3 = Color3.fromRGB(0, 0, 0)
+LDSHUB._3egg.TextSize = 14.000
+
+LDSHUB.UICorner_66.Parent = LDSHUB._3egg
+
+LDSHUB.Frame_15.Parent = LDSHUB._3egg
+LDSHUB.Frame_15.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+LDSHUB.Frame_15.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
+LDSHUB.Frame_15.Size = UDim2.new(0, 30, 0, 27)
+
+LDSHUB.UICorner_67.Parent = LDSHUB.Frame_15
+
+LDSHUB._8egg.Name = "8egg"
+LDSHUB._8egg.Parent = LDSHUB.AutoEggUi
+LDSHUB._8egg.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB._8egg.Position = UDim2.new(0.40148592, 0, 0.850376308, 0)
+LDSHUB._8egg.Size = UDim2.new(0, 69, 0, 31)
+LDSHUB._8egg.Font = Enum.Font.SourceSans
+LDSHUB._8egg.Text = ""
+LDSHUB._8egg.TextColor3 = Color3.fromRGB(0, 0, 0)
+LDSHUB._8egg.TextSize = 14.000
+
+LDSHUB.UICorner_68.Parent = LDSHUB._8egg
+
+LDSHUB.Frame_16.Parent = LDSHUB._8egg
+LDSHUB.Frame_16.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+LDSHUB.Frame_16.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
+LDSHUB.Frame_16.Size = UDim2.new(0, 30, 0, 27)
+
+LDSHUB.UICorner_69.Parent = LDSHUB.Frame_16
+
+LDSHUB.MiscUi.Name = "MiscUi"
+LDSHUB.MiscUi.Parent = LDSHUB.Frame
+LDSHUB.MiscUi.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+LDSHUB.MiscUi.Position = UDim2.new(0.273959696, 0, 0.0941176489, 0)
+LDSHUB.MiscUi.Size = UDim2.new(0.707664907, 0, 0.871586502, 0)
+LDSHUB.MiscUi.Visible = false
+
+LDSHUB.UICorner_70.Parent = LDSHUB.MiscUi
+
+LDSHUB.AutofarmTxt_4.Name = "AutofarmTxt"
+LDSHUB.AutofarmTxt_4.Parent = LDSHUB.MiscUi
+LDSHUB.AutofarmTxt_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.AutofarmTxt_4.BackgroundTransparency = 1.000
+LDSHUB.AutofarmTxt_4.Position = UDim2.new(-0.0328987129, 0, -0.093746841, 0)
+LDSHUB.AutofarmTxt_4.Size = UDim2.new(0.353066504, 0, 0.188233122, 0)
+LDSHUB.AutofarmTxt_4.Font = Enum.Font.Unknown
+LDSHUB.AutofarmTxt_4.Text = "Misc "
+LDSHUB.AutofarmTxt_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.AutofarmTxt_4.TextScaled = true
+LDSHUB.AutofarmTxt_4.TextSize = 14.000
+LDSHUB.AutofarmTxt_4.TextWrapped = true
+
+LDSHUB.MiscButton1.Name = "MiscButton1"
+LDSHUB.MiscButton1.Parent = LDSHUB.MiscUi
+LDSHUB.MiscButton1.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.MiscButton1.Position = UDim2.new(0.0283266865, 0, 0.13498041, 0)
+LDSHUB.MiscButton1.Size = UDim2.new(0.161972716, 0, 0.104609773, 0)
+LDSHUB.MiscButton1.Font = Enum.Font.SourceSans
+LDSHUB.MiscButton1.Text = ""
+LDSHUB.MiscButton1.TextColor3 = Color3.fromRGB(0, 0, 0)
+LDSHUB.MiscButton1.TextSize = 14.000
+
+LDSHUB.UICorner_71.Parent = LDSHUB.MiscButton1
+
+LDSHUB.TextLabel_27.Parent = LDSHUB.MiscButton1
+LDSHUB.TextLabel_27.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_27.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_27.Position = UDim2.new(1.0869565, 0, -0.0967741981, 0)
+LDSHUB.TextLabel_27.Size = UDim2.new(4.63768101, 0, 1.00000012, 0)
+LDSHUB.TextLabel_27.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_27.Text = "Auto Claim Gifts"
+LDSHUB.TextLabel_27.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_27.TextScaled = true
+LDSHUB.TextLabel_27.TextSize = 14.000
+LDSHUB.TextLabel_27.TextWrapped = true
+LDSHUB.TextLabel_27.TextXAlignment = Enum.TextXAlignment.Left
+
+LDSHUB.TextLabel_28.Parent = LDSHUB.MiscButton1
+LDSHUB.TextLabel_28.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_28.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_28.Position = UDim2.new(-0.174886063, 0, 1.22580647, 0)
+LDSHUB.TextLabel_28.Size = UDim2.new(6.17388105, 0, 1.20899427, 0)
+LDSHUB.TextLabel_28.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_28.Text = "By activating this option, you will receive gifts if you have to get them."
+LDSHUB.TextLabel_28.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.TextLabel_28.TextScaled = true
+LDSHUB.TextLabel_28.TextSize = 14.000
+LDSHUB.TextLabel_28.TextWrapped = true
+
+LDSHUB.Frame_17.Parent = LDSHUB.MiscButton1
+LDSHUB.Frame_17.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+LDSHUB.Frame_17.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
+LDSHUB.Frame_17.Size = UDim2.new(0.434782594, 0, 0.870967746, 0)
+
+LDSHUB.UICorner_72.Parent = LDSHUB.Frame_17
+
+LDSHUB.MiscButton2.Name = "MiscButton2"
+LDSHUB.MiscButton2.Parent = LDSHUB.MiscUi
+LDSHUB.MiscButton2.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.MiscButton2.Position = UDim2.new(0.021284394, 0, 0.411690116, 0)
+LDSHUB.MiscButton2.Size = UDim2.new(0.161972716, 0, 0.104609773, 0)
+LDSHUB.MiscButton2.Font = Enum.Font.SourceSans
+LDSHUB.MiscButton2.Text = ""
+LDSHUB.MiscButton2.TextColor3 = Color3.fromRGB(0, 0, 0)
+LDSHUB.MiscButton2.TextSize = 14.000
+
+LDSHUB.UICorner_73.Parent = LDSHUB.MiscButton2
+
+LDSHUB.Frame_18.Parent = LDSHUB.MiscButton2
+LDSHUB.Frame_18.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+LDSHUB.Frame_18.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
+LDSHUB.Frame_18.Size = UDim2.new(0.434782594, 0, 0.870967746, 0)
+
+LDSHUB.UICorner_74.Parent = LDSHUB.Frame_18
+
+LDSHUB.TextLabel_29.Parent = LDSHUB.MiscButton2
+LDSHUB.TextLabel_29.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_29.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_29.Position = UDim2.new(1.0869565, 0, -0.0322580673, 0)
+LDSHUB.TextLabel_29.Size = UDim2.new(4.95551682, 0, 1.00000012, 0)
+LDSHUB.TextLabel_29.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_29.Text = "Auto Spin Reward"
+LDSHUB.TextLabel_29.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_29.TextScaled = true
+LDSHUB.TextLabel_29.TextSize = 14.000
+LDSHUB.TextLabel_29.TextWrapped = true
+LDSHUB.TextLabel_29.TextXAlignment = Enum.TextXAlignment.Left
+
+LDSHUB.TextLabel_30.Parent = LDSHUB.MiscButton2
+LDSHUB.TextLabel_30.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_30.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_30.Position = UDim2.new(-0.131407812, 0, 1.22580254, 0)
+LDSHUB.TextLabel_30.Size = UDim2.new(6.17388105, 0, 1.36578965, 0)
+LDSHUB.TextLabel_30.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_30.Text = "Activating this option, the script will automatically spin the roulette wheel"
+LDSHUB.TextLabel_30.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.TextLabel_30.TextScaled = true
+LDSHUB.TextLabel_30.TextSize = 14.000
+LDSHUB.TextLabel_30.TextWrapped = true
+
+LDSHUB.MiscButton3.Name = "MiscButton3"
+LDSHUB.MiscButton3.Parent = LDSHUB.MiscUi
+LDSHUB.MiscButton3.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.MiscButton3.Position = UDim2.new(0.021284394, 0, 0.715395927, 0)
+LDSHUB.MiscButton3.Size = UDim2.new(0.161972716, 0, 0.104609773, 0)
+LDSHUB.MiscButton3.Font = Enum.Font.SourceSans
+LDSHUB.MiscButton3.Text = ""
+LDSHUB.MiscButton3.TextColor3 = Color3.fromRGB(0, 0, 0)
+LDSHUB.MiscButton3.TextSize = 14.000
+
+LDSHUB.UICorner_75.Parent = LDSHUB.MiscButton3
+
+LDSHUB.Frame_19.Parent = LDSHUB.MiscButton3
+LDSHUB.Frame_19.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+LDSHUB.Frame_19.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
+LDSHUB.Frame_19.Size = UDim2.new(0.434782594, 0, 0.870967746, 0)
+
+LDSHUB.UICorner_76.Parent = LDSHUB.Frame_19
+
+LDSHUB.TextLabel_31.Parent = LDSHUB.MiscButton3
+LDSHUB.TextLabel_31.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_31.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_31.Position = UDim2.new(1.0869565, 0, -0.0322580673, 0)
+LDSHUB.TextLabel_31.Size = UDim2.new(4.95551682, 0, 1.00000012, 0)
+LDSHUB.TextLabel_31.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_31.Text = "Auto Rebirth"
+LDSHUB.TextLabel_31.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_31.TextScaled = true
+LDSHUB.TextLabel_31.TextSize = 14.000
+LDSHUB.TextLabel_31.TextWrapped = true
+LDSHUB.TextLabel_31.TextXAlignment = Enum.TextXAlignment.Left
+
+LDSHUB.TextLabel_32.Parent = LDSHUB.MiscButton3
+LDSHUB.TextLabel_32.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_32.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_32.Position = UDim2.new(-0.131407812, 0, 1.22580254, 0)
+LDSHUB.TextLabel_32.Size = UDim2.new(6.1738801, 0, 1.36578965, 0)
+LDSHUB.TextLabel_32.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_32.Text = "Activating the option, every time you have the necessary amount for the rebirth, the script will activate and give the rebirth"
+LDSHUB.TextLabel_32.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.TextLabel_32.TextScaled = true
+LDSHUB.TextLabel_32.TextSize = 14.000
+LDSHUB.TextLabel_32.TextWrapped = true
+
+LDSHUB.AutoConvertUi.Name = "AutoConvertUi"
+LDSHUB.AutoConvertUi.Parent = LDSHUB.Frame
+LDSHUB.AutoConvertUi.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+LDSHUB.AutoConvertUi.Position = UDim2.new(0.273959696, 0, 0.0941176489, 0)
+LDSHUB.AutoConvertUi.Size = UDim2.new(0.707664907, 0, 0.871586502, 0)
+LDSHUB.AutoConvertUi.Visible = false
+
+LDSHUB.UICorner_77.Parent = LDSHUB.AutoConvertUi
+
+LDSHUB.AutofarmTxt_5.Name = "AutofarmTxt"
+LDSHUB.AutofarmTxt_5.Parent = LDSHUB.AutoConvertUi
+LDSHUB.AutofarmTxt_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.AutofarmTxt_5.BackgroundTransparency = 1.000
+LDSHUB.AutofarmTxt_5.Position = UDim2.new(0.107947282, 0, 0.135719657, 0)
+LDSHUB.AutofarmTxt_5.Size = UDim2.new(0.780299008, 0, 0.724780202, 0)
+LDSHUB.AutofarmTxt_5.Font = Enum.Font.Unknown
+LDSHUB.AutofarmTxt_5.Text = "Coming soon!!"
+LDSHUB.AutofarmTxt_5.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.AutofarmTxt_5.TextScaled = true
+LDSHUB.AutofarmTxt_5.TextSize = 14.000
+LDSHUB.AutofarmTxt_5.TextWrapped = true
+
+--scripts >
 
 --Delete
-DeleteButton.MouseButton1Click:Connect(function()
-	Warn.Visible = true
-	Dwarn.Visible = true
+LDSHUB.DeleteButton.MouseButton1Click:Connect(function()
+	LDSHUB.Warn.Visible = true
+	LDSHUB.Dwarn.Visible = true
 end)
 
-Yes.MouseButton1Click:Connect(function()
-	LDSHUB:Destroy()
+LDSHUB.Yes.MouseButton1Click:Connect(function()
+	LDSHUB.LDSHUB:Destroy()
 end)
 
-No.MouseButton1Click:Connect(function()
-	Warn.Visible = false
-	Dwarn.Visible = false
+LDSHUB.No.MouseButton1Click:Connect(function()
+	LDSHUB.Warn.Visible = false
+	LDSHUB.Dwarn.Visible = false
 end)
 
-Okay.MouseButton1Click:Connect(function()
-	Warn.Visible = false
-	Wwarn.Visible = false
+LDSHUB.Okay.MouseButton1Click:Connect(function()
+	LDSHUB.Warn.Visible = false
+	LDSHUB.Wwarn.Visible = false
 end)
 
 --Anti AFK
 
-AntAFKButton.MouseButton1Click:Connect(function()
-	Frame_2.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+LDSHUB.AntAFKButton.MouseButton1Click:Connect(function()
+	LDSHUB.Frame_2.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+
 	local bb=game:service'VirtualUser'
 	game:service'Players'.LocalPlayer.Idled:connect(function()
 		bb:CaptureController()bb:ClickButton2(Vector2.new())
@@ -969,13 +1753,13 @@ AntAFKButton.MouseButton1Click:Connect(function()
 end)
 
 --Drag Ui
-Frame.Draggable = true
-Frame.Selectable = true
-Frame.Active = true
+LDSHUB.Frame.Draggable = true
+LDSHUB.Frame.Selectable = true
+LDSHUB.Frame.Active = true
 
 --ToogleGui
 
-local FrameObject = Frame
+local FrameObject = LDSHUB.Frame
 local Open = false
 
 local PositionClosed = UDim2.new(-0.317, 0,0351, 0)
@@ -997,9 +1781,9 @@ end)
 
 --Active
 
-ActiveToogleTxt.MouseButton1Click:Connect(function()
-	Warn.Visible = true
-	Wwarn.Visible = true
+LDSHUB.ActiveToogleTxt.MouseButton1Click:Connect(function()
+	LDSHUB.Warn.Visible = true
+	LDSHUB.Wwarn.Visible = true
 end)
 
 --Abrir UI
@@ -1010,17 +1794,25 @@ local function toggleFrame(frame, button)
 end
 
 local function hideFrames()
-	HomeUi.Visible = false
-	AutoFarmUi.Visible = false
-	SettingsUI.Visible = false
-	UpdateNoteUi.Visible = false
+	LDSHUB.HomeUi.Visible = false
+	LDSHUB.AutoFarmUi.Visible = false
+	LDSHUB.AutoEggUi.Visible = false
+	LDSHUB.EventUi.Visible = false
+	LDSHUB.AutoConvertUi.Visible = false
+	LDSHUB.SettingsUI.Visible = false
+	LDSHUB.UpdateNoteUi.Visible = false
+	LDSHUB.MiscUi.Visible = false
 end
 
 local function resetButtons()
-	Home.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-	AutoFarm.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-	Settings.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-	UpdateNotes.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+	LDSHUB.Home.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+	LDSHUB.AutoFarm.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+	LDSHUB.AutoEgg.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+	LDSHUB.Event.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+	LDSHUB.Converts.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+	LDSHUB.Settings.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+	LDSHUB.UpdateNotes.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+	LDSHUB.Misc.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
 end
 
 local function resetFrames(excludeFrame, excludeButton)
@@ -1033,67 +1825,93 @@ local function resetFrames(excludeFrame, excludeButton)
 	end
 end
 
-Home.MouseButton1Click:Connect(function()
-	toggleFrame(HomeUi, Home)
-	resetFrames(HomeUi, Home)
+LDSHUB.Home.MouseButton1Click:Connect(function()
+	toggleFrame(LDSHUB.HomeUi, LDSHUB.Home)
+	resetFrames(LDSHUB.HomeUi, LDSHUB.Home)
 end)
 
-AutoFarm.MouseButton1Click:Connect(function()
-	toggleFrame(AutoFarmUi, AutoFarm)
-	resetFrames(AutoFarmUi, AutoFarm)
+LDSHUB.AutoFarm.MouseButton1Click:Connect(function()
+	toggleFrame(LDSHUB.AutoFarmUi, LDSHUB.AutoFarm)
+	resetFrames(LDSHUB.AutoFarmUi, LDSHUB.AutoFarm)
 end)
 
-Settings.MouseButton1Click:Connect(function()
-	toggleFrame(SettingsUI, Settings)
-	resetFrames(SettingsUI, Settings)
+LDSHUB.AutoEgg.MouseButton1Click:Connect(function()
+	toggleFrame(LDSHUB.AutoEggUi, LDSHUB.AutoEgg)
+	resetFrames(LDSHUB.AutoEggUi, LDSHUB.AutoEgg)
 end)
 
-UpdateNotes.MouseButton1Click:Connect(function()
-	toggleFrame(UpdateNoteUi, UpdateNotes)
-	resetFrames(UpdateNoteUi, UpdateNotes)
+LDSHUB.Event.MouseButton1Click:Connect(function()
+	toggleFrame(LDSHUB.EventUi,LDSHUB.Event)
+	resetFrames(LDSHUB.EventUi, LDSHUB.Event)
+end)
+
+LDSHUB.Converts.MouseButton1Click:Connect(function()
+	toggleFrame(LDSHUB.AutoConvertUi, LDSHUB.Converts)
+	resetFrames(LDSHUB.AutoConvertUi, LDSHUB.Converts)
+end)
+
+LDSHUB.Settings.MouseButton1Click:Connect(function()
+	toggleFrame(LDSHUB.SettingsUI, LDSHUB.Settings)
+	resetFrames(LDSHUB.SettingsUI, LDSHUB.Settings)
+end)
+
+LDSHUB.UpdateNotes.MouseButton1Click:Connect(function()
+	toggleFrame(LDSHUB.UpdateNoteUi, LDSHUB.UpdateNotes)
+	resetFrames(LDSHUB.UpdateNoteUi, LDSHUB.UpdateNotes)
+end)
+
+LDSHUB.Misc.MouseButton1Click:Connect(function()
+	toggleFrame(LDSHUB.MiscUi, LDSHUB.Misc)
+	resetFrames(LDSHUB.MiscUi, LDSHUB.Misc)
 end)
 
 -- Esconder todos os frames ao iniciar
 hideFrames()
-HomeUi.Visible = true
+LDSHUB.HomeUi.Visible = true
 
--- Auto Farm
+--Event script
+
 local G = getgenv()
 
-G.AutoClick = false
-autofarm1.MouseButton1Click:Connect(function()
+--Auto Egg Event
 
-	G.AutoClick = not G.AutoClick
+G.AutoEggEvent = false
 
-	if G.AutoClick then
-		Frame_6.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+LDSHUB.EventButton1.MouseButton1Click:Connect(function()
+
+	G.AutoEggEvent = not G.AutoEggEvent
+	
+	if G.AutoEggEvent == true then
+		LDSHUB.Frame_9.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	else
-		Frame_6.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+		LDSHUB.Frame_9.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 	end
 
-	while G.AutoClick do
-		wait(0.1)
-		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onClickRequest"):FireServer()
+	while G.AutoEggEvent do
+
+		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EventService"):WaitForChild("RF"):WaitForChild("ClaimEgg"):InvokeServer()
+wait(.5)
 	end
+	
 end)
 
-G.AutoFarm1 = false
+--Auto Farm World 1 
 
-autofarm2.MouseButton1Click:Connect(function()
+G.AutoFarmEvent1 = false
 
-	G.AutoFarm1 = not G.AutoFarm1
+LDSHUB.EventButton2.MouseButton1Click:Connect(function()
 
-	if G.AutoFarm1 then
-		Frame_7.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+	G.AutoFarmEvent1 = not G.AutoFarmEvent1
+
+	if G.AutoFarmEvent1 == true then
+		LDSHUB.Frame_10.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	else
-		Frame_7.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+		LDSHUB.Frame_10.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 	end
 
-	while G.AutoFarm1 do
+	while G.AutoFarmEvent1 do
 		local Ui = game.Players.LocalPlayer.PlayerGui.GameUI.Wrestle
 		local Numeros = 1
-
-		local G = getgenv()
 
 		local npcData = {
 			[1] = {
@@ -1121,10 +1939,9 @@ autofarm2.MouseButton1Click:Connect(function()
 		repeat
 			if Ui.Visible == false then
 				local data = npcData[Numeros]
-				print("Verificando NPC:", data.name)
 				local npc = workspace:WaitForChild("Zones"):WaitForChild("1"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild(data.name)
 				if npc then
-					print("NPC encontrado:", data.name)
+
 					data.npc = npc
 					local args = {
 						[1] = data.name,
@@ -1133,45 +1950,43 @@ autofarm2.MouseButton1Click:Connect(function()
 					}	
 
 					game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
-					print("NPC selecionado:", data.name)
 
 					-- Aguardar até que o NPC seja derrotado
 					wait(2)
 					repeat
 						wait()
 					until Ui.Visible == false
-					print("NPC derrotado:", data.name)
-				else
-					print("NPC não encontrado:", data.name)
 				end
 			end
 
 			-- Passar para o próximo NPC
 			Numeros = Numeros + 1
 		until Numeros > #npcData
-	wait(0.1)
+		wait(0.1)
 	end
 end)
 
-G.AutoFarm2 = false
+--Auto Farm World 2
 
-autofarm3.MouseButton1Click:Connect(function()
-	
-	G.AutoFarm2 = not G.AutoFarm2
+G.AutoFarmEvent2 = false
 
-	if G.AutoFarm2 then
-		Frame_8.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+LDSHUB.EventButton3.MouseButton1Click:Connect(function()
+
+	G.AutoFarmEvent2 = not G.AutoFarmEvent2
+
+	if G.AutoFarmEvent2 == true then
+		LDSHUB.Frame_11.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	else
-		Frame_8.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+		LDSHUB.Frame_11.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 	end
-	
+
 	local args = {
 		[1] = workspace:WaitForChild("Zones"):WaitForChild("2"):WaitForChild("Interactables"):WaitForChild("Teleports"):WaitForChild("Locations"):WaitForChild("Futuristic")
 	}
 
 	game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ZoneService"):WaitForChild("RE"):WaitForChild("teleport"):FireServer(unpack(args))
-wait(.2)
-	while G.AutoFarm2 do
+	wait(.2)
+	while G.AutoFarmEvent2 do
 		local Ui = game.Players.LocalPlayer.PlayerGui.GameUI.Wrestle
 		local Numeros = 1
 
@@ -1189,10 +2004,8 @@ wait(.2)
 		repeat
 			if Ui.Visible == false then
 				local data = npcData[Numeros]
-				print("Verificando NPC:", data.name)
 				local npc = workspace:WaitForChild("Zones"):WaitForChild("2"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild(data.name)
 				if npc then
-					print("NPC encontrado:", data.name)
 					data.npc = npc
 					local args = {
 						[1] = data.name,
@@ -1201,22 +2014,153 @@ wait(.2)
 					}
 
 					game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
-					print("NPC selecionado:", data.name)
 
 					-- Aguardar até que o NPC seja derrotado
 					wait(2)
 					repeat
 						wait()
 					until Ui.Visible == false
-					print("NPC derrotado:", data.name)
-				else
-					print("NPC não encontrado:", data.name)
 				end
 			end
 
 			-- Passar para o próximo NPC
 			Numeros = Numeros + 1
 		until Numeros > #npcData
-wait(.1)
+		wait(.1)
 	end
+end)
+
+-- AutoFarm scripts
+
+G.AutoClick = false
+
+LDSHUB.autofarm1.MouseButton1Click:Connect(function()
+	
+	G.AutoClick = not G.AutoClick
+
+	if G.AutoClick == true then
+		LDSHUB.Frame_6.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+	else
+		LDSHUB.Frame_6.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+	end
+
+	while G.AutoClick do
+		wait(0.1)
+		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onClickRequest"):FireServer()
+	end
+	
+end)
+
+LDSHUB.autofarm2.MouseButton1Click:Connect(function()
+	LDSHUB.Warn.Visible = true
+	LDSHUB.Wwarn.Visible = true
+end)
+
+-- Auto Egg scripts
+
+G.RemoveEggAnimation = false
+
+LDSHUB.visibleegg.MouseButton1Click:Connect(function()
+	local plr = game.Players.LocalPlayer
+	local gui = plr.PlayerGui.OpenerUI
+	
+	G.RemoveEggAnimation = not G.RemoveEggAnimation
+	
+	if G.RemoveEggAnimation == true then
+		LDSHUB.Frame_13.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+	else
+		LDSHUB.Frame_13.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+	end
+	
+	if G.RemoveEggAnimation == true then
+		gui.Enabled = false
+	else
+		gui.Enabled = true
+	end
+
+end)
+
+LDSHUB.autoegg1.MouseButton1Click:Connect(function()
+	LDSHUB.Warn.Visible = true
+	LDSHUB.Wwarn.Visible = true
+end)
+
+LDSHUB._1egg.MouseButton1Click:Connect(function()
+	LDSHUB.Warn.Visible = true
+	LDSHUB.Wwarn.Visible = true
+end)
+
+LDSHUB._3egg.MouseButton1Click:Connect(function()
+	LDSHUB.Warn.Visible = true
+	LDSHUB.Wwarn.Visible = true
+end)
+
+LDSHUB._8egg.MouseButton1Click:Connect(function()
+	LDSHUB.Warn.Visible = true
+	LDSHUB.Wwarn.Visible = true
+end)
+-- Auto Convert... fazer ainda
+
+-- Misc Scripts
+G.AutoClaimReward = false
+
+LDSHUB.MiscButton1.MouseButton1Click:Connect(function()
+	
+	G.AutoClaimReward = not G.AutoClaimReward
+	
+	if G.AutoClaimReward == true then
+		LDSHUB.Frame_17.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+	else
+		LDSHUB.Frame_17.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+	end
+	
+	while G.AutoClaimReward do
+		for i = 1, 12 do
+			local args = {
+				[1] = tostring(i)
+			}
+
+			game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("TimedRewardService"):WaitForChild("RE"):WaitForChild("onClaim"):FireServer(unpack(args))
+			wait(0.5)
+		end
+		wait(10)
+	end
+	
+end)
+
+G.AutoSpinReward = false
+
+LDSHUB.MiscButton2.MouseButton1Click:Connect(function()
+	local plr = game.Players.LocalPlayer
+	local gui = plr.PlayerGui.GameUI.Menus.Spin.Spin
+	
+	if gui.Enabled == true then
+		G.AutoSpinReward = true
+	else
+		G.AutoSpinReward = false
+	end
+	
+	if G.AutoSpinReward == true then
+		LDSHUB.Frame_18.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+	else
+		LDSHUB.Frame_18.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+	end
+	
+	while G.AutoSpinReward do
+		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("SpinService"):WaitForChild("RE"):WaitForChild("onSpinRequest"):FireServer()
+		wait(0.1)
+		if gui.Enabled == false then
+			G.AutoSpinReward = false
+		end
+	end
+	
+end)
+
+G.AutoRebirth = false
+
+LDSHUB.MiscButton3.MouseButton1Click:Connect(function()
+	
+	LDSHUB.Warn.Visible = true
+	LDSHUB.Wwarn.Visible = true
+	
 end)
