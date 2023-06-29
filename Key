@@ -136,6 +136,10 @@ local plrGui = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
 
 GetKey.MouseButton1Click:Connect(function()
 setclipboard("https://discord.gg/DABC3eFusQ")
+TextBox.PlaceholderText = "Link Copied!"
+	TextBox.Text = ""
+	wait(3)
+	TextBox.PlaceholderText = "Key Here!"
 end)
 
 local function KeyErrada()
