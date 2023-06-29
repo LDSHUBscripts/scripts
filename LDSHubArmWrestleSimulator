@@ -1118,18 +1118,6 @@ autofarm2.MouseButton1Click:Connect(function()
 			[2] = {
 				name1 = "CyberCop",
 				npc1 = nil,
-			},
-			[3] = {
-				name1 = "SlicerAssassin",
-				npc1 = nil,
-			},
-			[4] = {
-				name1 = "RipperDoc",
-				npc1 = nil,
-			},
-			[5] = {
-				name1 = "RogueAi",
-				npc1 = nil,
 			}
 		}
 
