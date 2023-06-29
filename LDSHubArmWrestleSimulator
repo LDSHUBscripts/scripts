@@ -1173,50 +1173,52 @@ autofarm3.MouseButton1Click:Connect(function()
 
 	while G.AutoFarm2 do
 		local Ui = game.Players.LocalPlayer.PlayerGui.GameUI.Wrestle
-	local Numeros1 = 1
+		local Numeros = 1
 
-	local npcData1 = {
-		[1] = {
-			name1 = "ScrapTrader",
-			npc1 = nil,
-		},
-		[2] = {
-			name1 = "CyberCop",
-			npc1 = nil,
+		local G = getgenv()
+
+		local npcData = {
+			[1] = {
+				name1 = "ScrapTrader",
+				npc1 = nil,
+			},
+			[2] = {
+				name1 = "CyberCop",
+				npc1 = nil,
+			}
 		}
-	}
 
-	repeat
-		if Ui.Visible == false then
-			local data = npcData1[Numeros1]
-			print("Verificando NPC:", data.name1)
-			local npc = workspace:WaitForChild("Zones"):WaitForChild("2"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild(data.name1)
-			if npc then
-				print("NPC encontrado:", data.name1)
-				data.npc1 = npc
-				local args = {
-					[1] = data.name1,
-					[2] = npc,
-					[3] = "2"
-				}
+		repeat
+			if Ui.Visible == false then
+				local data = npcData[Numeros]
+				print("Verificando NPC:", data.name)
+				local npc = workspace:WaitForChild("Zones"):WaitForChild("2"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild(data.name)
+				if npc then
+					print("NPC encontrado:", data.name)
+					data.npc = npc
+					local args = {
+						[1] = data.name,
+						[2] = npc,
+						[3] = "2"
+					}	
 
-				game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
-				print("NPC selecionado:", data.name1)
+					game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
+					print("NPC selecionado:", data.name)
 
-				-- Aguardar até que o NPC seja derrotado
-				wait(2)
-				repeat
-					wait()
-				until Ui.Visible == false
-				print("NPC derrotado:", data.name1)
-			else
-				print("NPC não encontrado:", data.name1)
+					-- Aguardar até que o NPC seja derrotado
+					wait(2)
+					repeat
+						wait()
+					until Ui.Visible == false
+					print("NPC derrotado:", data.name)
+				else
+					print("NPC não encontrado:", data.name)
+				end
 			end
-		end
 
-		-- Passar para o próximo NPC
-		Numeros1 = Numeros1 + 1
-		until Numeros1 > #npcData1
+			-- Passar para o próximo NPC
+			Numeros = Numeros + 1
+		until Numeros > #npcData
 		wait(0.1)
 	end
 end)
