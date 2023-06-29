@@ -1172,7 +1172,7 @@ autofarm3.MouseButton1Click:Connect(function()
 	game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ZoneService"):WaitForChild("RE"):WaitForChild("teleport"):FireServer(unpack(args))
 
 	while G.AutoFarm2 do
-		
+		local Ui = game.Players.LocalPlayer.PlayerGui.GameUI.Wrestle
 	local Numeros1 = 1
 
 	local npcData1 = {
