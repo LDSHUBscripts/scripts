@@ -340,14 +340,14 @@ IDK.Name = "IDK"
 IDK.Parent = SettingsUI
 IDK.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
 IDK.Position = UDim2.new(0.0164320152, 0, 0.536577582, 0)
-IDK.Size = UDim2.new(0.962441206, 1, 0.443175077, 0)
+IDK.Size = UDim2.new(0.964788616, 0, 0.443175077, 0)
 
 UICorner_10.Parent = IDK
 
 TextBox.Parent = IDK
 TextBox.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
 TextBox.Position = UDim2.new(0.153299093, 0, 0.36807552, 0)
-TextBox.Size = UDim2.new(0.69513613, 0, 0.236046121, 0)
+TextBox.Size = UDim2.new(0.695136189, 0, 0.236046121, 0)
 TextBox.Font = Enum.Font.FredokaOne
 TextBox.PlaceholderText = "\"Place here you keybind (Not Working)\""
 TextBox.Text = ""
@@ -386,7 +386,7 @@ ActiveToogleTxt.Name = "ActiveToogleTxt"
 ActiveToogleTxt.Parent = IDK
 ActiveToogleTxt.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
 ActiveToogleTxt.Position = UDim2.new(0.368758351, 0, 0.654228806, 0)
-ActiveToogleTxt.Size = UDim2.new(0, 107, 0, 21)
+ActiveToogleTxt.Size = UDim2.new(0.260342091, 0, 0.15990223, 0)
 ActiveToogleTxt.Font = Enum.Font.FredokaOne
 ActiveToogleTxt.Text = "Active"
 ActiveToogleTxt.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -400,7 +400,7 @@ IDK_2.Name = "IDK "
 IDK_2.Parent = SettingsUI
 IDK_2.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
 IDK_2.Position = UDim2.new(0.0164320152, 0, 0.134980157, 0)
-IDK_2.Size = UDim2.new(0.457743645, 1, 0.362217754, 0)
+IDK_2.Size = UDim2.new(0.460091054, 0, 0.362217754, 0)
 
 UICorner_13.Parent = IDK_2
 
@@ -408,7 +408,7 @@ AntAFKButton.Name = "AntAFKButton"
 AntAFKButton.Parent = IDK_2
 AntAFKButton.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
 AntAFKButton.Position = UDim2.new(0.25792107, 0, 0.314927578, 0)
-AntAFKButton.Size = UDim2.new(0, 93, 0, 33)
+AntAFKButton.Size = UDim2.new(0.474495292, 0, 0.307436049, 0)
 AntAFKButton.Font = Enum.Font.SourceSans
 AntAFKButton.Text = ""
 AntAFKButton.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -443,7 +443,7 @@ TextLabel_6.TextWrapped = true
 Frame_2.Parent = AntAFKButton
 Frame_2.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 Frame_2.Position = UDim2.new(0.0568263568, 0, 0.1777464, 0)
-Frame_2.Size = UDim2.new(0, 42, 0, 23)
+Frame_2.Size = UDim2.new(0.45161289, 0, 0.696969688, 0)
 
 UICorner_15.Parent = Frame_2
 
@@ -451,7 +451,7 @@ IDK_3.Name = "IDK"
 IDK_3.Parent = SettingsUI
 IDK_3.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
 IDK_3.Position = UDim2.new(0.521129549, 0, 0.134980157, 0)
-IDK_3.Size = UDim2.new(0.457743645, 1, 0.362217754, 0)
+IDK_3.Size = UDim2.new(0.460091054, 0, 0.362217754, 0)
 
 UICorner_16.Parent = IDK_3
 
@@ -459,7 +459,7 @@ DeleteButton.Name = "DeleteButton"
 DeleteButton.Parent = IDK_3
 DeleteButton.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
 DeleteButton.Position = UDim2.new(0.25792107, 0, 0.314927578, 0)
-DeleteButton.Size = UDim2.new(0, 93, 0, 33)
+DeleteButton.Size = UDim2.new(0.474495292, 0, 0.307436049, 0)
 DeleteButton.Font = Enum.Font.SourceSans
 DeleteButton.Text = ""
 DeleteButton.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -494,7 +494,7 @@ TextLabel_8.TextWrapped = true
 Frame_3.Parent = DeleteButton
 Frame_3.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 Frame_3.Position = UDim2.new(0.0568263568, 0, 0.1777464, 0)
-Frame_3.Size = UDim2.new(0, 42, 0, 23)
+Frame_3.Size = UDim2.new(0.45161289, 0, 0.696969688, 0)
 
 UICorner_18.Parent = Frame_3
 
@@ -645,7 +645,7 @@ AutofarmTxt.Parent = AutoFarmUi
 AutofarmTxt.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 AutofarmTxt.BackgroundTransparency = 1.000
 AutofarmTxt.Position = UDim2.new(0.0234396197, 0, -0.093746841, 0)
-AutofarmTxt.Size = UDim2.new(0.353066534, 0, 0.188233122, 0)
+AutofarmTxt.Size = UDim2.new(0.353066504, 0, 0.188233122, 0)
 AutofarmTxt.Font = Enum.Font.Unknown
 AutofarmTxt.Text = "Auto Farm"
 AutofarmTxt.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -657,7 +657,7 @@ autofarm1.Name = "autofarm1"
 autofarm1.Parent = AutoFarmUi
 autofarm1.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
 autofarm1.Position = UDim2.new(0.0283266865, 0, 0.13498041, 0)
-autofarm1.Size = UDim2.new(0, 69, 0, 31)
+autofarm1.Size = UDim2.new(0.161972716, 0, 0.104609773, 0)
 autofarm1.Font = Enum.Font.SourceSans
 autofarm1.Text = ""
 autofarm1.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -693,7 +693,7 @@ TextLabel_14.TextWrapped = true
 Frame_6.Parent = autofarm1
 Frame_6.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 Frame_6.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
-Frame_6.Size = UDim2.new(0, 30, 0, 27)
+Frame_6.Size = UDim2.new(0.434782594, 0, 0.870967746, 0)
 
 UICorner_29.Parent = Frame_6
 
@@ -701,7 +701,7 @@ autofarm2.Name = "autofarm2"
 autofarm2.Parent = AutoFarmUi
 autofarm2.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
 autofarm2.Position = UDim2.new(0.0283266865, 0, 0.566917539, 0)
-autofarm2.Size = UDim2.new(0, 69, 0, 31)
+autofarm2.Size = UDim2.new(0.161972716, 0, 0.104609773, 0)
 autofarm2.Font = Enum.Font.SourceSans
 autofarm2.Text = ""
 autofarm2.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -712,7 +712,7 @@ UICorner_30.Parent = autofarm2
 Frame_7.Parent = autofarm2
 Frame_7.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 Frame_7.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
-Frame_7.Size = UDim2.new(0, 30, 0, 27)
+Frame_7.Size = UDim2.new(0.434782594, 0, 0.870967746, 0)
 
 UICorner_31.Parent = Frame_7
 
@@ -781,7 +781,7 @@ TextCredits_4.Parent = HomeUi
 TextCredits_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextCredits_4.BackgroundTransparency = 1.000
 TextCredits_4.Position = UDim2.new(0.0187516958, 0, 0.121319458, 0)
-TextCredits_4.Size = UDim2.new(0.962496758, 0, 0.823535323, 0)
+TextCredits_4.Size = UDim2.new(0.962496698, 0, 0.823535323, 0)
 TextCredits_4.Font = Enum.Font.FredokaOne
 TextCredits_4.Text = "Well if you're seeing this, then everything worked out, and I'm very happy about it, I want to give my credit to my friend Ali, who helped me A LOT with doubts regarding the scripts, this is the first HUB I created so wait for many others coming soon :3"
 TextCredits_4.TextColor3 = Color3.fromRGB(170, 0, 255)
@@ -801,7 +801,7 @@ ImageLabelYT.Name = "ImageLabelYT"
 ImageLabelYT.Parent = Frame_8
 ImageLabelYT.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 ImageLabelYT.Position = UDim2.new(0.0187516958, 0, 0.158772826, 0)
-ImageLabelYT.Size = UDim2.new(0, 65, 0, 65)
+ImageLabelYT.Size = UDim2.new(0.15151006, 0, 0.654089928, 0)
 ImageLabelYT.Image = "rbxassetid://12772776120"
 
 UICorner_34.CornerRadius = UDim.new(0, 99999999)
@@ -812,7 +812,7 @@ NameChannel.Parent = Frame_8
 NameChannel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 NameChannel.BackgroundTransparency = 1.000
 NameChannel.Position = UDim2.new(0.119542062, 0, 0.218616888, 0)
-NameChannel.Size = UDim2.new(0.392913878, 0, 0.362135261, 0)
+NameChannel.Size = UDim2.new(0.392913878, 0, 0.362135291, 0)
 NameChannel.ZIndex = 10
 NameChannel.Font = Enum.Font.SciFi
 NameChannel.Text = "Sr. LDS"
@@ -839,7 +839,7 @@ ImageLabelDC.Name = "ImageLabelDC"
 ImageLabelDC.Parent = Frame_8
 ImageLabelDC.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 ImageLabelDC.Position = UDim2.new(0.489888072, 0, 0.158772826, 0)
-ImageLabelDC.Size = UDim2.new(0, 65, 0, 65)
+ImageLabelDC.Size = UDim2.new(0.15151006, 0, 0.654089928, 0)
 ImageLabelDC.Image = "http://www.roblox.com/asset/?id=1999278264"
 
 UICorner_35.CornerRadius = UDim.new(0, 99999999)
@@ -850,7 +850,7 @@ NameDC.Parent = Frame_8
 NameDC.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 NameDC.BackgroundTransparency = 1.000
 NameDC.Position = UDim2.new(0.658653319, 0, 0.239524141, 0)
-NameDC.Size = UDim2.new(0.322595268, 0, 0.504140854, 0)
+NameDC.Size = UDim2.new(0.322595239, 0, 0.504140854, 0)
 NameDC.ZIndex = 10
 NameDC.Font = Enum.Font.SciFi
 NameDC.Text = "https://discord.gg/DABC3eFusQ"
@@ -1008,15 +1008,15 @@ local G = getgenv()
 
 G.AutoClick = false
 autofarm1.MouseButton1Click:Connect(function()
-	
+
 	G.AutoClick = not G.AutoClick
-	
+
 	if G.AutoClick then
 		Frame_6.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	else
 		Frame_6.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 	end
-	
+
 	while G.AutoClick do
 		wait(0.1)
 		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onClickRequest"):FireServer()
@@ -1026,88 +1026,88 @@ end)
 G.AutoFarm = false
 
 autofarm2.MouseButton1Click:Connect(function()
-	
+
 	G.AutoFarm = not G.AutoFarm
-	
+
 	if G.AutoFarm then
 		Frame_7.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	else
 		Frame_7.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 	end
-	
+
 	while G.AutoFarm do
-	local Ui = game.Players.LocalPlayer.PlayerGui.GameUI.Wrestle
-	local Numeros = 1
+		local Ui = game.Players.LocalPlayer.PlayerGui.GameUI.Wrestle
+		local Numeros = 1
 
-	local G = getgenv()
+		local G = getgenv()
 
-	local npcData = {
-		[1] = {
-			name = "Bully",
-			npc = nil,
-		},
-		[2] = {
-			name = "Teacher",
-			npc = nil,
-		},
-		[3] = {
-			name = "GymRat",
-			npc = nil,
-		},
-		[4] = {
-			name = "MafiaBoss",
-			npc = nil,
-		},
-		[5] = {
-			name = "Champion",
-			npc = nil,
+		local npcData = {
+			[1] = {
+				name = "Bully",
+				npc = nil,
+			},
+			[2] = {
+				name = "Teacher",
+				npc = nil,
+			},
+			[3] = {
+				name = "GymRat",
+				npc = nil,
+			},
+			[4] = {
+				name = "MafiaBoss",
+				npc = nil,
+			},
+			[5] = {
+				name = "Champion",
+				npc = nil,
+			}
 		}
-	}
 
-	repeat
-		if Ui.Visible == false then
-			local data = npcData[Numeros]
-			print("Verificando NPC:", data.name)
-			local npc = workspace:WaitForChild("Zones"):WaitForChild("1"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild(data.name)
-			if npc then
-				print("NPC encontrado:", data.name)
-				data.npc = npc
-				local args = {
-					[1] = data.name,
-					[2] = npc,
-					[3] = "1"
-				}	
+		repeat
+			if Ui.Visible == false then
+				local data = npcData[Numeros]
+				print("Verificando NPC:", data.name)
+				local npc = workspace:WaitForChild("Zones"):WaitForChild("1"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild(data.name)
+				if npc then
+					print("NPC encontrado:", data.name)
+					data.npc = npc
+					local args = {
+						[1] = data.name,
+						[2] = npc,
+						[3] = "1"
+					}	
 
-				game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
-				print("NPC selecionado:", data.name)
+					game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
+					print("NPC selecionado:", data.name)
 
-				-- Aguardar até que o NPC seja derrotado
-				wait(2)
-				repeat
-					wait()
-				until Ui.Visible == false
-				print("NPC derrotado:", data.name)
-			else
-				print("NPC não encontrado:", data.name)
+					-- Aguardar até que o NPC seja derrotado
+					wait(2)
+					repeat
+						wait()
+					until Ui.Visible == false
+					print("NPC derrotado:", data.name)
+				else
+					print("NPC não encontrado:", data.name)
+				end
 			end
-		end
 
-		-- Passar para o próximo NPC
-		Numeros = Numeros + 1
+			-- Passar para o próximo NPC
+			Numeros = Numeros + 1
 		until Numeros > #npcData
-		
+
 		-- teleport
-		
+
 		local args = {
 			[1] = workspace:WaitForChild("Zones"):WaitForChild("2"):WaitForChild("Interactables"):WaitForChild("Teleports"):WaitForChild("Locations"):WaitForChild("Futuristic")
 		}
 
 		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ZoneService"):WaitForChild("RE"):WaitForChild("teleport"):FireServer(unpack(args))
-		
+
 		-- segundo mundo
-		
+
 		wait(1)
-	
+
 		local Numeros1 = 1
 
 		local npcData1 = {
@@ -1153,9 +1153,9 @@ autofarm2.MouseButton1Click:Connect(function()
 			Numeros1 = Numeros1 + 1
 		until Numeros1 > #npcData1
 
-		
+
 		--teleport
-		
+
 		local args = {
 			[1] = workspace:WaitForChild("Zones"):WaitForChild("1"):WaitForChild("Interactables"):WaitForChild("Teleports"):WaitForChild("Locations"):WaitForChild("BackToSchool")
 		}
