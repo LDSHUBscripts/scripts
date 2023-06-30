@@ -7,7 +7,8 @@ local tableofkeys = {
 		"LimasKey",
 		"TeteuKey",
 		"BielKey",
-		"BennKey"
+		"BennKey",
+		"StanKey"
 			}
 			
 		local whitelistedusers = {
