@@ -2187,9 +2187,9 @@ LDSHUB.EventButton1.MouseButton1Click:Connect(function()
 	G.AutoEggEvent = not G.AutoEggEvent
 
 	if G.AutoEggEvent == true then
-		LDSHUB.Frame_9.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+		LDSHUB.Frame_8.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	else
-		LDSHUB.Frame_9.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+		LDSHUB.Frame_8.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 	end
 
 	while G.AutoEggEvent do
@@ -2209,9 +2209,9 @@ LDSHUB.EventButton2.MouseButton1Click:Connect(function()
 	G.AutoFarmEvent1 = not G.AutoFarmEvent1
 
 	if G.AutoFarmEvent1 == true then
-		LDSHUB.Frame_10.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+		LDSHUB.Frame_9.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	else
-		LDSHUB.Frame_10.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+		LDSHUB.Frame_9.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 	end
 
 	while G.AutoFarmEvent1 do
@@ -2280,9 +2280,9 @@ LDSHUB.EventButton3.MouseButton1Click:Connect(function()
 	G.AutoFarmEvent2 = not G.AutoFarmEvent2
 
 	if G.AutoFarmEvent2 == true then
-		LDSHUB.Frame_11.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+		LDSHUB.Frame_10.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	else
-		LDSHUB.Frame_11.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+		LDSHUB.Frame_10.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 	end
 
 	local args = {
@@ -2344,9 +2344,9 @@ LDSHUB.autofarm1.MouseButton1Click:Connect(function()
 	G.AutoClick = not G.AutoClick
 
 	if G.AutoClick == true then
-		LDSHUB.Frame_6.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+		LDSHUB.Frame_19.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	else
-		LDSHUB.Frame_6.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+		LDSHUB.Frame_19.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 	end
 
 	while G.AutoClick do
@@ -2372,9 +2372,9 @@ LDSHUB.visibleegg.MouseButton1Click:Connect(function()
 	G.RemoveEggAnimation = not G.RemoveEggAnimation
 
 	if G.RemoveEggAnimation == true then
-		LDSHUB.Frame_13.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+		LDSHUB.Frame_12.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	else
-		LDSHUB.Frame_13.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+		LDSHUB.Frame_12.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 	end
 
 	if G.RemoveEggAnimation == true then
@@ -2414,9 +2414,9 @@ LDSHUB.MiscButton1.MouseButton1Click:Connect(function()
 	G.AutoClaimReward = not G.AutoClaimReward
 
 	if G.AutoClaimReward == true then
-		LDSHUB.Frame_17.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+		LDSHUB.Frame_16.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	else
-		LDSHUB.Frame_17.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+		LDSHUB.Frame_16.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 	end
 
 	while G.AutoClaimReward do
@@ -2439,16 +2439,16 @@ LDSHUB.MiscButton2.MouseButton1Click:Connect(function()
 	local plr = game.Players.LocalPlayer
 	local gui = plr.PlayerGui.GameUI.Menus.Spin.Spin
 
-	if gui.Enabled == true then
+	if gui.Visible == true then
 		G.AutoSpinReward = true
 	else
 		G.AutoSpinReward = false
 	end
 
 	if G.AutoSpinReward == true then
-		LDSHUB.Frame_18.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+		LDSHUB.Frame_17.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	else
-		LDSHUB.Frame_18.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+		LDSHUB.Frame_17.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 	end
 
 	while G.AutoSpinReward do
