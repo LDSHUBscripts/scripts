@@ -2530,9 +2530,9 @@ LDSHUB.autofarm1.MouseButton1Click:Connect(function()
 	G.AutoClick = not G.AutoClick
 
 	if G.AutoClick == true then
-		LDSHUB.Frame_19.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+		LDSHUB.Frame_21.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	else
-		LDSHUB.Frame_19.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+		LDSHUB.Frame_21.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 	end
 
 	while G.AutoClick do
