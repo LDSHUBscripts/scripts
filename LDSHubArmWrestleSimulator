@@ -2694,7 +2694,7 @@ local function checkPetIndex(index)
 
 								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
 								wait(1)
-								verificarPet()
+								verificarPet(v)
 							until PetIcon.ImageColor3 == Color3.new(1, 1, 1)
 						end
 						if isInIcyEgg then
@@ -2707,7 +2707,7 @@ local function checkPetIndex(index)
 
 								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
 								wait(1)
-								verificarPet()
+								verificarPet(v)
 							until PetIcon.ImageColor3 == Color3.new(1, 1, 1)
 						end
 						if isInLavaEgg then
@@ -2720,7 +2720,7 @@ local function checkPetIndex(index)
 
 								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
 								wait(1)
-								verificarPet()
+								verificarPet(v)
 							until PetIcon.ImageColor3 == Color3.new(1, 1, 1)
 						end
 						if isInBlackholeEgg then
@@ -2733,7 +2733,7 @@ local function checkPetIndex(index)
 
 								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
 								wait(1)
-								verificarPet()
+								verificarPet(v)
 							until PetIcon.ImageColor3 == Color3.new(1, 1, 1)
 						end
 					end
@@ -2756,7 +2756,7 @@ local function checkPetIndex(index)
 
 								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
 								wait(1)
-								verificarPet()
+								verificarPet(v)
 							until PetIcon.ImageColor3 == Color3.new(1, 1, 1)
 						end
 						if isInMoltenEgg then
@@ -2769,7 +2769,7 @@ local function checkPetIndex(index)
 
 								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
 								wait(1)
-								verificarPet()
+								verificarPet(v)
 							until PetIcon.ImageColor3 == Color3.new(1, 1, 1)
 						end
 						if isInSolarEgg then
@@ -2782,7 +2782,7 @@ local function checkPetIndex(index)
 
 								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
 								wait(1)
-								verificarPet()
+								verificarPet(v)
 							until PetIcon.ImageColor3 == Color3.new(1, 1, 1)
 						end
 						if isInMoonEgg then
@@ -2795,7 +2795,7 @@ local function checkPetIndex(index)
 
 								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
 								wait(1)
-								verificarPet()
+								verificarPet(v)
 							until PetIcon.ImageColor3 == Color3.new(1, 1, 1)
 						end
 						if isInIceEgg then
@@ -2808,7 +2808,7 @@ local function checkPetIndex(index)
 
 								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
 								wait(1)
-								verificarPet()
+								verificarPet(v)
 							until PetIcon.ImageColor3 == Color3.new(1, 1, 1)
 						end
 						if isInBurningEgg then
@@ -2821,7 +2821,7 @@ local function checkPetIndex(index)
 
 								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
 								wait(1)
-								verificarPet()
+								verificarPet(v)
 							until PetIcon.ImageColor3 == Color3.new(1, 1, 1)
 						end
 					end
@@ -2844,7 +2844,7 @@ local function checkPetIndex(index)
 
 								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
 								wait(1)
-								verificarPet()
+								verificarPet(v)
 							until PetIcon.ImageColor3 == Color3.new(1, 1, 1)
 						end
 						if isInPalmEgg then
@@ -2857,7 +2857,7 @@ local function checkPetIndex(index)
 
 								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
 								wait(1)
-								verificarPet()
+								verificarPet(v)
 							until PetIcon.ImageColor3 == Color3.new(1, 1, 1)
 						end
 						if isInTreasureEgg then
@@ -2870,7 +2870,7 @@ local function checkPetIndex(index)
 
 								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
 								wait(1)
-								verificarPet()
+								verificarPet(v)
 							until PetIcon.ImageColor3 == Color3.new(1, 1, 1)
 						end
 						if isInClamEgg then
@@ -2896,7 +2896,7 @@ local function checkPetIndex(index)
 
 								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
 								wait(1)
-								verificarPet()
+								verificarPet(v)
 							until PetIcon.ImageColor3 == Color3.new(1, 1, 1)
 						end
 						if isInPoseidonEgg then
@@ -2909,7 +2909,7 @@ local function checkPetIndex(index)
 
 								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
 								wait(1)
-								verificarPet()
+								verificarPet(v)
 							until PetIcon.ImageColor3 == Color3.new(1, 1, 1)
 						end
 					end
