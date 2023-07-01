@@ -2051,7 +2051,7 @@ LDSHUB.TextLabel_37.BackgroundTransparency = 1.000
 LDSHUB.TextLabel_37.Position = UDim2.new(1.0869565, 0, -0.0322580673, 0)
 LDSHUB.TextLabel_37.Size = UDim2.new(2.04247332, 0, 1.00000012, 0)
 LDSHUB.TextLabel_37.Font = Enum.Font.FredokaOne
-LDSHUB.TextLabel_37.Text = "Auto Boss"
+LDSHUB.TextLabel_37.Text = "Auto Index"
 LDSHUB.TextLabel_37.TextColor3 = Color3.fromRGB(255, 255, 255)
 LDSHUB.TextLabel_37.TextScaled = true
 LDSHUB.TextLabel_37.TextSize = 14.000
@@ -2064,7 +2064,7 @@ LDSHUB.TextLabel_38.BackgroundTransparency = 1.000
 LDSHUB.TextLabel_38.Position = UDim2.new(-0.131407812, 0, 0.999996126, 0)
 LDSHUB.TextLabel_38.Size = UDim2.new(3.26083779, 0, 2.75288463, 0)
 LDSHUB.TextLabel_38.Font = Enum.Font.FredokaOne
-LDSHUB.TextLabel_38.Text = "By activating this option you will start farming the boss you selected in the box beside"
+LDSHUB.TextLabel_38.Text = "Activating this option you will start to farm the missing pets in your index, this goes for the 3 worlds"
 LDSHUB.TextLabel_38.TextColor3 = Color3.fromRGB(170, 0, 255)
 LDSHUB.TextLabel_38.TextScaled = true
 LDSHUB.TextLabel_38.TextSize = 14.000
@@ -2542,9 +2542,395 @@ LDSHUB.autofarm1.MouseButton1Click:Connect(function()
 
 end)
 
+-- World 1 Eggs
+
+local EarthEgg = {
+	"Cat",
+	"Dog",
+	"Cow",
+	"Mouse"
+}
+local IcyEgg = {
+	"Squirrel",
+	"Deer",
+	"Fox",
+	"Bear",
+	"Slime"
+}
+local LavaEgg = {
+	"Parrot",
+	"Monkey",
+	"Tiger",
+	"Elephant"
+}
+local BlackholeEgg = {
+	"GrassMage",
+	"WaterMage",
+	"MagicMage",
+	"Spooky"
+}
+
+-- World 2 Eggs
+
+local CrystalEgg = {
+	"Wolf",
+	"ArcticFox",
+	"Penguin",
+	"Shark",
+	"Orca"
+}
+local MoltenEgg = {
+	"Unicorn",
+	"Astra",
+	"Quasar",
+	"Axeli"
+}
+local SolarEgg = {
+	"SunRabbi",
+	"SolarDog",
+	"SunBull",
+	"SunDeer"
+}
+local MoonEgg = {
+	"MoonSpider",
+	"MoonOwl",
+	"MoonBat"
+}
+local IceEgg = {
+	"Drifter",
+	"Scaler",
+	"Rogue"
+}
+local BurningEgg = {
+	"Dermite",
+	"Vanguard",
+	"Tetra",
+	"Magnus"
+}
+
+-- World 3 Eggs
+
+local CoconutEgg = {
+	"Brutus",
+	"Pinky",
+	"Sour",
+	"Poison",
+	"Crimson"
+}
+local PalmEgg = {
+	"CoCo",
+	"Fang",
+	"Barkley",
+	"Raffia",
+	"Calypso"
+}
+local TreasureEgg = {
+	"Coin",
+	"Kelp",
+	"Ruby",
+	"Cutlass"
+}
+local ClamEgg = {
+	"Pearl",
+	"Tide",
+	"Venti",
+	"Ascent"
+}
+local KingFishEgg = {
+	"KingTrident",
+	"Hooky",
+	"QueenTrident"
+}
+local PoseidonEgg = {
+	"Phoenix",
+	"Bolt",
+	"Thunder"
+}
+
+local World1 = true
+local World2 = true
+local World3 = false
+
+local PetIndex = game.Players.LocalPlayer.PlayerGui.GameUI.Menus.PetIndex.Container.ScrollingFrame.Pets
+
+local function verificarPet(child)
+	local toggle = child.Toggle
+	if toggle then
+		local attributeName = "DisplayName"
+		local attributeValue = toggle:GetAttribute(attributeName)
+		if attributeValue then
+			print("Novo Pet Adicionado: " .. attributeValue)
+		end
+	end
+end
+
+local function checkPetIndex(index)
+	local v = PetIndex:GetChildren()[index]
+	if v and v:IsA("Frame") then
+		local toggle = v.Toggle
+		local PetIcon = toggle.PetIcon
+		if toggle then
+			local attributeKey = "Key"
+			local attributeValueKey = toggle:GetAttribute(attributeKey)
+			print("verificando pet")
+			if attributeValueKey then
+				if PetIcon.ImageColor3 == Color3.new(0, 0, 0) then
+					-- Verificar se o nome do animal de estimação está presente em cada tabela de ovos
+
+					-- World 1 Eggs
+					if World1 == true then
+						local isInEarthEgg = table.find(EarthEgg, attributeValueKey)
+						local isInIcyEgg = table.find(IcyEgg, attributeValueKey)
+						local isInLavaEgg = table.find(LavaEgg, attributeValueKey)
+						local isInBlackholeEgg = table.find(BlackholeEgg, attributeValueKey)
+
+						if isInEarthEgg then
+							repeat
+								local args = {
+									[1] = "Earth",
+									[2] = {},
+									[4] = false
+								}
+
+								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
+								wait(1)
+								verificarPet()
+							until PetIcon.ImageColor3 == Color3.new(1, 1, 1)
+						end
+						if isInIcyEgg then
+							repeat
+								local args = {
+									[1] = "Icy",
+									[2] = {},
+									[4] = false
+								}
+
+								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
+								wait(1)
+								verificarPet()
+							until PetIcon.ImageColor3 == Color3.new(1, 1, 1)
+						end
+						if isInLavaEgg then
+							repeat
+								local args = {
+									[1] = "Lava",
+									[2] = {},
+									[4] = false
+								}
+
+								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
+								wait(1)
+								verificarPet()
+							until PetIcon.ImageColor3 == Color3.new(1, 1, 1)
+						end
+						if isInBlackholeEgg then
+							repeat
+								local args = {
+									[1] = "Blackhole",
+									[2] = {},
+									[4] = false
+								}
+
+								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
+								wait(1)
+								verificarPet()
+							until PetIcon.ImageColor3 == Color3.new(1, 1, 1)
+						end
+					end
+
+					if World2 == true then
+						local isInCrystalEgg = table.find(CrystalEgg, attributeValueKey)
+						local isInMoltenEgg = table.find(MoltenEgg, attributeValueKey)
+						local isInSolarEgg = table.find(SolarEgg, attributeValueKey)
+						local isInMoonEgg = table.find(MoonEgg, attributeValueKey)
+						local isInIceEgg = table.find(IceEgg, attributeValueKey)
+						local isInBurningEgg = table.find(BurningEgg, attributeValueKey)
+
+						if isInCrystalEgg then
+							repeat
+								local args = {
+									[1] = "Crystal",
+									[2] = {},
+									[4] = false
+								}
+
+								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
+								wait(1)
+								verificarPet()
+							until PetIcon.ImageColor3 == Color3.new(1, 1, 1)
+						end
+						if isInMoltenEgg then
+							repeat
+								local args = {
+									[1] = "Molten",
+									[2] = {},
+									[4] = false
+								}
+
+								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
+								wait(1)
+								verificarPet()
+							until PetIcon.ImageColor3 == Color3.new(1, 1, 1)
+						end
+						if isInSolarEgg then
+							repeat
+								local args = {
+									[1] = "Solar",
+									[2] = {},
+									[4] = false
+								}
+
+								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
+								wait(1)
+								verificarPet()
+							until PetIcon.ImageColor3 == Color3.new(1, 1, 1)
+						end
+						if isInMoonEgg then
+							repeat
+								local args = {
+									[1] = "Moon",
+									[2] = {},
+									[4] = false
+								}
+
+								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
+								wait(1)
+								verificarPet()
+							until PetIcon.ImageColor3 == Color3.new(1, 1, 1)
+						end
+						if isInIceEgg then
+							repeat
+								local args = {
+									[1] = "Ice",
+									[2] = {},
+									[4] = false
+								}
+
+								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
+								wait(1)
+								verificarPet()
+							until PetIcon.ImageColor3 == Color3.new(1, 1, 1)
+						end
+						if isInBurningEgg then
+							repeat
+								local args = {
+									[1] = "Burning",
+									[2] = {},
+									[4] = false
+								}
+
+								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
+								wait(1)
+								verificarPet()
+							until PetIcon.ImageColor3 == Color3.new(1, 1, 1)
+						end
+					end
+
+					if World3 == true then
+						local isInCoconutEgg = table.find(CoconutEgg, attributeValueKey)
+						local isInPalmEgg = table.find(PalmEgg, attributeValueKey)
+						local isInTreasureEgg = table.find(TreasureEgg, attributeValueKey)
+						local isInClamEgg = table.find(ClamEgg, attributeValueKey)
+						local isInKingFishEgg = table.find(KingFishEgg, attributeValueKey)
+						local isInPoseidonEgg = table.find(PoseidonEgg, attributeValueKey)
+
+						if isInCoconutEgg then
+							repeat
+								local args = {
+									[1] = "Coconut",
+									[2] = {},
+									[4] = false
+								}
+
+								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
+								wait(1)
+								verificarPet()
+							until PetIcon.ImageColor3 == Color3.new(1, 1, 1)
+						end
+						if isInPalmEgg then
+							repeat
+								local args = {
+									[1] = "Palm",
+									[2] = {},
+									[4] = false
+								}
+
+								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
+								wait(1)
+								verificarPet()
+							until PetIcon.ImageColor3 == Color3.new(1, 1, 1)
+						end
+						if isInTreasureEgg then
+							repeat
+								local args = {
+									[1] = "Treasure",
+									[2] = {},
+									[4] = false
+								}
+
+								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
+								wait(1)
+								verificarPet()
+							until PetIcon.ImageColor3 == Color3.new(1, 1, 1)
+						end
+						if isInClamEgg then
+							repeat
+								local args = {
+									[1] = "Clam",
+									[2] = {},
+									[4] = false
+								}
+
+								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
+								wait(1)
+								verificarPet()
+							until PetIcon.ImageColor3 == Color3.new(1, 1, 1)
+						end
+						if isInKingFishEgg then
+							repeat
+								local args = {
+									[1] = "KingFish",
+									[2] = {},
+									[4] = false
+								}
+
+								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
+								wait(1)
+								verificarPet()
+							until PetIcon.ImageColor3 == Color3.new(1, 1, 1)
+						end
+						if isInPoseidonEgg then
+							repeat
+								local args = {
+									[1] = "Poseidon",
+									[2] = {},
+									[4] = false
+								}
+
+								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
+								wait(1)
+								verificarPet()
+							until PetIcon.ImageColor3 == Color3.new(1, 1, 1)
+						end
+					end
+				end
+			end
+		end
+	end
+	wait(1)
+	checkPetIndex(index + 1)
+end
+
+G.AutoIndex = false
+
 LDSHUB.autofarm2.MouseButton1Click:Connect(function()
-	LDSHUB.Warn.Visible = true
-	LDSHUB.Wwarn.Visible = true
+	
+	G.AutoIndex = not G.AutoIndex
+	
+	if G.AutoIndex == true then	
+		checkPetIndex(1)
+		end
+
 end)
 
 -- Auto Egg scripts
