@@ -2537,13 +2537,15 @@ LDSHUB.ButtonDelete3.MouseButton1Click:Connect(function()
 	LDSHUB.PetName3.Visible = true
 end)
 
+G.AutoDelete = false
+
 local PetInv = game.Players.LocalPlayer.PlayerGui.GameUI.Menus.PetInventory.Container.ScrollingFrame.Pets
 
 local function AutoDelete()
 	local namePetR1 = LDSHUB.NamePet.Text
 	local namePetR2 = LDSHUB.NamePet_2.Text
 	local namePetR3 = LDSHUB.NamePet_3.Text
-	
+	while G.AutoDelete do
 	for i, v in pairs(PetInv:GetChildren()) do
 		if v:IsA("Frame") then
 			wait()
@@ -2562,7 +2564,8 @@ local function AutoDelete()
 								[1] = attributeValueid
 							}
 
-							game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PetService"):WaitForChild("RF"):WaitForChild("delete"):InvokeServer(unpack(args))
+								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PetService"):WaitForChild("RF"):WaitForChild("delete"):InvokeServer(unpack(args))
+							end
 						end
 					end
 				end
@@ -2571,17 +2574,15 @@ local function AutoDelete()
 	end
 end
 
-G.AutoDelete = false
-
 LDSHUB.autodelete1.MouseButton1Click:Connect(function()
 	G.AutoDelete = not G.AutoDelete
-	
+
 	if G.AutoDelete == true then
 		LDSHUB.Frame_6.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	else
 		LDSHUB.Frame_6.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 	end
-	
+
 	for i = 1, 10 do
 		spawn(function()
 			AutoDelete()
