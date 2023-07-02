@@ -2824,9 +2824,9 @@ LDSHUB.EventButton1.MouseButton1Click:Connect(function()
 	G.AutoEggEvent = not G.AutoEggEvent
 
 	if G.AutoEggEvent == true then
-		LDSHUB.Frame_8.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+		LDSHUB.Frame_10.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	else
-		LDSHUB.Frame_8.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+		LDSHUB.Frame_10.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 	end
 
 	while G.AutoEggEvent do
@@ -2846,9 +2846,9 @@ LDSHUB.EventButton2.MouseButton1Click:Connect(function()
 	G.AutoFarmEvent1 = not G.AutoFarmEvent1
 
 	if G.AutoFarmEvent1 == true then
-		LDSHUB.Frame_9.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+		LDSHUB.Frame_11.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	else
-		LDSHUB.Frame_9.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+		LDSHUB.Frame_11.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 	end
 
 	while G.AutoFarmEvent1 do
@@ -2917,9 +2917,9 @@ LDSHUB.EventButton3.MouseButton1Click:Connect(function()
 	G.AutoFarmEvent2 = not G.AutoFarmEvent2
 
 	if G.AutoFarmEvent2 == true then
-		LDSHUB.Frame_10.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+		LDSHUB.Frame_12.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	else
-		LDSHUB.Frame_10.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+		LDSHUB.Frame_12.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 	end
 
 	local args = {
@@ -2981,9 +2981,9 @@ LDSHUB.autofarm1.MouseButton1Click:Connect(function()
 	G.AutoClick = not G.AutoClick
 
 	if G.AutoClick == true then
-		LDSHUB.Frame_21.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+		LDSHUB.Frame_23.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	else
-		LDSHUB.Frame_21.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+		LDSHUB.Frame_23.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 	end
 
 	while G.AutoClick do
@@ -3377,7 +3377,13 @@ G.AutoIndex = false
 LDSHUB.autofarm2.MouseButton1Click:Connect(function()
 
 	G.AutoIndex = not G.AutoIndex
-
+	
+	if G.AutoIndex == true then
+		LDSHUB.Frame_24.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+	else
+		LDSHUB.Frame_24.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+	end
+	
 	if G.AutoIndex == true then	
 		checkPetIndex(1)
 	end
@@ -3385,110 +3391,6 @@ LDSHUB.autofarm2.MouseButton1Click:Connect(function()
 end)
 
 --Bosses 
-local Bosses1 = {
-	"Bully",
-	"Teacher",
-	"GymRat",
-	"MafiaBoss",
-	"Champion"
-}
-local Bosses2 = {
-	"ScrapTrader",
-	"CyberCop",
-	"CyberAssassin",
-	"RipperDoc",
-	"RogueAi"
-}
-local Bosses3 = {
-	"CocoNut",
-	"FatPirate",
-	"MermaidKing",
-	"FriendlyShark",
-	"KrakenBoss"
-}
-
-local bossW1 = false
-local bossW2 = false
-local bossW3 = false
-
-local function CreateTextButtonBoss(parent, name)
-	local TextButton = Instance.new("TextButton")
-	TextButton.Name = name
-	TextButton.Parent = parent
-	TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	TextButton.Size = UDim2.new(0.9, 0, 0.001, 0)
-	TextButton.Font = Enum.Font.SciFi
-	TextButton.Text = name
-	TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-	TextButton.TextScaled = true
-	TextButton.TextSize = 14
-	TextButton.TextWrapped = true
-
-	local UICorner = Instance.new("UICorner")
-	UICorner.Parent = TextButton
-
-	return TextButton
-end
-
-local function ConnectButtonClickEventBoss(button, namePetObject, bossVariable)
-	button.MouseButton1Click:Connect(function()
-		namePetObject.Text = button.Name
-		bossVariable = true
-	end)
-end
-
-local function verificarboss()
-
-
-
-end
-
-for _, BossName in pairs(Bosses1) do
-	local button = CreateTextButtonBoss(LDSHUB.ScrollingFrameEgg_2, BossName)
-	ConnectButtonClickEventBoss(button, LDSHUB.NameEgg_2)
-end
-
-for _, BossName in pairs(Bosses2) do
-	local button = CreateTextButtonBoss(LDSHUB.ScrollingFrameEgg_2, BossName)
-	ConnectButtonClickEventBoss(button, LDSHUB.NameEgg_2)
-end
-
-for _, BossName in pairs(Bosses3) do
-	local button = CreateTextButtonBoss(LDSHUB.ScrollingFrameEgg_2, BossName)
-	ConnectButtonClickEventBoss(button, LDSHUB.NameEgg_2)
-end
-
-local function BossFight()
-	local Ui = game.Players.LocalPlayer.PlayerGui.GameUI.Wrestle
-	if Ui.Visible == false then
-		if bossW1 == true then
-			local args = {
-				[1] = LDSHUB.NameEgg_2.Text,
-				[2] = workspace:WaitForChild("Zones"):WaitForChild("1"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild(LDSHUB.NameEgg_2.Text),
-				[3] = "1"
-			}
-		end
-		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
-		if bossW2 == true then
-			local args = {
-				[1] = LDSHUB.NameEgg_2.Text,
-				[2] = workspace:WaitForChild("Zones"):WaitForChild("2"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild(LDSHUB.NameEgg_2.Text),
-				[3] = "2"
-			}
-
-			game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
-		end
-		if bossW3 == true then
-			local args = {
-				[1] = LDSHUB.NameEgg_2.Text,
-				[2] = workspace:WaitForChild("Zones"):WaitForChild("3"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild(LDSHUB.NameEgg_2.Text),
-				[3] = "3"
-			}
-
-			game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
-		end
-	end
-end
 
 local Bosses1 = {
 	"Bully",
@@ -3612,6 +3514,12 @@ G.AutoBoss = false
 LDSHUB.autofarm3.MouseButton1Click:Connect(function()
 	G.AutoBoss = not G.AutoBoss
 	
+	if G.AutoBoss == true then
+		LDSHUB.Frame_25.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+	else
+		LDSHUB.Frame_25.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+	end
+	
 		while G.AutoBoss do
 			BossFight()
 		wait(1)
@@ -3673,6 +3581,12 @@ G.AutoEgg = false
 
 LDSHUB.autoegg1.MouseButton1Click:Connect(function()
 	G.AutoEgg = not G.AutoEgg
+	
+	if G.AutoEgg == true then
+		LDSHUB.Frame_13.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+	else
+		LDSHUB.Frame_13.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+	end
 
 	while G.AutoEgg do
 		local args = {
@@ -3696,9 +3610,9 @@ LDSHUB.visibleegg.MouseButton1Click:Connect(function()
 	G.RemoveEggAnimation = not G.RemoveEggAnimation
 
 	if G.RemoveEggAnimation == true then
-		LDSHUB.Frame_12.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+		LDSHUB.Frame_14.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	else
-		LDSHUB.Frame_12.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+		LDSHUB.Frame_14.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 	end
 
 	if G.RemoveEggAnimation == true then
@@ -3732,9 +3646,9 @@ LDSHUB.MiscButton1.MouseButton1Click:Connect(function()
 	G.AutoClaimReward = not G.AutoClaimReward
 
 	if G.AutoClaimReward == true then
-		LDSHUB.Frame_16.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+		LDSHUB.Frame_18.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	else
-		LDSHUB.Frame_16.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+		LDSHUB.Frame_18.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 	end
 
 	while G.AutoClaimReward do
@@ -3896,9 +3810,9 @@ LDSHUB.autodelete1.MouseButton1Click:Connect(function()
 	G.AutoDelete = not G.AutoDelete
 
 	if G.AutoDelete == true then
-		LDSHUB.Frame_6.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+		LDSHUB.Frame_8.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	else
-		LDSHUB.Frame_6.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+		LDSHUB.Frame_8.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 	end
 
 	for i = 1, 10 do
@@ -3952,9 +3866,9 @@ LDSHUB.autoconvert1.MouseButton1Click:Connect(function()
 	G.AutoCraft = not G.AutoCraft
 
 	if G.AutoCraft == true then
-		LDSHUB.Frame_19.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+		LDSHUB.Frame_21.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	else
-		LDSHUB.Frame_19.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+		LDSHUB.Frame_21.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 	end
 
 	if G.AutoCraft == true then
