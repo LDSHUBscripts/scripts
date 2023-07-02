@@ -3402,7 +3402,7 @@ local Bosses1 = {
 local Bosses2 = {
 	"ScrapTrader",
 	"CyberCop",
-	"CyberAssassin",
+	"SlicerAssassin",
 	"RipperDoc",
 	"RogueAi"
 }
