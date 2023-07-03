@@ -167,6 +167,10 @@ local function KeyCerta()
 	end
 end
 
+if table.find(whitelistedusers, tonumber(game:GetService("Players").LocalPlayer.UserId)) then
+	KeyCerta()
+end
+
 VerifyKey.MouseButton1Click:Connect(function()
 	
 	if table.find(tableofkeys, tostring(TextBox.Text)) then
@@ -177,6 +181,3 @@ VerifyKey.MouseButton1Click:Connect(function()
 	
 end)
 
-if table.find(whitelistedusers, tonumber(game:GetService("Players").LocalPlayer.UserId)) then
-	KeyCerta()
-end
