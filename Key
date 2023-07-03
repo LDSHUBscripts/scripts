@@ -14,7 +14,8 @@ local tableofkeys = {
 }
 
 local whitelistedusers = {
-	3377904454 -- GE・Dany 
+	3377904454, -- GE・Dany 
+	1882220632 -- Kenji
 }
 
 -- Instances:
