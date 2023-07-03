@@ -1,20 +1,20 @@
 local KeyGratis = "LDSKEY3K"
 local tableofkeys = {
-		-- Free Keys
-		"iOy1%JX7340c",
-		KeyGratis,
-		-- Dev Keys
-		"LimasKey",
-		"TeteuKey",
-		"BielKey",
-		"MatKey",
-		"BennKey",
-		"StanKey"
-			}
-			
-		local whitelistedusers = {
-		1238493823 -- Booster Profile ID
-			}
+	-- Free Keys
+	"iOy1%JX7340c",
+	KeyGratis,
+	-- Dev Keys
+	"LimasKey",
+	"TeteuKey",
+	"BielKey",
+	"MatKey",
+	"BennKey",
+	"StanKey"
+}
+
+local whitelistedusers = {
+	1238493823 -- Booster Profile ID
+}
 
 -- Instances:
 
@@ -136,8 +136,8 @@ FreeKey.TextWrapped = true
 local plrGui = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
 
 GetKey.MouseButton1Click:Connect(function()
-setclipboard("https://discord.gg/DABC3eFusQ")
-TextBox.PlaceholderText = "Link Copied!"
+	setclipboard("https://discord.gg/DABC3eFusQ")
+	TextBox.PlaceholderText = "Link Copied!"
 	TextBox.Text = ""
 	wait(3)
 	TextBox.PlaceholderText = "Key Here!"
@@ -166,17 +166,17 @@ local function KeyCerta()
 		print("erro")
 	end
 end
-			
-			VerifyKey.MouseButton1Click:Connect(function()
-				if table.find(tableofkeys, tostring(TextBox.Text)) then
-					KeyCerta()
-				else
-					KeyErrada()
-				end
-				
-				if table.find(whitelistedusers, tonumber(game:GetService("Players").LocalPlayer.UserId)) then
-					KeyCerta()
-				else
-					KeyErrada()
-				end
-			end)
+
+VerifyKey.MouseButton1Click:Connect(function()
+	
+	if table.find(tableofkeys, tostring(TextBox.Text)) then
+		KeyCerta()
+	else
+		KeyErrada()
+	end
+	
+end)
+
+if table.find(whitelistedusers, tonumber(game:GetService("Players").LocalPlayer.UserId)) then
+	KeyCerta()
+end
