@@ -3143,9 +3143,11 @@ LDSHUB.DeleteButton.MouseButton1Click:Connect(function()
 	LDSHUB.Warn.Visible = true
 	LDSHUB.Dwarn.Visible = true
 end)
-
+	
 LDSHUB.Yes.MouseButton1Click:Connect(function()
-	LDSHUB.LDSHUB:Destroy()
+	pcall(function() getgenv().LDSHub_LOADED = false end) 
+	wait(1)
+	LDSHUB.LDSHUB:Destroy()	
 end)
 
 LDSHUB.No.MouseButton1Click:Connect(function()
