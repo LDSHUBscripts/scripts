@@ -17,7 +17,8 @@ local whitelistedusers = {
 	4542819324, -- LightNeon
 	2508291460, -- SarB
 	1674285411, -- databreach
-	3971813249 -- v
+	3971813249, -- v
+	1644265613 -- Apxj
 }
 
 -- Instances:
