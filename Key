@@ -8,7 +8,6 @@ local tableofkeys = {
 	"BielKey",
 	"MatKey",
 	"BennKey",
-	"StanKey",
 	"BurgerKey"
 }
 
