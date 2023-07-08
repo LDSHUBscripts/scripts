@@ -4334,11 +4334,10 @@ end
 --Auto Delete
 
 local PetsEvent = {
-	"SummerCat",
-	"Leviathan",
-	"KingOctopus",
-	"CoolCrab",
-	"UltraSerpent"
+	"NinjaPanda",
+	"NinjaParrot",
+	"NinjaYeti",
+	"NinjaSquirrel"
 }
 
 local function CreateTextButton(parent, name)
