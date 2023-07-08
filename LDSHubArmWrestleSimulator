@@ -1409,17 +1409,6 @@ LDSHUB.ScrollingFramePet3.Position = UDim2.new(0.0370299891, 0, 0.0295806173, 0)
 LDSHUB.ScrollingFramePet3.Size = UDim2.new(0.962970018, 0, 0.939115465, 0)
 LDSHUB.ScrollingFramePet3.CanvasSize = UDim2.new(0, 0, 200, 0)
 
-LDSHUB.TextButtonPet3.Name = "TextButtonPet3"
-LDSHUB.TextButtonPet3.Parent = LDSHUB.ScrollingFramePet3
-LDSHUB.TextButtonPet3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-LDSHUB.TextButtonPet3.Size = UDim2.new(0.899999976, 0, 0.000899999985, 0)
-LDSHUB.TextButtonPet3.Font = Enum.Font.SciFi
-LDSHUB.TextButtonPet3.Text = "Pet Name"
-LDSHUB.TextButtonPet3.TextColor3 = Color3.fromRGB(0, 0, 0)
-LDSHUB.TextButtonPet3.TextScaled = true
-LDSHUB.TextButtonPet3.TextSize = 14.000
-LDSHUB.TextButtonPet3.TextWrapped = true
-
 LDSHUB.UICorner_52.Parent = LDSHUB.TextButtonPet3
 
 LDSHUB.UIListLayout_2.Parent = LDSHUB.ScrollingFramePet3
@@ -1522,17 +1511,6 @@ LDSHUB.ScrollingFramePet1.Position = UDim2.new(0.0370299891, 0, 0.0295806173, 0)
 LDSHUB.ScrollingFramePet1.Size = UDim2.new(0.962970018, 0, 0.939115465, 0)
 LDSHUB.ScrollingFramePet1.CanvasSize = UDim2.new(0, 0, 200, 0)
 
-LDSHUB.TextButtonPet1.Name = "TextButtonPet1"
-LDSHUB.TextButtonPet1.Parent = LDSHUB.ScrollingFramePet1
-LDSHUB.TextButtonPet1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-LDSHUB.TextButtonPet1.Size = UDim2.new(0.899999976, 0, 0.000899999985, 0)
-LDSHUB.TextButtonPet1.Font = Enum.Font.SciFi
-LDSHUB.TextButtonPet1.Text = "Pet Name"
-LDSHUB.TextButtonPet1.TextColor3 = Color3.fromRGB(0, 0, 0)
-LDSHUB.TextButtonPet1.TextScaled = true
-LDSHUB.TextButtonPet1.TextSize = 14.000
-LDSHUB.TextButtonPet1.TextWrapped = true
-
 LDSHUB.UICorner_58.Parent = LDSHUB.TextButtonPet1
 
 LDSHUB.UIListLayout_3.Parent = LDSHUB.ScrollingFramePet1
@@ -1556,17 +1534,6 @@ LDSHUB.ScrollingFramePet2.BackgroundTransparency = 1.000
 LDSHUB.ScrollingFramePet2.Position = UDim2.new(0.0370299891, 0, 0.0295806173, 0)
 LDSHUB.ScrollingFramePet2.Size = UDim2.new(0.962970018, 0, 0.939115465, 0)
 LDSHUB.ScrollingFramePet2.CanvasSize = UDim2.new(0, 0, 200, 0)
-
-LDSHUB.TextButtonPet2.Name = "TextButtonPet2"
-LDSHUB.TextButtonPet2.Parent = LDSHUB.ScrollingFramePet2
-LDSHUB.TextButtonPet2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-LDSHUB.TextButtonPet2.Size = UDim2.new(0.899999976, 0, 0.000899999985, 0)
-LDSHUB.TextButtonPet2.Font = Enum.Font.SciFi
-LDSHUB.TextButtonPet2.Text = "Pet Name"
-LDSHUB.TextButtonPet2.TextColor3 = Color3.fromRGB(0, 0, 0)
-LDSHUB.TextButtonPet2.TextScaled = true
-LDSHUB.TextButtonPet2.TextSize = 14.000
-LDSHUB.TextButtonPet2.TextWrapped = true
 
 LDSHUB.UICorner_60.Parent = LDSHUB.TextButtonPet2
 
@@ -2006,17 +1973,6 @@ LDSHUB.ScrollingFrameEgg.BackgroundTransparency = 1.000
 LDSHUB.ScrollingFrameEgg.Position = UDim2.new(0.0370299891, 0, 0.0295806173, 0)
 LDSHUB.ScrollingFrameEgg.Size = UDim2.new(0.962970018, 0, 0.939115465, 0)
 LDSHUB.ScrollingFrameEgg.CanvasSize = UDim2.new(0, 0, 200, 0)
-
-LDSHUB.TextButtonEgg.Name = "TextButtonEgg"
-LDSHUB.TextButtonEgg.Parent = LDSHUB.ScrollingFrameEgg
-LDSHUB.TextButtonEgg.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-LDSHUB.TextButtonEgg.Size = UDim2.new(0.899999976, 0, 0.000899999985, 0)
-LDSHUB.TextButtonEgg.Font = Enum.Font.SciFi
-LDSHUB.TextButtonEgg.Text = "EggName"
-LDSHUB.TextButtonEgg.TextColor3 = Color3.fromRGB(0, 0, 0)
-LDSHUB.TextButtonEgg.TextScaled = true
-LDSHUB.TextButtonEgg.TextSize = 14.000
-LDSHUB.TextButtonEgg.TextWrapped = true
 
 LDSHUB.UICorner_81.Parent = LDSHUB.TextButtonEgg
 
@@ -2531,19 +2487,6 @@ LDSHUB.ScrollingFrameBoss.BackgroundTransparency = 1.000
 LDSHUB.ScrollingFrameBoss.Position = UDim2.new(0.0370299891, 0, 0.0295806173, 0)
 LDSHUB.ScrollingFrameBoss.Size = UDim2.new(0.962970018, 0, 0.939115465, 0)
 LDSHUB.ScrollingFrameBoss.CanvasSize = UDim2.new(0, 0, 200, 0)
-
-LDSHUB.TextButtonBoss.Name = "TextButtonBoss"
-LDSHUB.TextButtonBoss.Parent = LDSHUB.ScrollingFrameBoss
-LDSHUB.TextButtonBoss.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-LDSHUB.TextButtonBoss.Size = UDim2.new(0.899999976, 0, 0.000899999985, 0)
-LDSHUB.TextButtonBoss.Font = Enum.Font.SciFi
-LDSHUB.TextButtonBoss.Text = "BossName"
-LDSHUB.TextButtonBoss.TextColor3 = Color3.fromRGB(0, 0, 0)
-LDSHUB.TextButtonBoss.TextScaled = true
-LDSHUB.TextButtonBoss.TextSize = 14.000
-LDSHUB.TextButtonBoss.TextWrapped = true
-
-LDSHUB.UICorner_107.Parent = LDSHUB.TextButtonBoss
 
 LDSHUB.UIListLayout_6.Parent = LDSHUB.ScrollingFrameBoss
 LDSHUB.UIListLayout_6.SortOrder = Enum.SortOrder.LayoutOrder
