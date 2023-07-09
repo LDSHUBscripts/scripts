@@ -18,7 +18,8 @@ local whitelistedusers = {
 	2508291460, -- SarB
 	1674285411, -- databreach
 	3971813249, -- v
-	1644265613 -- Apxj
+	1644265613, -- Apxj
+	1410024913 -- genki
 }
 
 -- Instances:
