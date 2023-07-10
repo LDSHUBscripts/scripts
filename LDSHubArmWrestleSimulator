@@ -4003,15 +4003,7 @@ local function AutoEvent1()
 		local Numeros = 1
 		local npcData = {
 			[1] = {
-				name = 	   "ScrapTrader",
-				npc = nil,
-			},
-			[2] = {
-				name = 	   "CyberCop",
-				npc = nil,
-			},
-			[3] = {
-				name = "SlicerAssassin",
+				name = 	   "RipperDoc",
 				npc = nil,
 			}
 		}
