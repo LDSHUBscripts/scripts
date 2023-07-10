@@ -407,13 +407,13 @@ local LDSHUB = {
 	AutoPotionsTxt = Instance.new("TextLabel"),
 	autopotion1 = Instance.new("TextButton"),
 	UICorner_141 = Instance.new("UICorner"),
-	DeleteFrameColor1_2 = Instance.new("Frame"),
+	PotionFrameColor1 = Instance.new("Frame"),
 	UICorner_142 = Instance.new("UICorner"),
 	TextLabel_74 = Instance.new("TextLabel"),
 	TextLabel_75 = Instance.new("TextLabel"),
 	PotionSelected1 = Instance.new("Frame"),
 	UICorner_143 = Instance.new("UICorner"),
-	NamePet_4 = Instance.new("TextLabel"),
+	PotionNameTxt1 = Instance.new("TextLabel"),
 	OpenPotionsButton1 = Instance.new("TextButton"),
 	UICorner_144 = Instance.new("UICorner"),
 	PotionName3 = Instance.new("Frame"),
@@ -422,14 +422,14 @@ local LDSHUB = {
 	UIListLayout_7 = Instance.new("UIListLayout"),
 	PotionSelected2 = Instance.new("Frame"),
 	UICorner_146 = Instance.new("UICorner"),
-	NamePet_5 = Instance.new("TextLabel"),
+	PotionNameTxt2 = Instance.new("TextLabel"),
 	OpenPotionsButton2 = Instance.new("TextButton"),
 	UICorner_147 = Instance.new("UICorner"),
 	PotionSelected3 = Instance.new("Frame"),
 	UICorner_148 = Instance.new("UICorner"),
 	OpenPotionsButton3 = Instance.new("TextButton"),
 	UICorner_149 = Instance.new("UICorner"),
-	NamePet_6 = Instance.new("TextLabel"),
+	PotionNameTxt3 = Instance.new("TextLabel"),
 	PotionName1 = Instance.new("Frame"),
 	UICorner_150 = Instance.new("UICorner"),
 	ScrollingFramePotions1 = Instance.new("ScrollingFrame"),
@@ -444,7 +444,7 @@ local LDSHUB = {
 	UIListLayout_10 = Instance.new("UIListLayout"),
 	PotionSelected4 = Instance.new("Frame"),
 	UICorner_153 = Instance.new("UICorner"),
-	NamePet_7 = Instance.new("TextLabel"),
+	PotionNameTxt4 = Instance.new("TextLabel"),
 	OpenPotionsButton4 = Instance.new("TextButton"),
 	UICorner_154 = Instance.new("UICorner"),
 	MenuH = Instance.new("Frame"),
@@ -3386,13 +3386,13 @@ LDSHUB.autopotion1.TextSize = 14.000
 
 LDSHUB.UICorner_141.Parent = LDSHUB.autopotion1
 
-LDSHUB.DeleteFrameColor1_2.Name = "DeleteFrameColor1"
-LDSHUB.DeleteFrameColor1_2.Parent = LDSHUB.autopotion1
-LDSHUB.DeleteFrameColor1_2.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-LDSHUB.DeleteFrameColor1_2.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
-LDSHUB.DeleteFrameColor1_2.Size = UDim2.new(0.434782594, 0, 0.870967746, 0)
+LDSHUB.PotionFrameColor1.Name = "PotionFrameColor1"
+LDSHUB.PotionFrameColor1.Parent = LDSHUB.autopotion1
+LDSHUB.PotionFrameColor1.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+LDSHUB.PotionFrameColor1.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
+LDSHUB.PotionFrameColor1.Size = UDim2.new(0.434782594, 0, 0.870967746, 0)
 
-LDSHUB.UICorner_142.Parent = LDSHUB.DeleteFrameColor1_2
+LDSHUB.UICorner_142.Parent = LDSHUB.PotionFrameColor1
 
 LDSHUB.TextLabel_74.Parent = LDSHUB.autopotion1
 LDSHUB.TextLabel_74.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -3427,19 +3427,19 @@ LDSHUB.PotionSelected1.Size = UDim2.new(0.380356103, 0, 0.100733951, 0)
 
 LDSHUB.UICorner_143.Parent = LDSHUB.PotionSelected1
 
-LDSHUB.NamePet_4.Name = "NamePet"
-LDSHUB.NamePet_4.Parent = LDSHUB.PotionSelected1
-LDSHUB.NamePet_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-LDSHUB.NamePet_4.BackgroundTransparency = 1.000
-LDSHUB.NamePet_4.Position = UDim2.new(-0.0061943531, 0, -0.0297255516, 0)
-LDSHUB.NamePet_4.Size = UDim2.new(1, 0, 1, 0)
-LDSHUB.NamePet_4.Font = Enum.Font.FredokaOne
-LDSHUB.NamePet_4.Text = "Nothing"
-LDSHUB.NamePet_4.TextColor3 = Color3.fromRGB(170, 0, 255)
-LDSHUB.NamePet_4.TextScaled = true
-LDSHUB.NamePet_4.TextSize = 14.000
-LDSHUB.NamePet_4.TextStrokeTransparency = 0.000
-LDSHUB.NamePet_4.TextWrapped = true
+LDSHUB.PotionNameTxt1.Name = "PotionNameTxt1"
+LDSHUB.PotionNameTxt1.Parent = LDSHUB.PotionSelected1
+LDSHUB.PotionNameTxt1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.PotionNameTxt1.BackgroundTransparency = 1.000
+LDSHUB.PotionNameTxt1.Position = UDim2.new(-0.0061943531, 0, -0.0297255516, 0)
+LDSHUB.PotionNameTxt1.Size = UDim2.new(1, 0, 1, 0)
+LDSHUB.PotionNameTxt1.Font = Enum.Font.FredokaOne
+LDSHUB.PotionNameTxt1.Text = "Nothing"
+LDSHUB.PotionNameTxt1.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.PotionNameTxt1.TextScaled = true
+LDSHUB.PotionNameTxt1.TextSize = 14.000
+LDSHUB.PotionNameTxt1.TextStrokeTransparency = 0.000
+LDSHUB.PotionNameTxt1.TextWrapped = true
 
 LDSHUB.OpenPotionsButton1.Name = "OpenPotionsButton1"
 LDSHUB.OpenPotionsButton1.Parent = LDSHUB.PotionSelected1
@@ -3488,19 +3488,19 @@ LDSHUB.PotionSelected2.Size = UDim2.new(0.380356103, 0, 0.100733951, 0)
 
 LDSHUB.UICorner_146.Parent = LDSHUB.PotionSelected2
 
-LDSHUB.NamePet_5.Name = "NamePet"
-LDSHUB.NamePet_5.Parent = LDSHUB.PotionSelected2
-LDSHUB.NamePet_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-LDSHUB.NamePet_5.BackgroundTransparency = 1.000
-LDSHUB.NamePet_5.Position = UDim2.new(-0.0123431087, 0, 0.00377368927, 0)
-LDSHUB.NamePet_5.Size = UDim2.new(1, 0, 1, 0)
-LDSHUB.NamePet_5.Font = Enum.Font.FredokaOne
-LDSHUB.NamePet_5.Text = "Nothing"
-LDSHUB.NamePet_5.TextColor3 = Color3.fromRGB(170, 0, 255)
-LDSHUB.NamePet_5.TextScaled = true
-LDSHUB.NamePet_5.TextSize = 14.000
-LDSHUB.NamePet_5.TextStrokeTransparency = 0.000
-LDSHUB.NamePet_5.TextWrapped = true
+LDSHUB.PotionNameTxt2.Name = "PotionNameTxt2"
+LDSHUB.PotionNameTxt2.Parent = LDSHUB.PotionSelected2
+LDSHUB.PotionNameTxt2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.PotionNameTxt2.BackgroundTransparency = 1.000
+LDSHUB.PotionNameTxt2.Position = UDim2.new(-0.0123431087, 0, 0.00377368927, 0)
+LDSHUB.PotionNameTxt2.Size = UDim2.new(1, 0, 1, 0)
+LDSHUB.PotionNameTxt2.Font = Enum.Font.FredokaOne
+LDSHUB.PotionNameTxt2.Text = "Nothing"
+LDSHUB.PotionNameTxt2.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.PotionNameTxt2.TextScaled = true
+LDSHUB.PotionNameTxt2.TextSize = 14.000
+LDSHUB.PotionNameTxt2.TextStrokeTransparency = 0.000
+LDSHUB.PotionNameTxt2.TextWrapped = true
 
 LDSHUB.OpenPotionsButton2.Name = "OpenPotionsButton2"
 LDSHUB.OpenPotionsButton2.Parent = LDSHUB.PotionSelected2
@@ -3544,19 +3544,19 @@ LDSHUB.OpenPotionsButton3.TextWrapped = true
 
 LDSHUB.UICorner_149.Parent = LDSHUB.OpenPotionsButton3
 
-LDSHUB.NamePet_6.Name = "NamePet"
-LDSHUB.NamePet_6.Parent = LDSHUB.PotionSelected3
-LDSHUB.NamePet_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-LDSHUB.NamePet_6.BackgroundTransparency = 1.000
-LDSHUB.NamePet_6.Position = UDim2.new(-0.0123430965, 0, -0.0297255293, 0)
-LDSHUB.NamePet_6.Size = UDim2.new(1, 0, 1, 0)
-LDSHUB.NamePet_6.Font = Enum.Font.FredokaOne
-LDSHUB.NamePet_6.Text = "Nothing"
-LDSHUB.NamePet_6.TextColor3 = Color3.fromRGB(170, 0, 255)
-LDSHUB.NamePet_6.TextScaled = true
-LDSHUB.NamePet_6.TextSize = 14.000
-LDSHUB.NamePet_6.TextStrokeTransparency = 0.000
-LDSHUB.NamePet_6.TextWrapped = true
+LDSHUB.PotionNameTxt3.Name = "PotionNameTxt3"
+LDSHUB.PotionNameTxt3.Parent = LDSHUB.PotionSelected3
+LDSHUB.PotionNameTxt3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.PotionNameTxt3.BackgroundTransparency = 1.000
+LDSHUB.PotionNameTxt3.Position = UDim2.new(-0.0123430965, 0, -0.0297255293, 0)
+LDSHUB.PotionNameTxt3.Size = UDim2.new(1, 0, 1, 0)
+LDSHUB.PotionNameTxt3.Font = Enum.Font.FredokaOne
+LDSHUB.PotionNameTxt3.Text = "Nothing"
+LDSHUB.PotionNameTxt3.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.PotionNameTxt3.TextScaled = true
+LDSHUB.PotionNameTxt3.TextSize = 14.000
+LDSHUB.PotionNameTxt3.TextStrokeTransparency = 0.000
+LDSHUB.PotionNameTxt3.TextWrapped = true
 
 LDSHUB.PotionName1.Name = "PotionName1"
 LDSHUB.PotionName1.Parent = LDSHUB.AutoPotionsUi
@@ -3632,19 +3632,19 @@ LDSHUB.PotionSelected4.Size = UDim2.new(0.380356103, 0, 0.100733951, 0)
 
 LDSHUB.UICorner_153.Parent = LDSHUB.PotionSelected4
 
-LDSHUB.NamePet_7.Name = "NamePet"
-LDSHUB.NamePet_7.Parent = LDSHUB.PotionSelected4
-LDSHUB.NamePet_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-LDSHUB.NamePet_7.BackgroundTransparency = 1.000
-LDSHUB.NamePet_7.Position = UDim2.new(0.0124354511, 0, -0.0297255516, 0)
-LDSHUB.NamePet_7.Size = UDim2.new(1, 0, 1, 0)
-LDSHUB.NamePet_7.Font = Enum.Font.FredokaOne
-LDSHUB.NamePet_7.Text = "Nothing"
-LDSHUB.NamePet_7.TextColor3 = Color3.fromRGB(170, 0, 255)
-LDSHUB.NamePet_7.TextScaled = true
-LDSHUB.NamePet_7.TextSize = 14.000
-LDSHUB.NamePet_7.TextStrokeTransparency = 0.000
-LDSHUB.NamePet_7.TextWrapped = true
+LDSHUB.PotionNameTxt4.Name = "PotionNameTxt4"
+LDSHUB.PotionNameTxt4.Parent = LDSHUB.PotionSelected4
+LDSHUB.PotionNameTxt4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.PotionNameTxt4.BackgroundTransparency = 1.000
+LDSHUB.PotionNameTxt4.Position = UDim2.new(0.0124354511, 0, -0.0297255516, 0)
+LDSHUB.PotionNameTxt4.Size = UDim2.new(1, 0, 1, 0)
+LDSHUB.PotionNameTxt4.Font = Enum.Font.FredokaOne
+LDSHUB.PotionNameTxt4.Text = "Nothing"
+LDSHUB.PotionNameTxt4.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.PotionNameTxt4.TextScaled = true
+LDSHUB.PotionNameTxt4.TextSize = 14.000
+LDSHUB.PotionNameTxt4.TextStrokeTransparency = 0.000
+LDSHUB.PotionNameTxt4.TextWrapped = true
 
 LDSHUB.OpenPotionsButton4.Name = "OpenPotionsButton4"
 LDSHUB.OpenPotionsButton4.Parent = LDSHUB.PotionSelected4
@@ -3715,40 +3715,60 @@ G.Settings = {
 	AutoEvent1 = false,
 	AutoEvent2 = false,
 	AutoEvent3 = false,
+
 	AutoSeasonPass1 = false,
 	AutoSeasonPass2 = false,
 	AutoSeasonPass3 = false,
+
 	AutoClick = false,
 	AutoIndex = false,
 	AutoBoss = false,
+
 	AutoEgg = false,
 	RemoveEggAnimation = false,
+
 	AutoClaimReward = false,
 	AutoSpinReward = false,
+	AutoHopSever = false,
+
 	AutoRebirth = false,
+
 	AutoDelete = false,
-	AutoCraft = false,
-	AutoHopSever = false
+
+	AutoPotions = false,
+
+	AutoCraft = false
+
 };
 
 local function ResetHub()
 	G.Settings.AutoEvent1 = false
 	G.Settings.AutoEvent2 = false
 	G.Settings.AutoEvent3 = false
+
 	G.Settings.AutoSeasonPass1 = false
 	G.Settings.AutoSeasonPass2 = false
 	G.Settings.AutoSeasonPass3 = false
+
 	G.Settings.AutoClick = false
 	G.Settings.AutoIndex = false
 	G.Settings.AutoBoss = false
+
 	G.Settings.AutoEgg = false
 	G.Settings.RemoveEggAnimation = false
+
 	G.Settings.AutoClaimReward = false
 	G.Settings.AutoSpinReward = false
-	G.Settings.AutoRebirth = false
-	G.Settings.AutoDelete = false
-	G.Settings.AutoCraft = false
 	G.Settings.AutoHopSever = false
+
+	G.Settings.AutoRebirth = false
+
+	G.Settings.AutoPotions = false
+
+	G.Settings.AutoDelete = false
+
+	G.Settings.AutoCraft = false
+
 end
 
 local NameSave = game.Players.LocalPlayer.Name
@@ -3874,6 +3894,7 @@ local function hideFrames()
 	LDSHUB.AutoClaimUi.Visible = false
 	LDSHUB.VisualUi.Visible = false
 	LDSHUB.EventUi.Visible = false
+	LDSHUB.AutoPotionsUi.Visible = false
 end
 
 local function resetButtons()
@@ -3890,6 +3911,7 @@ local function resetButtons()
 	LDSHUB.AutoClaim.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
 	LDSHUB.Visual.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
 	LDSHUB.Event.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+	LDSHUB.AutoPotions.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
 end
 
 local function resetFrames(excludeFrame, excludeButton)
@@ -3967,6 +3989,11 @@ LDSHUB.Event.MouseButton1Click:Connect(function()
 	resetFrames(LDSHUB.EventUi, LDSHUB.Event)
 end)
 
+LDSHUB.AutoPotions.MouseButton1Click:Connect(function()
+	toggleFrame(LDSHUB.AutoPotionsUi, LDSHUB.AutoPotions)
+	resetFrames(LDSHUB.AutoPotionsUi, LDSHUB.AutoPotions)
+end)
+
 -- Esconder todos os frames ao iniciar
 hideFrames()
 LDSHUB.HomeUi.Visible = true
@@ -3982,12 +4009,10 @@ local function AutoEventEgg()
 		LDSHUB.EventFrame1.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 	end
 	while G.Settings.AutoEvent1 do
-		local qnt = tonumber(LDSHUB.TextBoxEggsEvent.Text)
-		local args = {
-			[1] = 1
-		}
-
-		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EventService"):WaitForChild("RF"):WaitForChild("ClaimEgg"):InvokeServer(unpack(args))
+		wait()
+		local A = 8
+		local Event = game:GetService("ReplicatedStorage").Packages["_Index"]["sleitnick_knit@1.4.7"].knit.Services.EventService.RF.ClaimEgg
+		Event:InvokeServer(A)
 	end
 end
 
@@ -4776,7 +4801,7 @@ local PetsEvent = {
 	"Leviathan",
 	"KingOctopus",
 	"CoolCrab",
-	
+
 	"NinjaPanda",
 	"NinjaParrot",
 	"NinjaYeti",
@@ -4846,13 +4871,13 @@ local function AutoDelete()
 	local namePetR1 = LDSHUB.NamePet.Text
 	local namePetR2 = LDSHUB.NamePet_2.Text
 	local namePetR3 = LDSHUB.NamePet_3.Text
-	
+
 	if G.Settings.AutoDelete == true then
 		LDSHUB.DeleteButtonFrameColor.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	else
 		LDSHUB.DeleteButtonFrameColor.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 	end
-	
+
 	while G.Settings.AutoDelete do
 		for i, v in pairs(PetInv:GetChildren()) do
 			if v:IsA("Frame") then
@@ -5115,62 +5140,135 @@ end
 
 --Auto Potions
 
-local function AutoPotion1()
-	
-	while true do
-	wait(1800)
-	local args = {
-		[1] = "Wins"
-	}
 
-	game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("BoostService"):WaitForChild("RE"):WaitForChild("useBoost"):FireServer(unpack(args))
+local Potions = {
+	"WinPotion",
+	"LuckPotion",
+	"GoldPotion",
+	"VoidPotion"
+}
 
-	end
+
+local function CreateTextButtonPotion(parent, name)
+	local TextButton = Instance.new("TextButton")
+	TextButton.Name = name
+	TextButton.Parent = parent
+	TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TextButton.Size = UDim2.new(0.9, 0, 0.001, 0)
+	TextButton.Font = Enum.Font.SciFi
+	TextButton.Text = name
+	TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+	TextButton.TextScaled = true
+	TextButton.TextSize = 14
+	TextButton.TextWrapped = true
+
+	local UICorner = Instance.new("UICorner")
+	UICorner.Parent = TextButton
+
+	return TextButton
 end
 
-local function AutoPotion2()
-
-	while true do
-		wait(1800)
-		local args = {
-			[1] = "Luck"
-		}
-
-		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("BoostService"):WaitForChild("RE"):WaitForChild("useBoost"):FireServer(unpack(args))
-
-	end
+local function ConnectButtonClickEventPotion(button, namePotionObject)
+	button.MouseButton1Click:Connect(function()
+		namePotionObject.Text = button.Name
+	end)
 end
 
-local function AutoPotion3()
+for _, potionName in ipairs(Potions) do
+	local button1 = CreateTextButtonPotion(LDSHUB.ScrollingFramePotions1, potionName)
+	ConnectButtonClickEventPotion(button1, LDSHUB.PotionNameTxt1)
 
-	while true do
-		wait(1800)
-		local args = {
-			[1] = "Golden"
-		}
+	local button2 = CreateTextButtonPotion(LDSHUB.ScrollingFramePotions2, potionName)
+	ConnectButtonClickEventPotion(button2, LDSHUB.PotionNameTxt2)
 
-		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("BoostService"):WaitForChild("RE"):WaitForChild("useBoost"):FireServer(unpack(args))
+	local button3 = CreateTextButtonPotion(LDSHUB.ScrollingFramePotions3, potionName)
+	ConnectButtonClickEventPotion(button3, LDSHUB.PotionNameTxt3)
 
-	end
+	local button4 = CreateTextButtonPotion(LDSHUB.ScrollingFramePotions4, potionName)
+	ConnectButtonClickEventPotion(button4, LDSHUB.PotionNameTxt4)
 end
 
-local function AutoPotion4()
-
-	while true do
-		wait(1800)
-		local args = {
-			[1] = "Void"
-		}
-
-		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("BoostService"):WaitForChild("RE"):WaitForChild("useBoost"):FireServer(unpack(args))
-
-	end
+local function resetscPotion()
+	LDSHUB.PotionName1.Visible = false
+	LDSHUB.PotionName2.Visible = false
+	LDSHUB.PotionName3.Visible = false	
+	LDSHUB.PotionName4.Visible = false
 end
 
+LDSHUB.OpenPotionsButton1.MouseButton1Click:Connect(function()
+	resetscPotion()
+	LDSHUB.PotionName1.Visible = true
+end)
 
+LDSHUB.OpenPotionsButton2.MouseButton1Click:Connect(function()
+	resetscPotion()
+	LDSHUB.PotionName2.Visible = true
+end)
 
+LDSHUB.OpenPotionsButton3.MouseButton1Click:Connect(function()
+	resetscPotion()
+	LDSHUB.PotionName3.Visible = true
+end)
 
+LDSHUB.OpenPotionsButton4.MouseButton1Click:Connect(function()
+	resetscPotion()
+	LDSHUB.PotionName4.Visible = true
+end)
 
+local function AutoPotion()
+
+	local namePetR1 = LDSHUB.PotionNameTxt1.Text
+	local namePetR2 = LDSHUB.PotionNameTxt2.Text
+	local namePetR3 = LDSHUB.PotionNameTxt3.Text
+	local namePetR4 = LDSHUB.PotionNameTxt4.Text
+
+	if G.Settings.AutoPotions == true then
+		LDSHUB.PotionFrameColor1.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+	else
+		LDSHUB.PotionFrameColor1.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+	end
+
+	if namePetR1 == "WinPotion" or namePetR2 == "WinPotion" or namePetR3 == "WinPotion" or namePetR4  == "WinPotion" then
+		while true do
+			local args = {
+				[1] = "Wins"
+			}
+
+			game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("BoostService"):WaitForChild("RE"):WaitForChild("useBoost"):FireServer(unpack(args))
+			wait(1800)
+		end
+	end
+	if namePetR1 == "LuckPotion" or namePetR2 == "LuckPotion" or namePetR3 == "LuckPotion" or namePetR4  == "LuckPotion" then
+		while true do
+			local args = {
+				[1] = "Luck"
+			}
+
+			game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("BoostService"):WaitForChild("RE"):WaitForChild("useBoost"):FireServer(unpack(args))
+			wait(1800)
+		end
+	end
+	if namePetR1 == "GoldPotion" or namePetR2 == "GoldPotion" or namePetR3 == "GoldPotion" or namePetR4  == "GoldPotion" then
+		while true do
+			local args = {
+				[1] = "Luck"
+			}
+
+			game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("BoostService"):WaitForChild("RE"):WaitForChild("useBoost"):FireServer(unpack(args))
+			wait(1800)
+		end
+	end
+	if namePetR1 == "VoidPotion" or namePetR2 == "VoidPotion" or namePetR3 == "VoidPotion" or namePetR4  == "VoidPotion" then
+		while true do
+			local args = {
+				[1] = "Void"
+			}
+
+			game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("BoostService"):WaitForChild("RE"):WaitForChild("useBoost"):FireServer(unpack(args))
+			wait(1800)
+		end
+	end
+end
 
 
 -- SeasonPass scripts
@@ -5196,17 +5294,17 @@ end)
 
 LDSHUB.SeasonButton1.MouseButton1Click:Connect(function()
 	G.Settings.AutoSeasonPass1 = not G.Settings.AutoSeasonPass1
-	
+
 end)
 
 LDSHUB.SeasonButton2.MouseButton1Click:Connect(function()
 	G.Settings.AutoSeasonPass2 = not G.Settings.AutoSeasonPass2
-	
+
 end)
 
 LDSHUB.SeasonButton3.MouseButton1Click:Connect(function()
 	G.Settings.AutoSeasonPass3 = not G.Settings.AutoSeasonPass3
-	
+
 end)
 
 LDSHUB.autofarm1.MouseButton1Click:Connect(function()
