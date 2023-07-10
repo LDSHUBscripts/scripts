@@ -1,7 +1,8 @@
-local KeyGratis = "LDSKeyFree"
+
+local KeyGratis = ""
 local tableofkeys = {
 	-- Free Keys
-	"LDSKeyFree",
+	"aG34JeZlgB0B5YD",
 	-- Dev Keys
 	"LimasKey",
 	"TeteuKey",
@@ -22,7 +23,6 @@ local whitelistedusers = {
 	1410024913 -- genki
 }
 
--- Instances:
 
 local Key = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
@@ -38,6 +38,8 @@ local UICorner_5 = Instance.new("UICorner")
 local TextLabel = Instance.new("TextLabel")
 local TextLabel_2 = Instance.new("TextLabel")
 local FreeKey = Instance.new("TextLabel")
+local CloseButton = Instance.new("TextButton")
+local UICorner_6 = Instance.new("UICorner")
 
 --Properties:
 
@@ -133,11 +135,28 @@ FreeKey.Position = UDim2.new(0.0177088641, 0, 0.391461134, 0)
 FreeKey.Size = UDim2.new(0.95996207, 0, 0.0816831291, 0)
 FreeKey.ZIndex = 10
 FreeKey.Font = Enum.Font.FredokaOne
-FreeKey.Text = "Free Key Here: " .. KeyGratis
+FreeKey.Text = "Free Key Here: Not available"
 FreeKey.TextColor3 = Color3.fromRGB(85, 255, 0)
 FreeKey.TextScaled = true
 FreeKey.TextSize = 14.000
 FreeKey.TextWrapped = true
+
+CloseButton.Name = "CloseButton"
+CloseButton.Parent = Frame
+CloseButton.BackgroundColor3 = Color3.fromRGB(255, 49, 111)
+CloseButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+CloseButton.BorderSizePixel = 0
+CloseButton.Position = UDim2.new(0.9281196, 0, -0.0447154492, 0)
+CloseButton.Size = UDim2.new(0.0927109346, 0, 0.16260162, 0)
+CloseButton.Font = Enum.Font.FredokaOne
+CloseButton.Text = "X"
+CloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+CloseButton.TextScaled = true
+CloseButton.TextSize = 14.000
+CloseButton.TextStrokeTransparency = 0.000
+CloseButton.TextWrapped = true
+
+UICorner_6.Parent = CloseButton
 
 local plrGui = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
 
@@ -180,12 +199,15 @@ if table.find(whitelistedusers, tonumber(game:GetService("Players").LocalPlayer.
 end
 
 VerifyKey.MouseButton1Click:Connect(function()
-	
+
 	if table.find(tableofkeys, tostring(TextBox.Text)) then
 		KeyCerta()
 	else
 		KeyErrada()
 	end
-	
+
 end)
 
+CloseButton.MouseButton1Click:Connect(function()
+	Key:Destroy()
+end)
