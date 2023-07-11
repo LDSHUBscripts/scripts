@@ -185,7 +185,7 @@ local function KeyCerta()
 		Key:Destroy()
 	elseif game.PlaceId == 654732683 then
 		Key:Destroy()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/LDSHUBscripts/scripts/main/HubLDS"))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/LDSHUBscripts/scripts/main/LDSHub%20CC2"))()
 		print("LDSHubCC2")
 		Key:Destroy()
 	else
