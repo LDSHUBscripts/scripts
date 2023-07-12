@@ -402,55 +402,73 @@ local LDSHUB = {
 	TextLabel_73 = Instance.new("TextLabel"),
 	AutoTrainFrame1 = Instance.new("Frame"),
 	UICorner_139 = Instance.new("UICorner"),
-	AutoPotionsUi = Instance.new("Frame"),
+	DumbellSelected = Instance.new("Frame"),
 	UICorner_140 = Instance.new("UICorner"),
-	AutoPotionsTxt = Instance.new("TextLabel"),
-	autopotion1 = Instance.new("TextButton"),
+	NameDumbell = Instance.new("TextLabel"),
+	DumbellList = Instance.new("Frame"),
 	UICorner_141 = Instance.new("UICorner"),
-	PotionFrameColor1 = Instance.new("Frame"),
+	ScrollingFrameDumbell = Instance.new("ScrollingFrame"),
+	UIListLayout_7 = Instance.new("UIListLayout"),
+	SeacherDumbell = Instance.new("Frame"),
 	UICorner_142 = Instance.new("UICorner"),
+	ImageLabel_3 = Instance.new("ImageLabel"),
+	TxtBoxDumbell = Instance.new("TextBox"),
+	UICorner_143 = Instance.new("UICorner"),
+	AutoTrain2 = Instance.new("TextButton"),
+	UICorner_144 = Instance.new("UICorner"),
 	TextLabel_74 = Instance.new("TextLabel"),
 	TextLabel_75 = Instance.new("TextLabel"),
+	AutoTrainFrame1_2 = Instance.new("Frame"),
+	UICorner_145 = Instance.new("UICorner"),
+	AutoPotionsUi = Instance.new("Frame"),
+	UICorner_146 = Instance.new("UICorner"),
+	AutoPotionsTxt = Instance.new("TextLabel"),
+	autopotion1 = Instance.new("TextButton"),
+	UICorner_147 = Instance.new("UICorner"),
+	PotionFrameColor1 = Instance.new("Frame"),
+	UICorner_148 = Instance.new("UICorner"),
+	TextLabel_76 = Instance.new("TextLabel"),
+	TextLabel_77 = Instance.new("TextLabel"),
 	PotionSelected1 = Instance.new("Frame"),
-	UICorner_143 = Instance.new("UICorner"),
+	UICorner_149 = Instance.new("UICorner"),
 	PotionNameTxt1 = Instance.new("TextLabel"),
 	OpenPotionsButton1 = Instance.new("TextButton"),
-	UICorner_144 = Instance.new("UICorner"),
+	UICorner_150 = Instance.new("UICorner"),
 	PotionName3 = Instance.new("Frame"),
-	UICorner_145 = Instance.new("UICorner"),
+	UICorner_151 = Instance.new("UICorner"),
 	ScrollingFramePotions3 = Instance.new("ScrollingFrame"),
-	UIListLayout_7 = Instance.new("UIListLayout"),
+	UIListLayout_8 = Instance.new("UIListLayout"),
 	PotionSelected2 = Instance.new("Frame"),
-	UICorner_146 = Instance.new("UICorner"),
+	UICorner_152 = Instance.new("UICorner"),
 	PotionNameTxt2 = Instance.new("TextLabel"),
 	OpenPotionsButton2 = Instance.new("TextButton"),
-	UICorner_147 = Instance.new("UICorner"),
+	UICorner_153 = Instance.new("UICorner"),
 	PotionSelected3 = Instance.new("Frame"),
-	UICorner_148 = Instance.new("UICorner"),
+	UICorner_154 = Instance.new("UICorner"),
 	OpenPotionsButton3 = Instance.new("TextButton"),
-	UICorner_149 = Instance.new("UICorner"),
+	UICorner_155 = Instance.new("UICorner"),
 	PotionNameTxt3 = Instance.new("TextLabel"),
 	PotionName1 = Instance.new("Frame"),
-	UICorner_150 = Instance.new("UICorner"),
+	UICorner_156 = Instance.new("UICorner"),
 	ScrollingFramePotions1 = Instance.new("ScrollingFrame"),
-	UIListLayout_8 = Instance.new("UIListLayout"),
-	PotionName2 = Instance.new("Frame"),
-	UICorner_151 = Instance.new("UICorner"),
-	ScrollingFramePotions2 = Instance.new("ScrollingFrame"),
 	UIListLayout_9 = Instance.new("UIListLayout"),
-	PotionName4 = Instance.new("Frame"),
-	UICorner_152 = Instance.new("UICorner"),
-	ScrollingFramePotions4 = Instance.new("ScrollingFrame"),
+	PotionName2 = Instance.new("Frame"),
+	UICorner_157 = Instance.new("UICorner"),
+	ScrollingFramePotions2 = Instance.new("ScrollingFrame"),
 	UIListLayout_10 = Instance.new("UIListLayout"),
+	PotionName4 = Instance.new("Frame"),
+	UICorner_158 = Instance.new("UICorner"),
+	ScrollingFramePotions4 = Instance.new("ScrollingFrame"),
+	UIListLayout_11 = Instance.new("UIListLayout"),
 	PotionSelected4 = Instance.new("Frame"),
-	UICorner_153 = Instance.new("UICorner"),
+	UICorner_159 = Instance.new("UICorner"),
 	PotionNameTxt4 = Instance.new("TextLabel"),
 	OpenPotionsButton4 = Instance.new("TextButton"),
-	UICorner_154 = Instance.new("UICorner"),
+	UICorner_160 = Instance.new("UICorner"),
 	MenuH = Instance.new("Frame"),
 	TextButton = Instance.new("TextButton"),
-	UICorner_155 = Instance.new("UICorner"),
-	TextLabel_76 = Instance.new("TextLabel"),
+	UICorner_161 = Instance.new("UICorner"),
+	TextLabel_78 = Instance.new("TextLabel"),
 }
 
 --Properties:
@@ -463,7 +481,6 @@ LDSHUB.Frame.Parent = LDSHUB.LDSHUB
 LDSHUB.Frame.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
 LDSHUB.Frame.Position = UDim2.new(0.313664556, 0, 0.321052641, 0)
 LDSHUB.Frame.Size = UDim2.new(0.372049779, 0, 0.357894748, 0)
-LDSHUB.Frame.ZIndex = 10000
 
 LDSHUB.UICorner.Parent = LDSHUB.Frame
 
@@ -3310,7 +3327,7 @@ LDSHUB.MiscTxt_2.TextWrapped = true
 LDSHUB.AutoTrain1.Name = "AutoTrain1"
 LDSHUB.AutoTrain1.Parent = LDSHUB.AutoTrainUi
 LDSHUB.AutoTrain1.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-LDSHUB.AutoTrain1.Position = UDim2.new(0.0236391015, 0, 0.134980381, 0)
+LDSHUB.AutoTrain1.Position = UDim2.new(0.0236391015, 0, 0.249713689, 0)
 LDSHUB.AutoTrain1.Size = UDim2.new(0.161972716, 0, 0.104609773, 0)
 LDSHUB.AutoTrain1.Font = Enum.Font.SourceSans
 LDSHUB.AutoTrain1.Text = ""
@@ -3322,10 +3339,10 @@ LDSHUB.UICorner_138.Parent = LDSHUB.AutoTrain1
 LDSHUB.TextLabel_72.Parent = LDSHUB.AutoTrain1
 LDSHUB.TextLabel_72.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 LDSHUB.TextLabel_72.BackgroundTransparency = 1.000
-LDSHUB.TextLabel_72.Position = UDim2.new(1.0869565, 0, -0.0322580673, 0)
-LDSHUB.TextLabel_72.Size = UDim2.new(4.95551682, 0, 1.00000012, 0)
+LDSHUB.TextLabel_72.Position = UDim2.new(1.08695531, 0, -0.0322580673, 0)
+LDSHUB.TextLabel_72.Size = UDim2.new(2.40335894, 0, 1.04129136, 0)
 LDSHUB.TextLabel_72.Font = Enum.Font.FredokaOne
-LDSHUB.TextLabel_72.Text = "Auto Train (Knuckle and Biceps)"
+LDSHUB.TextLabel_72.Text = "Auto Train"
 LDSHUB.TextLabel_72.TextColor3 = Color3.fromRGB(255, 255, 255)
 LDSHUB.TextLabel_72.TextScaled = true
 LDSHUB.TextLabel_72.TextSize = 14.000
@@ -3335,10 +3352,10 @@ LDSHUB.TextLabel_72.TextXAlignment = Enum.TextXAlignment.Left
 LDSHUB.TextLabel_73.Parent = LDSHUB.AutoTrain1
 LDSHUB.TextLabel_73.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 LDSHUB.TextLabel_73.BackgroundTransparency = 1.000
-LDSHUB.TextLabel_73.Position = UDim2.new(-0.131407887, 0, 0.677415431, 0)
-LDSHUB.TextLabel_73.Size = UDim2.new(6.17388058, 0, 2.37419772, 0)
+LDSHUB.TextLabel_73.Position = UDim2.new(-0.102314308, 0, 1.22579968, 0)
+LDSHUB.TextLabel_73.Size = UDim2.new(3.59262729, 0, 1.62839401, 0)
 LDSHUB.TextLabel_73.Font = Enum.Font.FredokaOne
-LDSHUB.TextLabel_73.Text = "Activating this option, you start training Knuckles and biceps at the same time"
+LDSHUB.TextLabel_73.Text = "Activating the option you start farming punches and hands at the same time"
 LDSHUB.TextLabel_73.TextColor3 = Color3.fromRGB(170, 0, 255)
 LDSHUB.TextLabel_73.TextScaled = true
 LDSHUB.TextLabel_73.TextSize = 14.000
@@ -3352,6 +3369,122 @@ LDSHUB.AutoTrainFrame1.Size = UDim2.new(0.434782594, 0, 0.870967746, 0)
 
 LDSHUB.UICorner_139.Parent = LDSHUB.AutoTrainFrame1
 
+LDSHUB.DumbellSelected.Name = "DumbellSelected"
+LDSHUB.DumbellSelected.Parent = LDSHUB.AutoTrainUi
+LDSHUB.DumbellSelected.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.DumbellSelected.Position = UDim2.new(0.598398924, 0, 0.920627594, 0)
+LDSHUB.DumbellSelected.Size = UDim2.new(0.380356163, 0, 0.056865342, 0)
+
+LDSHUB.UICorner_140.Parent = LDSHUB.DumbellSelected
+
+LDSHUB.NameDumbell.Name = "NameDumbell"
+LDSHUB.NameDumbell.Parent = LDSHUB.DumbellSelected
+LDSHUB.NameDumbell.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.NameDumbell.BackgroundTransparency = 1.000
+LDSHUB.NameDumbell.Size = UDim2.new(1, 0, 1, 0)
+LDSHUB.NameDumbell.Font = Enum.Font.FredokaOne
+LDSHUB.NameDumbell.Text = "Name Hand"
+LDSHUB.NameDumbell.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.NameDumbell.TextScaled = true
+LDSHUB.NameDumbell.TextSize = 14.000
+LDSHUB.NameDumbell.TextWrapped = true
+
+LDSHUB.DumbellList.Name = "DumbellList"
+LDSHUB.DumbellList.Parent = LDSHUB.AutoTrainUi
+LDSHUB.DumbellList.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.DumbellList.Position = UDim2.new(0.598398924, 0, 0.249713555, 0)
+LDSHUB.DumbellList.Size = UDim2.new(0.380356163, 0, 0.64679116, 0)
+
+LDSHUB.UICorner_141.Parent = LDSHUB.DumbellList
+
+LDSHUB.ScrollingFrameDumbell.Name = "ScrollingFrameDumbell"
+LDSHUB.ScrollingFrameDumbell.Parent = LDSHUB.DumbellList
+LDSHUB.ScrollingFrameDumbell.Active = true
+LDSHUB.ScrollingFrameDumbell.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.ScrollingFrameDumbell.BackgroundTransparency = 1.000
+LDSHUB.ScrollingFrameDumbell.Position = UDim2.new(0.0370299891, 0, 0.0295806173, 0)
+LDSHUB.ScrollingFrameDumbell.Size = UDim2.new(0.962970018, 0, 0.939115465, 0)
+LDSHUB.ScrollingFrameDumbell.CanvasSize = UDim2.new(0, 0, 200, 0)
+
+LDSHUB.UIListLayout_7.Parent = LDSHUB.ScrollingFrameDumbell
+LDSHUB.UIListLayout_7.SortOrder = Enum.SortOrder.LayoutOrder
+LDSHUB.UIListLayout_7.Padding = UDim.new(9.99999975e-05, 0)
+
+LDSHUB.SeacherDumbell.Name = "SeacherDumbell"
+LDSHUB.SeacherDumbell.Parent = LDSHUB.AutoTrainUi
+LDSHUB.SeacherDumbell.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.SeacherDumbell.Position = UDim2.new(0.37650618, 0, 0.0944861472, 0)
+LDSHUB.SeacherDumbell.Size = UDim2.new(0.602248847, 0, 0.103495322, 0)
+
+LDSHUB.UICorner_142.Parent = LDSHUB.SeacherDumbell
+
+LDSHUB.ImageLabel_3.Parent = LDSHUB.SeacherDumbell
+LDSHUB.ImageLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.ImageLabel_3.BackgroundTransparency = 1.000
+LDSHUB.ImageLabel_3.Position = UDim2.new(0.0235172249, 0, 0.0218360275, 0)
+LDSHUB.ImageLabel_3.Size = UDim2.new(0.11417561, 0, 0.945557475, 0)
+LDSHUB.ImageLabel_3.Image = "rbxassetid://12772973193"
+
+LDSHUB.TxtBoxDumbell.Name = "TxtBoxDumbell"
+LDSHUB.TxtBoxDumbell.Parent = LDSHUB.SeacherDumbell
+LDSHUB.TxtBoxDumbell.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TxtBoxDumbell.Position = UDim2.new(0.141104788, 0, 0.15225783, 0)
+LDSHUB.TxtBoxDumbell.Size = UDim2.new(0.831458151, 0, 0.749924839, 0)
+LDSHUB.TxtBoxDumbell.Font = Enum.Font.SourceSans
+LDSHUB.TxtBoxDumbell.PlaceholderText = "Seacher"
+LDSHUB.TxtBoxDumbell.Text = ""
+LDSHUB.TxtBoxDumbell.TextColor3 = Color3.fromRGB(0, 0, 0)
+LDSHUB.TxtBoxDumbell.TextScaled = true
+LDSHUB.TxtBoxDumbell.TextSize = 14.000
+LDSHUB.TxtBoxDumbell.TextWrapped = true
+
+LDSHUB.UICorner_143.Parent = LDSHUB.TxtBoxDumbell
+
+LDSHUB.AutoTrain2.Name = "AutoTrain2"
+LDSHUB.AutoTrain2.Parent = LDSHUB.AutoTrainUi
+LDSHUB.AutoTrain2.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.AutoTrain2.Position = UDim2.new(0.0236391015, 0, 0.614160657, 0)
+LDSHUB.AutoTrain2.Size = UDim2.new(0.161972716, 0, 0.104609773, 0)
+LDSHUB.AutoTrain2.Font = Enum.Font.SourceSans
+LDSHUB.AutoTrain2.Text = ""
+LDSHUB.AutoTrain2.TextColor3 = Color3.fromRGB(0, 0, 0)
+LDSHUB.AutoTrain2.TextSize = 14.000
+
+LDSHUB.UICorner_144.Parent = LDSHUB.AutoTrain2
+
+LDSHUB.TextLabel_74.Parent = LDSHUB.AutoTrain2
+LDSHUB.TextLabel_74.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_74.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_74.Position = UDim2.new(1.08695531, 0, -0.0322580673, 0)
+LDSHUB.TextLabel_74.Size = UDim2.new(2.40335894, 0, 1.04129136, 0)
+LDSHUB.TextLabel_74.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_74.Text = "Auto Click Train"
+LDSHUB.TextLabel_74.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_74.TextScaled = true
+LDSHUB.TextLabel_74.TextSize = 14.000
+LDSHUB.TextLabel_74.TextWrapped = true
+LDSHUB.TextLabel_74.TextXAlignment = Enum.TextXAlignment.Left
+
+LDSHUB.TextLabel_75.Parent = LDSHUB.AutoTrain2
+LDSHUB.TextLabel_75.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_75.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_75.Position = UDim2.new(-0.102314308, 0, 1.22579968, 0)
+LDSHUB.TextLabel_75.Size = UDim2.new(3.59262729, 0, 1.62839401, 0)
+LDSHUB.TextLabel_75.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_75.Text = "activating the option you start clicking quickly to farm any kind of thing]"
+LDSHUB.TextLabel_75.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.TextLabel_75.TextScaled = true
+LDSHUB.TextLabel_75.TextSize = 14.000
+LDSHUB.TextLabel_75.TextWrapped = true
+
+LDSHUB.AutoTrainFrame1_2.Name = "AutoTrainFrame1"
+LDSHUB.AutoTrainFrame1_2.Parent = LDSHUB.AutoTrain2
+LDSHUB.AutoTrainFrame1_2.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+LDSHUB.AutoTrainFrame1_2.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
+LDSHUB.AutoTrainFrame1_2.Size = UDim2.new(0.434782594, 0, 0.870967746, 0)
+
+LDSHUB.UICorner_145.Parent = LDSHUB.AutoTrainFrame1_2
+
 LDSHUB.AutoPotionsUi.Name = "AutoPotionsUi"
 LDSHUB.AutoPotionsUi.Parent = LDSHUB.Frame
 LDSHUB.AutoPotionsUi.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
@@ -3359,7 +3492,7 @@ LDSHUB.AutoPotionsUi.Position = UDim2.new(0.273959696, 0, 0.0941176489, 0)
 LDSHUB.AutoPotionsUi.Size = UDim2.new(0.707664907, 0, 0.871586502, 0)
 LDSHUB.AutoPotionsUi.Visible = false
 
-LDSHUB.UICorner_140.Parent = LDSHUB.AutoPotionsUi
+LDSHUB.UICorner_146.Parent = LDSHUB.AutoPotionsUi
 
 LDSHUB.AutoPotionsTxt.Name = "AutoPotionsTxt"
 LDSHUB.AutoPotionsTxt.Parent = LDSHUB.AutoPotionsUi
@@ -3384,7 +3517,7 @@ LDSHUB.autopotion1.Text = ""
 LDSHUB.autopotion1.TextColor3 = Color3.fromRGB(0, 0, 0)
 LDSHUB.autopotion1.TextSize = 14.000
 
-LDSHUB.UICorner_141.Parent = LDSHUB.autopotion1
+LDSHUB.UICorner_147.Parent = LDSHUB.autopotion1
 
 LDSHUB.PotionFrameColor1.Name = "PotionFrameColor1"
 LDSHUB.PotionFrameColor1.Parent = LDSHUB.autopotion1
@@ -3392,32 +3525,32 @@ LDSHUB.PotionFrameColor1.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 LDSHUB.PotionFrameColor1.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
 LDSHUB.PotionFrameColor1.Size = UDim2.new(0.434782594, 0, 0.870967746, 0)
 
-LDSHUB.UICorner_142.Parent = LDSHUB.PotionFrameColor1
+LDSHUB.UICorner_148.Parent = LDSHUB.PotionFrameColor1
 
-LDSHUB.TextLabel_74.Parent = LDSHUB.autopotion1
-LDSHUB.TextLabel_74.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-LDSHUB.TextLabel_74.BackgroundTransparency = 1.000
-LDSHUB.TextLabel_74.Position = UDim2.new(1.0869565, 0, -0.0322580673, 0)
-LDSHUB.TextLabel_74.Size = UDim2.new(2.04247332, 0, 1.00000012, 0)
-LDSHUB.TextLabel_74.Font = Enum.Font.FredokaOne
-LDSHUB.TextLabel_74.Text = "Auto Potion"
-LDSHUB.TextLabel_74.TextColor3 = Color3.fromRGB(255, 255, 255)
-LDSHUB.TextLabel_74.TextScaled = true
-LDSHUB.TextLabel_74.TextSize = 14.000
-LDSHUB.TextLabel_74.TextWrapped = true
-LDSHUB.TextLabel_74.TextXAlignment = Enum.TextXAlignment.Left
+LDSHUB.TextLabel_76.Parent = LDSHUB.autopotion1
+LDSHUB.TextLabel_76.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_76.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_76.Position = UDim2.new(1.0869565, 0, -0.0322580673, 0)
+LDSHUB.TextLabel_76.Size = UDim2.new(2.04247332, 0, 1.00000012, 0)
+LDSHUB.TextLabel_76.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_76.Text = "Auto Potion"
+LDSHUB.TextLabel_76.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_76.TextScaled = true
+LDSHUB.TextLabel_76.TextSize = 14.000
+LDSHUB.TextLabel_76.TextWrapped = true
+LDSHUB.TextLabel_76.TextXAlignment = Enum.TextXAlignment.Left
 
-LDSHUB.TextLabel_75.Parent = LDSHUB.autopotion1
-LDSHUB.TextLabel_75.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-LDSHUB.TextLabel_75.BackgroundTransparency = 1.000
-LDSHUB.TextLabel_75.Position = UDim2.new(-0.0441275164, 0, 1.16129422, 0)
-LDSHUB.TextLabel_75.Size = UDim2.new(6.08289671, 0, 1.62384832, 0)
-LDSHUB.TextLabel_75.Font = Enum.Font.FredokaOne
-LDSHUB.TextLabel_75.Text = "Activating this option will start using the selected potions after it ends."
-LDSHUB.TextLabel_75.TextColor3 = Color3.fromRGB(170, 0, 255)
-LDSHUB.TextLabel_75.TextScaled = true
-LDSHUB.TextLabel_75.TextSize = 14.000
-LDSHUB.TextLabel_75.TextWrapped = true
+LDSHUB.TextLabel_77.Parent = LDSHUB.autopotion1
+LDSHUB.TextLabel_77.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_77.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_77.Position = UDim2.new(-0.0441275164, 0, 1.16129422, 0)
+LDSHUB.TextLabel_77.Size = UDim2.new(6.08289671, 0, 1.62384832, 0)
+LDSHUB.TextLabel_77.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_77.Text = "Activating this option will start using the selected potions after it ends."
+LDSHUB.TextLabel_77.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.TextLabel_77.TextScaled = true
+LDSHUB.TextLabel_77.TextSize = 14.000
+LDSHUB.TextLabel_77.TextWrapped = true
 
 LDSHUB.PotionSelected1.Name = "PotionSelected1"
 LDSHUB.PotionSelected1.Parent = LDSHUB.AutoPotionsUi
@@ -3425,7 +3558,7 @@ LDSHUB.PotionSelected1.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
 LDSHUB.PotionSelected1.Position = UDim2.new(0.0209310167, 0, 0.0938729122, 0)
 LDSHUB.PotionSelected1.Size = UDim2.new(0.380356103, 0, 0.100733951, 0)
 
-LDSHUB.UICorner_143.Parent = LDSHUB.PotionSelected1
+LDSHUB.UICorner_149.Parent = LDSHUB.PotionSelected1
 
 LDSHUB.PotionNameTxt1.Name = "PotionNameTxt1"
 LDSHUB.PotionNameTxt1.Parent = LDSHUB.PotionSelected1
@@ -3456,7 +3589,7 @@ LDSHUB.OpenPotionsButton1.TextSize = 14.000
 LDSHUB.OpenPotionsButton1.TextStrokeTransparency = 0.000
 LDSHUB.OpenPotionsButton1.TextWrapped = true
 
-LDSHUB.UICorner_144.Parent = LDSHUB.OpenPotionsButton1
+LDSHUB.UICorner_150.Parent = LDSHUB.OpenPotionsButton1
 
 LDSHUB.PotionName3.Name = "PotionName3"
 LDSHUB.PotionName3.Parent = LDSHUB.AutoPotionsUi
@@ -3465,7 +3598,7 @@ LDSHUB.PotionName3.Position = UDim2.new(0.598398924, 0, 0.141729265, 0)
 LDSHUB.PotionName3.Size = UDim2.new(0.380356163, 0, 0.64679116, 0)
 LDSHUB.PotionName3.Visible = false
 
-LDSHUB.UICorner_145.Parent = LDSHUB.PotionName3
+LDSHUB.UICorner_151.Parent = LDSHUB.PotionName3
 
 LDSHUB.ScrollingFramePotions3.Name = "ScrollingFramePotions3"
 LDSHUB.ScrollingFramePotions3.Parent = LDSHUB.PotionName3
@@ -3476,9 +3609,9 @@ LDSHUB.ScrollingFramePotions3.Position = UDim2.new(0.0370299891, 0, 0.0295806173
 LDSHUB.ScrollingFramePotions3.Size = UDim2.new(0.962970018, 0, 0.939115465, 0)
 LDSHUB.ScrollingFramePotions3.CanvasSize = UDim2.new(0, 0, 200, 0)
 
-LDSHUB.UIListLayout_7.Parent = LDSHUB.ScrollingFramePotions3
-LDSHUB.UIListLayout_7.SortOrder = Enum.SortOrder.LayoutOrder
-LDSHUB.UIListLayout_7.Padding = UDim.new(9.99999975e-05, 0)
+LDSHUB.UIListLayout_8.Parent = LDSHUB.ScrollingFramePotions3
+LDSHUB.UIListLayout_8.SortOrder = Enum.SortOrder.LayoutOrder
+LDSHUB.UIListLayout_8.Padding = UDim.new(9.99999975e-05, 0)
 
 LDSHUB.PotionSelected2.Name = "PotionSelected2"
 LDSHUB.PotionSelected2.Parent = LDSHUB.AutoPotionsUi
@@ -3486,7 +3619,7 @@ LDSHUB.PotionSelected2.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
 LDSHUB.PotionSelected2.Position = UDim2.new(0.0232784469, 0, 0.238976777, 0)
 LDSHUB.PotionSelected2.Size = UDim2.new(0.380356103, 0, 0.100733951, 0)
 
-LDSHUB.UICorner_146.Parent = LDSHUB.PotionSelected2
+LDSHUB.UICorner_152.Parent = LDSHUB.PotionSelected2
 
 LDSHUB.PotionNameTxt2.Name = "PotionNameTxt2"
 LDSHUB.PotionNameTxt2.Parent = LDSHUB.PotionSelected2
@@ -3517,7 +3650,7 @@ LDSHUB.OpenPotionsButton2.TextSize = 14.000
 LDSHUB.OpenPotionsButton2.TextStrokeTransparency = 0.000
 LDSHUB.OpenPotionsButton2.TextWrapped = true
 
-LDSHUB.UICorner_147.Parent = LDSHUB.OpenPotionsButton2
+LDSHUB.UICorner_153.Parent = LDSHUB.OpenPotionsButton2
 
 LDSHUB.PotionSelected3.Name = "PotionSelected3"
 LDSHUB.PotionSelected3.Parent = LDSHUB.AutoPotionsUi
@@ -3525,7 +3658,7 @@ LDSHUB.PotionSelected3.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
 LDSHUB.PotionSelected3.Position = UDim2.new(0.0232784469, 0, 0.384080619, 0)
 LDSHUB.PotionSelected3.Size = UDim2.new(0.380356103, 0, 0.100733951, 0)
 
-LDSHUB.UICorner_148.Parent = LDSHUB.PotionSelected3
+LDSHUB.UICorner_154.Parent = LDSHUB.PotionSelected3
 
 LDSHUB.OpenPotionsButton3.Name = "OpenPotionsButton3"
 LDSHUB.OpenPotionsButton3.Parent = LDSHUB.PotionSelected3
@@ -3542,7 +3675,7 @@ LDSHUB.OpenPotionsButton3.TextSize = 14.000
 LDSHUB.OpenPotionsButton3.TextStrokeTransparency = 0.000
 LDSHUB.OpenPotionsButton3.TextWrapped = true
 
-LDSHUB.UICorner_149.Parent = LDSHUB.OpenPotionsButton3
+LDSHUB.UICorner_155.Parent = LDSHUB.OpenPotionsButton3
 
 LDSHUB.PotionNameTxt3.Name = "PotionNameTxt3"
 LDSHUB.PotionNameTxt3.Parent = LDSHUB.PotionSelected3
@@ -3565,7 +3698,7 @@ LDSHUB.PotionName1.Position = UDim2.new(0.598398924, 0, 0.141729265, 0)
 LDSHUB.PotionName1.Size = UDim2.new(0.380356163, 0, 0.64679116, 0)
 LDSHUB.PotionName1.Visible = false
 
-LDSHUB.UICorner_150.Parent = LDSHUB.PotionName1
+LDSHUB.UICorner_156.Parent = LDSHUB.PotionName1
 
 LDSHUB.ScrollingFramePotions1.Name = "ScrollingFramePotions1"
 LDSHUB.ScrollingFramePotions1.Parent = LDSHUB.PotionName1
@@ -3576,9 +3709,9 @@ LDSHUB.ScrollingFramePotions1.Position = UDim2.new(0.0370299891, 0, 0.0295806173
 LDSHUB.ScrollingFramePotions1.Size = UDim2.new(0.962970018, 0, 0.939115465, 0)
 LDSHUB.ScrollingFramePotions1.CanvasSize = UDim2.new(0, 0, 200, 0)
 
-LDSHUB.UIListLayout_8.Parent = LDSHUB.ScrollingFramePotions1
-LDSHUB.UIListLayout_8.SortOrder = Enum.SortOrder.LayoutOrder
-LDSHUB.UIListLayout_8.Padding = UDim.new(9.99999975e-05, 0)
+LDSHUB.UIListLayout_9.Parent = LDSHUB.ScrollingFramePotions1
+LDSHUB.UIListLayout_9.SortOrder = Enum.SortOrder.LayoutOrder
+LDSHUB.UIListLayout_9.Padding = UDim.new(9.99999975e-05, 0)
 
 LDSHUB.PotionName2.Name = "PotionName2"
 LDSHUB.PotionName2.Parent = LDSHUB.AutoPotionsUi
@@ -3587,7 +3720,7 @@ LDSHUB.PotionName2.Position = UDim2.new(0.598398924, 0, 0.141729265, 0)
 LDSHUB.PotionName2.Size = UDim2.new(0.380356163, 0, 0.64679116, 0)
 LDSHUB.PotionName2.Visible = false
 
-LDSHUB.UICorner_151.Parent = LDSHUB.PotionName2
+LDSHUB.UICorner_157.Parent = LDSHUB.PotionName2
 
 LDSHUB.ScrollingFramePotions2.Name = "ScrollingFramePotions2"
 LDSHUB.ScrollingFramePotions2.Parent = LDSHUB.PotionName2
@@ -3598,9 +3731,9 @@ LDSHUB.ScrollingFramePotions2.Position = UDim2.new(0.0370299891, 0, 0.0295806173
 LDSHUB.ScrollingFramePotions2.Size = UDim2.new(0.962970018, 0, 0.939115465, 0)
 LDSHUB.ScrollingFramePotions2.CanvasSize = UDim2.new(0, 0, 200, 0)
 
-LDSHUB.UIListLayout_9.Parent = LDSHUB.ScrollingFramePotions2
-LDSHUB.UIListLayout_9.SortOrder = Enum.SortOrder.LayoutOrder
-LDSHUB.UIListLayout_9.Padding = UDim.new(9.99999975e-05, 0)
+LDSHUB.UIListLayout_10.Parent = LDSHUB.ScrollingFramePotions2
+LDSHUB.UIListLayout_10.SortOrder = Enum.SortOrder.LayoutOrder
+LDSHUB.UIListLayout_10.Padding = UDim.new(9.99999975e-05, 0)
 
 LDSHUB.PotionName4.Name = "PotionName4"
 LDSHUB.PotionName4.Parent = LDSHUB.AutoPotionsUi
@@ -3609,7 +3742,7 @@ LDSHUB.PotionName4.Position = UDim2.new(0.598398924, 0, 0.141729265, 0)
 LDSHUB.PotionName4.Size = UDim2.new(0.380356163, 0, 0.64679116, 0)
 LDSHUB.PotionName4.Visible = false
 
-LDSHUB.UICorner_152.Parent = LDSHUB.PotionName4
+LDSHUB.UICorner_158.Parent = LDSHUB.PotionName4
 
 LDSHUB.ScrollingFramePotions4.Name = "ScrollingFramePotions4"
 LDSHUB.ScrollingFramePotions4.Parent = LDSHUB.PotionName4
@@ -3620,9 +3753,9 @@ LDSHUB.ScrollingFramePotions4.Position = UDim2.new(0.0370299891, 0, 0.0295806173
 LDSHUB.ScrollingFramePotions4.Size = UDim2.new(0.962970018, 0, 0.939115465, 0)
 LDSHUB.ScrollingFramePotions4.CanvasSize = UDim2.new(0, 0, 200, 0)
 
-LDSHUB.UIListLayout_10.Parent = LDSHUB.ScrollingFramePotions4
-LDSHUB.UIListLayout_10.SortOrder = Enum.SortOrder.LayoutOrder
-LDSHUB.UIListLayout_10.Padding = UDim.new(9.99999975e-05, 0)
+LDSHUB.UIListLayout_11.Parent = LDSHUB.ScrollingFramePotions4
+LDSHUB.UIListLayout_11.SortOrder = Enum.SortOrder.LayoutOrder
+LDSHUB.UIListLayout_11.Padding = UDim.new(9.99999975e-05, 0)
 
 LDSHUB.PotionSelected4.Name = "PotionSelected4"
 LDSHUB.PotionSelected4.Parent = LDSHUB.AutoPotionsUi
@@ -3630,7 +3763,7 @@ LDSHUB.PotionSelected4.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
 LDSHUB.PotionSelected4.Position = UDim2.new(0.0185661111, 0, 0.52918452, 0)
 LDSHUB.PotionSelected4.Size = UDim2.new(0.380356103, 0, 0.100733951, 0)
 
-LDSHUB.UICorner_153.Parent = LDSHUB.PotionSelected4
+LDSHUB.UICorner_159.Parent = LDSHUB.PotionSelected4
 
 LDSHUB.PotionNameTxt4.Name = "PotionNameTxt4"
 LDSHUB.PotionNameTxt4.Parent = LDSHUB.PotionSelected4
@@ -3661,7 +3794,7 @@ LDSHUB.OpenPotionsButton4.TextSize = 14.000
 LDSHUB.OpenPotionsButton4.TextStrokeTransparency = 0.000
 LDSHUB.OpenPotionsButton4.TextWrapped = true
 
-LDSHUB.UICorner_154.Parent = LDSHUB.OpenPotionsButton4
+LDSHUB.UICorner_160.Parent = LDSHUB.OpenPotionsButton4
 
 LDSHUB.MenuH.Name = "MenuH"
 LDSHUB.MenuH.Parent = LDSHUB.LDSHUB
@@ -3689,22 +3822,22 @@ LDSHUB.TextButton.TextStrokeTransparency = 0.000
 LDSHUB.TextButton.TextWrapped = true
 LDSHUB.TextButton.TextYAlignment = Enum.TextYAlignment.Top
 
-LDSHUB.UICorner_155.Parent = LDSHUB.TextButton
+LDSHUB.UICorner_161.Parent = LDSHUB.TextButton
 
-LDSHUB.TextLabel_76.Parent = LDSHUB.TextButton
-LDSHUB.TextLabel_76.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-LDSHUB.TextLabel_76.BackgroundTransparency = 1.000
-LDSHUB.TextLabel_76.BorderColor3 = Color3.fromRGB(0, 0, 0)
-LDSHUB.TextLabel_76.BorderSizePixel = 0
-LDSHUB.TextLabel_76.Position = UDim2.new(1.20000017, 0, -0.0109091094, 0)
-LDSHUB.TextLabel_76.Size = UDim2.new(0, 149, 0, 33)
-LDSHUB.TextLabel_76.Font = Enum.Font.FredokaOne
-LDSHUB.TextLabel_76.Text = "Hide LDS hub!"
-LDSHUB.TextLabel_76.TextColor3 = Color3.fromRGB(170, 0, 255)
-LDSHUB.TextLabel_76.TextScaled = true
-LDSHUB.TextLabel_76.TextSize = 14.000
-LDSHUB.TextLabel_76.TextStrokeTransparency = 0.000
-LDSHUB.TextLabel_76.TextWrapped = true
+LDSHUB.TextLabel_78.Parent = LDSHUB.TextButton
+LDSHUB.TextLabel_78.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_78.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_78.BorderColor3 = Color3.fromRGB(0, 0, 0)
+LDSHUB.TextLabel_78.BorderSizePixel = 0
+LDSHUB.TextLabel_78.Position = UDim2.new(1.20000017, 0, -0.0109091094, 0)
+LDSHUB.TextLabel_78.Size = UDim2.new(0, 149, 0, 33)
+LDSHUB.TextLabel_78.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_78.Text = "Hide LDS hub!"
+LDSHUB.TextLabel_78.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.TextLabel_78.TextScaled = true
+LDSHUB.TextLabel_78.TextSize = 14.000
+LDSHUB.TextLabel_78.TextStrokeTransparency = 0.000
+LDSHUB.TextLabel_78.TextWrapped = true
 
 --scripts >
 
@@ -3737,7 +3870,9 @@ G.Settings = {
 
 	AutoPotions = false,
 
-	AutoCraft = false
+	AutoCraft = false,
+	
+	AutoTrain = false
 
 };
 
@@ -3768,7 +3903,8 @@ local function ResetHub()
 	G.Settings.AutoDelete = false
 
 	G.Settings.AutoCraft = false
-
+	
+	G.Settings.AutoTrain = false
 end
 
 local NameSave = game.Players.LocalPlayer.Name
@@ -3895,6 +4031,7 @@ local function hideFrames()
 	LDSHUB.VisualUi.Visible = false
 	LDSHUB.EventUi.Visible = false
 	LDSHUB.AutoPotionsUi.Visible = false
+	LDSHUB.AutoTrainUi.Visible = false
 end
 
 local function resetButtons()
@@ -3912,6 +4049,7 @@ local function resetButtons()
 	LDSHUB.Visual.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
 	LDSHUB.Event.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
 	LDSHUB.AutoPotions.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+	LDSHUB.AutoTrain.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
 end
 
 local function resetFrames(excludeFrame, excludeButton)
@@ -3992,6 +4130,11 @@ end)
 LDSHUB.AutoPotions.MouseButton1Click:Connect(function()
 	toggleFrame(LDSHUB.AutoPotionsUi, LDSHUB.AutoPotions)
 	resetFrames(LDSHUB.AutoPotionsUi, LDSHUB.AutoPotions)
+end)
+
+LDSHUB.AutoTrain.MouseButton1Click:Connect(function()
+	toggleFrame(LDSHUB.AutoTrainUi, LDSHUB.AutoTrain)
+	resetFrames(LDSHUB.AutoTrainUi, LDSHUB.AutoTrain)
 end)
 
 -- Esconder todos os frames ao iniciar
@@ -5270,6 +5413,239 @@ local function AutoPotion()
 	end
 end
 
+local World1Dumbells = {
+	"1Kg",
+	"2Kg",
+	"3Kg",
+	"4Kg",
+	"5Kg",
+	"10Kg",
+	"15Kg",
+	"20Kg",
+	"25Kg",
+	"50Kg",
+	"100Kg",
+	"250Kg"
+}
+
+local World2Dumbells = {
+	"300Kg",
+	"400Kg",
+	"500Kg",
+	"650Kg",
+	"800Kg",
+	"1000Kg",
+	"1500Kg",
+	"2000Kg",
+	"2500Kg",
+	"3000Kg",
+	"3500Kg",
+	"4000Kg"
+}
+
+local World3Dumbells = {
+	"5000Kg",
+	"6000Kg",
+	"7500Kg",
+	"10000Kg",
+	"12500Kg",
+	"15000Kg",
+	"20000Kg",
+	"25000Kg",
+	"30000Kg",
+	"35000Kg",
+	"40000Kg",
+	"45000Kg"
+}
+
+local World4Dumbells = {
+	"50000Kg",
+	"60000Kg",
+	"70000Kg",
+	"80000Kg",
+	"90000Kg",
+	"100000Kg",
+	"125000Kg",
+	"150000Kg",
+	"175000Kg",
+	"200000Kg",
+	"250000Kg",
+	"300000Kg"
+}
+
+local viptrain = false
+
+local function CreateTextButtonDumbells(parent, name)
+	local TextButton = Instance.new("TextButton")
+	TextButton.Name = name
+	TextButton.Parent = parent
+	TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TextButton.Size = UDim2.new(0.9, 0, 0.001, 0)
+	TextButton.Font = Enum.Font.SciFi
+	TextButton.Text = name
+	TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+	TextButton.TextScaled = true
+	TextButton.TextSize = 14
+	TextButton.TextWrapped = true
+
+	local UICorner = Instance.new("UICorner")
+	UICorner.Parent = TextButton
+
+	return TextButton
+end
+
+local function ConnectButtonClickEventDumbells(button, namePetObject)
+	button.MouseButton1Click:Connect(function()
+		namePetObject.Text = button.Name
+	end)
+end
+
+local allDumbells = {}
+for _, DumbellName in ipairs(World1Dumbells) do
+	table.insert(allDumbells, DumbellName)
+end
+for _, DumbellName in ipairs(World2Dumbells) do
+	table.insert(allDumbells, DumbellName)
+end
+for _, DumbellName in ipairs(World3Dumbells) do
+	table.insert(allDumbells, DumbellName)
+end
+for _, DumbellName in ipairs(World4Dumbells) do
+	table.insert(allDumbells, DumbellName)
+end
+
+for _, DumbellName in ipairs(allDumbells) do
+	local button1 = CreateTextButtonDumbells(LDSHUB.ScrollingFrameDumbell, DumbellName)
+	ConnectButtonClickEventDumbells(button1, LDSHUB.NameDumbell)
+end
+
+local function tableFind(tbl, value)
+	for i, v in ipairs(tbl) do
+		if v == value then
+			return i
+		end
+	end
+	return nil
+end
+
+local function ATKBiceps()
+	local dumbells = game.ReplicatedStorage.Tools.Dumbells
+
+	for i, v in pairs(dumbells:GetChildren()) do
+		local dumbellName = v.Name
+		local index = tableFind(allDumbells, dumbellName) -- Encontra o índice do halter na tabela allDumbells
+
+		if index then
+			local args = {
+				[1] = tostring(index),
+				[2] = "Dumbells",
+				[3] = LDSHUB.NameDumbell.Text
+			}
+
+			local success = game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ToolService"):WaitForChild("RE"):WaitForChild("onEquipRequest"):FireServer(unpack(args))
+
+			if success then
+
+				break -- Sai do loop após equipar o halter
+			end
+		end
+	end
+end
+
+local function ATKsocoVIP()
+	local plr = game.Players.LocalPlayer
+	local attributeName = "BestZone"
+	local attributeValue = plr:GetAttribute(attributeName)
+
+	local args = {
+		[1] = attributeValue,
+		[2] = "VIP",
+		[3] = true
+	}
+
+	game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService"):WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
+end
+
+local function ATKsocoNormal()
+
+	local plr = game.Players.LocalPlayer
+	local attributeName = "BestZone"
+	local attributeValue = plr:GetAttribute(attributeName)
+
+	local args = {
+		[1] = attributeValue,
+		[2] = "Tier6"
+	}
+
+	game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService"):WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
+
+end
+
+local function ATKDumbell()
+	game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ToolService"):WaitForChild("RE"):WaitForChild("onClick"):FireServer()
+end
+
+local function TPSoco()
+	
+	if G.Settings.AutoTrain == true then
+		LDSHUB.AutoTrainFrame1.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+	else
+		LDSHUB.AutoTrainFrame1.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+	end
+	local plr = game.Players.LocalPlayer
+	local attributeName = "BestZone"
+	local attributeVip = "VIP"
+	local attributeValue = plr:GetAttribute(attributeName)
+	local attributeValue2 = plr:GetAttribute(attributeVip)
+
+	local sacoVip = game.workspace.Zones[attributeValue].Interactables.Training.PunchBags.VIP.Primary.Position
+	local saco = game.workspace.Zones[attributeValue].Interactables.Training.PunchBags.Tier6.Primary.Position
+
+
+	if attributeValue2 == true then
+		local hum = plr.Character.HumanoidRootPart
+		hum.CFrame = CFrame.new(sacoVip)
+		viptrain = true
+	else
+		local hum = plr.Character.HumanoidRootPart
+		hum.CFrame = CFrame.new(saco)
+	end
+
+	if attributeValue == 1 then
+
+		local args = {
+			[1] = workspace:WaitForChild("Zones"):WaitForChild("1"):WaitForChild("Interactables"):WaitForChild("Teleports"):WaitForChild("Locations"):WaitForChild("BackToSchool")
+		}
+
+		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ZoneService"):WaitForChild("RE"):WaitForChild("teleport"):FireServer(unpack(args))
+
+	elseif attributeValue == 2 then
+
+		if attributeValue == 1 then
+
+			local args = {
+				[1] = workspace:WaitForChild("Zones"):WaitForChild("2"):WaitForChild("Interactables"):WaitForChild("Teleports"):WaitForChild("Locations"):WaitForChild("Futuristic")
+			}
+
+			game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ZoneService"):WaitForChild("RE"):WaitForChild("teleport"):FireServer(unpack(args))
+		elseif attributeValue == 3 then
+
+			local args = {
+				[1] = workspace:WaitForChild("Zones"):WaitForChild("3"):WaitForChild("Interactables"):WaitForChild("Teleports"):WaitForChild("Locations"):WaitForChild("Beach")
+			}
+
+			game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ZoneService"):WaitForChild("RE"):WaitForChild("teleport"):FireServer(unpack(args))
+		elseif attributeValue == 4 then
+
+			local args = {
+				[1] = workspace:WaitForChild("Zones"):WaitForChild("4"):WaitForChild("Interactables"):WaitForChild("Teleports"):WaitForChild("Locations"):WaitForChild("NuclearBunker")
+			}
+
+			game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ZoneService"):WaitForChild("RE"):WaitForChild("teleport"):FireServer(unpack(args))
+
+		end
+	end
+end
 
 -- SeasonPass scripts
 
@@ -5376,10 +5752,36 @@ LDSHUB.TeleportButton2.MouseButton1Click:Connect(function()
 	LDSHUB.TpFrameColor2.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 end)
 
-LDSHUB.TeleportButton1.MouseButton1Click:Connect(function()
+LDSHUB.TeleportButton3.MouseButton1Click:Connect(function()
 	LDSHUB.TpFrameColor3.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	wait(2)
 	LDSHUB.TpFrameColor3.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+end)
+LDSHUB.TeleportButton4.MouseButton1Click:Connect(function()
+	LDSHUB.TpFrameColor4.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+	wait(2)
+	LDSHUB.TpFrameColor4.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+end)
+
+LDSHUB.AutoTrain1.MouseButton1Click:Connect(function()
+	G.Settings.AutoTrain = not G.Settings.AutoTrain
+	spawn(function()
+		TPSoco()
+	end)
+	while G.Settings.AutoTrain do
+		wait()
+		if viptrain == true then
+			ATKsocoVIP()
+		else
+			ATKsocoNormal()
+		end
+		spawn(function()
+			ATKBiceps()
+		end)
+		spawn(function()
+			ATKDumbell()
+		end)
+	end
 end)
 
 LDSHUB.ResetSaveButton.MouseButton1Click:Connect(function()
