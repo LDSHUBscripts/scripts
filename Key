@@ -1,9 +1,8 @@
 
-local KeyGratis = ""
+local KeyGratis = "Tysm2kYT!"
 local tableofkeys = {
 	-- Free Keys
 	"Tq04$24H&I7L",
-	"LDS7K",
 	-- Dev Keys
 	"LimasKey",
 	"TeteuKey",
@@ -136,7 +135,7 @@ FreeKey.Position = UDim2.new(0.0177088641, 0, 0.391461134, 0)
 FreeKey.Size = UDim2.new(0.95996207, 0, 0.0816831291, 0)
 FreeKey.ZIndex = 10
 FreeKey.Font = Enum.Font.FredokaOne
-FreeKey.Text = "Free Key Here: Not Avaliable!"
+FreeKey.Text = "Free Key Here: " .. KeyGratis
 FreeKey.TextColor3 = Color3.fromRGB(85, 255, 0)
 FreeKey.TextScaled = true
 FreeKey.TextSize = 14.000
