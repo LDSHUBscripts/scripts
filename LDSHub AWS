@@ -5020,7 +5020,12 @@ local PetsEvent = {
 	"NinjaPanda",
 	"NinjaParrot",
 	"NinjaYeti",
-	"NinjaSquirrel"
+	"NinjaSquirrel",
+
+	"HoloCat",
+	"HoloJellyfish",
+	"HoloCroc",
+	"HoloDragon"
 }
 
 local function CreateTextButton(parent, name)
