@@ -5916,7 +5916,7 @@ LDSHUB.EventButton4.MouseButton1Click:Connect(function()
 end)
 LDSHUB.EventButton5.MouseButton1Click:Connect(function()
 	G.Settings.AutoEvent5 = not G.Settings.AutoEvent5
-	AutoEvent4()
+	AutoEvent5()
 end)
 
 LDSHUB.SeasonButton1.MouseButton1Click:Connect(function()
