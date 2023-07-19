@@ -383,102 +383,107 @@ local LDSHUB = {
 	EventButton1 = Instance.new("TextButton"),
 	UICorner_138 = Instance.new("UICorner"),
 	TextLabel_61 = Instance.new("TextLabel"),
-	TextLabel_62 = Instance.new("TextLabel"),
 	EventFrame1 = Instance.new("Frame"),
 	UICorner_139 = Instance.new("UICorner"),
 	EventButton2 = Instance.new("TextButton"),
 	UICorner_140 = Instance.new("UICorner"),
-	TextLabel_63 = Instance.new("TextLabel"),
+	TextLabel_62 = Instance.new("TextLabel"),
 	EventFrame2 = Instance.new("Frame"),
 	UICorner_141 = Instance.new("UICorner"),
-	TextLabel_64 = Instance.new("TextLabel"),
+	TextLabel_63 = Instance.new("TextLabel"),
 	EventButton3 = Instance.new("TextButton"),
 	UICorner_142 = Instance.new("UICorner"),
-	TextLabel_65 = Instance.new("TextLabel"),
+	TextLabel_64 = Instance.new("TextLabel"),
 	EventFrame3 = Instance.new("Frame"),
 	UICorner_143 = Instance.new("UICorner"),
-	TextLabel_66 = Instance.new("TextLabel"),
+	TextLabel_65 = Instance.new("TextLabel"),
 	EventTxt = Instance.new("TextLabel"),
 	EventButton4 = Instance.new("TextButton"),
 	UICorner_144 = Instance.new("UICorner"),
-	TextLabel_67 = Instance.new("TextLabel"),
-	TextLabel_68 = Instance.new("TextLabel"),
+	TextLabel_66 = Instance.new("TextLabel"),
 	EventFrame4 = Instance.new("Frame"),
 	UICorner_145 = Instance.new("UICorner"),
-	AutoTrainUi = Instance.new("Frame"),
+	EventButton5 = Instance.new("TextButton"),
 	UICorner_146 = Instance.new("UICorner"),
+	TextLabel_67 = Instance.new("TextLabel"),
+	EventFrame5 = Instance.new("Frame"),
+	UICorner_147 = Instance.new("UICorner"),
+	TextLabel_68 = Instance.new("TextLabel"),
+	EventTxt_2 = Instance.new("TextLabel"),
+	AutoTrainUi = Instance.new("Frame"),
+	UICorner_148 = Instance.new("UICorner"),
 	MiscTxt_2 = Instance.new("TextLabel"),
 	AutoTrain1 = Instance.new("TextButton"),
-	UICorner_147 = Instance.new("UICorner"),
+	UICorner_149 = Instance.new("UICorner"),
 	TextLabel_69 = Instance.new("TextLabel"),
 	TextLabel_70 = Instance.new("TextLabel"),
 	AutoTrainFrame1 = Instance.new("Frame"),
-	UICorner_148 = Instance.new("UICorner"),
+	UICorner_150 = Instance.new("UICorner"),
 	DumbellSelected = Instance.new("Frame"),
-	UICorner_149 = Instance.new("UICorner"),
+	UICorner_151 = Instance.new("UICorner"),
 	NameDumbell = Instance.new("TextLabel"),
 	DumbellList = Instance.new("Frame"),
-	UICorner_150 = Instance.new("UICorner"),
+	UICorner_152 = Instance.new("UICorner"),
 	ScrollingFrameDumbell = Instance.new("ScrollingFrame"),
 	UIListLayout_8 = Instance.new("UIListLayout"),
 	SeacherDumbell = Instance.new("Frame"),
-	UICorner_151 = Instance.new("UICorner"),
+	UICorner_153 = Instance.new("UICorner"),
 	ImageLabel_7 = Instance.new("ImageLabel"),
 	TxtBoxDumbell = Instance.new("TextBox"),
-	UICorner_152 = Instance.new("UICorner"),
+	UICorner_154 = Instance.new("UICorner"),
 	AutoTrain2 = Instance.new("TextButton"),
-	UICorner_153 = Instance.new("UICorner"),
+	UICorner_155 = Instance.new("UICorner"),
 	TextLabel_71 = Instance.new("TextLabel"),
 	TextLabel_72 = Instance.new("TextLabel"),
 	AutoTrainFrame1_2 = Instance.new("Frame"),
-	UICorner_154 = Instance.new("UICorner"),
+	UICorner_156 = Instance.new("UICorner"),
 	AutoPotionsUi = Instance.new("Frame"),
-	UICorner_155 = Instance.new("UICorner"),
+	UICorner_157 = Instance.new("UICorner"),
 	AutoPotionsTxt = Instance.new("TextLabel"),
 	autopotion1 = Instance.new("TextButton"),
-	UICorner_156 = Instance.new("UICorner"),
+	UICorner_158 = Instance.new("UICorner"),
 	PotionFrameColor1 = Instance.new("Frame"),
-	UICorner_157 = Instance.new("UICorner"),
+	UICorner_159 = Instance.new("UICorner"),
 	TextLabel_73 = Instance.new("TextLabel"),
 	TextLabel_74 = Instance.new("TextLabel"),
 	PotionSelected1 = Instance.new("Frame"),
-	UICorner_158 = Instance.new("UICorner"),
+	UICorner_160 = Instance.new("UICorner"),
 	PotionNameTxt1 = Instance.new("TextLabel"),
 	OpenPotionsButton1 = Instance.new("TextButton"),
-	UICorner_159 = Instance.new("UICorner"),
+	UICorner_161 = Instance.new("UICorner"),
 	PotionName3 = Instance.new("Frame"),
-	UICorner_160 = Instance.new("UICorner"),
+	UICorner_162 = Instance.new("UICorner"),
 	ScrollingFramePotions3 = Instance.new("ScrollingFrame"),
 	UIListLayout_9 = Instance.new("UIListLayout"),
 	PotionSelected2 = Instance.new("Frame"),
-	UICorner_161 = Instance.new("UICorner"),
+	UICorner_163 = Instance.new("UICorner"),
 	PotionNameTxt2 = Instance.new("TextLabel"),
 	OpenPotionsButton2 = Instance.new("TextButton"),
-	UICorner_162 = Instance.new("UICorner"),
-	PotionSelected3 = Instance.new("Frame"),
-	UICorner_163 = Instance.new("UICorner"),
-	OpenPotionsButton3 = Instance.new("TextButton"),
 	UICorner_164 = Instance.new("UICorner"),
+	PotionSelected3 = Instance.new("Frame"),
+	UICorner_165 = Instance.new("UICorner"),
+	OpenPotionsButton3 = Instance.new("TextButton"),
+	UICorner_166 = Instance.new("UICorner"),
 	PotionNameTxt3 = Instance.new("TextLabel"),
 	PotionName1 = Instance.new("Frame"),
-	UICorner_165 = Instance.new("UICorner"),
+	UICorner_167 = Instance.new("UICorner"),
 	ScrollingFramePotions1 = Instance.new("ScrollingFrame"),
 	UIListLayout_10 = Instance.new("UIListLayout"),
 	PotionName2 = Instance.new("Frame"),
-	UICorner_166 = Instance.new("UICorner"),
+	UICorner_168 = Instance.new("UICorner"),
 	ScrollingFramePotions2 = Instance.new("ScrollingFrame"),
 	UIListLayout_11 = Instance.new("UIListLayout"),
 	PotionName4 = Instance.new("Frame"),
-	UICorner_167 = Instance.new("UICorner"),
+	UICorner_169 = Instance.new("UICorner"),
 	ScrollingFramePotions4 = Instance.new("ScrollingFrame"),
 	UIListLayout_12 = Instance.new("UIListLayout"),
 	PotionSelected4 = Instance.new("Frame"),
-	UICorner_168 = Instance.new("UICorner"),
+	UICorner_170 = Instance.new("UICorner"),
 	PotionNameTxt4 = Instance.new("TextLabel"),
 	OpenPotionsButton4 = Instance.new("TextButton"),
-	UICorner_169 = Instance.new("UICorner"),
+	UICorner_171 = Instance.new("UICorner"),
 	UpdateNoteUi = Instance.new("Frame"),
-	UICorner_170 = Instance.new("UICorner"),
+	UICorner_172 = Instance.new("UICorner"),
 	Updates = Instance.new("TextLabel"),
 	Updates_2 = Instance.new("TextLabel"),
 	TextCredits_2 = Instance.new("TextLabel"),
@@ -490,7 +495,7 @@ local LDSHUB = {
 	TextCredits_8 = Instance.new("TextLabel"),
 	MenuH = Instance.new("Frame"),
 	TextButton = Instance.new("TextButton"),
-	UICorner_171 = Instance.new("UICorner"),
+	UICorner_173 = Instance.new("UICorner"),
 	TextLabel_75 = Instance.new("TextLabel"),
 }
 
@@ -3137,18 +3142,6 @@ LDSHUB.TextLabel_61.TextSize = 14.000
 LDSHUB.TextLabel_61.TextWrapped = true
 LDSHUB.TextLabel_61.TextXAlignment = Enum.TextXAlignment.Left
 
-LDSHUB.TextLabel_62.Parent = LDSHUB.EventButton1
-LDSHUB.TextLabel_62.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-LDSHUB.TextLabel_62.BackgroundTransparency = 1.000
-LDSHUB.TextLabel_62.Position = UDim2.new(-0.00119505939, 0, 1.22580647, 0)
-LDSHUB.TextLabel_62.Size = UDim2.new(2.52989745, 0, 2.09677434, 0)
-LDSHUB.TextLabel_62.Font = Enum.Font.FredokaOne
-LDSHUB.TextLabel_62.Text = "Activating this option will open event eggs normally 1 in 1 automatically"
-LDSHUB.TextLabel_62.TextColor3 = Color3.fromRGB(170, 0, 255)
-LDSHUB.TextLabel_62.TextScaled = true
-LDSHUB.TextLabel_62.TextSize = 14.000
-LDSHUB.TextLabel_62.TextWrapped = true
-
 LDSHUB.EventFrame1.Name = "EventFrame1"
 LDSHUB.EventFrame1.Parent = LDSHUB.EventButton1
 LDSHUB.EventFrame1.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
@@ -3160,7 +3153,7 @@ LDSHUB.UICorner_139.Parent = LDSHUB.EventFrame1
 LDSHUB.EventButton2.Name = "EventButton2"
 LDSHUB.EventButton2.Parent = LDSHUB.EventUi
 LDSHUB.EventButton2.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-LDSHUB.EventButton2.Position = UDim2.new(0.0236376412, 0, 0.445435226, 0)
+LDSHUB.EventButton2.Position = UDim2.new(0.0283529013, 0, 0.546670496, 0)
 LDSHUB.EventButton2.Size = UDim2.new(0.161972716, 0, 0.104609773, 0)
 LDSHUB.EventButton2.Font = Enum.Font.SourceSans
 LDSHUB.EventButton2.Text = ""
@@ -3169,18 +3162,18 @@ LDSHUB.EventButton2.TextSize = 14.000
 
 LDSHUB.UICorner_140.Parent = LDSHUB.EventButton2
 
-LDSHUB.TextLabel_63.Parent = LDSHUB.EventButton2
-LDSHUB.TextLabel_63.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-LDSHUB.TextLabel_63.BackgroundTransparency = 1.000
-LDSHUB.TextLabel_63.Position = UDim2.new(1.0869565, 0, -0.0322580673, 0)
-LDSHUB.TextLabel_63.Size = UDim2.new(4.95551682, 0, 1.00000012, 0)
-LDSHUB.TextLabel_63.Font = Enum.Font.FredokaOne
-LDSHUB.TextLabel_63.Text = "Auto Event ( World 2 )"
-LDSHUB.TextLabel_63.TextColor3 = Color3.fromRGB(255, 255, 255)
-LDSHUB.TextLabel_63.TextScaled = true
-LDSHUB.TextLabel_63.TextSize = 14.000
-LDSHUB.TextLabel_63.TextWrapped = true
-LDSHUB.TextLabel_63.TextXAlignment = Enum.TextXAlignment.Left
+LDSHUB.TextLabel_62.Parent = LDSHUB.EventButton2
+LDSHUB.TextLabel_62.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_62.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_62.Position = UDim2.new(1.0869565, 0, -0.0322580673, 0)
+LDSHUB.TextLabel_62.Size = UDim2.new(4.95551682, 0, 1.00000012, 0)
+LDSHUB.TextLabel_62.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_62.Text = "Auto Event ( World 2 )"
+LDSHUB.TextLabel_62.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_62.TextScaled = true
+LDSHUB.TextLabel_62.TextSize = 14.000
+LDSHUB.TextLabel_62.TextWrapped = true
+LDSHUB.TextLabel_62.TextXAlignment = Enum.TextXAlignment.Left
 
 LDSHUB.EventFrame2.Name = "EventFrame2"
 LDSHUB.EventFrame2.Parent = LDSHUB.EventButton2
@@ -3190,22 +3183,22 @@ LDSHUB.EventFrame2.Size = UDim2.new(0.434782594, 0, 0.870967746, 0)
 
 LDSHUB.UICorner_141.Parent = LDSHUB.EventFrame2
 
-LDSHUB.TextLabel_64.Parent = LDSHUB.EventButton2
-LDSHUB.TextLabel_64.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-LDSHUB.TextLabel_64.BackgroundTransparency = 1.000
-LDSHUB.TextLabel_64.Position = UDim2.new(-0.131407812, 0, 1.22580254, 0)
-LDSHUB.TextLabel_64.Size = UDim2.new(6.17388105, 0, 1.36578965, 0)
-LDSHUB.TextLabel_64.Font = Enum.Font.FredokaOne
-LDSHUB.TextLabel_64.Text = "By activating the option, you will automatically start farming RipperDoc from world 2"
-LDSHUB.TextLabel_64.TextColor3 = Color3.fromRGB(170, 0, 255)
-LDSHUB.TextLabel_64.TextScaled = true
-LDSHUB.TextLabel_64.TextSize = 14.000
-LDSHUB.TextLabel_64.TextWrapped = true
+LDSHUB.TextLabel_63.Parent = LDSHUB.EventButton2
+LDSHUB.TextLabel_63.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_63.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_63.Position = UDim2.new(-0.131407544, 0, 1.22580254, 0)
+LDSHUB.TextLabel_63.Size = UDim2.new(6.17388105, 0, 0.978692889, 0)
+LDSHUB.TextLabel_63.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_63.Text = "By activating the option, you will automatically start farming RipperDoc from world 2"
+LDSHUB.TextLabel_63.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.TextLabel_63.TextScaled = true
+LDSHUB.TextLabel_63.TextSize = 14.000
+LDSHUB.TextLabel_63.TextWrapped = true
 
 LDSHUB.EventButton3.Name = "EventButton3"
 LDSHUB.EventButton3.Parent = LDSHUB.EventUi
 LDSHUB.EventButton3.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-LDSHUB.EventButton3.Position = UDim2.new(0.0259719789, 0, 0.728893995, 0)
+LDSHUB.EventButton3.Position = UDim2.new(0.030687239, 0, 0.786260664, 0)
 LDSHUB.EventButton3.Size = UDim2.new(0.161972716, 0, 0.104609773, 0)
 LDSHUB.EventButton3.Font = Enum.Font.SourceSans
 LDSHUB.EventButton3.Text = ""
@@ -3214,18 +3207,18 @@ LDSHUB.EventButton3.TextSize = 14.000
 
 LDSHUB.UICorner_142.Parent = LDSHUB.EventButton3
 
-LDSHUB.TextLabel_65.Parent = LDSHUB.EventButton3
-LDSHUB.TextLabel_65.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-LDSHUB.TextLabel_65.BackgroundTransparency = 1.000
-LDSHUB.TextLabel_65.Position = UDim2.new(1.0869565, 0, -0.0967741981, 0)
-LDSHUB.TextLabel_65.Size = UDim2.new(4.63768101, 0, 1.00000012, 0)
-LDSHUB.TextLabel_65.Font = Enum.Font.FredokaOne
-LDSHUB.TextLabel_65.Text = "Auto Event ( World 3)"
-LDSHUB.TextLabel_65.TextColor3 = Color3.fromRGB(255, 255, 255)
-LDSHUB.TextLabel_65.TextScaled = true
-LDSHUB.TextLabel_65.TextSize = 14.000
-LDSHUB.TextLabel_65.TextWrapped = true
-LDSHUB.TextLabel_65.TextXAlignment = Enum.TextXAlignment.Left
+LDSHUB.TextLabel_64.Parent = LDSHUB.EventButton3
+LDSHUB.TextLabel_64.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_64.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_64.Position = UDim2.new(1.0869565, 0, -0.0967741981, 0)
+LDSHUB.TextLabel_64.Size = UDim2.new(4.63768101, 0, 1.00000012, 0)
+LDSHUB.TextLabel_64.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_64.Text = "Auto Event ( World 3)"
+LDSHUB.TextLabel_64.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_64.TextScaled = true
+LDSHUB.TextLabel_64.TextSize = 14.000
+LDSHUB.TextLabel_64.TextWrapped = true
+LDSHUB.TextLabel_64.TextXAlignment = Enum.TextXAlignment.Left
 
 LDSHUB.EventFrame3.Name = "EventFrame3"
 LDSHUB.EventFrame3.Parent = LDSHUB.EventButton3
@@ -3235,24 +3228,24 @@ LDSHUB.EventFrame3.Size = UDim2.new(0.434782594, 0, 0.870967746, 0)
 
 LDSHUB.UICorner_143.Parent = LDSHUB.EventFrame3
 
-LDSHUB.TextLabel_66.Parent = LDSHUB.EventButton3
-LDSHUB.TextLabel_66.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-LDSHUB.TextLabel_66.BackgroundTransparency = 1.000
-LDSHUB.TextLabel_66.Position = UDim2.new(-0.174886063, 0, 1.22580647, 0)
-LDSHUB.TextLabel_66.Size = UDim2.new(6.17388105, 0, 1.20899427, 0)
-LDSHUB.TextLabel_66.Font = Enum.Font.FredokaOne
-LDSHUB.TextLabel_66.Text = "Activating the option, you will automatically start farming the Boss of world 3"
-LDSHUB.TextLabel_66.TextColor3 = Color3.fromRGB(170, 0, 255)
-LDSHUB.TextLabel_66.TextScaled = true
-LDSHUB.TextLabel_66.TextSize = 14.000
-LDSHUB.TextLabel_66.TextWrapped = true
+LDSHUB.TextLabel_65.Parent = LDSHUB.EventButton3
+LDSHUB.TextLabel_65.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_65.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_65.Position = UDim2.new(-0.276776463, 0, 1, 0)
+LDSHUB.TextLabel_65.Size = UDim2.new(6.17388105, 0, 0.918671668, 0)
+LDSHUB.TextLabel_65.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_65.Text = "Activating the option, you will automatically start farming the Boss of world 3"
+LDSHUB.TextLabel_65.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.TextLabel_65.TextScaled = true
+LDSHUB.TextLabel_65.TextSize = 14.000
+LDSHUB.TextLabel_65.TextWrapped = true
 
 LDSHUB.EventTxt.Name = "EventTxt"
 LDSHUB.EventTxt.Parent = LDSHUB.EventUi
 LDSHUB.EventTxt.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 LDSHUB.EventTxt.BackgroundTransparency = 1.000
-LDSHUB.EventTxt.Position = UDim2.new(-0.0329205506, 0, -0.110619381, 0)
-LDSHUB.EventTxt.Size = UDim2.new(0.433126539, 0, 0.188233137, 0)
+LDSHUB.EventTxt.Position = UDim2.new(-0.0329204835, 0, -0.110619381, 0)
+LDSHUB.EventTxt.Size = UDim2.new(0.433126539, 0, 0.181484118, 0)
 LDSHUB.EventTxt.Font = Enum.Font.Unknown
 LDSHUB.EventTxt.Text = "Event"
 LDSHUB.EventTxt.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -3272,30 +3265,18 @@ LDSHUB.EventButton4.TextSize = 14.000
 
 LDSHUB.UICorner_144.Parent = LDSHUB.EventButton4
 
-LDSHUB.TextLabel_67.Parent = LDSHUB.EventButton4
-LDSHUB.TextLabel_67.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-LDSHUB.TextLabel_67.BackgroundTransparency = 1.000
-LDSHUB.TextLabel_67.Position = UDim2.new(1.08695626, 0, -0.516129076, 0)
-LDSHUB.TextLabel_67.Size = UDim2.new(1.44174707, 0, 2.00000024, 0)
-LDSHUB.TextLabel_67.Font = Enum.Font.FredokaOne
-LDSHUB.TextLabel_67.Text = "Auto Open Egg (Holo)"
-LDSHUB.TextLabel_67.TextColor3 = Color3.fromRGB(255, 255, 255)
-LDSHUB.TextLabel_67.TextScaled = true
-LDSHUB.TextLabel_67.TextSize = 14.000
-LDSHUB.TextLabel_67.TextWrapped = true
-LDSHUB.TextLabel_67.TextXAlignment = Enum.TextXAlignment.Left
-
-LDSHUB.TextLabel_68.Parent = LDSHUB.EventButton4
-LDSHUB.TextLabel_68.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-LDSHUB.TextLabel_68.BackgroundTransparency = 1.000
-LDSHUB.TextLabel_68.Position = UDim2.new(-0.00119505939, 0, 1.22580647, 0)
-LDSHUB.TextLabel_68.Size = UDim2.new(2.52989745, 0, 2.09677434, 0)
-LDSHUB.TextLabel_68.Font = Enum.Font.FredokaOne
-LDSHUB.TextLabel_68.Text = "Activating this option will open event eggs normally 1 in 1 automatically"
-LDSHUB.TextLabel_68.TextColor3 = Color3.fromRGB(170, 0, 255)
-LDSHUB.TextLabel_68.TextScaled = true
-LDSHUB.TextLabel_68.TextSize = 14.000
-LDSHUB.TextLabel_68.TextWrapped = true
+LDSHUB.TextLabel_66.Parent = LDSHUB.EventButton4
+LDSHUB.TextLabel_66.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_66.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_66.Position = UDim2.new(1.08695626, 0, -0.516129076, 0)
+LDSHUB.TextLabel_66.Size = UDim2.new(1.44174707, 0, 2.00000024, 0)
+LDSHUB.TextLabel_66.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_66.Text = "Auto Open Egg (Holo)"
+LDSHUB.TextLabel_66.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_66.TextScaled = true
+LDSHUB.TextLabel_66.TextSize = 14.000
+LDSHUB.TextLabel_66.TextWrapped = true
+LDSHUB.TextLabel_66.TextXAlignment = Enum.TextXAlignment.Left
 
 LDSHUB.EventFrame4.Name = "EventFrame4"
 LDSHUB.EventFrame4.Parent = LDSHUB.EventButton4
@@ -3305,6 +3286,64 @@ LDSHUB.EventFrame4.Size = UDim2.new(0.434782594, 0, 0.870967746, 0)
 
 LDSHUB.UICorner_145.Parent = LDSHUB.EventFrame4
 
+LDSHUB.EventButton5.Name = "EventButton5"
+LDSHUB.EventButton5.Parent = LDSHUB.EventUi
+LDSHUB.EventButton5.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.EventButton5.Position = UDim2.new(0.0283529013, 0, 0.307080358, 0)
+LDSHUB.EventButton5.Size = UDim2.new(0.161972716, 0, 0.104609773, 0)
+LDSHUB.EventButton5.Font = Enum.Font.SourceSans
+LDSHUB.EventButton5.Text = ""
+LDSHUB.EventButton5.TextColor3 = Color3.fromRGB(0, 0, 0)
+LDSHUB.EventButton5.TextSize = 14.000
+
+LDSHUB.UICorner_146.Parent = LDSHUB.EventButton5
+
+LDSHUB.TextLabel_67.Parent = LDSHUB.EventButton5
+LDSHUB.TextLabel_67.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_67.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_67.Position = UDim2.new(1.0869565, 0, -0.0322580673, 0)
+LDSHUB.TextLabel_67.Size = UDim2.new(4.95551682, 0, 1.00000012, 0)
+LDSHUB.TextLabel_67.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_67.Text = "Auto Egg Limited (World 1)"
+LDSHUB.TextLabel_67.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_67.TextScaled = true
+LDSHUB.TextLabel_67.TextSize = 14.000
+LDSHUB.TextLabel_67.TextWrapped = true
+LDSHUB.TextLabel_67.TextXAlignment = Enum.TextXAlignment.Left
+
+LDSHUB.EventFrame5.Name = "EventFrame5"
+LDSHUB.EventFrame5.Parent = LDSHUB.EventButton5
+LDSHUB.EventFrame5.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+LDSHUB.EventFrame5.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
+LDSHUB.EventFrame5.Size = UDim2.new(0.434782594, 0, 0.870967746, 0)
+
+LDSHUB.UICorner_147.Parent = LDSHUB.EventFrame5
+
+LDSHUB.TextLabel_68.Parent = LDSHUB.EventButton5
+LDSHUB.TextLabel_68.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_68.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_68.Position = UDim2.new(-0.131407544, 0, 1.22580254, 0)
+LDSHUB.TextLabel_68.Size = UDim2.new(6.17388105, 0, 0.978692889, 0)
+LDSHUB.TextLabel_68.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_68.Text = "Activating the option you start to open the limited eggs of world 1"
+LDSHUB.TextLabel_68.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.TextLabel_68.TextScaled = true
+LDSHUB.TextLabel_68.TextSize = 14.000
+LDSHUB.TextLabel_68.TextWrapped = true
+
+LDSHUB.EventTxt_2.Name = "EventTxt"
+LDSHUB.EventTxt_2.Parent = LDSHUB.EventUi
+LDSHUB.EventTxt_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.EventTxt_2.BackgroundTransparency = 1.000
+LDSHUB.EventTxt_2.Position = UDim2.new(0.405598819, 0, -0.0600018501, 0)
+LDSHUB.EventTxt_2.Size = UDim2.new(0.59344542, 0, 0.103870615, 0)
+LDSHUB.EventTxt_2.Font = Enum.Font.Unknown
+LDSHUB.EventTxt_2.Text = "All open eggs are 8X Free!!"
+LDSHUB.EventTxt_2.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.EventTxt_2.TextScaled = true
+LDSHUB.EventTxt_2.TextSize = 14.000
+LDSHUB.EventTxt_2.TextWrapped = true
+
 LDSHUB.AutoTrainUi.Name = "AutoTrainUi"
 LDSHUB.AutoTrainUi.Parent = LDSHUB.Frame
 LDSHUB.AutoTrainUi.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
@@ -3312,7 +3351,7 @@ LDSHUB.AutoTrainUi.Position = UDim2.new(0.273959696, 0, 0.0941176489, 0)
 LDSHUB.AutoTrainUi.Size = UDim2.new(0.707664907, 0, 0.871586502, 0)
 LDSHUB.AutoTrainUi.Visible = false
 
-LDSHUB.UICorner_146.Parent = LDSHUB.AutoTrainUi
+LDSHUB.UICorner_148.Parent = LDSHUB.AutoTrainUi
 
 LDSHUB.MiscTxt_2.Name = "MiscTxt"
 LDSHUB.MiscTxt_2.Parent = LDSHUB.AutoTrainUi
@@ -3337,7 +3376,7 @@ LDSHUB.AutoTrain1.Text = ""
 LDSHUB.AutoTrain1.TextColor3 = Color3.fromRGB(0, 0, 0)
 LDSHUB.AutoTrain1.TextSize = 14.000
 
-LDSHUB.UICorner_147.Parent = LDSHUB.AutoTrain1
+LDSHUB.UICorner_149.Parent = LDSHUB.AutoTrain1
 
 LDSHUB.TextLabel_69.Parent = LDSHUB.AutoTrain1
 LDSHUB.TextLabel_69.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -3370,7 +3409,7 @@ LDSHUB.AutoTrainFrame1.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 LDSHUB.AutoTrainFrame1.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
 LDSHUB.AutoTrainFrame1.Size = UDim2.new(0.434782594, 0, 0.870967746, 0)
 
-LDSHUB.UICorner_148.Parent = LDSHUB.AutoTrainFrame1
+LDSHUB.UICorner_150.Parent = LDSHUB.AutoTrainFrame1
 
 LDSHUB.DumbellSelected.Name = "DumbellSelected"
 LDSHUB.DumbellSelected.Parent = LDSHUB.AutoTrainUi
@@ -3378,7 +3417,7 @@ LDSHUB.DumbellSelected.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
 LDSHUB.DumbellSelected.Position = UDim2.new(0.598398924, 0, 0.920627594, 0)
 LDSHUB.DumbellSelected.Size = UDim2.new(0.380356163, 0, 0.056865342, 0)
 
-LDSHUB.UICorner_149.Parent = LDSHUB.DumbellSelected
+LDSHUB.UICorner_151.Parent = LDSHUB.DumbellSelected
 
 LDSHUB.NameDumbell.Name = "NameDumbell"
 LDSHUB.NameDumbell.Parent = LDSHUB.DumbellSelected
@@ -3398,7 +3437,7 @@ LDSHUB.DumbellList.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
 LDSHUB.DumbellList.Position = UDim2.new(0.598398924, 0, 0.249713555, 0)
 LDSHUB.DumbellList.Size = UDim2.new(0.380356163, 0, 0.64679116, 0)
 
-LDSHUB.UICorner_150.Parent = LDSHUB.DumbellList
+LDSHUB.UICorner_152.Parent = LDSHUB.DumbellList
 
 LDSHUB.ScrollingFrameDumbell.Name = "ScrollingFrameDumbell"
 LDSHUB.ScrollingFrameDumbell.Parent = LDSHUB.DumbellList
@@ -3419,7 +3458,7 @@ LDSHUB.SeacherDumbell.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
 LDSHUB.SeacherDumbell.Position = UDim2.new(0.37650618, 0, 0.0944861472, 0)
 LDSHUB.SeacherDumbell.Size = UDim2.new(0.602248847, 0, 0.103495322, 0)
 
-LDSHUB.UICorner_151.Parent = LDSHUB.SeacherDumbell
+LDSHUB.UICorner_153.Parent = LDSHUB.SeacherDumbell
 
 LDSHUB.ImageLabel_7.Parent = LDSHUB.SeacherDumbell
 LDSHUB.ImageLabel_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -3441,7 +3480,7 @@ LDSHUB.TxtBoxDumbell.TextScaled = true
 LDSHUB.TxtBoxDumbell.TextSize = 14.000
 LDSHUB.TxtBoxDumbell.TextWrapped = true
 
-LDSHUB.UICorner_152.Parent = LDSHUB.TxtBoxDumbell
+LDSHUB.UICorner_154.Parent = LDSHUB.TxtBoxDumbell
 
 LDSHUB.AutoTrain2.Name = "AutoTrain2"
 LDSHUB.AutoTrain2.Parent = LDSHUB.AutoTrainUi
@@ -3453,7 +3492,7 @@ LDSHUB.AutoTrain2.Text = ""
 LDSHUB.AutoTrain2.TextColor3 = Color3.fromRGB(0, 0, 0)
 LDSHUB.AutoTrain2.TextSize = 14.000
 
-LDSHUB.UICorner_153.Parent = LDSHUB.AutoTrain2
+LDSHUB.UICorner_155.Parent = LDSHUB.AutoTrain2
 
 LDSHUB.TextLabel_71.Parent = LDSHUB.AutoTrain2
 LDSHUB.TextLabel_71.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -3486,7 +3525,7 @@ LDSHUB.AutoTrainFrame1_2.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 LDSHUB.AutoTrainFrame1_2.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
 LDSHUB.AutoTrainFrame1_2.Size = UDim2.new(0.434782594, 0, 0.870967746, 0)
 
-LDSHUB.UICorner_154.Parent = LDSHUB.AutoTrainFrame1_2
+LDSHUB.UICorner_156.Parent = LDSHUB.AutoTrainFrame1_2
 
 LDSHUB.AutoPotionsUi.Name = "AutoPotionsUi"
 LDSHUB.AutoPotionsUi.Parent = LDSHUB.Frame
@@ -3495,7 +3534,7 @@ LDSHUB.AutoPotionsUi.Position = UDim2.new(0.273959696, 0, 0.0941176489, 0)
 LDSHUB.AutoPotionsUi.Size = UDim2.new(0.707664907, 0, 0.871586502, 0)
 LDSHUB.AutoPotionsUi.Visible = false
 
-LDSHUB.UICorner_155.Parent = LDSHUB.AutoPotionsUi
+LDSHUB.UICorner_157.Parent = LDSHUB.AutoPotionsUi
 
 LDSHUB.AutoPotionsTxt.Name = "AutoPotionsTxt"
 LDSHUB.AutoPotionsTxt.Parent = LDSHUB.AutoPotionsUi
@@ -3520,7 +3559,7 @@ LDSHUB.autopotion1.Text = ""
 LDSHUB.autopotion1.TextColor3 = Color3.fromRGB(0, 0, 0)
 LDSHUB.autopotion1.TextSize = 14.000
 
-LDSHUB.UICorner_156.Parent = LDSHUB.autopotion1
+LDSHUB.UICorner_158.Parent = LDSHUB.autopotion1
 
 LDSHUB.PotionFrameColor1.Name = "PotionFrameColor1"
 LDSHUB.PotionFrameColor1.Parent = LDSHUB.autopotion1
@@ -3528,7 +3567,7 @@ LDSHUB.PotionFrameColor1.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 LDSHUB.PotionFrameColor1.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
 LDSHUB.PotionFrameColor1.Size = UDim2.new(0.434782594, 0, 0.870967746, 0)
 
-LDSHUB.UICorner_157.Parent = LDSHUB.PotionFrameColor1
+LDSHUB.UICorner_159.Parent = LDSHUB.PotionFrameColor1
 
 LDSHUB.TextLabel_73.Parent = LDSHUB.autopotion1
 LDSHUB.TextLabel_73.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -3561,7 +3600,7 @@ LDSHUB.PotionSelected1.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
 LDSHUB.PotionSelected1.Position = UDim2.new(0.0209310167, 0, 0.0938729122, 0)
 LDSHUB.PotionSelected1.Size = UDim2.new(0.380356103, 0, 0.100733951, 0)
 
-LDSHUB.UICorner_158.Parent = LDSHUB.PotionSelected1
+LDSHUB.UICorner_160.Parent = LDSHUB.PotionSelected1
 
 LDSHUB.PotionNameTxt1.Name = "PotionNameTxt1"
 LDSHUB.PotionNameTxt1.Parent = LDSHUB.PotionSelected1
@@ -3592,7 +3631,7 @@ LDSHUB.OpenPotionsButton1.TextSize = 14.000
 LDSHUB.OpenPotionsButton1.TextStrokeTransparency = 0.000
 LDSHUB.OpenPotionsButton1.TextWrapped = true
 
-LDSHUB.UICorner_159.Parent = LDSHUB.OpenPotionsButton1
+LDSHUB.UICorner_161.Parent = LDSHUB.OpenPotionsButton1
 
 LDSHUB.PotionName3.Name = "PotionName3"
 LDSHUB.PotionName3.Parent = LDSHUB.AutoPotionsUi
@@ -3601,7 +3640,7 @@ LDSHUB.PotionName3.Position = UDim2.new(0.598398924, 0, 0.141729265, 0)
 LDSHUB.PotionName3.Size = UDim2.new(0.380356163, 0, 0.64679116, 0)
 LDSHUB.PotionName3.Visible = false
 
-LDSHUB.UICorner_160.Parent = LDSHUB.PotionName3
+LDSHUB.UICorner_162.Parent = LDSHUB.PotionName3
 
 LDSHUB.ScrollingFramePotions3.Name = "ScrollingFramePotions3"
 LDSHUB.ScrollingFramePotions3.Parent = LDSHUB.PotionName3
@@ -3622,7 +3661,7 @@ LDSHUB.PotionSelected2.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
 LDSHUB.PotionSelected2.Position = UDim2.new(0.0232784469, 0, 0.238976777, 0)
 LDSHUB.PotionSelected2.Size = UDim2.new(0.380356103, 0, 0.100733951, 0)
 
-LDSHUB.UICorner_161.Parent = LDSHUB.PotionSelected2
+LDSHUB.UICorner_163.Parent = LDSHUB.PotionSelected2
 
 LDSHUB.PotionNameTxt2.Name = "PotionNameTxt2"
 LDSHUB.PotionNameTxt2.Parent = LDSHUB.PotionSelected2
@@ -3653,7 +3692,7 @@ LDSHUB.OpenPotionsButton2.TextSize = 14.000
 LDSHUB.OpenPotionsButton2.TextStrokeTransparency = 0.000
 LDSHUB.OpenPotionsButton2.TextWrapped = true
 
-LDSHUB.UICorner_162.Parent = LDSHUB.OpenPotionsButton2
+LDSHUB.UICorner_164.Parent = LDSHUB.OpenPotionsButton2
 
 LDSHUB.PotionSelected3.Name = "PotionSelected3"
 LDSHUB.PotionSelected3.Parent = LDSHUB.AutoPotionsUi
@@ -3661,7 +3700,7 @@ LDSHUB.PotionSelected3.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
 LDSHUB.PotionSelected3.Position = UDim2.new(0.0232784469, 0, 0.384080619, 0)
 LDSHUB.PotionSelected3.Size = UDim2.new(0.380356103, 0, 0.100733951, 0)
 
-LDSHUB.UICorner_163.Parent = LDSHUB.PotionSelected3
+LDSHUB.UICorner_165.Parent = LDSHUB.PotionSelected3
 
 LDSHUB.OpenPotionsButton3.Name = "OpenPotionsButton3"
 LDSHUB.OpenPotionsButton3.Parent = LDSHUB.PotionSelected3
@@ -3678,7 +3717,7 @@ LDSHUB.OpenPotionsButton3.TextSize = 14.000
 LDSHUB.OpenPotionsButton3.TextStrokeTransparency = 0.000
 LDSHUB.OpenPotionsButton3.TextWrapped = true
 
-LDSHUB.UICorner_164.Parent = LDSHUB.OpenPotionsButton3
+LDSHUB.UICorner_166.Parent = LDSHUB.OpenPotionsButton3
 
 LDSHUB.PotionNameTxt3.Name = "PotionNameTxt3"
 LDSHUB.PotionNameTxt3.Parent = LDSHUB.PotionSelected3
@@ -3701,7 +3740,7 @@ LDSHUB.PotionName1.Position = UDim2.new(0.598398924, 0, 0.141729265, 0)
 LDSHUB.PotionName1.Size = UDim2.new(0.380356163, 0, 0.64679116, 0)
 LDSHUB.PotionName1.Visible = false
 
-LDSHUB.UICorner_165.Parent = LDSHUB.PotionName1
+LDSHUB.UICorner_167.Parent = LDSHUB.PotionName1
 
 LDSHUB.ScrollingFramePotions1.Name = "ScrollingFramePotions1"
 LDSHUB.ScrollingFramePotions1.Parent = LDSHUB.PotionName1
@@ -3723,7 +3762,7 @@ LDSHUB.PotionName2.Position = UDim2.new(0.598398924, 0, 0.141729265, 0)
 LDSHUB.PotionName2.Size = UDim2.new(0.380356163, 0, 0.64679116, 0)
 LDSHUB.PotionName2.Visible = false
 
-LDSHUB.UICorner_166.Parent = LDSHUB.PotionName2
+LDSHUB.UICorner_168.Parent = LDSHUB.PotionName2
 
 LDSHUB.ScrollingFramePotions2.Name = "ScrollingFramePotions2"
 LDSHUB.ScrollingFramePotions2.Parent = LDSHUB.PotionName2
@@ -3745,7 +3784,7 @@ LDSHUB.PotionName4.Position = UDim2.new(0.598398924, 0, 0.141729265, 0)
 LDSHUB.PotionName4.Size = UDim2.new(0.380356163, 0, 0.64679116, 0)
 LDSHUB.PotionName4.Visible = false
 
-LDSHUB.UICorner_167.Parent = LDSHUB.PotionName4
+LDSHUB.UICorner_169.Parent = LDSHUB.PotionName4
 
 LDSHUB.ScrollingFramePotions4.Name = "ScrollingFramePotions4"
 LDSHUB.ScrollingFramePotions4.Parent = LDSHUB.PotionName4
@@ -3766,7 +3805,7 @@ LDSHUB.PotionSelected4.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
 LDSHUB.PotionSelected4.Position = UDim2.new(0.0185661111, 0, 0.52918452, 0)
 LDSHUB.PotionSelected4.Size = UDim2.new(0.380356103, 0, 0.100733951, 0)
 
-LDSHUB.UICorner_168.Parent = LDSHUB.PotionSelected4
+LDSHUB.UICorner_170.Parent = LDSHUB.PotionSelected4
 
 LDSHUB.PotionNameTxt4.Name = "PotionNameTxt4"
 LDSHUB.PotionNameTxt4.Parent = LDSHUB.PotionSelected4
@@ -3797,7 +3836,7 @@ LDSHUB.OpenPotionsButton4.TextSize = 14.000
 LDSHUB.OpenPotionsButton4.TextStrokeTransparency = 0.000
 LDSHUB.OpenPotionsButton4.TextWrapped = true
 
-LDSHUB.UICorner_169.Parent = LDSHUB.OpenPotionsButton4
+LDSHUB.UICorner_171.Parent = LDSHUB.OpenPotionsButton4
 
 LDSHUB.UpdateNoteUi.Name = "UpdateNoteUi"
 LDSHUB.UpdateNoteUi.Parent = LDSHUB.Frame
@@ -3806,7 +3845,7 @@ LDSHUB.UpdateNoteUi.Position = UDim2.new(0.273959816, 0, 0.0941176489, 0)
 LDSHUB.UpdateNoteUi.Size = UDim2.new(0.712676346, 0, 0.862762988, 0)
 LDSHUB.UpdateNoteUi.Visible = false
 
-LDSHUB.UICorner_170.Parent = LDSHUB.UpdateNoteUi
+LDSHUB.UICorner_172.Parent = LDSHUB.UpdateNoteUi
 
 LDSHUB.Updates.Name = "Updates"
 LDSHUB.Updates.Parent = LDSHUB.UpdateNoteUi
@@ -3958,7 +3997,7 @@ LDSHUB.TextButton.TextStrokeTransparency = 0.000
 LDSHUB.TextButton.TextWrapped = true
 LDSHUB.TextButton.TextYAlignment = Enum.TextYAlignment.Top
 
-LDSHUB.UICorner_171.Parent = LDSHUB.TextButton
+LDSHUB.UICorner_173.Parent = LDSHUB.TextButton
 
 LDSHUB.TextLabel_75.Parent = LDSHUB.TextButton
 LDSHUB.TextLabel_75.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -3985,6 +4024,7 @@ G.Settings = {
 	AutoEvent2 = false,
 	AutoEvent3 = false,
 	AutoEvent4 = false,
+	AutoEvent5 = false,
 	AutoSeasonPass1 = false,
 	AutoSeasonPass2 = false,
 	AutoSeasonPass3 = false,
@@ -4007,6 +4047,7 @@ local function ResetHub()
 	G.Settings.AutoEvent2 = false
 	G.Settings.AutoEvent3 = false
 	G.Settings.AutoEvent4 = false
+	G.Settings.AutoEvent5 = false
 	G.Settings.AutoSeasonPass1 = false
 	G.Settings.AutoSeasonPass2 = false
 	G.Settings.AutoSeasonPass3 = false
@@ -4290,6 +4331,23 @@ local function AutoEvent4()
 
 
 
+	end
+end
+
+local function AutoEvent5()
+	if G.Settings.AutoEvent5 == true then
+		LDSHUB.EventFrame5.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+	else
+		LDSHUB.EventFrame5.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+	end
+	while G.Settings.AutoEvent5 do
+		wait()
+		local args = {
+			[1] = "Limited",
+			[4] = false
+		}
+
+		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
 	end
 end
 
@@ -5856,6 +5914,10 @@ LDSHUB.EventButton4.MouseButton1Click:Connect(function()
 	G.Settings.AutoEvent4 = not G.Settings.AutoEvent4
 	AutoEvent4()
 end)
+LDSHUB.EventButton5.MouseButton1Click:Connect(function()
+	G.Settings.AutoEvent5 = not G.Settings.AutoEvent5
+	AutoEvent4()
+end)
 
 LDSHUB.SeasonButton1.MouseButton1Click:Connect(function()
 	G.Settings.AutoSeasonPass1 = not G.Settings.AutoSeasonPass1
@@ -5971,6 +6033,7 @@ local functionsToExecute = {
 	["AutoEvent2"] = AutoEvent2,
 	["AutoEvent3"] = AutoEvent3,
 	["AutoEvent4"] = AutoEvent4,
+	["AutoEvent5"] = AutoEvent5,
 	["AutoClick"] = AutoClick,
 	["AutoIndex"] = AutoIndex,
 	["AutoBoss"] = AutoBoss,
