@@ -8,6 +8,7 @@ local tableofkeys = {
 	"LimasKey",
 	"TeteuKey",
 	"BielKey",
+	"YtexKey",
 	"MatKey",
 	"BennKey",
 	"BurgerKey"
@@ -33,6 +34,7 @@ local whitelistedusers = {
 	1735990797, -- Nightingale
 	384446532, -- cloudy6
 	799623611, -- Levi. ou mero_condo
+	1474267093, -- Ducky ou d_ucke
 	1103543523, -- Day Youtuber
 	4724821942 -- Qrto Youtuber
 }
