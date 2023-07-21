@@ -4348,7 +4348,7 @@ local function AutoEvent5()
     [3] = true,
     [4] = false
 }
-
+print("3x")
 game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
 	end
 end
@@ -6054,7 +6054,3 @@ for key, func in pairs(functionsToExecute) do
 	end
 end
 
--- verificar save
-for key, value in pairs(G.Settings) do
-	print(key, value)
-end
