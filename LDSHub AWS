@@ -4343,12 +4343,14 @@ local function AutoEvent5()
 	while G.Settings.AutoEvent5 do
 		wait()
 		local args = {
-			[1] = "Limited",
-			[4] = false
-		}
+    [1] = "Limited",
+    [2] = {},
+    [3] = true,
+    [4] = false
+}
 
-		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
-	end
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
+end
 end
 
 local function AutoEvent2()
