@@ -486,8 +486,14 @@ local LDSHUB = {
 	PotionNameTxt4 = Instance.new("TextLabel"),
 	OpenPotionsButton4 = Instance.new("TextButton"),
 	UICorner_172 = Instance.new("UICorner"),
-	UpdateNoteUi = Instance.new("Frame"),
+	autopotion2 = Instance.new("TextButton"),
 	UICorner_173 = Instance.new("UICorner"),
+	PotionFrameColor2 = Instance.new("Frame"),
+	UICorner_174 = Instance.new("UICorner"),
+	TextLabel_74 = Instance.new("TextLabel"),
+	TextLabel_75 = Instance.new("TextLabel"),
+	UpdateNoteUi = Instance.new("Frame"),
+	UICorner_175 = Instance.new("UICorner"),
 	Updates = Instance.new("TextLabel"),
 	Updates_2 = Instance.new("TextLabel"),
 	TextCredits_2 = Instance.new("TextLabel"),
@@ -499,8 +505,8 @@ local LDSHUB = {
 	TextCredits_8 = Instance.new("TextLabel"),
 	MenuH = Instance.new("Frame"),
 	TextButton = Instance.new("TextButton"),
-	UICorner_174 = Instance.new("UICorner"),
-	TextLabel_74 = Instance.new("TextLabel"),
+	UICorner_176 = Instance.new("UICorner"),
+	TextLabel_76 = Instance.new("TextLabel"),
 }
 
 --Properties:
@@ -3604,8 +3610,8 @@ LDSHUB.UICorner_160.Parent = LDSHUB.PotionFrameColor1
 LDSHUB.TextLabel_72.Parent = LDSHUB.autopotion1
 LDSHUB.TextLabel_72.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 LDSHUB.TextLabel_72.BackgroundTransparency = 1.000
-LDSHUB.TextLabel_72.Position = UDim2.new(1.0869565, 0, -0.0322580673, 0)
-LDSHUB.TextLabel_72.Size = UDim2.new(2.04247332, 0, 1.00000012, 0)
+LDSHUB.TextLabel_72.Position = UDim2.new(1.0869571, 0, -0.0322580673, 0)
+LDSHUB.TextLabel_72.Size = UDim2.new(1.62009478, 0, 1.00000012, 0)
 LDSHUB.TextLabel_72.Font = Enum.Font.FredokaOne
 LDSHUB.TextLabel_72.Text = "Auto Potion"
 LDSHUB.TextLabel_72.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -3617,8 +3623,8 @@ LDSHUB.TextLabel_72.TextXAlignment = Enum.TextXAlignment.Left
 LDSHUB.TextLabel_73.Parent = LDSHUB.autopotion1
 LDSHUB.TextLabel_73.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 LDSHUB.TextLabel_73.BackgroundTransparency = 1.000
-LDSHUB.TextLabel_73.Position = UDim2.new(-0.0441275164, 0, 1.16129422, 0)
-LDSHUB.TextLabel_73.Size = UDim2.new(6.08289671, 0, 1.62384832, 0)
+LDSHUB.TextLabel_73.Position = UDim2.new(0.0432613753, 0, 1.16129434, 0)
+LDSHUB.TextLabel_73.Size = UDim2.new(2.53469896, 0, 1.62384832, 0)
 LDSHUB.TextLabel_73.Font = Enum.Font.FredokaOne
 LDSHUB.TextLabel_73.Text = "Activating this option will start using the selected potions after it ends."
 LDSHUB.TextLabel_73.TextColor3 = Color3.fromRGB(170, 0, 255)
@@ -3668,8 +3674,8 @@ LDSHUB.UICorner_162.Parent = LDSHUB.OpenPotionsButton1
 LDSHUB.PotionName3.Name = "PotionName3"
 LDSHUB.PotionName3.Parent = LDSHUB.AutoPotionsUi
 LDSHUB.PotionName3.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-LDSHUB.PotionName3.Position = UDim2.new(0.598398924, 0, 0.141729265, 0)
-LDSHUB.PotionName3.Size = UDim2.new(0.380356163, 0, 0.64679116, 0)
+LDSHUB.PotionName3.Position = UDim2.new(0.581885278, 0, 0.0472431257, 0)
+LDSHUB.PotionName3.Size = UDim2.new(0.380356133, 0, 0.627045393, 0)
 LDSHUB.PotionName3.Visible = false
 
 LDSHUB.UICorner_163.Parent = LDSHUB.PotionName3
@@ -3768,8 +3774,8 @@ LDSHUB.PotionNameTxt3.TextWrapped = true
 LDSHUB.PotionName1.Name = "PotionName1"
 LDSHUB.PotionName1.Parent = LDSHUB.AutoPotionsUi
 LDSHUB.PotionName1.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-LDSHUB.PotionName1.Position = UDim2.new(0.598398924, 0, 0.141729265, 0)
-LDSHUB.PotionName1.Size = UDim2.new(0.380356163, 0, 0.64679116, 0)
+LDSHUB.PotionName1.Position = UDim2.new(0.581885278, 0, 0.0472431257, 0)
+LDSHUB.PotionName1.Size = UDim2.new(0.380356133, 0, 0.627045393, 0)
 LDSHUB.PotionName1.Visible = false
 
 LDSHUB.UICorner_168.Parent = LDSHUB.PotionName1
@@ -3790,8 +3796,8 @@ LDSHUB.UIListLayout_11.Padding = UDim.new(9.99999975e-05, 0)
 LDSHUB.PotionName2.Name = "PotionName2"
 LDSHUB.PotionName2.Parent = LDSHUB.AutoPotionsUi
 LDSHUB.PotionName2.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-LDSHUB.PotionName2.Position = UDim2.new(0.598398924, 0, 0.141729265, 0)
-LDSHUB.PotionName2.Size = UDim2.new(0.380356163, 0, 0.64679116, 0)
+LDSHUB.PotionName2.Position = UDim2.new(0.581885278, 0, 0.0472431257, 0)
+LDSHUB.PotionName2.Size = UDim2.new(0.380356133, 0, 0.627045393, 0)
 LDSHUB.PotionName2.Visible = false
 
 LDSHUB.UICorner_169.Parent = LDSHUB.PotionName2
@@ -3812,8 +3818,8 @@ LDSHUB.UIListLayout_12.Padding = UDim.new(9.99999975e-05, 0)
 LDSHUB.PotionName4.Name = "PotionName4"
 LDSHUB.PotionName4.Parent = LDSHUB.AutoPotionsUi
 LDSHUB.PotionName4.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-LDSHUB.PotionName4.Position = UDim2.new(0.598398924, 0, 0.141729265, 0)
-LDSHUB.PotionName4.Size = UDim2.new(0.380356163, 0, 0.64679116, 0)
+LDSHUB.PotionName4.Position = UDim2.new(0.581885278, 0, 0.0472431257, 0)
+LDSHUB.PotionName4.Size = UDim2.new(0.380356133, 0, 0.627045393, 0)
 LDSHUB.PotionName4.Visible = false
 
 LDSHUB.UICorner_170.Parent = LDSHUB.PotionName4
@@ -3870,6 +3876,51 @@ LDSHUB.OpenPotionsButton4.TextWrapped = true
 
 LDSHUB.UICorner_172.Parent = LDSHUB.OpenPotionsButton4
 
+LDSHUB.autopotion2.Name = "autopotion2"
+LDSHUB.autopotion2.Parent = LDSHUB.AutoPotionsUi
+LDSHUB.autopotion2.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.autopotion2.Position = UDim2.new(0.526130795, 0, 0.698523343, 0)
+LDSHUB.autopotion2.Size = UDim2.new(0.161972716, 0, 0.104609773, 0)
+LDSHUB.autopotion2.Font = Enum.Font.SourceSans
+LDSHUB.autopotion2.Text = ""
+LDSHUB.autopotion2.TextColor3 = Color3.fromRGB(0, 0, 0)
+LDSHUB.autopotion2.TextSize = 14.000
+
+LDSHUB.UICorner_173.Parent = LDSHUB.autopotion2
+
+LDSHUB.PotionFrameColor2.Name = "PotionFrameColor2"
+LDSHUB.PotionFrameColor2.Parent = LDSHUB.autopotion2
+LDSHUB.PotionFrameColor2.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+LDSHUB.PotionFrameColor2.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
+LDSHUB.PotionFrameColor2.Size = UDim2.new(0.434782594, 0, 0.870967746, 0)
+
+LDSHUB.UICorner_174.Parent = LDSHUB.PotionFrameColor2
+
+LDSHUB.TextLabel_74.Parent = LDSHUB.autopotion2
+LDSHUB.TextLabel_74.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_74.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_74.Position = UDim2.new(1.10152185, 0, 0, 0)
+LDSHUB.TextLabel_74.Size = UDim2.new(1.73670185, 0, 1.00000012, 0)
+LDSHUB.TextLabel_74.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_74.Text = "Use ALL Potions"
+LDSHUB.TextLabel_74.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_74.TextScaled = true
+LDSHUB.TextLabel_74.TextSize = 14.000
+LDSHUB.TextLabel_74.TextWrapped = true
+LDSHUB.TextLabel_74.TextXAlignment = Enum.TextXAlignment.Left
+
+LDSHUB.TextLabel_75.Parent = LDSHUB.autopotion2
+LDSHUB.TextLabel_75.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_75.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_75.Position = UDim2.new(0.159779519, 0, 1.16129434, 0)
+LDSHUB.TextLabel_75.Size = UDim2.new(2.53469896, 0, 1.62384832, 0)
+LDSHUB.TextLabel_75.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_75.Text = "By activating this option you will use ALL the potions you have in your inventory"
+LDSHUB.TextLabel_75.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.TextLabel_75.TextScaled = true
+LDSHUB.TextLabel_75.TextSize = 14.000
+LDSHUB.TextLabel_75.TextWrapped = true
+
 LDSHUB.UpdateNoteUi.Name = "UpdateNoteUi"
 LDSHUB.UpdateNoteUi.Parent = LDSHUB.Frame
 LDSHUB.UpdateNoteUi.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
@@ -3877,7 +3928,7 @@ LDSHUB.UpdateNoteUi.Position = UDim2.new(0.273959816, 0, 0.0941176489, 0)
 LDSHUB.UpdateNoteUi.Size = UDim2.new(0.712676346, 0, 0.862762988, 0)
 LDSHUB.UpdateNoteUi.Visible = false
 
-LDSHUB.UICorner_173.Parent = LDSHUB.UpdateNoteUi
+LDSHUB.UICorner_175.Parent = LDSHUB.UpdateNoteUi
 
 LDSHUB.Updates.Name = "Updates"
 LDSHUB.Updates.Parent = LDSHUB.UpdateNoteUi
@@ -4029,22 +4080,22 @@ LDSHUB.TextButton.TextStrokeTransparency = 0.000
 LDSHUB.TextButton.TextWrapped = true
 LDSHUB.TextButton.TextYAlignment = Enum.TextYAlignment.Top
 
-LDSHUB.UICorner_174.Parent = LDSHUB.TextButton
+LDSHUB.UICorner_176.Parent = LDSHUB.TextButton
 
-LDSHUB.TextLabel_74.Parent = LDSHUB.TextButton
-LDSHUB.TextLabel_74.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-LDSHUB.TextLabel_74.BackgroundTransparency = 1.000
-LDSHUB.TextLabel_74.BorderColor3 = Color3.fromRGB(0, 0, 0)
-LDSHUB.TextLabel_74.BorderSizePixel = 0
-LDSHUB.TextLabel_74.Position = UDim2.new(1.20000017, 0, -0.0109091094, 0)
-LDSHUB.TextLabel_74.Size = UDim2.new(0, 149, 0, 33)
-LDSHUB.TextLabel_74.Font = Enum.Font.FredokaOne
-LDSHUB.TextLabel_74.Text = "Hide LDS hub!"
-LDSHUB.TextLabel_74.TextColor3 = Color3.fromRGB(170, 0, 255)
-LDSHUB.TextLabel_74.TextScaled = true
-LDSHUB.TextLabel_74.TextSize = 14.000
-LDSHUB.TextLabel_74.TextStrokeTransparency = 0.000
-LDSHUB.TextLabel_74.TextWrapped = true
+LDSHUB.TextLabel_76.Parent = LDSHUB.TextButton
+LDSHUB.TextLabel_76.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_76.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_76.BorderColor3 = Color3.fromRGB(0, 0, 0)
+LDSHUB.TextLabel_76.BorderSizePixel = 0
+LDSHUB.TextLabel_76.Position = UDim2.new(1.20000017, 0, -0.0109091094, 0)
+LDSHUB.TextLabel_76.Size = UDim2.new(0, 149, 0, 33)
+LDSHUB.TextLabel_76.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_76.Text = "Hide LDS hub!"
+LDSHUB.TextLabel_76.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.TextLabel_76.TextScaled = true
+LDSHUB.TextLabel_76.TextSize = 14.000
+LDSHUB.TextLabel_76.TextStrokeTransparency = 0.000
+LDSHUB.TextLabel_76.TextWrapped = true
 
 --scripts >
 
@@ -4069,7 +4120,8 @@ G.Settings = {
 	AutoHopSever = false,
 	AutoRebirth = false,
 	AutoDelete = false,
-	AutoPotions = false,
+	AutoPotions1 = false,
+	AutoPotions2 = false,
 	AutoCraft = false
 };
 
@@ -4090,7 +4142,8 @@ local function ResetHub()
 	G.Settings.AutoSpinReward = false
 	G.Settings.AutoHopSever = false
 	G.Settings.AutoRebirth = false
-	G.Settings.AutoPotions = false
+	G.Settings.AutoPotions1 = false
+	G.Settings.AutoPotions2 = false
 	G.Settings.AutoDelete = false
 	G.Settings.AutoCraft = false
 end
@@ -4377,22 +4430,22 @@ local function AutoEvent1()
 		wait()
 
 		if LDSHUB.EggEventTxt.Text == "CrayonEgg" then
-			
+
 			local args = {
 				[1] = 8,
 			}
-			
+
 			game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EventService"):WaitForChild("RF"):WaitForChild("ClaimEgg"):InvokeServer(unpack(args))
-			
+
 		elseif LDSHUB.EggEventTxt.Text == "HologramEgg" then
-			
+
 			local args = {
 				[1] = 8,
 				[2] = true
 			}
 
 			game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("EventService"):WaitForChild("RF"):WaitForChild("ClaimEgg"):InvokeServer(unpack(args))
-		
+
 		end
 	end
 end
@@ -5043,25 +5096,6 @@ end
 
 -- Auto Eggs
 
-local EggsName = {
-	"Earth",
-	"Icy",
-	"Lava",
-	"Blackhole",
-	"Crystal",
-	"Molten",
-	"Solar",
-	"Moon",
-	"Ice",
-	"Burning",
-	"Coconut",
-	"Palm",
-	"Treasure",
-	"Clam",
-	"KingFish",
-	"Poseidon"
-}
-
 local function CreateTextButtonEgg(parent, name)
 	local TextButton = Instance.new("TextButton")
 	TextButton.Name = name
@@ -5081,15 +5115,53 @@ local function CreateTextButtonEgg(parent, name)
 	return TextButton
 end
 
-local function ConnectButtonClickEventegg(button, namePetObject)
+local function ConnectButtonClickegg(button, namePetObject)
 	button.MouseButton1Click:Connect(function()
 		namePetObject.Text = button.Name
 	end)
 end
 
-for _, eggName in pairs(EggsName) do
-	local button = CreateTextButtonEgg(LDSHUB.ScrollingFrameEgg, eggName)
-	ConnectButtonClickEventegg(button, LDSHUB.NameEgg) -- Modifiquei aqui para passar diretamente LDSHUB.NameEgg
+local zones = game.Workspace.Zones
+
+-- Obtém todas as pastas numeradas dentro de game.Workspace.Zones
+local numberedFolders = {}
+for _, folder in ipairs(zones:GetChildren()) do
+	if tonumber(folder.Name) then
+		table.insert(numberedFolders, folder)
+	end
+end
+
+-- Itera sobre as pastas numeradas
+for _, folder in ipairs(numberedFolders) do
+	local mapFolder = folder:FindFirstChild("Map")
+	if mapFolder then
+		-- Obtenha a pasta "Eggs" dentro de mapFolder
+		local eggsInMap = mapFolder:FindFirstChild("Eggs")
+		if eggsInMap then
+			-- Faça algo com a pasta "Eggs" dentro de "Map" (por exemplo, listar os ovos)
+			for _, egg in ipairs(eggsInMap:GetChildren()) do
+				local eggName = egg.Name:gsub(" Egg$", "") -- Remove " Egg" do final do nome
+				eggName = eggName:gsub("Egg$", "") -- Remove "Egg" do final do nome (sem espaço)
+				local button = CreateTextButtonEgg(LDSHUB.ScrollingFrameEgg, eggName)
+				ConnectButtonClickegg(button, LDSHUB.NameEgg) -- Modificado aqui para passar diretamente LDSHUB.NameEgg
+			end
+		end
+	end
+
+	local interactablesFolder = folder:FindFirstChild("Interactables")
+	if interactablesFolder then
+		-- Obtenha a pasta "Eggs" dentro de interactablesFolder
+		local eggsInInteractables = interactablesFolder:FindFirstChild("Eggs")
+		if eggsInInteractables then
+			-- Faça algo com a pasta "Eggs" dentro de "Interactables" (por exemplo, listar os ovos)
+			for _, egg in ipairs(eggsInInteractables:GetChildren()) do
+				local eggName = egg.Name:gsub(" Egg$", "") -- Remove " Egg" do final do nome
+				eggName = eggName:gsub("Egg$", "") -- Remove "Egg" do final do nome (sem espaço)
+				local button = CreateTextButtonEgg(LDSHUB.ScrollingFrameEgg, eggName)
+				ConnectButtonClickegg(button, LDSHUB.NameEgg) -- Modificado aqui para passar diretamente LDSHUB.NameEgg
+			end
+		end
+	end
 end
 
 local function AutoEgg()
@@ -5541,14 +5613,14 @@ LDSHUB.OpenPotionsButton4.MouseButton1Click:Connect(function()
 	LDSHUB.PotionName4.Visible = true
 end)
 
-local function AutoPotion()
+local function AutoPotion1()
 
 	local namePetR1 = LDSHUB.PotionNameTxt1.Text
 	local namePetR2 = LDSHUB.PotionNameTxt2.Text
 	local namePetR3 = LDSHUB.PotionNameTxt3.Text
 	local namePetR4 = LDSHUB.PotionNameTxt4.Text
 
-	if G.Settings.AutoPotions == true then
+	if G.Settings.AutoPotions1 == true then
 		LDSHUB.PotionFrameColor1.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	else
 		LDSHUB.PotionFrameColor1.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
@@ -5577,7 +5649,7 @@ local function AutoPotion()
 	if namePetR1 == "GoldPotion" or namePetR2 == "GoldPotion" or namePetR3 == "GoldPotion" or namePetR4  == "GoldPotion" then
 		while true do
 			local args = {
-				[1] = "Luck"
+				[1] = "Gold"
 			}
 
 			game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("BoostService"):WaitForChild("RE"):WaitForChild("useBoost"):FireServer(unpack(args))
@@ -5593,6 +5665,39 @@ local function AutoPotion()
 			game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("BoostService"):WaitForChild("RE"):WaitForChild("useBoost"):FireServer(unpack(args))
 			wait(1800)
 		end
+	end
+end
+
+local function AutoPotion2()
+	
+	if G.Settings.AutoPotions2 == true then
+		LDSHUB.PotionFrameColor2.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+	else
+		LDSHUB.PotionFrameColor2.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+	end
+	
+	while G.Settings.AutoPotions2 do
+		local args = {
+			[1] = "Void"
+		}
+
+		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("BoostService"):WaitForChild("RE"):WaitForChild("useBoost"):FireServer(unpack(args))
+		local args = {
+			[1] = "Luck"
+		}
+
+		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("BoostService"):WaitForChild("RE"):WaitForChild("useBoost"):FireServer(unpack(args))
+		local args = {
+			[1] = "Gold"
+		}
+
+		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("BoostService"):WaitForChild("RE"):WaitForChild("useBoost"):FireServer(unpack(args))
+		local args = {
+			[1] = "Wins"
+		}
+
+		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("BoostService"):WaitForChild("RE"):WaitForChild("useBoost"):FireServer(unpack(args))
+		wait(1)
 	end
 end
 
@@ -5849,12 +5954,36 @@ local function ATKDumbell()
 	game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ToolService"):WaitForChild("RE"):WaitForChild("onClick"):FireServer()
 end
 
+local function Rebirths()
+	if G.Settings.AutoRebirth == true then
+		LDSHUB.MiscFrameColor1.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+	else
+		LDSHUB.MiscFrameColor1.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+	end
 
+	while G.Settings.AutoRebirth do
+		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("RebirthService"):WaitForChild("RE"):WaitForChild("onRebirthRequest"):FireServer()
+		wait(1)
+	end
 
+end
+
+local function SpinRewards()
+
+	if G.Settings.AutoSpinReward == true then
+		LDSHUB.AutoClaimFrameColor2.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+	else
+		LDSHUB.AutoClaimFrameColor2.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+	end
+
+	while G.Settings.AutoSpinReward do
+		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("SpinService"):WaitForChild("RE"):WaitForChild("onSpinRequest"):FireServer()
+		wait(1)
+	end
+
+end
 
 -- SeasonPass scripts
-
-
 
 -- Iniciar Functions pelos botoes
 
@@ -5919,6 +6048,11 @@ LDSHUB.AutoClaim1.MouseButton1Click:Connect(function()
 	AutoClaimGift()
 end)
 
+LDSHUB.AutoClaim2.MouseButton1Click:Connect(function()
+	G.Settings.AutoSpinReward = not G.Settings.AutoSpinReward
+	SpinRewards()
+end)
+
 LDSHUB.AutoClaim3.MouseButton1Click:Connect(function()
 	G.Settings.AutoHopSever = not G.Settings.AutoHopSever 
 	HopGifts()
@@ -5935,6 +6069,21 @@ end)
 LDSHUB.autoconvert1.MouseButton1Click:Connect(function()
 	G.Settings.AutoCraft = not G.Settings.AutoCraft
 	AutoCraftPets()
+end)
+
+LDSHUB.MiscButton1.MouseButton1Click:Connect(function()
+	G.Settings.AutoRebirth = not G.Settings.AutoRebirth
+	Rebirths()
+end)
+
+LDSHUB.autopotion1.MouseButton1Click:Connect(function()
+	G.Settings.AutoPotions1 = not G.Settings.AutoPotions1
+	AutoPotion1()
+end)
+
+LDSHUB.autopotion2.MouseButton1Click:Connect(function()
+	G.Settings.AutoPotions2 = not G.Settings.AutoPotions2
+	AutoPotion2()
 end)
 
 LDSHUB.TeleportButton1.MouseButton1Click:Connect(function()
