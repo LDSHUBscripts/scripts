@@ -15,6 +15,7 @@ local tableofkeys = {
 
 local whitelistedusers = {
 	1238493823, -- Limas
+	3417063555, -- benn
 	3377904454, -- GE・Dany 
 	1882220632, -- Kenji
 	4542819324, -- LightNeon
