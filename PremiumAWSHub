@@ -5872,7 +5872,13 @@ local function AutoDumbellKnuckle()
 	local Vip = plr:GetAttribute(attributeVip)
 
 	local sacoVip = game.workspace.Zones[BestZone].Interactables.Training.PunchBags.VIP.Primary.Position
-	local sacoNormal = game.workspace.Zones[BestZone].Interactables.Training.PunchBags.Tier6.Primary.Position
+	local sacoNormal = nil
+	if BestZone == 4 then
+		sacoNormal = game.workspace.Zones[BestZone].Interactables.Training.PunchBags.Tier4.Primary.Position
+	else
+		sacoNormal = game.workspace.Zones[BestZone].Interactables.Training.PunchBags.Tier6.Primary.Position
+	end
+	
 
 	local function Verbestdumbell()
 
@@ -6079,7 +6085,12 @@ local function AutoDumbellBarbellKnuckle()
 	local Vip = plr:GetAttribute(attributeVip)
 
 	local sacoVip = game.workspace.Zones[BestZone].Interactables.Training.PunchBags.VIP.Primary.Position
-	local sacoNormal = game.workspace.Zones[BestZone].Interactables.Training.PunchBags.Tier6.Primary.Position
+	local sacoNormal = nil
+	if BestZone == 4 then
+		sacoNormal = game.workspace.Zones[BestZone].Interactables.Training.PunchBags.Tier4.Primary.Position
+	else
+		sacoNormal = game.workspace.Zones[BestZone].Interactables.Training.PunchBags.Tier6.Primary.Position
+	end
 
 	local function VerbestBarbell()
 		local barbells = game.ReplicatedStorage.Tools.Barbells
@@ -6355,7 +6366,12 @@ local function AutoDumbellBarbellHandleKnuckle()
 	local Vip = plr:GetAttribute(attributeVip)
 
 	local sacoVip = game.workspace.Zones[BestZone].Interactables.Training.PunchBags.VIP.Primary.Position
-	local sacoNormal = game.workspace.Zones[BestZone].Interactables.Training.PunchBags.Tier6.Primary.Position
+	local sacoNormal = nil
+	if BestZone == 4 then
+		sacoNormal = game.workspace.Zones[BestZone].Interactables.Training.PunchBags.Tier4.Primary.Position
+	else
+		sacoNormal = game.workspace.Zones[BestZone].Interactables.Training.PunchBags.Tier6.Primary.Position
+	end
 
 	local function VerbestBarbell()
 		local barbells = game.ReplicatedStorage.Tools.Barbells
@@ -6598,9 +6614,9 @@ local function AutoDumbellBarbellHandleKnuckle()
 		else
 			TPBestZone()
 			wait(2)
-			hum.CFrame = CFrame.new(sacoNormal)
-			hum.CFrame = CFrame.new(sacoNormal)
-			hum.CFrame = CFrame.new(sacoNormal)
+				hum.CFrame = CFrame.new(sacoNormal)
+				hum.CFrame = CFrame.new(sacoNormal)
+				hum.CFrame = CFrame.new(sacoNormal)
 			wait(1)
 			while G.Settings.AutoTrain3 do
 				local args = {
