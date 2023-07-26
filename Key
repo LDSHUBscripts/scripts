@@ -211,8 +211,15 @@ local function KeyCerta()
 	end
 end
 
+local function KeyPremium()
+if game.PlaceId == 13127800756 then
+		Key:Destroy()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/LDSHUBscripts/scripts/main/PremiumAWSHub"))()
+	print("LDSHubArmWrestleSimulatorPremium")
+	end
+end
 if table.find(whitelistedusers, tonumber(game:GetService("Players").LocalPlayer.UserId)) then
-	KeyCerta()
+	KeyPremium()
 end
 
 VerifyKey.MouseButton1Click:Connect(function()
