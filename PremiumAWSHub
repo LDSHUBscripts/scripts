@@ -5979,7 +5979,7 @@ local function AutoDumbellKnuckle()
 				hum.CFrame = CFrame.new(sacoVip)
 				hum.CFrame = CFrame.new(sacoVip)
 				wait(1)
-				while G.Settings.AutoTrain3 do
+				while G.Settings.AutoTrain1 do
 					local args = {
 						[1] = BestZone,
 						[2] = "VIP",
@@ -5996,7 +5996,7 @@ local function AutoDumbellKnuckle()
 				hum.CFrame = CFrame.new(sacoNormal)
 				hum.CFrame = CFrame.new(sacoNormal)
 				wait(1)
-				while G.Settings.AutoTrain3 do
+				while G.Settings.AutoTrain1 do
 					local args = {
 						[1] = BestZone,
 						[2] = "Tier4"
@@ -6013,7 +6013,7 @@ local function AutoDumbellKnuckle()
 				hum.CFrame = CFrame.new(sacoVip)
 				hum.CFrame = CFrame.new(sacoVip)
 				wait(1)
-				while G.Settings.AutoTrain3 do
+				while G.Settings.AutoTrain1 do
 					local args = {
 						[1] = BestZone,
 						[2] = "VIP",
@@ -6030,7 +6030,7 @@ local function AutoDumbellKnuckle()
 				hum.CFrame = CFrame.new(sacoNormal)
 				hum.CFrame = CFrame.new(sacoNormal)
 				wait(1)
-				while G.Settings.AutoTrain3 do
+				while G.Settings.AutoTrain1 do
 					local args = {
 						[1] = BestZone,
 						[2] = "Tier6"
@@ -6251,7 +6251,7 @@ local function AutoDumbellBarbellKnuckle()
 				hum.CFrame = CFrame.new(sacoVip)
 				hum.CFrame = CFrame.new(sacoVip)
 				wait(1)
-				while G.Settings.AutoTrain3 do
+				while G.Settings.AutoTrain2 do
 					local args = {
 						[1] = BestZone,
 						[2] = "VIP",
@@ -6268,7 +6268,7 @@ local function AutoDumbellBarbellKnuckle()
 				hum.CFrame = CFrame.new(sacoNormal)
 				hum.CFrame = CFrame.new(sacoNormal)
 				wait(1)
-				while G.Settings.AutoTrain3 do
+				while G.Settings.AutoTrain2 do
 					local args = {
 						[1] = BestZone,
 						[2] = "Tier4"
@@ -6285,7 +6285,7 @@ local function AutoDumbellBarbellKnuckle()
 				hum.CFrame = CFrame.new(sacoVip)
 				hum.CFrame = CFrame.new(sacoVip)
 				wait(1)
-				while G.Settings.AutoTrain3 do
+				while G.Settings.AutoTrain2 do
 					local args = {
 						[1] = BestZone,
 						[2] = "VIP",
@@ -6302,7 +6302,7 @@ local function AutoDumbellBarbellKnuckle()
 				hum.CFrame = CFrame.new(sacoNormal)
 				hum.CFrame = CFrame.new(sacoNormal)
 				wait(1)
-				while G.Settings.AutoTrain3 do
+				while G.Settings.AutoTrain2 do
 					local args = {
 						[1] = BestZone,
 						[2] = "Tier6"
