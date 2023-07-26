@@ -5971,38 +5971,73 @@ local function AutoDumbellKnuckle()
 	end
 
 	local function Punch()
+		if BestZone == 4 then
+			if Vip == true then
+				TPBestZone()
+				wait(2)
+				hum.CFrame = CFrame.new(sacoVip)
+				hum.CFrame = CFrame.new(sacoVip)
+				hum.CFrame = CFrame.new(sacoVip)
+				wait(1)
+				while G.Settings.AutoTrain3 do
+					local args = {
+						[1] = BestZone,
+						[2] = "VIP",
+						[3] = true
+					}
 
-		if Vip == true then
-			TPBestZone()
-			wait(2)
-			hum.CFrame = CFrame.new(sacoVip)
-			hum.CFrame = CFrame.new(sacoVip)
-			hum.CFrame = CFrame.new(sacoVip)
-			wait(1)
-			while G.Settings.AutoTrain1 do
-				local args = {
-					[1] = BestZone,
-					[2] = "VIP",
-					[3] = true
-				}
+					game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService"):WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
+					wait()
+				end
+			else
+				TPBestZone()
+				wait(2)
+				hum.CFrame = CFrame.new(sacoNormal)
+				hum.CFrame = CFrame.new(sacoNormal)
+				hum.CFrame = CFrame.new(sacoNormal)
+				wait(1)
+				while G.Settings.AutoTrain3 do
+					local args = {
+						[1] = BestZone,
+						[2] = "Tier4"
+					}
 
-				game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService"):WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
-				wait()
+					game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService"):WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
+				end
 			end
 		else
-			TPBestZone()
-			wait(2)
-			hum.CFrame = CFrame.new(sacoNormal)
-			hum.CFrame = CFrame.new(sacoNormal)
-			hum.CFrame = CFrame.new(sacoNormal)
-			wait(1)
-			while G.Settings.AutoTrain1 do
-				local args = {
-					[1] = BestZone,
-					[2] = "Tier6"
-				}
+			if Vip == true then
+				TPBestZone()
+				wait(2)
+				hum.CFrame = CFrame.new(sacoVip)
+				hum.CFrame = CFrame.new(sacoVip)
+				hum.CFrame = CFrame.new(sacoVip)
+				wait(1)
+				while G.Settings.AutoTrain3 do
+					local args = {
+						[1] = BestZone,
+						[2] = "VIP",
+						[3] = true
+					}
 
-				game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService"):WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
+					game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService"):WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
+					wait()
+				end
+			else
+				TPBestZone()
+				wait(2)
+				hum.CFrame = CFrame.new(sacoNormal)
+				hum.CFrame = CFrame.new(sacoNormal)
+				hum.CFrame = CFrame.new(sacoNormal)
+				wait(1)
+				while G.Settings.AutoTrain3 do
+					local args = {
+						[1] = BestZone,
+						[2] = "Tier6"
+					}
+
+					game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService"):WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
+				end
 			end
 		end
 	end
@@ -6208,38 +6243,73 @@ local function AutoDumbellBarbellKnuckle()
 	end
 
 	local function Punch()
+		if BestZone == 4 then
+			if Vip == true then
+				TPBestZone()
+				wait(2)
+				hum.CFrame = CFrame.new(sacoVip)
+				hum.CFrame = CFrame.new(sacoVip)
+				hum.CFrame = CFrame.new(sacoVip)
+				wait(1)
+				while G.Settings.AutoTrain3 do
+					local args = {
+						[1] = BestZone,
+						[2] = "VIP",
+						[3] = true
+					}
 
-		if Vip == true then
-			TPBestZone()
-			wait(2)
-			hum.CFrame = CFrame.new(sacoVip)
-			hum.CFrame = CFrame.new(sacoVip)
-			hum.CFrame = CFrame.new(sacoVip)
-			wait(1)
-			while G.Settings.AutoTrain2 do
-				local args = {
-					[1] = BestZone,
-					[2] = "VIP",
-					[3] = true
-				}
+					game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService"):WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
+					wait()
+				end
+			else
+				TPBestZone()
+				wait(2)
+				hum.CFrame = CFrame.new(sacoNormal)
+				hum.CFrame = CFrame.new(sacoNormal)
+				hum.CFrame = CFrame.new(sacoNormal)
+				wait(1)
+				while G.Settings.AutoTrain3 do
+					local args = {
+						[1] = BestZone,
+						[2] = "Tier4"
+					}
 
-				game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService"):WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
-				wait()
+					game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService"):WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
+				end
 			end
 		else
-			TPBestZone()
-			wait(2)
-			hum.CFrame = CFrame.new(sacoNormal)
-			hum.CFrame = CFrame.new(sacoNormal)
-			hum.CFrame = CFrame.new(sacoNormal)
-			wait(1)
-			while G.Settings.AutoTrain2 do
-				local args = {
-					[1] = BestZone,
-					[2] = "Tier6"
-				}
+			if Vip == true then
+				TPBestZone()
+				wait(2)
+				hum.CFrame = CFrame.new(sacoVip)
+				hum.CFrame = CFrame.new(sacoVip)
+				hum.CFrame = CFrame.new(sacoVip)
+				wait(1)
+				while G.Settings.AutoTrain3 do
+					local args = {
+						[1] = BestZone,
+						[2] = "VIP",
+						[3] = true
+					}
 
-				game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService"):WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
+					game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService"):WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
+					wait()
+				end
+			else
+				TPBestZone()
+				wait(2)
+				hum.CFrame = CFrame.new(sacoNormal)
+				hum.CFrame = CFrame.new(sacoNormal)
+				hum.CFrame = CFrame.new(sacoNormal)
+				wait(1)
+				while G.Settings.AutoTrain3 do
+					local args = {
+						[1] = BestZone,
+						[2] = "Tier6"
+					}
+
+					game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService"):WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
+				end
 			end
 		end
 	end
@@ -6507,7 +6577,7 @@ local function AutoDumbellBarbellHandleKnuckle()
 	end
 
 	local function Punch()
-
+	if BestZone == 4 then
 		if Vip == true then
 			TPBestZone()
 			wait(2)
@@ -6535,14 +6605,48 @@ local function AutoDumbellBarbellHandleKnuckle()
 			while G.Settings.AutoTrain3 do
 				local args = {
 					[1] = BestZone,
-					[2] = "Tier6"
+					[2] = "Tier4"
 				}
 
 				game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService"):WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
 			end
+			end
+		else
+			if Vip == true then
+				TPBestZone()
+				wait(2)
+				hum.CFrame = CFrame.new(sacoVip)
+				hum.CFrame = CFrame.new(sacoVip)
+				hum.CFrame = CFrame.new(sacoVip)
+				wait(1)
+				while G.Settings.AutoTrain3 do
+					local args = {
+						[1] = BestZone,
+						[2] = "VIP",
+						[3] = true
+					}
+
+					game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService"):WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
+					wait()
+				end
+			else
+				TPBestZone()
+				wait(2)
+				hum.CFrame = CFrame.new(sacoNormal)
+				hum.CFrame = CFrame.new(sacoNormal)
+				hum.CFrame = CFrame.new(sacoNormal)
+				wait(1)
+				while G.Settings.AutoTrain3 do
+					local args = {
+						[1] = BestZone,
+						[2] = "Tier6"
+					}
+
+					game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService"):WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
+			end
 		end
 	end
-
+end
 
 	VerbestBarbell()
 	wait(2)
