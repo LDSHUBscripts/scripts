@@ -4502,10 +4502,9 @@ end)
 hideFrames()
 LDSHUB.HomeUi.Visible = true
 
---Event script
-
 local G = getgenv()
 
+--Event script
 local EggEventsName = {
 	"CrayonEgg",
 	"HologramEgg"
@@ -5086,43 +5085,9 @@ local function AutoIndex()
 	end
 end
 
+-- Auto Boss 
 
---Bosses 
-
-local Bosses1 = {
-	"Bully",
-	"Teacher",
-	"GymRat",
-	"MafiaBoss",
-	"Champion"
-}
-local Bosses2 = {
-	"ScrapTrader",
-	"CyberCop",
-	"SlicerAssassin",
-	"RipperDoc",
-	"RogueAi"
-}
-local Bosses3 = {
-	"CocoNut",
-	"FatPirate",
-	"MermaidKing",
-	"FriendlyShark",
-	"KrakenBoss"
-}
-
-local bossW1 = false
-local bossW2 = false
-local bossW3 = false
-
-local function CheckIfTextInTable(text, tbl)
-	for _, value in ipairs(tbl) do
-		if value == text then
-			return true
-		end
-	end
-	return false
-end
+local selectedBossName = ""
 
 local function CreateTextButtonBoss(parent, name)
 	local TextButton = Instance.new("TextButton")
@@ -5143,70 +5108,50 @@ local function CreateTextButtonBoss(parent, name)
 	return TextButton
 end
 
-local function ConnectButtonClickEventBoss(button, namePetObject, bossVariable)
+local function ConnectButtonClickEventBoss(button, namePetObject)
 	button.MouseButton1Click:Connect(function()
 		namePetObject.Text = button.Name
-		bossVariable = true
+		selectedBossName = button.Name -- Atualiza o valor da variável selectedBossName
 	end)
 end
 
-local function resetboss()
-	bossW1 = false
-	bossW2 = false
-	bossW3 = false
-end
+local Worlds = game.Workspace.Zones
 
-for _, BossName in ipairs(Bosses1) do
-	local button = CreateTextButtonBoss(LDSHUB.ScrollingFrameBoss, BossName)
-	ConnectButtonClickEventBoss(button, LDSHUB.NameBoss, bossW1)
-end
-
-for _, BossName in ipairs(Bosses2) do
-	local button = CreateTextButtonBoss(LDSHUB.ScrollingFrameBoss, BossName)
-	ConnectButtonClickEventBoss(button, LDSHUB.NameBoss, bossW2)
-end
-
-for _, BossName in ipairs(Bosses3) do
-	local button = CreateTextButtonBoss(LDSHUB.ScrollingFrameBoss, BossName)
-	ConnectButtonClickEventBoss(button, LDSHUB.NameBoss, bossW3)
-end
-
-local function BossFight()
-	local Ui = game.Players.LocalPlayer.PlayerGui.GameUI.Wrestle
-	if Ui.Visible == false then
-		if CheckIfTextInTable(LDSHUB.NameBoss.Text, Bosses1) then
-			bossW1 = true
-			local args = {
-				[1] = LDSHUB.NameBoss.Text,
-				[2] = workspace:WaitForChild("Zones"):WaitForChild("1"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild(LDSHUB.NameBoss.Text),
-				[3] = "1"
-			}
-
-			game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
-		elseif CheckIfTextInTable(LDSHUB.NameBoss.Text, Bosses2) then
-			bossW2 = true
-			local args = {
-				[1] = LDSHUB.NameBoss.Text,
-				[2] = workspace:WaitForChild("Zones"):WaitForChild("2"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild(LDSHUB.NameBoss.Text),
-				[3] = "2"
-			}
-
-			game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
-		elseif CheckIfTextInTable(LDSHUB.NameBoss.Text, Bosses3) then
-			bossW3 = true
-			local args = {
-				[1] = LDSHUB.NameBoss.Text,
-				[2] = workspace:WaitForChild("Zones"):WaitForChild("3"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild(LDSHUB.NameBoss.Text),
-				[3] = "3"
-			}
-
-			game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
+for _, world in ipairs(Worlds:GetChildren()) do
+	if world:IsA("Folder") then
+		local ArmWrestling = world.Interactables.ArmWrestling
+		if ArmWrestling and ArmWrestling:FindFirstChild("NPC") then
+			local Bosses = ArmWrestling.NPC
+			for _, NameBoss in ipairs(Bosses:GetChildren()) do
+				local button = CreateTextButtonBoss(LDSHUB.ScrollingFrameBoss, NameBoss.Name)
+				ConnectButtonClickEventBoss(button, LDSHUB.NameBoss)
+			end
 		end
 	end
 end
 
-local function AutoBoss()
+local function FindZoneNumber(bossName)
+	local Worlds = game.Workspace.Zones
 
+	for _, world in ipairs(Worlds:GetChildren()) do
+		if world:IsA("Folder") then
+			local ArmWrestling = world.Interactables.ArmWrestling
+			if ArmWrestling and ArmWrestling:FindFirstChild("NPC") then
+				local Bosses = ArmWrestling.NPC
+				for _, NameBoss in ipairs(Bosses:GetChildren()) do
+					if NameBoss.Name == bossName then
+						return tonumber(world.Name)
+					end
+				end
+			end
+		end
+	end
+
+	-- Se o chefe não foi encontrado em nenhuma zona, retorne nil ou um valor padrão de sua escolha
+	return nil
+end
+
+local function AutoBoss()
 	if G.Settings.AutoBoss == true then
 		LDSHUB.AutoFarmFrameColor3.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	else
@@ -5214,10 +5159,21 @@ local function AutoBoss()
 	end
 
 	while G.Settings.AutoBoss do
-		BossFight()
-		wait(1)
+		wait()
+	local bossName = selectedBossName -- Usa o nome do chefe selecionado na variável selectedBossName
+	local zoneNumber = FindZoneNumber(bossName)
+	if zoneNumber then
+		local args = {
+			[1] = bossName,
+			[2] = game.Workspace.Zones[tostring(zoneNumber)]:WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild(bossName),
+			[3] = zoneNumber
+		}
+
+		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
+		end
 	end
 end
+
 
 -- Auto Eggs
 
@@ -5587,49 +5543,6 @@ end
 LDSHUB.autoconvert2.MouseButton1Click:Connect(function()
 	LDSHUB.Warn.Visible = true
 	LDSHUB.Wwarn.Visible = true
-end)
-
--- Teleports
-
-LDSHUB.TeleportButton1.MouseButton1Click:Connect(function()
-
-	local args = {
-		[1] = workspace:WaitForChild("Zones"):WaitForChild("1"):WaitForChild("Interactables"):WaitForChild("Teleports"):WaitForChild("Locations"):WaitForChild("BackToSchool")
-	}
-
-	game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ZoneService"):WaitForChild("RE"):WaitForChild("teleport"):FireServer(unpack(args))
-
-
-end)
-
-LDSHUB.TeleportButton2.MouseButton1Click:Connect(function()
-
-	local args = {
-		[1] = workspace:WaitForChild("Zones"):WaitForChild("2"):WaitForChild("Interactables"):WaitForChild("Teleports"):WaitForChild("Locations"):WaitForChild("Futuristic")
-	}
-
-	game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ZoneService"):WaitForChild("RE"):WaitForChild("teleport"):FireServer(unpack(args))
-
-end)
-
-LDSHUB.TeleportButton3.MouseButton1Click:Connect(function()
-
-	local args = {
-		[1] = workspace:WaitForChild("Zones"):WaitForChild("3"):WaitForChild("Interactables"):WaitForChild("Teleports"):WaitForChild("Locations"):WaitForChild("Beach")
-	}
-
-	game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ZoneService"):WaitForChild("RE"):WaitForChild("teleport"):FireServer(unpack(args))
-
-end)
-
-LDSHUB.TeleportButton4.MouseButton1Click:Connect(function()
-
-	local args = {
-		[1] = workspace:WaitForChild("Zones"):WaitForChild("4"):WaitForChild("Interactables"):WaitForChild("Teleports"):WaitForChild("Locations"):WaitForChild("NuclearBunker")
-	}
-
-	game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ZoneService"):WaitForChild("RE"):WaitForChild("teleport"):FireServer(unpack(args))
-
 end)
 
 local function HopGifts()
@@ -6717,21 +6630,51 @@ LDSHUB.autopotion2.MouseButton1Click:Connect(function()
 end)
 
 LDSHUB.TeleportButton1.MouseButton1Click:Connect(function()
+	local args = {
+		[1] = workspace:WaitForChild("Zones"):WaitForChild("1"):WaitForChild("Interactables"):WaitForChild("Teleports"):WaitForChild("Locations"):WaitForChild("BackToSchool")
+	}
+
+	game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ZoneService"):WaitForChild("RE"):WaitForChild("teleport"):FireServer(unpack(args))
+
 	LDSHUB.TpFrameColor1.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	wait(2)
 	LDSHUB.TpFrameColor1.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 end)
 
 LDSHUB.TeleportButton2.MouseButton1Click:Connect(function()
+	local args = {
+		[1] = workspace:WaitForChild("Zones"):WaitForChild("2"):WaitForChild("Interactables"):WaitForChild("Teleports"):WaitForChild("Locations"):WaitForChild("Futuristic")
+	}
+
+	game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ZoneService"):WaitForChild("RE"):WaitForChild("teleport"):FireServer(unpack(args))
+
 	LDSHUB.TpFrameColor2.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	wait(2)
 	LDSHUB.TpFrameColor2.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 end)
 
-LDSHUB.TeleportButton1.MouseButton1Click:Connect(function()
+LDSHUB.TeleportButton3.MouseButton1Click:Connect(function()
+	local args = {
+		[1] = workspace:WaitForChild("Zones"):WaitForChild("3"):WaitForChild("Interactables"):WaitForChild("Teleports"):WaitForChild("Locations"):WaitForChild("Beach")
+	}
+
+	game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ZoneService"):WaitForChild("RE"):WaitForChild("teleport"):FireServer(unpack(args))
+
 	LDSHUB.TpFrameColor3.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	wait(2)
 	LDSHUB.TpFrameColor3.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+end)
+
+LDSHUB.TeleportButton4.MouseButton1Click:Connect(function()
+	local args = {
+		[1] = workspace:WaitForChild("Zones"):WaitForChild("4"):WaitForChild("Interactables"):WaitForChild("Teleports"):WaitForChild("Locations"):WaitForChild("NuclearBunker")
+	}
+
+	game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ZoneService"):WaitForChild("RE"):WaitForChild("teleport"):FireServer(unpack(args))
+
+	LDSHUB.TpFrameColor4.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+	wait(2)
+	LDSHUB.TpFrameColor4.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 end)
 
 LDSHUB.AutoTrain1.MouseButton1Click:Connect(function()
@@ -6787,7 +6730,7 @@ local functionsToExecute = {
 	["AutoEvent3"] = AutoEvent3,
 	["AutoEvent4"] = AutoEvent4,
 	["AutoClick"] = AutoClick,
-	["AutoIndex"] = AutoIndex,
+	["AutoIndex"] = AutoIndex, 
 	["AutoBoss"] = AutoBoss,
 	["AutoEgg"] = AutoEgg,
 	["RemoveEggAnimation"] = VisibleEgg,
