@@ -1,0 +1,757 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local Status = Instance.new("ScreenGui")
+local FrameS = Instance.new("Frame")
+local Frame = Instance.new("Frame")
+local Frame1 = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local ImageLabel = Instance.new("ImageLabel")
+local TxtBicepsA = Instance.new("TextLabel")
+local Frame2 = Instance.new("Frame")
+local UICorner_2 = Instance.new("UICorner")
+local ImageLabel_2 = Instance.new("ImageLabel")
+local TxtHandleA = Instance.new("TextLabel")
+local Frame3 = Instance.new("Frame")
+local UICorner_3 = Instance.new("UICorner")
+local ImageLabel_3 = Instance.new("ImageLabel")
+local TxtKnuckleA = Instance.new("TextLabel")
+local Frame4 = Instance.new("Frame")
+local UICorner_4 = Instance.new("UICorner")
+local ImageLabel_4 = Instance.new("ImageLabel")
+local TxtTrofeuA = Instance.new("TextLabel")
+local Txt = Instance.new("TextLabel")
+local Timer = Instance.new("TextLabel")
+local UICorner_5 = Instance.new("UICorner")
+local CloseButton = Instance.new("TextButton")
+local UICorner_6 = Instance.new("UICorner")
+local HideButton = Instance.new("TextButton")
+local UICorner_7 = Instance.new("UICorner")
+local FrameB = Instance.new("Frame")
+local Frame1C = Instance.new("Frame")
+local UICorner_8 = Instance.new("UICorner")
+local ImageLabel_5 = Instance.new("ImageLabel")
+local TxtBicepsC = Instance.new("TextLabel")
+local Frame2C = Instance.new("Frame")
+local UICorner_9 = Instance.new("UICorner")
+local ImageLabel_6 = Instance.new("ImageLabel")
+local TxtHandleC = Instance.new("TextLabel")
+local Frame3C = Instance.new("Frame")
+local UICorner_10 = Instance.new("UICorner")
+local ImageLabel_7 = Instance.new("ImageLabel")
+local TxtKnuckleC = Instance.new("TextLabel")
+local Frame4C = Instance.new("Frame")
+local UICorner_11 = Instance.new("UICorner")
+local ImageLabel_8 = Instance.new("ImageLabel")
+local TxtTrofeuC = Instance.new("TextLabel")
+local Txt_2 = Instance.new("TextLabel")
+local UICorner_12 = Instance.new("UICorner")
+local FrameA = Instance.new("Frame")
+local Frame1B = Instance.new("Frame")
+local UICorner_13 = Instance.new("UICorner")
+local ImageLabel_9 = Instance.new("ImageLabel")
+local TxtBicepsB = Instance.new("TextLabel")
+local Frame2B = Instance.new("Frame")
+local UICorner_14 = Instance.new("UICorner")
+local ImageLabel_10 = Instance.new("ImageLabel")
+local TxtHandleB = Instance.new("TextLabel")
+local Frame3B = Instance.new("Frame")
+local UICorner_15 = Instance.new("UICorner")
+local ImageLabel_11 = Instance.new("ImageLabel")
+local TxtKnuckleB = Instance.new("TextLabel")
+local Frame4B = Instance.new("Frame")
+local UICorner_16 = Instance.new("UICorner")
+local ImageLabel_12 = Instance.new("ImageLabel")
+local TxtTrofeuB = Instance.new("TextLabel")
+local Txt_3 = Instance.new("TextLabel")
+local UICorner_17 = Instance.new("UICorner")
+
+--Properties:
+
+Status.Name = "Status"
+Status.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+Status.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+FrameS.Name = "FrameS"
+FrameS.Parent = Status
+FrameS.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FrameS.BackgroundTransparency = 1.000
+FrameS.BorderColor3 = Color3.fromRGB(0, 0, 0)
+FrameS.BorderSizePixel = 0
+FrameS.Position = UDim2.new(0.269565225, 0, 0.253684223, 0)
+FrameS.Size = UDim2.new(0.460869551, 0, 0.491578937, 0)
+
+Frame.Parent = FrameS
+Frame.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+Frame.BackgroundTransparency = 0.350
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.431005269, 0, 0.021122992, 0)
+Frame.Size = UDim2.new(0.427954257, 0, 0.95740068, 0)
+
+Frame1.Name = "Frame1"
+Frame1.Parent = Frame
+Frame1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame1.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame1.BorderSizePixel = 0
+Frame1.Position = UDim2.new(0.140669674, 0, 0.165124372, 0)
+Frame1.Size = UDim2.new(0.762251437, 0, 0.126157463, 0)
+
+UICorner.Parent = Frame1
+
+ImageLabel.Parent = Frame1
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.BackgroundTransparency = 1.000
+ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel.BorderSizePixel = 0
+ImageLabel.Position = UDim2.new(-0.14365238, 0, -0.246758625, 0)
+ImageLabel.Size = UDim2.new(0.374821961, 0, 1.48568451, 0)
+ImageLabel.Image = "rbxassetid://13638014822"
+
+TxtBicepsA.Name = "TxtBicepsA"
+TxtBicepsA.Parent = Frame1
+TxtBicepsA.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TxtBicepsA.BackgroundTransparency = 0.950
+TxtBicepsA.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TxtBicepsA.BorderSizePixel = 0
+TxtBicepsA.Position = UDim2.new(0.231169432, 0, 0, 0)
+TxtBicepsA.Size = UDim2.new(0.767943263, 0, 0.984671056, 0)
+TxtBicepsA.Font = Enum.Font.FredokaOne
+TxtBicepsA.Text = "0"
+TxtBicepsA.TextColor3 = Color3.fromRGB(207, 207, 207)
+TxtBicepsA.TextScaled = true
+TxtBicepsA.TextSize = 14.000
+TxtBicepsA.TextStrokeTransparency = 0.000
+TxtBicepsA.TextWrapped = true
+TxtBicepsA.TextXAlignment = Enum.TextXAlignment.Left
+
+Frame2.Name = "Frame2"
+Frame2.Parent = Frame
+Frame2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame2.BorderSizePixel = 0
+Frame2.Position = UDim2.new(0.140669674, 0, 0.365952522, 0)
+Frame2.Size = UDim2.new(0.762251437, 0, 0.126157463, 0)
+
+UICorner_2.Parent = Frame2
+
+ImageLabel_2.Parent = Frame2
+ImageLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel_2.BackgroundTransparency = 1.000
+ImageLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel_2.BorderSizePixel = 0
+ImageLabel_2.Position = UDim2.new(-0.14365238, 0, -0.246758625, 0)
+ImageLabel_2.Size = UDim2.new(0.374821961, 0, 1.48568451, 0)
+ImageLabel_2.Image = "rbxassetid://13638034279"
+
+TxtHandleA.Name = "TxtHandleA"
+TxtHandleA.Parent = Frame2
+TxtHandleA.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TxtHandleA.BackgroundTransparency = 0.950
+TxtHandleA.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TxtHandleA.BorderSizePixel = 0
+TxtHandleA.Position = UDim2.new(0.231169432, 0, 0, 0)
+TxtHandleA.Size = UDim2.new(0.767943263, 0, 0.984671056, 0)
+TxtHandleA.Font = Enum.Font.FredokaOne
+TxtHandleA.Text = "0"
+TxtHandleA.TextColor3 = Color3.fromRGB(207, 207, 207)
+TxtHandleA.TextScaled = true
+TxtHandleA.TextSize = 14.000
+TxtHandleA.TextStrokeTransparency = 0.000
+TxtHandleA.TextWrapped = true
+TxtHandleA.TextXAlignment = Enum.TextXAlignment.Left
+
+Frame3.Name = "Frame3"
+Frame3.Parent = Frame
+Frame3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame3.BorderSizePixel = 0
+Frame3.Position = UDim2.new(0.140669674, 0, 0.568851054, 0)
+Frame3.Size = UDim2.new(0.762251437, 0, 0.126157463, 0)
+
+UICorner_3.Parent = Frame3
+
+ImageLabel_3.Parent = Frame3
+ImageLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel_3.BackgroundTransparency = 1.000
+ImageLabel_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel_3.BorderSizePixel = 0
+ImageLabel_3.Position = UDim2.new(-0.14365238, 0, -0.246758625, 0)
+ImageLabel_3.Size = UDim2.new(0.374821961, 0, 1.48568451, 0)
+ImageLabel_3.Image = "rbxassetid://13761806988"
+
+TxtKnuckleA.Name = "TxtKnuckleA"
+TxtKnuckleA.Parent = Frame3
+TxtKnuckleA.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TxtKnuckleA.BackgroundTransparency = 0.950
+TxtKnuckleA.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TxtKnuckleA.BorderSizePixel = 0
+TxtKnuckleA.Position = UDim2.new(0.231169432, 0, 0, 0)
+TxtKnuckleA.Size = UDim2.new(0.767943263, 0, 0.984671056, 0)
+TxtKnuckleA.Font = Enum.Font.FredokaOne
+TxtKnuckleA.Text = "0"
+TxtKnuckleA.TextColor3 = Color3.fromRGB(207, 207, 207)
+TxtKnuckleA.TextScaled = true
+TxtKnuckleA.TextSize = 14.000
+TxtKnuckleA.TextStrokeTransparency = 0.000
+TxtKnuckleA.TextWrapped = true
+TxtKnuckleA.TextXAlignment = Enum.TextXAlignment.Left
+
+Frame4.Name = "Frame4"
+Frame4.Parent = Frame
+Frame4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame4.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame4.BorderSizePixel = 0
+Frame4.Position = UDim2.new(0.140669674, 0, 0.773819983, 0)
+Frame4.Size = UDim2.new(0.762251437, 0, 0.126157463, 0)
+
+UICorner_4.Parent = Frame4
+
+ImageLabel_4.Parent = Frame4
+ImageLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel_4.BackgroundTransparency = 1.000
+ImageLabel_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel_4.BorderSizePixel = 0
+ImageLabel_4.Position = UDim2.new(-0.14365238, 0, -0.246758625, 0)
+ImageLabel_4.Size = UDim2.new(0.374821961, 0, 1.48568451, 0)
+ImageLabel_4.Image = "rbxassetid://12862690975"
+
+TxtTrofeuA.Name = "TxtTrofeuA"
+TxtTrofeuA.Parent = Frame4
+TxtTrofeuA.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TxtTrofeuA.BackgroundTransparency = 0.950
+TxtTrofeuA.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TxtTrofeuA.BorderSizePixel = 0
+TxtTrofeuA.Position = UDim2.new(0.231169432, 0, 0, 0)
+TxtTrofeuA.Size = UDim2.new(0.767943263, 0, 0.984671056, 0)
+TxtTrofeuA.Font = Enum.Font.FredokaOne
+TxtTrofeuA.Text = "0"
+TxtTrofeuA.TextColor3 = Color3.fromRGB(207, 207, 207)
+TxtTrofeuA.TextScaled = true
+TxtTrofeuA.TextSize = 14.000
+TxtTrofeuA.TextStrokeTransparency = 0.000
+TxtTrofeuA.TextWrapped = true
+TxtTrofeuA.TextXAlignment = Enum.TextXAlignment.Left
+
+Txt.Name = "Txt"
+Txt.Parent = Frame
+Txt.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Txt.BackgroundTransparency = 1.000
+Txt.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Txt.BorderSizePixel = 0
+Txt.Position = UDim2.new(0.195121944, 0, 0.0289855078, 0)
+Txt.Size = UDim2.new(0.609756112, 0, 0.103519671, 0)
+Txt.Font = Enum.Font.FredokaOne
+Txt.Text = "LDS Stats"
+Txt.TextColor3 = Color3.fromRGB(170, 0, 255)
+Txt.TextScaled = true
+Txt.TextSize = 14.000
+Txt.TextStrokeTransparency = 0.000
+Txt.TextWrapped = true
+
+Timer.Name = "Timer"
+Timer.Parent = Frame
+Timer.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Timer.BackgroundTransparency = 1.000
+Timer.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Timer.BorderSizePixel = 0
+Timer.Position = UDim2.new(0.195121944, 0, 0.917184293, 0)
+Timer.Size = UDim2.new(0.609756112, 0, 0.0662525892, 0)
+Timer.Font = Enum.Font.FredokaOne
+Timer.Text = "Timer"
+Timer.TextColor3 = Color3.fromRGB(170, 0, 255)
+Timer.TextScaled = true
+Timer.TextSize = 14.000
+Timer.TextStrokeTransparency = 0.000
+Timer.TextWrapped = true
+
+UICorner_5.Parent = Frame
+
+CloseButton.Name = "CloseButton"
+CloseButton.Parent = Frame
+CloseButton.BackgroundColor3 = Color3.fromRGB(255, 67, 108)
+CloseButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+CloseButton.BorderSizePixel = 0
+CloseButton.Position = UDim2.new(0.902438998, 0, -0.0310559012, 0)
+CloseButton.Size = UDim2.new(0.152439028, 0, 0.103519671, 0)
+CloseButton.Font = Enum.Font.FredokaOne
+CloseButton.Text = "X"
+CloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+CloseButton.TextScaled = true
+CloseButton.TextSize = 14.000
+CloseButton.TextStrokeTransparency = 0.000
+CloseButton.TextWrapped = true
+
+UICorner_6.Parent = CloseButton
+
+HideButton.Name = "HideButton"
+HideButton.Parent = Frame
+HideButton.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
+HideButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+HideButton.BorderSizePixel = 0
+HideButton.Position = UDim2.new(-0.0518292785, 0, -0.0310559012, 0)
+HideButton.Size = UDim2.new(0.152439028, 0, 0.103519671, 0)
+HideButton.Font = Enum.Font.FredokaOne
+HideButton.Text = "<"
+HideButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+HideButton.TextScaled = true
+HideButton.TextSize = 14.000
+HideButton.TextStrokeTransparency = 0.000
+HideButton.TextWrapped = true
+
+UICorner_7.Parent = HideButton
+
+FrameB.Name = "FrameB"
+FrameB.Parent = FrameS
+FrameB.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+FrameB.BackgroundTransparency = 0.350
+FrameB.BorderColor3 = Color3.fromRGB(0, 0, 0)
+FrameB.BorderSizePixel = 0
+FrameB.Position = UDim2.new(0.138743758, 0, 0.521127343, 0)
+FrameB.Size = UDim2.new(0.260947734, 0, 0.45739615, 0)
+FrameB.Visible = false
+
+Frame1C.Name = "Frame1C"
+Frame1C.Parent = FrameB
+Frame1C.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame1C.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame1C.BorderSizePixel = 0
+Frame1C.Position = UDim2.new(0.140669674, 0, 0.165124372, 0)
+Frame1C.Size = UDim2.new(0.762251437, 0, 0.126157463, 0)
+
+UICorner_8.Parent = Frame1C
+
+ImageLabel_5.Parent = Frame1C
+ImageLabel_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel_5.BackgroundTransparency = 1.000
+ImageLabel_5.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel_5.BorderSizePixel = 0
+ImageLabel_5.Position = UDim2.new(-0.14365238, 0, -0.246758625, 0)
+ImageLabel_5.Size = UDim2.new(0.374821961, 0, 1.48568451, 0)
+ImageLabel_5.Image = "rbxassetid://13638014822"
+
+TxtBicepsC.Name = "TxtBicepsC"
+TxtBicepsC.Parent = Frame1C
+TxtBicepsC.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TxtBicepsC.BackgroundTransparency = 0.950
+TxtBicepsC.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TxtBicepsC.BorderSizePixel = 0
+TxtBicepsC.Position = UDim2.new(0.231169432, 0, 0, 0)
+TxtBicepsC.Size = UDim2.new(0.767943263, 0, 0.984671056, 0)
+TxtBicepsC.Font = Enum.Font.FredokaOne
+TxtBicepsC.Text = "0"
+TxtBicepsC.TextColor3 = Color3.fromRGB(207, 207, 207)
+TxtBicepsC.TextScaled = true
+TxtBicepsC.TextSize = 14.000
+TxtBicepsC.TextStrokeTransparency = 0.000
+TxtBicepsC.TextWrapped = true
+TxtBicepsC.TextXAlignment = Enum.TextXAlignment.Left
+
+Frame2C.Name = "Frame2C"
+Frame2C.Parent = FrameB
+Frame2C.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame2C.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame2C.BorderSizePixel = 0
+Frame2C.Position = UDim2.new(0.140669674, 0, 0.365952522, 0)
+Frame2C.Size = UDim2.new(0.762251437, 0, 0.126157463, 0)
+
+UICorner_9.Parent = Frame2C
+
+ImageLabel_6.Parent = Frame2C
+ImageLabel_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel_6.BackgroundTransparency = 1.000
+ImageLabel_6.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel_6.BorderSizePixel = 0
+ImageLabel_6.Position = UDim2.new(-0.14365238, 0, -0.246758625, 0)
+ImageLabel_6.Size = UDim2.new(0.374821961, 0, 1.48568451, 0)
+ImageLabel_6.Image = "rbxassetid://13638034279"
+
+TxtHandleC.Name = "TxtHandleC"
+TxtHandleC.Parent = Frame2C
+TxtHandleC.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TxtHandleC.BackgroundTransparency = 0.950
+TxtHandleC.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TxtHandleC.BorderSizePixel = 0
+TxtHandleC.Position = UDim2.new(0.231169432, 0, 0, 0)
+TxtHandleC.Size = UDim2.new(0.767943263, 0, 0.984671056, 0)
+TxtHandleC.Font = Enum.Font.FredokaOne
+TxtHandleC.Text = "0"
+TxtHandleC.TextColor3 = Color3.fromRGB(207, 207, 207)
+TxtHandleC.TextScaled = true
+TxtHandleC.TextSize = 14.000
+TxtHandleC.TextStrokeTransparency = 0.000
+TxtHandleC.TextWrapped = true
+TxtHandleC.TextXAlignment = Enum.TextXAlignment.Left
+
+Frame3C.Name = "Frame3C"
+Frame3C.Parent = FrameB
+Frame3C.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame3C.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame3C.BorderSizePixel = 0
+Frame3C.Position = UDim2.new(0.140669674, 0, 0.568851054, 0)
+Frame3C.Size = UDim2.new(0.762251437, 0, 0.126157463, 0)
+
+UICorner_10.Parent = Frame3C
+
+ImageLabel_7.Parent = Frame3C
+ImageLabel_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel_7.BackgroundTransparency = 1.000
+ImageLabel_7.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel_7.BorderSizePixel = 0
+ImageLabel_7.Position = UDim2.new(-0.14365238, 0, -0.246758625, 0)
+ImageLabel_7.Size = UDim2.new(0.374821961, 0, 1.48568451, 0)
+ImageLabel_7.Image = "rbxassetid://13761806988"
+
+TxtKnuckleC.Name = "TxtKnuckleC"
+TxtKnuckleC.Parent = Frame3C
+TxtKnuckleC.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TxtKnuckleC.BackgroundTransparency = 0.950
+TxtKnuckleC.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TxtKnuckleC.BorderSizePixel = 0
+TxtKnuckleC.Position = UDim2.new(0.231169432, 0, 0, 0)
+TxtKnuckleC.Size = UDim2.new(0.767943263, 0, 0.984671056, 0)
+TxtKnuckleC.Font = Enum.Font.FredokaOne
+TxtKnuckleC.Text = "0"
+TxtKnuckleC.TextColor3 = Color3.fromRGB(207, 207, 207)
+TxtKnuckleC.TextScaled = true
+TxtKnuckleC.TextSize = 14.000
+TxtKnuckleC.TextStrokeTransparency = 0.000
+TxtKnuckleC.TextWrapped = true
+TxtKnuckleC.TextXAlignment = Enum.TextXAlignment.Left
+
+Frame4C.Name = "Frame4C"
+Frame4C.Parent = FrameB
+Frame4C.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame4C.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame4C.BorderSizePixel = 0
+Frame4C.Position = UDim2.new(0.140669674, 0, 0.773819983, 0)
+Frame4C.Size = UDim2.new(0.762251437, 0, 0.126157463, 0)
+
+UICorner_11.Parent = Frame4C
+
+ImageLabel_8.Parent = Frame4C
+ImageLabel_8.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel_8.BackgroundTransparency = 1.000
+ImageLabel_8.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel_8.BorderSizePixel = 0
+ImageLabel_8.Position = UDim2.new(-0.14365238, 0, -0.246758625, 0)
+ImageLabel_8.Size = UDim2.new(0.374821961, 0, 1.48568451, 0)
+ImageLabel_8.Image = "rbxassetid://12862690975"
+
+TxtTrofeuC.Name = "TxtTrofeuC"
+TxtTrofeuC.Parent = Frame4C
+TxtTrofeuC.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TxtTrofeuC.BackgroundTransparency = 0.950
+TxtTrofeuC.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TxtTrofeuC.BorderSizePixel = 0
+TxtTrofeuC.Position = UDim2.new(0.231169432, 0, 0, 0)
+TxtTrofeuC.Size = UDim2.new(0.767943263, 0, 0.984671056, 0)
+TxtTrofeuC.Font = Enum.Font.FredokaOne
+TxtTrofeuC.Text = "0"
+TxtTrofeuC.TextColor3 = Color3.fromRGB(207, 207, 207)
+TxtTrofeuC.TextScaled = true
+TxtTrofeuC.TextSize = 14.000
+TxtTrofeuC.TextStrokeTransparency = 0.000
+TxtTrofeuC.TextWrapped = true
+TxtTrofeuC.TextXAlignment = Enum.TextXAlignment.Left
+
+Txt_2.Name = "Txt"
+Txt_2.Parent = FrameB
+Txt_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Txt_2.BackgroundTransparency = 1.000
+Txt_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Txt_2.BorderSizePixel = 0
+Txt_2.Position = UDim2.new(0.0451220647, 0, 0.0289855376, 0)
+Txt_2.Size = UDim2.new(0.904756069, 0, 0.103519671, 0)
+Txt_2.Font = Enum.Font.FredokaOne
+Txt_2.Text = "Penultimate Status"
+Txt_2.TextColor3 = Color3.fromRGB(170, 0, 255)
+Txt_2.TextScaled = true
+Txt_2.TextSize = 14.000
+Txt_2.TextStrokeTransparency = 0.000
+Txt_2.TextWrapped = true
+
+UICorner_12.Parent = FrameB
+
+FrameA.Name = "FrameA"
+FrameA.Parent = FrameS
+FrameA.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+FrameA.BackgroundTransparency = 0.350
+FrameA.BorderColor3 = Color3.fromRGB(0, 0, 0)
+FrameA.BorderSizePixel = 0
+FrameA.Position = UDim2.new(0.138743758, 0, 0.0196320117, 0)
+FrameA.Size = UDim2.new(0.260947734, 0, 0.45739609, 0)
+FrameA.Visible = false
+
+Frame1B.Name = "Frame1B"
+Frame1B.Parent = FrameA
+Frame1B.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame1B.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame1B.BorderSizePixel = 0
+Frame1B.Position = UDim2.new(0.140669674, 0, 0.165124372, 0)
+Frame1B.Size = UDim2.new(0.762251437, 0, 0.126157463, 0)
+
+UICorner_13.Parent = Frame1B
+
+ImageLabel_9.Parent = Frame1B
+ImageLabel_9.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel_9.BackgroundTransparency = 1.000
+ImageLabel_9.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel_9.BorderSizePixel = 0
+ImageLabel_9.Position = UDim2.new(-0.14365238, 0, -0.246758625, 0)
+ImageLabel_9.Size = UDim2.new(0.374821961, 0, 1.48568451, 0)
+ImageLabel_9.Image = "rbxassetid://13638014822"
+
+TxtBicepsB.Name = "TxtBicepsB"
+TxtBicepsB.Parent = Frame1B
+TxtBicepsB.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TxtBicepsB.BackgroundTransparency = 0.950
+TxtBicepsB.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TxtBicepsB.BorderSizePixel = 0
+TxtBicepsB.Position = UDim2.new(0.231169432, 0, 0, 0)
+TxtBicepsB.Size = UDim2.new(0.767943263, 0, 0.984671056, 0)
+TxtBicepsB.Font = Enum.Font.FredokaOne
+TxtBicepsB.Text = "0"
+TxtBicepsB.TextColor3 = Color3.fromRGB(207, 207, 207)
+TxtBicepsB.TextScaled = true
+TxtBicepsB.TextSize = 14.000
+TxtBicepsB.TextStrokeTransparency = 0.000
+TxtBicepsB.TextWrapped = true
+TxtBicepsB.TextXAlignment = Enum.TextXAlignment.Left
+
+Frame2B.Name = "Frame2B"
+Frame2B.Parent = FrameA
+Frame2B.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame2B.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame2B.BorderSizePixel = 0
+Frame2B.Position = UDim2.new(0.140669674, 0, 0.365952522, 0)
+Frame2B.Size = UDim2.new(0.762251437, 0, 0.126157463, 0)
+
+UICorner_14.Parent = Frame2B
+
+ImageLabel_10.Parent = Frame2B
+ImageLabel_10.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel_10.BackgroundTransparency = 1.000
+ImageLabel_10.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel_10.BorderSizePixel = 0
+ImageLabel_10.Position = UDim2.new(-0.14365238, 0, -0.246758625, 0)
+ImageLabel_10.Size = UDim2.new(0.374821961, 0, 1.48568451, 0)
+ImageLabel_10.Image = "rbxassetid://13638034279"
+
+TxtHandleB.Name = "TxtHandleB"
+TxtHandleB.Parent = Frame2B
+TxtHandleB.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TxtHandleB.BackgroundTransparency = 0.950
+TxtHandleB.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TxtHandleB.BorderSizePixel = 0
+TxtHandleB.Position = UDim2.new(0.231169432, 0, 0, 0)
+TxtHandleB.Size = UDim2.new(0.767943263, 0, 0.984671056, 0)
+TxtHandleB.Font = Enum.Font.FredokaOne
+TxtHandleB.Text = "0"
+TxtHandleB.TextColor3 = Color3.fromRGB(207, 207, 207)
+TxtHandleB.TextScaled = true
+TxtHandleB.TextSize = 14.000
+TxtHandleB.TextStrokeTransparency = 0.000
+TxtHandleB.TextWrapped = true
+TxtHandleB.TextXAlignment = Enum.TextXAlignment.Left
+
+Frame3B.Name = "Frame3B"
+Frame3B.Parent = FrameA
+Frame3B.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame3B.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame3B.BorderSizePixel = 0
+Frame3B.Position = UDim2.new(0.140669674, 0, 0.568851054, 0)
+Frame3B.Size = UDim2.new(0.762251437, 0, 0.126157463, 0)
+
+UICorner_15.Parent = Frame3B
+
+ImageLabel_11.Parent = Frame3B
+ImageLabel_11.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel_11.BackgroundTransparency = 1.000
+ImageLabel_11.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel_11.BorderSizePixel = 0
+ImageLabel_11.Position = UDim2.new(-0.14365238, 0, -0.246758625, 0)
+ImageLabel_11.Size = UDim2.new(0.374821961, 0, 1.48568451, 0)
+ImageLabel_11.Image = "rbxassetid://13761806988"
+
+TxtKnuckleB.Name = "TxtKnuckleB"
+TxtKnuckleB.Parent = Frame3B
+TxtKnuckleB.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TxtKnuckleB.BackgroundTransparency = 0.950
+TxtKnuckleB.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TxtKnuckleB.BorderSizePixel = 0
+TxtKnuckleB.Position = UDim2.new(0.231169432, 0, 0, 0)
+TxtKnuckleB.Size = UDim2.new(0.767943263, 0, 0.984671056, 0)
+TxtKnuckleB.Font = Enum.Font.FredokaOne
+TxtKnuckleB.Text = "0"
+TxtKnuckleB.TextColor3 = Color3.fromRGB(207, 207, 207)
+TxtKnuckleB.TextScaled = true
+TxtKnuckleB.TextSize = 14.000
+TxtKnuckleB.TextStrokeTransparency = 0.000
+TxtKnuckleB.TextWrapped = true
+TxtKnuckleB.TextXAlignment = Enum.TextXAlignment.Left
+
+Frame4B.Name = "Frame4B"
+Frame4B.Parent = FrameA
+Frame4B.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame4B.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame4B.BorderSizePixel = 0
+Frame4B.Position = UDim2.new(0.140669674, 0, 0.773819983, 0)
+Frame4B.Size = UDim2.new(0.762251437, 0, 0.126157463, 0)
+
+UICorner_16.Parent = Frame4B
+
+ImageLabel_12.Parent = Frame4B
+ImageLabel_12.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel_12.BackgroundTransparency = 1.000
+ImageLabel_12.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel_12.BorderSizePixel = 0
+ImageLabel_12.Position = UDim2.new(-0.14365238, 0, -0.246758625, 0)
+ImageLabel_12.Size = UDim2.new(0.374821961, 0, 1.48568451, 0)
+ImageLabel_12.Image = "rbxassetid://12862690975"
+
+TxtTrofeuB.Name = "TxtTrofeuB"
+TxtTrofeuB.Parent = Frame4B
+TxtTrofeuB.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TxtTrofeuB.BackgroundTransparency = 0.950
+TxtTrofeuB.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TxtTrofeuB.BorderSizePixel = 0
+TxtTrofeuB.Position = UDim2.new(0.231169432, 0, 0, 0)
+TxtTrofeuB.Size = UDim2.new(0.767943263, 0, 0.984671056, 0)
+TxtTrofeuB.Font = Enum.Font.FredokaOne
+TxtTrofeuB.Text = "0"
+TxtTrofeuB.TextColor3 = Color3.fromRGB(207, 207, 207)
+TxtTrofeuB.TextScaled = true
+TxtTrofeuB.TextSize = 14.000
+TxtTrofeuB.TextStrokeTransparency = 0.000
+TxtTrofeuB.TextWrapped = true
+TxtTrofeuB.TextXAlignment = Enum.TextXAlignment.Left
+
+Txt_3.Name = "Txt"
+Txt_3.Parent = FrameA
+Txt_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Txt_3.BackgroundTransparency = 1.000
+Txt_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Txt_3.BorderSizePixel = 0
+Txt_3.Position = UDim2.new(0.195121944, 0, 0.0289855078, 0)
+Txt_3.Size = UDim2.new(0.609756112, 0, 0.103519671, 0)
+Txt_3.Font = Enum.Font.FredokaOne
+Txt_3.Text = "Last Status"
+Txt_3.TextColor3 = Color3.fromRGB(170, 0, 255)
+Txt_3.TextScaled = true
+Txt_3.TextSize = 14.000
+Txt_3.TextStrokeTransparency = 0.000
+Txt_3.TextWrapped = true
+
+UICorner_17.Parent = FrameA
+
+CloseButton.MouseButton1Click:Connect(function()
+	Status:Destroy()
+end)
+
+HideButton.MouseButton1Click:Connect(function()
+	FrameA.Visible = not FrameA.Visible
+	FrameB.Visible = not FrameB.Visible
+end)
+
+FrameS.Draggable = true
+FrameS.Selectable = true
+FrameS.Active = true
+
+local player = game.Players.LocalPlayer
+local leaderstats = player.leaderstats
+
+-- Tabela para armazenar os valores dos stats e os respectivos TextLabels
+local statsValuesA = {
+	Biceps = { Value = leaderstats.Biceps, TextLabel = TxtBicepsA },
+	Hands = { Value = leaderstats.Hands, TextLabel = TxtHandleA },
+	Knuckles = { Value = leaderstats.Knuckles, TextLabel = TxtKnuckleA },
+	Wins = { Value = leaderstats.Wins, TextLabel = TxtTrofeuA },
+}
+local statsValuesB = {
+	Biceps = { Value = leaderstats.Biceps, TextLabel = TxtBicepsB },
+	Hands = { Value = leaderstats.Hands, TextLabel = TxtHandleB },
+	Knuckles = { Value = leaderstats.Knuckles, TextLabel = TxtKnuckleB },
+	Wins = { Value = leaderstats.Wins, TextLabel = TxtTrofeuB },
+}
+local statsValuesC = {
+	Biceps = { Value = leaderstats.Biceps, TextLabel = TxtBicepsC },
+	Hands = { Value = leaderstats.Hands, TextLabel = TxtHandleC },
+	Knuckles = { Value = leaderstats.Knuckles, TextLabel = TxtKnuckleC },
+	Wins = { Value = leaderstats.Wins, TextLabel = TxtTrofeuC },
+}
+
+-- Tabela para armazenar os valores anteriores dos stats
+local lastValues = {
+	Biceps = leaderstats.Biceps.Value,
+	Hands = leaderstats.Hands.Value,
+	Knuckles = leaderstats.Knuckles.Value,
+	Wins = leaderstats.Wins.Value,
+}
+
+-- Função para atualizar o texto do TextLabel
+local function UpdateTextLabel(statName)
+	-- Calcular a diferença entre o novo valor e o valor anterior
+	local addedValue = statsValuesA[statName].Value.Value - lastValues[statName]
+
+	-- Atualizar o valor anterior para o novo valor
+	lastValues[statName] = statsValuesA[statName].Value.Value
+
+	-- Somar a diferença ao valor atual do texto
+	local currentValue = tonumber(statsValuesA[statName].TextLabel.Text) or 0
+	statsValuesA[statName].TextLabel.Text = tostring(currentValue + addedValue)
+end
+
+-- Conectar um evento para atualizar o texto quando o valor de cada stat mudar
+for statName, _ in pairs(statsValuesA) do
+	statsValuesA[statName].Value.Changed:Connect(function()
+		UpdateTextLabel(statName)
+	end)
+end
+
+-- Chamar a função inicialmente para configurar os textos
+for statName, _ in pairs(statsValuesA) do
+	UpdateTextLabel(statName)
+end
+
+-- Função para resetar os valores dos TextLabels para 0 após 1 minuto
+local function ResetTextLabels()
+	for statName, _ in pairs(statsValuesA) do
+		statsValuesA[statName].TextLabel.Text = "0"
+	end
+end
+
+-- Função para transferir os valores entre as tabelas statsValuesA, statsValuesB e statsValuesC
+local function TransferValues(source, destination)
+	for statName, _ in pairs(destination) do
+		destination[statName].TextLabel.Text = source[statName].TextLabel.Text
+		destination[statName].Value.Value = source[statName].Value.Value
+	end
+end
+
+-- Função para atualizar o texto do TextLabel "Timer" a cada segundo
+local function UpdateTimer()
+	local remainingTime = 60 -- 1 minuto em segundos
+
+	while true do
+		for i = 1, 60 do
+			wait(1) -- Aguardar 1 segundo
+			remainingTime = remainingTime - 1
+			Timer.Text = "Time left: " .. tostring(remainingTime) -- Atualizar o texto do Timer com o tempo restante
+		end
+
+		-- Transferir valores de statsValuesA para statsValuesB e de statsValuesB para statsValuesC
+		TransferValues(statsValuesB, statsValuesC)
+		TransferValues(statsValuesA, statsValuesB)
+
+		-- Resetar o tempo restante e os valores dos TextLabels quando atingir 0
+		remainingTime = 60
+		ResetTextLabels()
+		Timer.Text = "Time left: 60" -- Reiniciar o Timer para mostrar 60 segundos novamente
+	end
+end
+
+-- Iniciar a função do Timer em uma thread separada para que ela não bloqueie o código principal
+coroutine.wrap(UpdateTimer)()
