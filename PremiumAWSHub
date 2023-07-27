@@ -82,19 +82,19 @@ local LDSHUB = {
 	UICorner_31 = Instance.new("UICorner"),
 	IDK_5 = Instance.new("Frame"),
 	UICorner_32 = Instance.new("UICorner"),
-	IDKButton = Instance.new("TextButton"),
+	StatusButton = Instance.new("TextButton"),
 	UICorner_33 = Instance.new("UICorner"),
 	TextLabel_11 = Instance.new("TextLabel"),
 	TextLabel_12 = Instance.new("TextLabel"),
-	IDKFrameColor = Instance.new("Frame"),
+	StatusFrameColor = Instance.new("Frame"),
 	UICorner_34 = Instance.new("UICorner"),
 	IDK_6 = Instance.new("Frame"),
 	UICorner_35 = Instance.new("UICorner"),
-	IDKButton_2 = Instance.new("TextButton"),
+	IDKButton = Instance.new("TextButton"),
 	UICorner_36 = Instance.new("UICorner"),
 	TextLabel_13 = Instance.new("TextLabel"),
 	TextLabel_14 = Instance.new("TextLabel"),
-	IDKFrameColor_2 = Instance.new("Frame"),
+	IDKFrameColor = Instance.new("Frame"),
 	UICorner_37 = Instance.new("UICorner"),
 	Warn = Instance.new("Frame"),
 	UICorner_38 = Instance.new("UICorner"),
@@ -1045,49 +1045,49 @@ LDSHUB.IDK_5.Size = UDim2.new(0.306447297, 0, 0.362217754, 0)
 
 LDSHUB.UICorner_32.Parent = LDSHUB.IDK_5
 
-LDSHUB.IDKButton.Name = "IDKButton"
-LDSHUB.IDKButton.Parent = LDSHUB.IDK_5
-LDSHUB.IDKButton.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-LDSHUB.IDKButton.Position = UDim2.new(0.25792107, 0, 0.314927578, 0)
-LDSHUB.IDKButton.Size = UDim2.new(0.474495292, 0, 0.307436049, 0)
-LDSHUB.IDKButton.Font = Enum.Font.SourceSans
-LDSHUB.IDKButton.Text = ""
-LDSHUB.IDKButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-LDSHUB.IDKButton.TextSize = 14.000
+LDSHUB.StatusButton.Name = "StatusButton"
+LDSHUB.StatusButton.Parent = LDSHUB.IDK_5
+LDSHUB.StatusButton.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+LDSHUB.StatusButton.Position = UDim2.new(0.25792107, 0, 0.314927578, 0)
+LDSHUB.StatusButton.Size = UDim2.new(0.474495292, 0, 0.307436049, 0)
+LDSHUB.StatusButton.Font = Enum.Font.SourceSans
+LDSHUB.StatusButton.Text = ""
+LDSHUB.StatusButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+LDSHUB.StatusButton.TextSize = 14.000
 
-LDSHUB.UICorner_33.Parent = LDSHUB.IDKButton
+LDSHUB.UICorner_33.Parent = LDSHUB.StatusButton
 
-LDSHUB.TextLabel_11.Parent = LDSHUB.IDKButton
+LDSHUB.TextLabel_11.Parent = LDSHUB.StatusButton
 LDSHUB.TextLabel_11.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 LDSHUB.TextLabel_11.BackgroundTransparency = 1.000
 LDSHUB.TextLabel_11.Position = UDim2.new(-0.398266196, 0, -1.02436781, 0)
 LDSHUB.TextLabel_11.Size = UDim2.new(1.77940321, 0, 1.02436817, 0)
 LDSHUB.TextLabel_11.Font = Enum.Font.FredokaOne
-LDSHUB.TextLabel_11.Text = "Coming Soon"
+LDSHUB.TextLabel_11.Text = "Status"
 LDSHUB.TextLabel_11.TextColor3 = Color3.fromRGB(255, 255, 255)
 LDSHUB.TextLabel_11.TextScaled = true
 LDSHUB.TextLabel_11.TextSize = 14.000
 LDSHUB.TextLabel_11.TextWrapped = true
 
-LDSHUB.TextLabel_12.Parent = LDSHUB.IDKButton
+LDSHUB.TextLabel_12.Parent = LDSHUB.StatusButton
 LDSHUB.TextLabel_12.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 LDSHUB.TextLabel_12.BackgroundTransparency = 1.000
 LDSHUB.TextLabel_12.Position = UDim2.new(-0.543569267, 0, 1, 0)
 LDSHUB.TextLabel_12.Size = UDim2.new(2.10750294, 0, 1.21227443, 0)
 LDSHUB.TextLabel_12.Font = Enum.Font.FredokaOne
-LDSHUB.TextLabel_12.Text = "..."
+LDSHUB.TextLabel_12.Text = "Activate the Statistics"
 LDSHUB.TextLabel_12.TextColor3 = Color3.fromRGB(170, 0, 255)
 LDSHUB.TextLabel_12.TextScaled = true
 LDSHUB.TextLabel_12.TextSize = 14.000
 LDSHUB.TextLabel_12.TextWrapped = true
 
-LDSHUB.IDKFrameColor.Name = "IDKFrameColor"
-LDSHUB.IDKFrameColor.Parent = LDSHUB.IDKButton
-LDSHUB.IDKFrameColor.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-LDSHUB.IDKFrameColor.Position = UDim2.new(0.0568263568, 0, 0.1777464, 0)
-LDSHUB.IDKFrameColor.Size = UDim2.new(0.45161289, 0, 0.696969688, 0)
+LDSHUB.StatusFrameColor.Name = "StatusFrameColor"
+LDSHUB.StatusFrameColor.Parent = LDSHUB.StatusButton
+LDSHUB.StatusFrameColor.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+LDSHUB.StatusFrameColor.Position = UDim2.new(0.0568263568, 0, 0.1777464, 0)
+LDSHUB.StatusFrameColor.Size = UDim2.new(0.45161289, 0, 0.696969688, 0)
 
-LDSHUB.UICorner_34.Parent = LDSHUB.IDKFrameColor
+LDSHUB.UICorner_34.Parent = LDSHUB.StatusFrameColor
 
 LDSHUB.IDK_6.Name = "IDK "
 LDSHUB.IDK_6.Parent = LDSHUB.SettingsUI
@@ -1097,19 +1097,19 @@ LDSHUB.IDK_6.Size = UDim2.new(0.306447297, 0, 0.362217754, 0)
 
 LDSHUB.UICorner_35.Parent = LDSHUB.IDK_6
 
-LDSHUB.IDKButton_2.Name = "IDKButton"
-LDSHUB.IDKButton_2.Parent = LDSHUB.IDK_6
-LDSHUB.IDKButton_2.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-LDSHUB.IDKButton_2.Position = UDim2.new(0.25792107, 0, 0.314927578, 0)
-LDSHUB.IDKButton_2.Size = UDim2.new(0.474495292, 0, 0.307436049, 0)
-LDSHUB.IDKButton_2.Font = Enum.Font.SourceSans
-LDSHUB.IDKButton_2.Text = ""
-LDSHUB.IDKButton_2.TextColor3 = Color3.fromRGB(0, 0, 0)
-LDSHUB.IDKButton_2.TextSize = 14.000
+LDSHUB.IDKButton.Name = "IDKButton"
+LDSHUB.IDKButton.Parent = LDSHUB.IDK_6
+LDSHUB.IDKButton.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+LDSHUB.IDKButton.Position = UDim2.new(0.25792107, 0, 0.314927578, 0)
+LDSHUB.IDKButton.Size = UDim2.new(0.474495292, 0, 0.307436049, 0)
+LDSHUB.IDKButton.Font = Enum.Font.SourceSans
+LDSHUB.IDKButton.Text = ""
+LDSHUB.IDKButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+LDSHUB.IDKButton.TextSize = 14.000
 
-LDSHUB.UICorner_36.Parent = LDSHUB.IDKButton_2
+LDSHUB.UICorner_36.Parent = LDSHUB.IDKButton
 
-LDSHUB.TextLabel_13.Parent = LDSHUB.IDKButton_2
+LDSHUB.TextLabel_13.Parent = LDSHUB.IDKButton
 LDSHUB.TextLabel_13.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 LDSHUB.TextLabel_13.BackgroundTransparency = 1.000
 LDSHUB.TextLabel_13.Position = UDim2.new(-0.398266196, 0, -1.02436781, 0)
@@ -1121,7 +1121,7 @@ LDSHUB.TextLabel_13.TextScaled = true
 LDSHUB.TextLabel_13.TextSize = 14.000
 LDSHUB.TextLabel_13.TextWrapped = true
 
-LDSHUB.TextLabel_14.Parent = LDSHUB.IDKButton_2
+LDSHUB.TextLabel_14.Parent = LDSHUB.IDKButton
 LDSHUB.TextLabel_14.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 LDSHUB.TextLabel_14.BackgroundTransparency = 1.000
 LDSHUB.TextLabel_14.Position = UDim2.new(-0.543569267, 0, 1, 0)
@@ -1133,13 +1133,13 @@ LDSHUB.TextLabel_14.TextScaled = true
 LDSHUB.TextLabel_14.TextSize = 14.000
 LDSHUB.TextLabel_14.TextWrapped = true
 
-LDSHUB.IDKFrameColor_2.Name = "IDKFrameColor"
-LDSHUB.IDKFrameColor_2.Parent = LDSHUB.IDKButton_2
-LDSHUB.IDKFrameColor_2.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-LDSHUB.IDKFrameColor_2.Position = UDim2.new(0.0568263568, 0, 0.1777464, 0)
-LDSHUB.IDKFrameColor_2.Size = UDim2.new(0.45161289, 0, 0.696969688, 0)
+LDSHUB.IDKFrameColor.Name = "IDKFrameColor"
+LDSHUB.IDKFrameColor.Parent = LDSHUB.IDKButton
+LDSHUB.IDKFrameColor.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+LDSHUB.IDKFrameColor.Position = UDim2.new(0.0568263568, 0, 0.1777464, 0)
+LDSHUB.IDKFrameColor.Size = UDim2.new(0.45161289, 0, 0.696969688, 0)
 
-LDSHUB.UICorner_37.Parent = LDSHUB.IDKFrameColor_2
+LDSHUB.UICorner_37.Parent = LDSHUB.IDKFrameColor
 
 LDSHUB.Warn.Name = "Warn"
 LDSHUB.Warn.Parent = LDSHUB.Frame
@@ -4272,6 +4272,11 @@ LDSHUB.DeleteButton.MouseButton1Click:Connect(function()
 	ResetHub()
 end)
 
+LDSHUB.StatusButton.MouseButton1Click:Connect(function()
+	LDSHUB.StatusFrameColor.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/LDSHUBscripts/scripts/main/Status"))()
+end)
+
 LDSHUB.Yes.MouseButton1Click:Connect(function()
 	LDSHUB.LDSHUB:Destroy()
 end)
@@ -5854,7 +5859,7 @@ end
 -- Auto Train
 
 local function AutoDumbellKnuckle()
-	
+
 	if G.Settings.AutoTrain1 == true then
 		LDSHUB.AutoTrainFrame1.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	else
