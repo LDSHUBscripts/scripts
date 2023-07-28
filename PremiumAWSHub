@@ -436,74 +436,81 @@ local LDSHUB = {
 	AutoTrain1 = Instance.new("TextButton"),
 	UICorner_156 = Instance.new("UICorner"),
 	TextLabel_72 = Instance.new("TextLabel"),
-	TextLabel_73 = Instance.new("TextLabel"),
 	AutoTrainFrame1 = Instance.new("Frame"),
 	UICorner_157 = Instance.new("UICorner"),
-	AutoTrain2 = Instance.new("TextButton"),
+	AutoTrain4 = Instance.new("TextButton"),
 	UICorner_158 = Instance.new("UICorner"),
+	TextLabel_73 = Instance.new("TextLabel"),
+	AutoTrainFrame4 = Instance.new("Frame"),
+	UICorner_159 = Instance.new("UICorner"),
+	AutoTrain5 = Instance.new("TextButton"),
+	UICorner_160 = Instance.new("UICorner"),
 	TextLabel_74 = Instance.new("TextLabel"),
+	AutoTrainFrame5 = Instance.new("Frame"),
+	UICorner_161 = Instance.new("UICorner"),
+	AutoTrain2 = Instance.new("TextButton"),
+	UICorner_162 = Instance.new("UICorner"),
 	TextLabel_75 = Instance.new("TextLabel"),
 	AutoTrainFrame2 = Instance.new("Frame"),
-	UICorner_159 = Instance.new("UICorner"),
+	UICorner_163 = Instance.new("UICorner"),
 	AutoTrain3 = Instance.new("TextButton"),
-	UICorner_160 = Instance.new("UICorner"),
+	UICorner_164 = Instance.new("UICorner"),
 	TextLabel_76 = Instance.new("TextLabel"),
-	TextLabel_77 = Instance.new("TextLabel"),
 	AutoTrainFrame3 = Instance.new("Frame"),
-	UICorner_161 = Instance.new("UICorner"),
+	UICorner_165 = Instance.new("UICorner"),
 	AutoPotionsUi = Instance.new("Frame"),
-	UICorner_162 = Instance.new("UICorner"),
+	UICorner_166 = Instance.new("UICorner"),
 	AutoPotionsTxt = Instance.new("TextLabel"),
 	autopotion1 = Instance.new("TextButton"),
-	UICorner_163 = Instance.new("UICorner"),
+	UICorner_167 = Instance.new("UICorner"),
 	PotionFrameColor1 = Instance.new("Frame"),
-	UICorner_164 = Instance.new("UICorner"),
+	UICorner_168 = Instance.new("UICorner"),
+	TextLabel_77 = Instance.new("TextLabel"),
 	TextLabel_78 = Instance.new("TextLabel"),
-	TextLabel_79 = Instance.new("TextLabel"),
 	PotionSelected1 = Instance.new("Frame"),
-	UICorner_165 = Instance.new("UICorner"),
+	UICorner_169 = Instance.new("UICorner"),
 	PotionNameTxt1 = Instance.new("TextLabel"),
 	OpenPotionsButton1 = Instance.new("TextButton"),
-	UICorner_166 = Instance.new("UICorner"),
+	UICorner_170 = Instance.new("UICorner"),
 	PotionName3 = Instance.new("Frame"),
-	UICorner_167 = Instance.new("UICorner"),
+	UICorner_171 = Instance.new("UICorner"),
 	ScrollingFramePotions3 = Instance.new("ScrollingFrame"),
 	UIListLayout_9 = Instance.new("UIListLayout"),
 	PotionSelected2 = Instance.new("Frame"),
-	UICorner_168 = Instance.new("UICorner"),
+	UICorner_172 = Instance.new("UICorner"),
 	PotionNameTxt2 = Instance.new("TextLabel"),
 	OpenPotionsButton2 = Instance.new("TextButton"),
-	UICorner_169 = Instance.new("UICorner"),
+	UICorner_173 = Instance.new("UICorner"),
 	PotionSelected3 = Instance.new("Frame"),
-	UICorner_170 = Instance.new("UICorner"),
+	UICorner_174 = Instance.new("UICorner"),
 	OpenPotionsButton3 = Instance.new("TextButton"),
-	UICorner_171 = Instance.new("UICorner"),
+	UICorner_175 = Instance.new("UICorner"),
 	PotionNameTxt3 = Instance.new("TextLabel"),
 	PotionName1 = Instance.new("Frame"),
-	UICorner_172 = Instance.new("UICorner"),
+	UICorner_176 = Instance.new("UICorner"),
 	ScrollingFramePotions1 = Instance.new("ScrollingFrame"),
 	UIListLayout_10 = Instance.new("UIListLayout"),
 	PotionName2 = Instance.new("Frame"),
-	UICorner_173 = Instance.new("UICorner"),
+	UICorner_177 = Instance.new("UICorner"),
 	ScrollingFramePotions2 = Instance.new("ScrollingFrame"),
 	UIListLayout_11 = Instance.new("UIListLayout"),
 	PotionName4 = Instance.new("Frame"),
-	UICorner_174 = Instance.new("UICorner"),
+	UICorner_178 = Instance.new("UICorner"),
 	ScrollingFramePotions4 = Instance.new("ScrollingFrame"),
 	UIListLayout_12 = Instance.new("UIListLayout"),
 	PotionSelected4 = Instance.new("Frame"),
-	UICorner_175 = Instance.new("UICorner"),
+	UICorner_179 = Instance.new("UICorner"),
 	PotionNameTxt4 = Instance.new("TextLabel"),
 	OpenPotionsButton4 = Instance.new("TextButton"),
-	UICorner_176 = Instance.new("UICorner"),
+	UICorner_180 = Instance.new("UICorner"),
 	autopotion2 = Instance.new("TextButton"),
-	UICorner_177 = Instance.new("UICorner"),
+	UICorner_181 = Instance.new("UICorner"),
 	PotionFrameColor2 = Instance.new("Frame"),
-	UICorner_178 = Instance.new("UICorner"),
+	UICorner_182 = Instance.new("UICorner"),
+	TextLabel_79 = Instance.new("TextLabel"),
 	TextLabel_80 = Instance.new("TextLabel"),
-	TextLabel_81 = Instance.new("TextLabel"),
 	UpdateNoteUi = Instance.new("Frame"),
-	UICorner_179 = Instance.new("UICorner"),
+	UICorner_183 = Instance.new("UICorner"),
 	Updates = Instance.new("TextLabel"),
 	Updates_2 = Instance.new("TextLabel"),
 	TextCredits_2 = Instance.new("TextLabel"),
@@ -515,8 +522,8 @@ local LDSHUB = {
 	TextCredits_8 = Instance.new("TextLabel"),
 	MenuH = Instance.new("Frame"),
 	TextButton = Instance.new("TextButton"),
-	UICorner_180 = Instance.new("UICorner"),
-	TextLabel_82 = Instance.new("TextLabel"),
+	UICorner_184 = Instance.new("UICorner"),
+	TextLabel_81 = Instance.new("TextLabel"),
 }
 
 --Properties:
@@ -3513,7 +3520,7 @@ LDSHUB.AutoTrainTxt.TextWrapped = true
 LDSHUB.AutoTrain1.Name = "AutoTrain1"
 LDSHUB.AutoTrain1.Parent = LDSHUB.AutoTrainUi
 LDSHUB.AutoTrain1.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-LDSHUB.AutoTrain1.Position = UDim2.new(0.0236391015, 0, 0.114733338, 0)
+LDSHUB.AutoTrain1.Position = UDim2.new(0.0236390419, 0, 0.114733301, 0)
 LDSHUB.AutoTrain1.Size = UDim2.new(0.161972716, 0, 0.104609773, 0)
 LDSHUB.AutoTrain1.Font = Enum.Font.SourceSans
 LDSHUB.AutoTrain1.Text = ""
@@ -3525,7 +3532,7 @@ LDSHUB.UICorner_156.Parent = LDSHUB.AutoTrain1
 LDSHUB.TextLabel_72.Parent = LDSHUB.AutoTrain1
 LDSHUB.TextLabel_72.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 LDSHUB.TextLabel_72.BackgroundTransparency = 1.000
-LDSHUB.TextLabel_72.Position = UDim2.new(1.08695269, 0, 0, 0)
+LDSHUB.TextLabel_72.Position = UDim2.new(1.08695269, 0, -0.0645161346, 0)
 LDSHUB.TextLabel_72.Size = UDim2.new(4.940979, 0, 1.04129136, 0)
 LDSHUB.TextLabel_72.Font = Enum.Font.FredokaOne
 LDSHUB.TextLabel_72.Text = "Auto (Dumbell + Knuckle)"
@@ -3535,18 +3542,6 @@ LDSHUB.TextLabel_72.TextSize = 14.000
 LDSHUB.TextLabel_72.TextWrapped = true
 LDSHUB.TextLabel_72.TextXAlignment = Enum.TextXAlignment.Left
 
-LDSHUB.TextLabel_73.Parent = LDSHUB.AutoTrain1
-LDSHUB.TextLabel_73.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-LDSHUB.TextLabel_73.BackgroundTransparency = 1.000
-LDSHUB.TextLabel_73.Position = UDim2.new(-0.000361807877, 0, 1.03225124, 0)
-LDSHUB.TextLabel_73.Size = UDim2.new(5.92298841, 0, 1.49936163, 0)
-LDSHUB.TextLabel_73.Font = Enum.Font.FredokaOne
-LDSHUB.TextLabel_73.Text = "Activating this option, you will farm Dumbell and Knuckle at the same time"
-LDSHUB.TextLabel_73.TextColor3 = Color3.fromRGB(170, 0, 255)
-LDSHUB.TextLabel_73.TextScaled = true
-LDSHUB.TextLabel_73.TextSize = 14.000
-LDSHUB.TextLabel_73.TextWrapped = true
-
 LDSHUB.AutoTrainFrame1.Name = "AutoTrainFrame1"
 LDSHUB.AutoTrainFrame1.Parent = LDSHUB.AutoTrain1
 LDSHUB.AutoTrainFrame1.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
@@ -3555,42 +3550,96 @@ LDSHUB.AutoTrainFrame1.Size = UDim2.new(0.434782594, 0, 0.870967746, 0)
 
 LDSHUB.UICorner_157.Parent = LDSHUB.AutoTrainFrame1
 
-LDSHUB.AutoTrain2.Name = "AutoTrain2"
-LDSHUB.AutoTrain2.Parent = LDSHUB.AutoTrainUi
-LDSHUB.AutoTrain2.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-LDSHUB.AutoTrain2.Position = UDim2.new(0.0236391015, 0, 0.408315629, 0)
-LDSHUB.AutoTrain2.Size = UDim2.new(0.161972716, 0, 0.104609773, 0)
-LDSHUB.AutoTrain2.Font = Enum.Font.SourceSans
-LDSHUB.AutoTrain2.Text = ""
-LDSHUB.AutoTrain2.TextColor3 = Color3.fromRGB(0, 0, 0)
-LDSHUB.AutoTrain2.TextSize = 14.000
+LDSHUB.AutoTrain4.Name = "AutoTrain4"
+LDSHUB.AutoTrain4.Parent = LDSHUB.AutoTrainUi
+LDSHUB.AutoTrain4.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.AutoTrain4.Position = UDim2.new(0.0236390419, 0, 0.654654741, 0)
+LDSHUB.AutoTrain4.Size = UDim2.new(0.161972716, 0, 0.104609773, 0)
+LDSHUB.AutoTrain4.Font = Enum.Font.SourceSans
+LDSHUB.AutoTrain4.Text = ""
+LDSHUB.AutoTrain4.TextColor3 = Color3.fromRGB(0, 0, 0)
+LDSHUB.AutoTrain4.TextSize = 14.000
 
-LDSHUB.UICorner_158.Parent = LDSHUB.AutoTrain2
+LDSHUB.UICorner_158.Parent = LDSHUB.AutoTrain4
 
-LDSHUB.TextLabel_74.Parent = LDSHUB.AutoTrain2
+LDSHUB.TextLabel_73.Parent = LDSHUB.AutoTrain4
+LDSHUB.TextLabel_73.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_73.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_73.Position = UDim2.new(1.08695269, 0, 0, 0)
+LDSHUB.TextLabel_73.Size = UDim2.new(4.940979, 0, 1.04129136, 0)
+LDSHUB.TextLabel_73.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_73.Text = "Auto (Dumbell + Barbell + Knuckle)"
+LDSHUB.TextLabel_73.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_73.TextScaled = true
+LDSHUB.TextLabel_73.TextSize = 14.000
+LDSHUB.TextLabel_73.TextWrapped = true
+LDSHUB.TextLabel_73.TextXAlignment = Enum.TextXAlignment.Left
+
+LDSHUB.AutoTrainFrame4.Name = "AutoTrainFrame4"
+LDSHUB.AutoTrainFrame4.Parent = LDSHUB.AutoTrain4
+LDSHUB.AutoTrainFrame4.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+LDSHUB.AutoTrainFrame4.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
+LDSHUB.AutoTrainFrame4.Size = UDim2.new(0.434782594, 0, 0.870967746, 0)
+
+LDSHUB.UICorner_159.Parent = LDSHUB.AutoTrainFrame4
+
+LDSHUB.AutoTrain5.Name = "AutoTrain5"
+LDSHUB.AutoTrain5.Parent = LDSHUB.AutoTrainUi
+LDSHUB.AutoTrain5.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.AutoTrain5.Position = UDim2.new(0.0236390419, 0, 0.833503723, 0)
+LDSHUB.AutoTrain5.Size = UDim2.new(0.161972716, 0, 0.104609773, 0)
+LDSHUB.AutoTrain5.Font = Enum.Font.SourceSans
+LDSHUB.AutoTrain5.Text = ""
+LDSHUB.AutoTrain5.TextColor3 = Color3.fromRGB(0, 0, 0)
+LDSHUB.AutoTrain5.TextSize = 14.000
+
+LDSHUB.UICorner_160.Parent = LDSHUB.AutoTrain5
+
+LDSHUB.TextLabel_74.Parent = LDSHUB.AutoTrain5
 LDSHUB.TextLabel_74.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 LDSHUB.TextLabel_74.BackgroundTransparency = 1.000
 LDSHUB.TextLabel_74.Position = UDim2.new(1.08695269, 0, 0, 0)
 LDSHUB.TextLabel_74.Size = UDim2.new(4.940979, 0, 1.04129136, 0)
 LDSHUB.TextLabel_74.Font = Enum.Font.FredokaOne
-LDSHUB.TextLabel_74.Text = "Auto (Dumbell + Barbell + Knuckle)"
+LDSHUB.TextLabel_74.Text = "Auto (Dumbell + Barbell + Hands + Knuckle)"
 LDSHUB.TextLabel_74.TextColor3 = Color3.fromRGB(255, 255, 255)
 LDSHUB.TextLabel_74.TextScaled = true
 LDSHUB.TextLabel_74.TextSize = 14.000
 LDSHUB.TextLabel_74.TextWrapped = true
 LDSHUB.TextLabel_74.TextXAlignment = Enum.TextXAlignment.Left
 
+LDSHUB.AutoTrainFrame5.Name = "AutoTrainFrame5"
+LDSHUB.AutoTrainFrame5.Parent = LDSHUB.AutoTrain5
+LDSHUB.AutoTrainFrame5.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+LDSHUB.AutoTrainFrame5.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
+LDSHUB.AutoTrainFrame5.Size = UDim2.new(0.434782594, 0, 0.870967746, 0)
+
+LDSHUB.UICorner_161.Parent = LDSHUB.AutoTrainFrame5
+
+LDSHUB.AutoTrain2.Name = "AutoTrain2"
+LDSHUB.AutoTrain2.Parent = LDSHUB.AutoTrainUi
+LDSHUB.AutoTrain2.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+LDSHUB.AutoTrain2.Position = UDim2.new(0.0236390419, 0, 0.286833256, 0)
+LDSHUB.AutoTrain2.Size = UDim2.new(0.161972716, 0, 0.104609773, 0)
+LDSHUB.AutoTrain2.Font = Enum.Font.SourceSans
+LDSHUB.AutoTrain2.Text = ""
+LDSHUB.AutoTrain2.TextColor3 = Color3.fromRGB(0, 0, 0)
+LDSHUB.AutoTrain2.TextSize = 14.000
+
+LDSHUB.UICorner_162.Parent = LDSHUB.AutoTrain2
+
 LDSHUB.TextLabel_75.Parent = LDSHUB.AutoTrain2
 LDSHUB.TextLabel_75.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 LDSHUB.TextLabel_75.BackgroundTransparency = 1.000
-LDSHUB.TextLabel_75.Position = UDim2.new(-0.0149247972, 0, 1.03225029, 0)
-LDSHUB.TextLabel_75.Size = UDim2.new(5.93755245, 0, 1.62839401, 0)
+LDSHUB.TextLabel_75.Position = UDim2.new(1.08695269, 0, -0.0645161346, 0)
+LDSHUB.TextLabel_75.Size = UDim2.new(4.940979, 0, 1.04129136, 0)
 LDSHUB.TextLabel_75.Font = Enum.Font.FredokaOne
-LDSHUB.TextLabel_75.Text = "Activating the option, you format Dumbell and Barbell and Knuckle at the same time"
-LDSHUB.TextLabel_75.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.TextLabel_75.Text = "Auto (Barbell + Knuckle)"
+LDSHUB.TextLabel_75.TextColor3 = Color3.fromRGB(255, 255, 255)
 LDSHUB.TextLabel_75.TextScaled = true
 LDSHUB.TextLabel_75.TextSize = 14.000
 LDSHUB.TextLabel_75.TextWrapped = true
+LDSHUB.TextLabel_75.TextXAlignment = Enum.TextXAlignment.Left
 
 LDSHUB.AutoTrainFrame2.Name = "AutoTrainFrame2"
 LDSHUB.AutoTrainFrame2.Parent = LDSHUB.AutoTrain2
@@ -3598,44 +3647,32 @@ LDSHUB.AutoTrainFrame2.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 LDSHUB.AutoTrainFrame2.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
 LDSHUB.AutoTrainFrame2.Size = UDim2.new(0.434782594, 0, 0.870967746, 0)
 
-LDSHUB.UICorner_159.Parent = LDSHUB.AutoTrainFrame2
+LDSHUB.UICorner_163.Parent = LDSHUB.AutoTrainFrame2
 
 LDSHUB.AutoTrain3.Name = "AutoTrain3"
 LDSHUB.AutoTrain3.Parent = LDSHUB.AutoTrainUi
 LDSHUB.AutoTrain3.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
-LDSHUB.AutoTrain3.Position = UDim2.new(0.0236391015, 0, 0.718770444, 0)
+LDSHUB.AutoTrain3.Position = UDim2.new(0.0236390419, 0, 0.469056726, 0)
 LDSHUB.AutoTrain3.Size = UDim2.new(0.161972716, 0, 0.104609773, 0)
 LDSHUB.AutoTrain3.Font = Enum.Font.SourceSans
 LDSHUB.AutoTrain3.Text = ""
 LDSHUB.AutoTrain3.TextColor3 = Color3.fromRGB(0, 0, 0)
 LDSHUB.AutoTrain3.TextSize = 14.000
 
-LDSHUB.UICorner_160.Parent = LDSHUB.AutoTrain3
+LDSHUB.UICorner_164.Parent = LDSHUB.AutoTrain3
 
 LDSHUB.TextLabel_76.Parent = LDSHUB.AutoTrain3
 LDSHUB.TextLabel_76.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 LDSHUB.TextLabel_76.BackgroundTransparency = 1.000
-LDSHUB.TextLabel_76.Position = UDim2.new(1.08695269, 0, 0, 0)
+LDSHUB.TextLabel_76.Position = UDim2.new(1.08695269, 0, -0.0645161346, 0)
 LDSHUB.TextLabel_76.Size = UDim2.new(4.940979, 0, 1.04129136, 0)
 LDSHUB.TextLabel_76.Font = Enum.Font.FredokaOne
-LDSHUB.TextLabel_76.Text = "Auto (Dumbell + Barbell + Hands + Knuckle)"
+LDSHUB.TextLabel_76.Text = "Auto (Handles + Knuckle)"
 LDSHUB.TextLabel_76.TextColor3 = Color3.fromRGB(255, 255, 255)
 LDSHUB.TextLabel_76.TextScaled = true
 LDSHUB.TextLabel_76.TextSize = 14.000
 LDSHUB.TextLabel_76.TextWrapped = true
 LDSHUB.TextLabel_76.TextXAlignment = Enum.TextXAlignment.Left
-
-LDSHUB.TextLabel_77.Parent = LDSHUB.AutoTrain3
-LDSHUB.TextLabel_77.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-LDSHUB.TextLabel_77.BackgroundTransparency = 1.000
-LDSHUB.TextLabel_77.Position = UDim2.new(0, 0, 1.04129136, 0)
-LDSHUB.TextLabel_77.Size = UDim2.new(6.02793026, 0, 1.64707673, 0)
-LDSHUB.TextLabel_77.Font = Enum.Font.FredokaOne
-LDSHUB.TextLabel_77.Text = "Activating the option, you format Dumbell and Barbell, Hands and Knuckle at the same time"
-LDSHUB.TextLabel_77.TextColor3 = Color3.fromRGB(170, 0, 255)
-LDSHUB.TextLabel_77.TextScaled = true
-LDSHUB.TextLabel_77.TextSize = 14.000
-LDSHUB.TextLabel_77.TextWrapped = true
 
 LDSHUB.AutoTrainFrame3.Name = "AutoTrainFrame3"
 LDSHUB.AutoTrainFrame3.Parent = LDSHUB.AutoTrain3
@@ -3643,7 +3680,7 @@ LDSHUB.AutoTrainFrame3.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 LDSHUB.AutoTrainFrame3.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
 LDSHUB.AutoTrainFrame3.Size = UDim2.new(0.434782594, 0, 0.870967746, 0)
 
-LDSHUB.UICorner_161.Parent = LDSHUB.AutoTrainFrame3
+LDSHUB.UICorner_165.Parent = LDSHUB.AutoTrainFrame3
 
 LDSHUB.AutoPotionsUi.Name = "AutoPotionsUi"
 LDSHUB.AutoPotionsUi.Parent = LDSHUB.Frame
@@ -3652,7 +3689,7 @@ LDSHUB.AutoPotionsUi.Position = UDim2.new(0.273959696, 0, 0.0941176489, 0)
 LDSHUB.AutoPotionsUi.Size = UDim2.new(0.707664907, 0, 0.871586502, 0)
 LDSHUB.AutoPotionsUi.Visible = false
 
-LDSHUB.UICorner_162.Parent = LDSHUB.AutoPotionsUi
+LDSHUB.UICorner_166.Parent = LDSHUB.AutoPotionsUi
 
 LDSHUB.AutoPotionsTxt.Name = "AutoPotionsTxt"
 LDSHUB.AutoPotionsTxt.Parent = LDSHUB.AutoPotionsUi
@@ -3677,7 +3714,7 @@ LDSHUB.autopotion1.Text = ""
 LDSHUB.autopotion1.TextColor3 = Color3.fromRGB(0, 0, 0)
 LDSHUB.autopotion1.TextSize = 14.000
 
-LDSHUB.UICorner_163.Parent = LDSHUB.autopotion1
+LDSHUB.UICorner_167.Parent = LDSHUB.autopotion1
 
 LDSHUB.PotionFrameColor1.Name = "PotionFrameColor1"
 LDSHUB.PotionFrameColor1.Parent = LDSHUB.autopotion1
@@ -3685,32 +3722,32 @@ LDSHUB.PotionFrameColor1.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 LDSHUB.PotionFrameColor1.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
 LDSHUB.PotionFrameColor1.Size = UDim2.new(0.434782594, 0, 0.870967746, 0)
 
-LDSHUB.UICorner_164.Parent = LDSHUB.PotionFrameColor1
+LDSHUB.UICorner_168.Parent = LDSHUB.PotionFrameColor1
+
+LDSHUB.TextLabel_77.Parent = LDSHUB.autopotion1
+LDSHUB.TextLabel_77.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_77.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_77.Position = UDim2.new(1.0869571, 0, -0.0322580673, 0)
+LDSHUB.TextLabel_77.Size = UDim2.new(1.62009478, 0, 1.00000012, 0)
+LDSHUB.TextLabel_77.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_77.Text = "Auto Potion"
+LDSHUB.TextLabel_77.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_77.TextScaled = true
+LDSHUB.TextLabel_77.TextSize = 14.000
+LDSHUB.TextLabel_77.TextWrapped = true
+LDSHUB.TextLabel_77.TextXAlignment = Enum.TextXAlignment.Left
 
 LDSHUB.TextLabel_78.Parent = LDSHUB.autopotion1
 LDSHUB.TextLabel_78.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 LDSHUB.TextLabel_78.BackgroundTransparency = 1.000
-LDSHUB.TextLabel_78.Position = UDim2.new(1.0869571, 0, -0.0322580673, 0)
-LDSHUB.TextLabel_78.Size = UDim2.new(1.62009478, 0, 1.00000012, 0)
+LDSHUB.TextLabel_78.Position = UDim2.new(0.0432613753, 0, 1.16129434, 0)
+LDSHUB.TextLabel_78.Size = UDim2.new(2.53469896, 0, 1.62384832, 0)
 LDSHUB.TextLabel_78.Font = Enum.Font.FredokaOne
-LDSHUB.TextLabel_78.Text = "Auto Potion"
-LDSHUB.TextLabel_78.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_78.Text = "Activating this option will start using the selected potions after it ends."
+LDSHUB.TextLabel_78.TextColor3 = Color3.fromRGB(170, 0, 255)
 LDSHUB.TextLabel_78.TextScaled = true
 LDSHUB.TextLabel_78.TextSize = 14.000
 LDSHUB.TextLabel_78.TextWrapped = true
-LDSHUB.TextLabel_78.TextXAlignment = Enum.TextXAlignment.Left
-
-LDSHUB.TextLabel_79.Parent = LDSHUB.autopotion1
-LDSHUB.TextLabel_79.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-LDSHUB.TextLabel_79.BackgroundTransparency = 1.000
-LDSHUB.TextLabel_79.Position = UDim2.new(0.0432613753, 0, 1.16129434, 0)
-LDSHUB.TextLabel_79.Size = UDim2.new(2.53469896, 0, 1.62384832, 0)
-LDSHUB.TextLabel_79.Font = Enum.Font.FredokaOne
-LDSHUB.TextLabel_79.Text = "Activating this option will start using the selected potions after it ends."
-LDSHUB.TextLabel_79.TextColor3 = Color3.fromRGB(170, 0, 255)
-LDSHUB.TextLabel_79.TextScaled = true
-LDSHUB.TextLabel_79.TextSize = 14.000
-LDSHUB.TextLabel_79.TextWrapped = true
 
 LDSHUB.PotionSelected1.Name = "PotionSelected1"
 LDSHUB.PotionSelected1.Parent = LDSHUB.AutoPotionsUi
@@ -3718,7 +3755,7 @@ LDSHUB.PotionSelected1.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
 LDSHUB.PotionSelected1.Position = UDim2.new(0.0209310167, 0, 0.0938729122, 0)
 LDSHUB.PotionSelected1.Size = UDim2.new(0.380356103, 0, 0.100733951, 0)
 
-LDSHUB.UICorner_165.Parent = LDSHUB.PotionSelected1
+LDSHUB.UICorner_169.Parent = LDSHUB.PotionSelected1
 
 LDSHUB.PotionNameTxt1.Name = "PotionNameTxt1"
 LDSHUB.PotionNameTxt1.Parent = LDSHUB.PotionSelected1
@@ -3749,7 +3786,7 @@ LDSHUB.OpenPotionsButton1.TextSize = 14.000
 LDSHUB.OpenPotionsButton1.TextStrokeTransparency = 0.000
 LDSHUB.OpenPotionsButton1.TextWrapped = true
 
-LDSHUB.UICorner_166.Parent = LDSHUB.OpenPotionsButton1
+LDSHUB.UICorner_170.Parent = LDSHUB.OpenPotionsButton1
 
 LDSHUB.PotionName3.Name = "PotionName3"
 LDSHUB.PotionName3.Parent = LDSHUB.AutoPotionsUi
@@ -3758,7 +3795,7 @@ LDSHUB.PotionName3.Position = UDim2.new(0.581885278, 0, 0.0472431257, 0)
 LDSHUB.PotionName3.Size = UDim2.new(0.380356133, 0, 0.627045393, 0)
 LDSHUB.PotionName3.Visible = false
 
-LDSHUB.UICorner_167.Parent = LDSHUB.PotionName3
+LDSHUB.UICorner_171.Parent = LDSHUB.PotionName3
 
 LDSHUB.ScrollingFramePotions3.Name = "ScrollingFramePotions3"
 LDSHUB.ScrollingFramePotions3.Parent = LDSHUB.PotionName3
@@ -3779,7 +3816,7 @@ LDSHUB.PotionSelected2.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
 LDSHUB.PotionSelected2.Position = UDim2.new(0.0232784469, 0, 0.238976777, 0)
 LDSHUB.PotionSelected2.Size = UDim2.new(0.380356103, 0, 0.100733951, 0)
 
-LDSHUB.UICorner_168.Parent = LDSHUB.PotionSelected2
+LDSHUB.UICorner_172.Parent = LDSHUB.PotionSelected2
 
 LDSHUB.PotionNameTxt2.Name = "PotionNameTxt2"
 LDSHUB.PotionNameTxt2.Parent = LDSHUB.PotionSelected2
@@ -3810,7 +3847,7 @@ LDSHUB.OpenPotionsButton2.TextSize = 14.000
 LDSHUB.OpenPotionsButton2.TextStrokeTransparency = 0.000
 LDSHUB.OpenPotionsButton2.TextWrapped = true
 
-LDSHUB.UICorner_169.Parent = LDSHUB.OpenPotionsButton2
+LDSHUB.UICorner_173.Parent = LDSHUB.OpenPotionsButton2
 
 LDSHUB.PotionSelected3.Name = "PotionSelected3"
 LDSHUB.PotionSelected3.Parent = LDSHUB.AutoPotionsUi
@@ -3818,7 +3855,7 @@ LDSHUB.PotionSelected3.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
 LDSHUB.PotionSelected3.Position = UDim2.new(0.0232784469, 0, 0.384080619, 0)
 LDSHUB.PotionSelected3.Size = UDim2.new(0.380356103, 0, 0.100733951, 0)
 
-LDSHUB.UICorner_170.Parent = LDSHUB.PotionSelected3
+LDSHUB.UICorner_174.Parent = LDSHUB.PotionSelected3
 
 LDSHUB.OpenPotionsButton3.Name = "OpenPotionsButton3"
 LDSHUB.OpenPotionsButton3.Parent = LDSHUB.PotionSelected3
@@ -3835,7 +3872,7 @@ LDSHUB.OpenPotionsButton3.TextSize = 14.000
 LDSHUB.OpenPotionsButton3.TextStrokeTransparency = 0.000
 LDSHUB.OpenPotionsButton3.TextWrapped = true
 
-LDSHUB.UICorner_171.Parent = LDSHUB.OpenPotionsButton3
+LDSHUB.UICorner_175.Parent = LDSHUB.OpenPotionsButton3
 
 LDSHUB.PotionNameTxt3.Name = "PotionNameTxt3"
 LDSHUB.PotionNameTxt3.Parent = LDSHUB.PotionSelected3
@@ -3858,7 +3895,7 @@ LDSHUB.PotionName1.Position = UDim2.new(0.581885278, 0, 0.0472431257, 0)
 LDSHUB.PotionName1.Size = UDim2.new(0.380356133, 0, 0.627045393, 0)
 LDSHUB.PotionName1.Visible = false
 
-LDSHUB.UICorner_172.Parent = LDSHUB.PotionName1
+LDSHUB.UICorner_176.Parent = LDSHUB.PotionName1
 
 LDSHUB.ScrollingFramePotions1.Name = "ScrollingFramePotions1"
 LDSHUB.ScrollingFramePotions1.Parent = LDSHUB.PotionName1
@@ -3880,7 +3917,7 @@ LDSHUB.PotionName2.Position = UDim2.new(0.581885278, 0, 0.0472431257, 0)
 LDSHUB.PotionName2.Size = UDim2.new(0.380356133, 0, 0.627045393, 0)
 LDSHUB.PotionName2.Visible = false
 
-LDSHUB.UICorner_173.Parent = LDSHUB.PotionName2
+LDSHUB.UICorner_177.Parent = LDSHUB.PotionName2
 
 LDSHUB.ScrollingFramePotions2.Name = "ScrollingFramePotions2"
 LDSHUB.ScrollingFramePotions2.Parent = LDSHUB.PotionName2
@@ -3902,7 +3939,7 @@ LDSHUB.PotionName4.Position = UDim2.new(0.581885278, 0, 0.0472431257, 0)
 LDSHUB.PotionName4.Size = UDim2.new(0.380356133, 0, 0.627045393, 0)
 LDSHUB.PotionName4.Visible = false
 
-LDSHUB.UICorner_174.Parent = LDSHUB.PotionName4
+LDSHUB.UICorner_178.Parent = LDSHUB.PotionName4
 
 LDSHUB.ScrollingFramePotions4.Name = "ScrollingFramePotions4"
 LDSHUB.ScrollingFramePotions4.Parent = LDSHUB.PotionName4
@@ -3923,7 +3960,7 @@ LDSHUB.PotionSelected4.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
 LDSHUB.PotionSelected4.Position = UDim2.new(0.0185661111, 0, 0.52918452, 0)
 LDSHUB.PotionSelected4.Size = UDim2.new(0.380356103, 0, 0.100733951, 0)
 
-LDSHUB.UICorner_175.Parent = LDSHUB.PotionSelected4
+LDSHUB.UICorner_179.Parent = LDSHUB.PotionSelected4
 
 LDSHUB.PotionNameTxt4.Name = "PotionNameTxt4"
 LDSHUB.PotionNameTxt4.Parent = LDSHUB.PotionSelected4
@@ -3954,7 +3991,7 @@ LDSHUB.OpenPotionsButton4.TextSize = 14.000
 LDSHUB.OpenPotionsButton4.TextStrokeTransparency = 0.000
 LDSHUB.OpenPotionsButton4.TextWrapped = true
 
-LDSHUB.UICorner_176.Parent = LDSHUB.OpenPotionsButton4
+LDSHUB.UICorner_180.Parent = LDSHUB.OpenPotionsButton4
 
 LDSHUB.autopotion2.Name = "autopotion2"
 LDSHUB.autopotion2.Parent = LDSHUB.AutoPotionsUi
@@ -3966,7 +4003,7 @@ LDSHUB.autopotion2.Text = ""
 LDSHUB.autopotion2.TextColor3 = Color3.fromRGB(0, 0, 0)
 LDSHUB.autopotion2.TextSize = 14.000
 
-LDSHUB.UICorner_177.Parent = LDSHUB.autopotion2
+LDSHUB.UICorner_181.Parent = LDSHUB.autopotion2
 
 LDSHUB.PotionFrameColor2.Name = "PotionFrameColor2"
 LDSHUB.PotionFrameColor2.Parent = LDSHUB.autopotion2
@@ -3974,32 +4011,32 @@ LDSHUB.PotionFrameColor2.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 LDSHUB.PotionFrameColor2.Position = UDim2.new(0.0568263829, 0, 0.0644846261, 0)
 LDSHUB.PotionFrameColor2.Size = UDim2.new(0.434782594, 0, 0.870967746, 0)
 
-LDSHUB.UICorner_178.Parent = LDSHUB.PotionFrameColor2
+LDSHUB.UICorner_182.Parent = LDSHUB.PotionFrameColor2
+
+LDSHUB.TextLabel_79.Parent = LDSHUB.autopotion2
+LDSHUB.TextLabel_79.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_79.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_79.Position = UDim2.new(1.10152185, 0, 0, 0)
+LDSHUB.TextLabel_79.Size = UDim2.new(1.73670185, 0, 1.00000012, 0)
+LDSHUB.TextLabel_79.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_79.Text = "Use ALL Potions"
+LDSHUB.TextLabel_79.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_79.TextScaled = true
+LDSHUB.TextLabel_79.TextSize = 14.000
+LDSHUB.TextLabel_79.TextWrapped = true
+LDSHUB.TextLabel_79.TextXAlignment = Enum.TextXAlignment.Left
 
 LDSHUB.TextLabel_80.Parent = LDSHUB.autopotion2
 LDSHUB.TextLabel_80.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 LDSHUB.TextLabel_80.BackgroundTransparency = 1.000
-LDSHUB.TextLabel_80.Position = UDim2.new(1.10152185, 0, 0, 0)
-LDSHUB.TextLabel_80.Size = UDim2.new(1.73670185, 0, 1.00000012, 0)
+LDSHUB.TextLabel_80.Position = UDim2.new(0.159779519, 0, 1.16129434, 0)
+LDSHUB.TextLabel_80.Size = UDim2.new(2.53469896, 0, 1.62384832, 0)
 LDSHUB.TextLabel_80.Font = Enum.Font.FredokaOne
-LDSHUB.TextLabel_80.Text = "Use ALL Potions"
-LDSHUB.TextLabel_80.TextColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_80.Text = "By activating this option you will use ALL the potions you have in your inventory"
+LDSHUB.TextLabel_80.TextColor3 = Color3.fromRGB(170, 0, 255)
 LDSHUB.TextLabel_80.TextScaled = true
 LDSHUB.TextLabel_80.TextSize = 14.000
 LDSHUB.TextLabel_80.TextWrapped = true
-LDSHUB.TextLabel_80.TextXAlignment = Enum.TextXAlignment.Left
-
-LDSHUB.TextLabel_81.Parent = LDSHUB.autopotion2
-LDSHUB.TextLabel_81.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-LDSHUB.TextLabel_81.BackgroundTransparency = 1.000
-LDSHUB.TextLabel_81.Position = UDim2.new(0.159779519, 0, 1.16129434, 0)
-LDSHUB.TextLabel_81.Size = UDim2.new(2.53469896, 0, 1.62384832, 0)
-LDSHUB.TextLabel_81.Font = Enum.Font.FredokaOne
-LDSHUB.TextLabel_81.Text = "By activating this option you will use ALL the potions you have in your inventory"
-LDSHUB.TextLabel_81.TextColor3 = Color3.fromRGB(170, 0, 255)
-LDSHUB.TextLabel_81.TextScaled = true
-LDSHUB.TextLabel_81.TextSize = 14.000
-LDSHUB.TextLabel_81.TextWrapped = true
 
 LDSHUB.UpdateNoteUi.Name = "UpdateNoteUi"
 LDSHUB.UpdateNoteUi.Parent = LDSHUB.Frame
@@ -4008,7 +4045,7 @@ LDSHUB.UpdateNoteUi.Position = UDim2.new(0.273959816, 0, 0.0941176489, 0)
 LDSHUB.UpdateNoteUi.Size = UDim2.new(0.712676346, 0, 0.862762988, 0)
 LDSHUB.UpdateNoteUi.Visible = false
 
-LDSHUB.UICorner_179.Parent = LDSHUB.UpdateNoteUi
+LDSHUB.UICorner_183.Parent = LDSHUB.UpdateNoteUi
 
 LDSHUB.Updates.Name = "Updates"
 LDSHUB.Updates.Parent = LDSHUB.UpdateNoteUi
@@ -4160,22 +4197,22 @@ LDSHUB.TextButton.TextStrokeTransparency = 0.000
 LDSHUB.TextButton.TextWrapped = true
 LDSHUB.TextButton.TextYAlignment = Enum.TextYAlignment.Top
 
-LDSHUB.UICorner_180.Parent = LDSHUB.TextButton
+LDSHUB.UICorner_184.Parent = LDSHUB.TextButton
 
-LDSHUB.TextLabel_82.Parent = LDSHUB.TextButton
-LDSHUB.TextLabel_82.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-LDSHUB.TextLabel_82.BackgroundTransparency = 1.000
-LDSHUB.TextLabel_82.BorderColor3 = Color3.fromRGB(0, 0, 0)
-LDSHUB.TextLabel_82.BorderSizePixel = 0
-LDSHUB.TextLabel_82.Position = UDim2.new(1.20000017, 0, -0.0109091094, 0)
-LDSHUB.TextLabel_82.Size = UDim2.new(0, 149, 0, 33)
-LDSHUB.TextLabel_82.Font = Enum.Font.FredokaOne
-LDSHUB.TextLabel_82.Text = "Hide LDS hub!"
-LDSHUB.TextLabel_82.TextColor3 = Color3.fromRGB(170, 0, 255)
-LDSHUB.TextLabel_82.TextScaled = true
-LDSHUB.TextLabel_82.TextSize = 14.000
-LDSHUB.TextLabel_82.TextStrokeTransparency = 0.000
-LDSHUB.TextLabel_82.TextWrapped = true
+LDSHUB.TextLabel_81.Parent = LDSHUB.TextButton
+LDSHUB.TextLabel_81.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LDSHUB.TextLabel_81.BackgroundTransparency = 1.000
+LDSHUB.TextLabel_81.BorderColor3 = Color3.fromRGB(0, 0, 0)
+LDSHUB.TextLabel_81.BorderSizePixel = 0
+LDSHUB.TextLabel_81.Position = UDim2.new(1.20000017, 0, -0.0109091094, 0)
+LDSHUB.TextLabel_81.Size = UDim2.new(0, 149, 0, 33)
+LDSHUB.TextLabel_81.Font = Enum.Font.FredokaOne
+LDSHUB.TextLabel_81.Text = "Hide LDS hub!"
+LDSHUB.TextLabel_81.TextColor3 = Color3.fromRGB(170, 0, 255)
+LDSHUB.TextLabel_81.TextScaled = true
+LDSHUB.TextLabel_81.TextSize = 14.000
+LDSHUB.TextLabel_81.TextStrokeTransparency = 0.000
+LDSHUB.TextLabel_81.TextWrapped = true
 
 --scripts >
 
@@ -4205,6 +4242,8 @@ G.Settings = {
 	AutoTrain1 = false,
 	AutoTrain2 = false,
 	AutoTrain3 = false,
+	AutoTrain4 = false,
+	AutoTrain5 = false,
 	AutoCraft = false
 };
 
@@ -4231,6 +4270,8 @@ local function ResetHub()
 	G.Settings.AutoTrain1 = false
 	G.Settings.AutoTrain2 = false
 	G.Settings.AutoTrain3 = false
+	G.Settings.AutoTrain4 = false
+	G.Settings.AutoTrain5 = false
 	G.Settings.AutoCraft = false
 end
 
@@ -5160,16 +5201,16 @@ local function AutoBoss()
 
 	while G.Settings.AutoBoss do
 		wait()
-	local bossName = selectedBossName -- Usa o nome do chefe selecionado na variável selectedBossName
-	local zoneNumber = FindZoneNumber(bossName)
-	if zoneNumber then
-		local args = {
-			[1] = bossName,
-			[2] = game.Workspace.Zones[tostring(zoneNumber)]:WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild(bossName),
-			[3] = zoneNumber
-		}
+		local bossName = selectedBossName -- Usa o nome do chefe selecionado na variável selectedBossName
+		local zoneNumber = FindZoneNumber(bossName)
+		if zoneNumber then
+			local args = {
+				[1] = bossName,
+				[2] = game.Workspace.Zones[tostring(zoneNumber)]:WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild(bossName),
+				[3] = zoneNumber
+			}
 
-		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
+			game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
 		end
 	end
 end
@@ -5773,12 +5814,6 @@ end
 
 local function AutoDumbellKnuckle()
 
-	if G.Settings.AutoTrain1 == true then
-		LDSHUB.AutoTrainFrame1.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
-	else
-		LDSHUB.AutoTrainFrame1.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-	end
-
 	local BestDumbell = nil 
 
 	local plr = game.Players.LocalPlayer
@@ -5872,7 +5907,7 @@ local function AutoDumbellKnuckle()
 
 	local function EquipDumbell()
 
-		while true do
+		while G.Settings.AutoTrain1 do
 			local args = {
 				[1] = BestZone,
 				[2] = "Dumbells",
@@ -5959,13 +5994,360 @@ local function AutoDumbellKnuckle()
 	end)
 end
 
-local function AutoDumbellBarbellKnuckle()
+local function AutoBarbellKnuckle()
 
-	if G.Settings.AutoTrain2 == true then
-		LDSHUB.AutoTrainFrame2.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
-	else
-		LDSHUB.AutoTrainFrame2.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+	local BestBarbell = nil 
+
+	local plr = game.Players.LocalPlayer
+	local hum = plr.Character.HumanoidRootPart
+
+	local attributeZone = "BestZone"
+	local attributeVip = "VIP"
+	local BestZone = plr:GetAttribute(attributeZone)
+	local Vip = plr:GetAttribute(attributeVip)
+
+	local sacoVip = game.workspace.Zones[BestZone].Interactables.Training.PunchBags.VIP.Primary.Position
+
+	local function FindBestTier()
+		local punchBags = game.Workspace.Zones[BestZone].Interactables.Training.PunchBags
+		local bestTier = 0
+
+		for _, punchBag in ipairs(punchBags:GetChildren()) do
+			local tier = tonumber(punchBag.Name:match("Tier(%d+)"))
+
+			if tier and tier > bestTier then
+				bestTier = tier
+			end
+		end
+
+		return bestTier
 	end
+
+	local bestTier = FindBestTier()
+
+	local sacoNormal = game.workspace.Zones[BestZone].Interactables.Training.PunchBags["Tier" .. bestTier].Primary.Position
+
+	local function VerbestBarbell()
+		local barbells = game.ReplicatedStorage.Tools.Barbells
+
+		-- Tabela para armazenar os números extraídos dos nomes das ferramentas
+		local tiers = {}
+
+		-- Obtém todas as ferramentas dentro de game.ReplicatedStorage.Tools.Barbells
+		for _, barbell in ipairs(barbells:GetChildren()) do
+			local name = barbell.Name
+			local tier = tonumber(name:match("Tier(%d+)")) -- Extrai o número do nome no padrão "TierX"
+
+			if tier then
+				table.insert(tiers, tier)
+			end
+		end
+
+		-- Ordena os números em ordem crescente
+		table.sort(tiers)
+
+		local args = {
+			[1] = BestZone,
+			[2] = "Barbells",
+			[3] = "Tier1"
+		}
+
+		local remote = game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ToolService"):WaitForChild("RE"):WaitForChild("onGuiEquipRequest")
+
+		for _, tier in ipairs(tiers) do
+			args[3] = "Tier" .. tier
+			remote:FireServer(unpack(args))
+			wait() -- Aguarda um curto período antes de continuar para evitar sobrecarregar o servidor
+		end
+	end
+
+	local function SaveBestBarbells()
+		local player = game.Players.LocalPlayer
+
+		-- Verificar se o personagem do jogador existe
+		if player.Character then
+			local character = player.Character
+
+			-- Verificar se o personagem tem uma ferramenta equipada
+			local equippedTool = character:FindFirstChildOfClass("Tool")
+			if equippedTool then
+				-- Remover "Barbells" do início do nome da ferramenta usando gsub
+				local tierName = equippedTool.Name:gsub("Barbells", "")
+				BestBarbell = tierName
+			end
+		end
+	end
+
+	local function EquipBarbells()
+
+		while G.Settings.AutoTrain2 do
+			local args = {
+				[1] = BestZone,
+				[2] = "Barbells",
+				[3] = BestBarbell
+			}
+			game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ToolService"):WaitForChild("RE"):WaitForChild("onEquipRequest"):FireServer(unpack(args))
+			wait()
+		end
+	end
+
+	local function ATKBarbells()
+		while G.Settings.AutoTrain2 do
+			game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ToolService"):WaitForChild("RE"):WaitForChild("onClick"):FireServer()
+			wait()
+		end
+	end
+
+	local function TPBestZone()
+
+		local locationsFolder = workspace:WaitForChild("Zones")[BestZone]:WaitForChild("Interactables"):WaitForChild("Teleports"):WaitForChild("Locations")
+
+		local firstChild = locationsFolder:GetChildren()[1]
+
+		if firstChild then
+			local args = {
+				[1] = firstChild
+			}
+
+			game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ZoneService"):WaitForChild("RE"):WaitForChild("teleport"):FireServer(unpack(args))
+		end
+	end
+
+	local function Punch()
+		if Vip == true then
+			TPBestZone()
+			wait(2)
+			hum.CFrame = CFrame.new(sacoVip)
+			hum.CFrame = CFrame.new(sacoVip)
+			hum.CFrame = CFrame.new(sacoVip)
+			wait(1)
+			while G.Settings.AutoTrain2 do 
+				local args = {
+					[1] = BestZone,
+					[2] = "VIP",
+					[3] = true
+				}
+
+				game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService"):WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
+				wait()
+			end
+		else
+			TPBestZone()
+			wait(2)
+			hum.CFrame = CFrame.new(sacoVip)
+			hum.CFrame = CFrame.new(sacoVip)
+			hum.CFrame = CFrame.new(sacoVip)
+			wait(1)
+			while G.Settings.AutoTrain2 do
+				local args = {
+					[1] = BestZone,
+					[2] = bestTier
+				}
+
+				game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService"):WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
+			end
+		end
+	end
+
+
+	VerbestBarbell()
+	wait(1)
+	spawn(function()
+		SaveBestBarbells()
+	end)
+	spawn(function()
+		EquipBarbells()
+	end)
+	spawn(function()
+		ATKBarbells()
+	end)
+	spawn(function()
+		Punch()
+	end)
+end
+
+local function AutoHandleKnuckle()
+
+	local BestHandle = nil 
+
+	local plr = game.Players.LocalPlayer
+	local hum = plr.Character.HumanoidRootPart
+
+	local attributeZone = "BestZone"
+	local attributeVip = "VIP"
+	local BestZone = plr:GetAttribute(attributeZone)
+	local Vip = plr:GetAttribute(attributeVip)
+
+	local sacoVip = game.workspace.Zones[BestZone].Interactables.Training.PunchBags.VIP.Primary.Position
+
+	local function FindBestTier()
+		local punchBags = game.Workspace.Zones[BestZone].Interactables.Training.PunchBags
+		local bestTier = 0
+
+		for _, punchBag in ipairs(punchBags:GetChildren()) do
+			local tier = tonumber(punchBag.Name:match("Tier(%d+)"))
+
+			if tier and tier > bestTier then
+				bestTier = tier
+			end
+		end
+
+		return bestTier
+	end
+
+	local bestTier = FindBestTier()
+
+	local sacoNormal = game.workspace.Zones[BestZone].Interactables.Training.PunchBags["Tier" .. bestTier].Primary.Position
+
+	local function VerbestHandle()
+
+		local Handles = game.ReplicatedStorage.Tools.Grips
+
+		-- Tabela para armazenar os números extraídos dos nomes das ferramentas
+		local weights = {}
+
+		-- Obtém todas as ferramentas dentro de game.ReplicatedStorage.Tools.Dumbells
+		for _, Handle in ipairs(Handles:GetChildren()) do
+			local name = Handle.Name
+			local weightStr = name:match("%d+Kg") -- Extrai o padrão numérico seguido de "Kg" do nome
+
+			if weightStr then
+				-- Remove "Kg" do final do número e converte para um número
+				local weight = tonumber(weightStr:sub(1, -3))
+				if weight then
+					table.insert(weights, weight)
+				end
+			end
+		end
+
+		-- Ordena os números em ordem decrescente
+		table.sort(weights, function(a, b) return a > b end)
+
+		local args = {
+			[1] = BestZone,
+			[2] = "Grips",
+			[3] = "1Kg"
+		}
+
+		local remote = game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ToolService"):WaitForChild("RE"):WaitForChild("onGuiEquipRequest")
+
+		for i = #weights, 1, -1 do
+			args[3] = weights[i] .. "Kg"
+			remote:FireServer(unpack(args))
+			wait() -- Aguarda um curto período antes de continuar para evitar sobrecarregar o servidor
+		end
+	end
+
+	local function SaveBestHandle()
+
+		local player = game.Players.LocalPlayer
+
+		-- Verificar se o personagem do jogador existe
+		if player.Character then
+			local character = player.Character
+
+			-- Verificar se o personagem tem uma ferramenta equipada
+			if character:FindFirstChildWhichIsA("Tool") then
+				local equippedTool = character:FindFirstChildWhichIsA("Tool")
+				local weightStr = equippedTool.Name:match("%d+Kg") -- Extrai o padrão numérico seguido de "Kg" do nome
+
+				if weightStr then
+					BestHandle = weightStr
+				end
+			end
+		end
+	end
+
+	local function EquipHandle()
+
+		while G.Settings.AutoTrain3 do
+			local args = {
+				[1] = BestZone,
+				[2] = "Grips",
+				[3] = BestHandle
+			}
+
+			game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ToolService"):WaitForChild("RE"):WaitForChild("onGuiEquipRequest"):FireServer(unpack(args))
+			wait()
+		end
+	end
+
+	local function ATKHands()
+		while G.Settings.AutoTrain3 do
+			game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ToolService"):WaitForChild("RE"):WaitForChild("onClick"):FireServer()
+			wait()
+		end
+	end
+
+	local function TPBestZone()
+
+		local locationsFolder = workspace:WaitForChild("Zones")[BestZone]:WaitForChild("Interactables"):WaitForChild("Teleports"):WaitForChild("Locations")
+
+		local firstChild = locationsFolder:GetChildren()[1]
+
+		if firstChild then
+			local args = {
+				[1] = firstChild
+			}
+
+			game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ZoneService"):WaitForChild("RE"):WaitForChild("teleport"):FireServer(unpack(args))
+		end
+	end
+
+	local function Punch()
+		if Vip == true then
+			TPBestZone()
+			wait(2)
+			hum.CFrame = CFrame.new(sacoVip)
+			hum.CFrame = CFrame.new(sacoVip)
+			hum.CFrame = CFrame.new(sacoVip)
+			wait(1)
+			while G.Settings.AutoTrain3 do 
+				local args = {
+					[1] = BestZone,
+					[2] = "VIP",
+					[3] = true
+				}
+
+				game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService"):WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
+				wait()
+			end
+		else
+			TPBestZone()
+			wait(2)
+			hum.CFrame = CFrame.new(sacoVip)
+			hum.CFrame = CFrame.new(sacoVip)
+			hum.CFrame = CFrame.new(sacoVip)
+			wait(1)
+			while G.Settings.AutoTrain3 do
+				local args = {
+					[1] = BestZone,
+					[2] = bestTier
+				}
+
+				game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService"):WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
+			end
+		end
+	end
+
+
+	VerbestHandle()
+	wait(1)
+	spawn(function()
+		SaveBestHandle()
+	end)
+	spawn(function()
+		EquipHandle()
+	end)
+	spawn(function()
+		ATKHands()
+	end)
+	spawn(function()
+		Punch()
+	end)
+end
+
+local function AutoDumbellBarbellKnuckle()
 
 	local BestBarbell = nil 
 	local BestDumbell = nil 
@@ -6112,7 +6494,7 @@ local function AutoDumbellBarbellKnuckle()
 	end
 
 	local function EquipBarbells()
-		while G.Settings.AutoTrain2 do
+		while G.Settings.AutoTrain4 do
 			local args = {
 				[1] = BestZone,
 				[2] = "Barbells",
@@ -6126,7 +6508,7 @@ local function AutoDumbellBarbellKnuckle()
 
 	local function EquipDumbell()
 
-		while G.Settings.AutoTrain2 do
+		while G.Settings.AutoTrain4 do
 			local args = {
 				[1] = BestZone,
 				[2] = "Dumbells",
@@ -6139,7 +6521,7 @@ local function AutoDumbellBarbellKnuckle()
 	end
 
 	local function ATKBarbells()
-		while G.Settings.AutoTrain2 do
+		while G.Settings.AutoTrain4 do
 			game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ToolService"):WaitForChild("RE"):WaitForChild("onClick"):FireServer()
 			wait()
 		end
@@ -6168,7 +6550,7 @@ local function AutoDumbellBarbellKnuckle()
 			hum.CFrame = CFrame.new(sacoVip)
 			hum.CFrame = CFrame.new(sacoVip)
 			wait(1)
-			while G.Settings.AutoTrain2 do 
+			while G.Settings.AutoTrain4 do 
 				local args = {
 					[1] = BestZone,
 					[2] = "VIP",
@@ -6185,7 +6567,7 @@ local function AutoDumbellBarbellKnuckle()
 			hum.CFrame = CFrame.new(sacoVip)
 			hum.CFrame = CFrame.new(sacoVip)
 			wait(1)
-			while G.Settings.AutoTrain2 do
+			while G.Settings.AutoTrain4 do
 				local args = {
 					[1] = BestZone,
 					[2] = bestTier
@@ -6427,7 +6809,7 @@ local function AutoDumbellBarbellHandleKnuckle()
 	end
 
 	local function EquipAll()
-		while G.Settings.AutoTrain3 do
+		while G.Settings.AutoTrain5 do
 			local args = {
 				[1] = BestZone,
 				[2] = "Barbells",
@@ -6455,7 +6837,7 @@ local function AutoDumbellBarbellHandleKnuckle()
 	end
 
 	local function ATKBarbells()
-		while G.Settings.AutoTrain3 do
+		while G.Settings.AutoTrain5 do
 			game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ToolService"):WaitForChild("RE"):WaitForChild("onClick"):FireServer()
 			wait()
 		end
@@ -6484,7 +6866,7 @@ local function AutoDumbellBarbellHandleKnuckle()
 			hum.CFrame = CFrame.new(sacoVip)
 			hum.CFrame = CFrame.new(sacoVip)
 			wait(1)
-			while G.Settings.AutoTrain3 do 
+			while G.Settings.AutoTrain5 do 
 				local args = {
 					[1] = BestZone,
 					[2] = "VIP",
@@ -6501,7 +6883,7 @@ local function AutoDumbellBarbellHandleKnuckle()
 			hum.CFrame = CFrame.new(sacoVip)
 			hum.CFrame = CFrame.new(sacoVip)
 			wait(1)
-			while G.Settings.AutoTrain3 do
+			while G.Settings.AutoTrain5 do
 				local args = {
 					[1] = BestZone,
 					[2] = bestTier
@@ -6540,8 +6922,6 @@ local function AutoDumbellBarbellHandleKnuckle()
 		Punch()
 	end)
 end
-
-
 
 -- Iniciar Functions pelos botoes
 
@@ -6678,6 +7058,7 @@ LDSHUB.TeleportButton4.MouseButton1Click:Connect(function()
 end)
 
 LDSHUB.AutoTrain1.MouseButton1Click:Connect(function()
+	LDSHUB.AutoTrainFrame1.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	G.Settings.AutoTrain1 = not G.Settings.AutoTrain1
 	if G.Settings.AutoTrain1 == true then
 		AutoDumbellKnuckle()
@@ -6690,7 +7071,7 @@ LDSHUB.AutoTrain2.MouseButton1Click:Connect(function()
 	LDSHUB.AutoTrainFrame2.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	G.Settings.AutoTrain2 = not G.Settings.AutoTrain2
 	if G.Settings.AutoTrain2 == true then
-		AutoDumbellBarbellKnuckle()
+		AutoBarbellKnuckle()
 	else
 		LDSHUB.AutoTrainFrame2.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 	end
@@ -6700,9 +7081,29 @@ LDSHUB.AutoTrain3.MouseButton1Click:Connect(function()
 	LDSHUB.AutoTrainFrame3.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	G.Settings.AutoTrain3 = not G.Settings.AutoTrain3
 	if G.Settings.AutoTrain3 == true then
-		AutoDumbellBarbellHandleKnuckle()
+		AutoHandleKnuckle()
 	else
 		LDSHUB.AutoTrainFrame3.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+	end
+end)
+
+LDSHUB.AutoTrain4.MouseButton1Click:Connect(function()
+	LDSHUB.AutoTrainFrame4.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+	G.Settings.AutoTrain4 = not G.Settings.AutoTrain4
+	if G.Settings.AutoTrain4 == true then
+		AutoDumbellBarbellKnuckle()
+	else
+		LDSHUB.AutoTrainFrame4.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+	end
+end)
+
+LDSHUB.AutoTrain5.MouseButton1Click:Connect(function()
+	LDSHUB.AutoTrainFrame5.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+	G.Settings.AutoTrain5 = not G.Settings.AutoTrain5
+	if G.Settings.AutoTrain5 == true then
+		AutoDumbellBarbellHandleKnuckle()
+	else
+		LDSHUB.AutoTrainFrame5.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 	end
 end)
 
@@ -6739,8 +7140,10 @@ local functionsToExecute = {
 	["AutoDelete"] = AutoDelete,
 	["AutoCraft"] = AutoCraftPets,
 	["AutoTrain1"] = AutoDumbellKnuckle,
-	["AutoTrain2"] = AutoDumbellBarbellKnuckle,
-	["AutoTrain3"] = AutoDumbellBarbellHandleKnuckle,
+	["AutoTrain2"] = AutoBarbellKnuckle,
+	["AutoTrain3"] = AutoHandleKnuckle,
+	["AutoTrain4"] = AutoDumbellBarbellKnuckle,
+	["AutoTrain5"] = AutoDumbellBarbellHandleKnuckle,
 	["AutoHopSever"] = HopGifts,
 }
 
