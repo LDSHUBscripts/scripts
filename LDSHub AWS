@@ -4538,7 +4538,7 @@ local function ResetHub()
 	G.Settings.AutoCraft = false
 end
 
-local NameSave = game.Players.LocalPlayer.Name
+local NameSave = game.Players.LocalPlayer.Name .. "AWSomega1.0"
 
 local function LoadSettings()
 	local HttpService = game:service('HttpService')
