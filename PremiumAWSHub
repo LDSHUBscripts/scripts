@@ -5185,7 +5185,7 @@ local function FindZoneNumber(bossName)
 				local Bosses = ArmWrestling.NPC
 				for _, NameBoss in ipairs(Bosses:GetChildren()) do
 					if NameBoss.Name == bossName then
-						return tonumber(world.Name)
+						return world.Name
 					end
 				end
 			end
