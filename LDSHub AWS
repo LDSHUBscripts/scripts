@@ -5402,6 +5402,33 @@ end
 
 -- Auto Boss 
 
+local scrollBoss = LDSHUB.ScrollingFrameBoss
+local textBoxBoss = LDSHUB.TxtBoxBoss
+
+textBoxBoss.Changed:Connect(function()
+	local text = textBoxBoss.Text:lower()
+	if text ~= "" then
+		local buttons = scrollBoss:GetDescendants()
+		for _, button in pairs(buttons) do
+			if button:IsA("TextButton") then
+				local buttonText = button.Text:lower()
+				if string.find(buttonText, text) then 
+					button.Visible = true 
+				else 
+					button.Visible = false
+				end
+			end
+		end
+	else 
+		local buttons = scrollBoss:GetDescendants()
+		for _, button in pairs(buttons) do
+			if button:IsA("TextButton") then
+				button.Visible = true
+			end
+		end
+	end
+end)
+
 local selectedBossName = ""
 
 local function CreateTextButtonBoss(parent, name)
@@ -5492,6 +5519,33 @@ end
 
 -- Auto Eggs
 
+local scrollEgg = LDSHUB.ScrollingFrameEgg
+local textBoxEgg = LDSHUB.TxtBoxAutoFarm
+
+textBoxEgg.Changed:Connect(function()
+	local text = textBoxEgg.Text:lower()
+	if text ~= "" then
+		local buttons = scrollEgg:GetDescendants()
+		for _, button in pairs(buttons) do
+			if button:IsA("TextButton") then
+				local buttonText = button.Text:lower()
+				if string.find(buttonText, text) then 
+					button.Visible = true 
+				else 
+					button.Visible = false
+				end
+			end
+		end
+	else 
+		local buttons = scrollEgg:GetDescendants()
+		for _, button in pairs(buttons) do
+			if button:IsA("TextButton") then
+				button.Visible = true
+			end
+		end
+	end
+end)
+
 local function CreateTextButtonEgg(parent, name)
 	local TextButton = Instance.new("TextButton")
 	TextButton.Name = name
@@ -5522,10 +5576,12 @@ local zones = game.Workspace.Zones
 -- Obtém todas as pastas numeradas dentro de game.Workspace.Zones
 local numberedFolders = {}
 for _, folder in ipairs(zones:GetChildren()) do
-	if tonumber(folder.Name) then
+	if folder:IsA("Folder") then
+	if folder.Name then
 		table.insert(numberedFolders, folder)
 	end
-end
+	end
+	end
 
 -- Itera sobre as pastas numeradas
 for _, folder in ipairs(numberedFolders) do
