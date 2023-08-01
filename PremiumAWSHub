@@ -4505,7 +4505,8 @@ G.Settings = {
 	AutoTrain3 = false,
 	AutoTrain4 = false,
 	AutoTrain5 = false,
-	AutoCraft = false
+	AutoCraft = false,
+	boostFPS = false
 };
 
 local function ResetHub()
@@ -4536,6 +4537,7 @@ local function ResetHub()
 	G.Settings.AutoTrain4 = false
 	G.Settings.AutoTrain5 = false
 	G.Settings.AutoCraft = false
+	G.Settings.boostFPS = false
 end
 
 local NameSave = game.Players.LocalPlayer.Name .. "AWSomega1.0"
@@ -4620,6 +4622,32 @@ end)
 
 LDSHUB.FPSButton.MouseButton1Click:Connect(function()
 	LDSHUB.FPSFrameColor.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+	
+	local vim = game:GetService("VirtualInputManager")
+	setfpscap(5000)
+
+	game.DescendantAdded:Connect(function(d)
+		if d.Name == "MainView" and d.Parent.Name == "DevConsoleUI" and G.Settings.boostFPS then
+			task.wait()
+			local screen = d.Parent.Parent.Parent
+			screen.Enabled = false;
+			d.Visible = false;
+		end
+	end)
+
+	vim:SendKeyEvent(true, "F9", 0, game)    
+	wait()
+	vim:SendKeyEvent(false, "F9", 0, game)  
+
+	while true do
+		task.wait()
+		if not G.Settings.boostFPS then
+			continue;
+		end
+
+		warn("")
+	end
+	
 	local decalsyeeted = true
 	local g = game
 	local w = g.Workspace
@@ -5577,11 +5605,11 @@ local zones = game.Workspace.Zones
 local numberedFolders = {}
 for _, folder in ipairs(zones:GetChildren()) do
 	if folder:IsA("Folder") then
-	if folder.Name then
-		table.insert(numberedFolders, folder)
+		if folder.Name then
+			table.insert(numberedFolders, folder)
+		end
 	end
-	end
-	end
+end
 
 -- Itera sobre as pastas numeradas
 for _, folder in ipairs(numberedFolders) do
@@ -6148,7 +6176,17 @@ local function AutoDumbellKnuckle()
 
 	local plr = game.Players.LocalPlayer
 	local hum = plr.Character.HumanoidRootPart
+	
+	local player = game.Players.LocalPlayer
 
+	local character = player.Character
+	if not character then
+		player.CharacterAdded:Wait()
+		character = player.Character
+	end
+
+	local humanoid = character:WaitForChild("Humanoid")
+	
 	local attributeZone = "BestZone"
 	local attributeVip = "VIP"
 	local BestZone = plr:GetAttribute(attributeZone)
@@ -6275,9 +6313,7 @@ local function AutoDumbellKnuckle()
 		if Vip == true then
 			TPBestZone()
 			wait(2)
-			hum.CFrame = CFrame.new(sacoVip)
-			hum.CFrame = CFrame.new(sacoVip)
-			hum.CFrame = CFrame.new(sacoVip)
+			humanoid:MoveTo(sacoVip)
 			wait(1)
 			while G.Settings.AutoTrain1 do 
 				local args = {
@@ -6292,9 +6328,7 @@ local function AutoDumbellKnuckle()
 		else
 			TPBestZone()
 			wait(2)
-			hum.CFrame = CFrame.new(sacoNormal)
-			hum.CFrame = CFrame.new(sacoNormal)
-			hum.CFrame = CFrame.new(sacoNormal)
+			humanoid:MoveTo(sacoNormal)
 			wait(1)
 			while G.Settings.AutoTrain1 do
 				local args = {
@@ -6448,9 +6482,7 @@ local function AutoBarbellKnuckle()
 		if Vip == true then
 			TPBestZone()
 			wait(2)
-			hum.CFrame = CFrame.new(sacoVip)
-			hum.CFrame = CFrame.new(sacoVip)
-			hum.CFrame = CFrame.new(sacoVip)
+			hum:MoveTo(sacoNormal)
 			wait(1)
 			while G.Settings.AutoTrain2 do 
 				local args = {
@@ -6465,9 +6497,7 @@ local function AutoBarbellKnuckle()
 		else
 			TPBestZone()
 			wait(2)
-			hum.CFrame = CFrame.new(sacoNormal)
-			hum.CFrame = CFrame.new(sacoNormal)
-			hum.CFrame = CFrame.new(sacoNormal)
+			hum:MoveTo(sacoNormal)
 			wait(1)
 			while G.Settings.AutoTrain2 do
 				local args = {
@@ -6504,6 +6534,16 @@ local function AutoHandleKnuckle()
 
 	local plr = game.Players.LocalPlayer
 	local hum = plr.Character.HumanoidRootPart
+	
+	local player = game.Players.LocalPlayer
+
+	local character = player.Character
+	if not character then
+		player.CharacterAdded:Wait()
+		character = player.Character
+	end
+
+	local humanoid = character:WaitForChild("Humanoid")
 
 	local attributeZone = "BestZone"
 	local attributeVip = "VIP"
@@ -6630,9 +6670,7 @@ local function AutoHandleKnuckle()
 		if Vip == true then
 			TPBestZone()
 			wait(2)
-			hum.CFrame = CFrame.new(sacoVip)
-			hum.CFrame = CFrame.new(sacoVip)
-			hum.CFrame = CFrame.new(sacoVip)
+			humanoid:MoveTo(sacoVip)
 			wait(1)
 			while G.Settings.AutoTrain3 do 
 				local args = {
@@ -6647,9 +6685,7 @@ local function AutoHandleKnuckle()
 		else
 			TPBestZone()
 			wait(2)
-			hum.CFrame = CFrame.new(sacoNormal)
-			hum.CFrame = CFrame.new(sacoNormal)
-			hum.CFrame = CFrame.new(sacoNormal)
+			humanoid:MoveTo(sacoNormal)
 			wait(1)
 			while G.Settings.AutoTrain3 do
 				local args = {
@@ -6687,6 +6723,16 @@ local function AutoDumbellBarbellKnuckle()
 
 	local plr = game.Players.LocalPlayer
 	local hum = plr.Character.HumanoidRootPart
+	
+	local player = game.Players.LocalPlayer
+
+	local character = player.Character
+	if not character then
+		player.CharacterAdded:Wait()
+		character = player.Character
+	end
+
+	local humanoid = character:WaitForChild("Humanoid")
 
 	local attributeZone = "BestZone"
 	local attributeVip = "VIP"
@@ -6879,9 +6925,7 @@ local function AutoDumbellBarbellKnuckle()
 		if Vip == true then
 			TPBestZone()
 			wait(2)
-			hum.CFrame = CFrame.new(sacoVip)
-			hum.CFrame = CFrame.new(sacoVip)
-			hum.CFrame = CFrame.new(sacoVip)
+			humanoid:MoveTo(sacoVip)
 			wait(1)
 			while G.Settings.AutoTrain4 do 
 				local args = {
@@ -6896,9 +6940,7 @@ local function AutoDumbellBarbellKnuckle()
 		else
 			TPBestZone()
 			wait(2)
-			hum.CFrame = CFrame.new(sacoNormal)
-			hum.CFrame = CFrame.new(sacoNormal)
-			hum.CFrame = CFrame.new(sacoNormal)
+			humanoid:MoveTo(sacoNormal)
 			wait(1)
 			while G.Settings.AutoTrain4 do
 				local args = {
@@ -6946,6 +6988,16 @@ local function AutoDumbellBarbellHandleKnuckle()
 
 	local plr = game.Players.LocalPlayer
 	local hum = plr.Character.HumanoidRootPart
+	
+	local player = game.Players.LocalPlayer
+
+	local character = player.Character
+	if not character then
+		player.CharacterAdded:Wait()
+		character = player.Character
+	end
+
+	local humanoid = character:WaitForChild("Humanoid")
 
 	local attributeZone = "BestZone"
 	local attributeVip = "VIP"
@@ -7196,9 +7248,7 @@ local function AutoDumbellBarbellHandleKnuckle()
 		if Vip == true then
 			TPBestZone()
 			wait(2)
-			hum.CFrame = CFrame.new(sacoVip)
-			hum.CFrame = CFrame.new(sacoVip)
-			hum.CFrame = CFrame.new(sacoVip)
+			humanoid:MoveTo(sacoVip)
 			wait(1)
 			while G.Settings.AutoTrain5 do 
 				local args = {
@@ -7213,9 +7263,7 @@ local function AutoDumbellBarbellHandleKnuckle()
 		else
 			TPBestZone()
 			wait(2)
-			hum.CFrame = CFrame.new(sacoNormal)
-			hum.CFrame = CFrame.new(sacoNormal)
-			hum.CFrame = CFrame.new(sacoNormal)
+			humanoid:MoveTo(sacoNormal)
 			wait(1)
 			while G.Settings.AutoTrain5 do
 				local args = {
@@ -7266,6 +7314,16 @@ local function AtlantisDK()
 
 	local plr = game.Players.LocalPlayer
 	local hum = plr.Character.HumanoidRootPart
+	
+	local player = game.Players.LocalPlayer
+
+	local character = player.Character
+	if not character then
+		player.CharacterAdded:Wait()
+		character = player.Character
+	end
+
+	local humanoid = character:WaitForChild("Humanoid")
 
 	local attributeZone = "BestZone"
 	local attributeVip = "VIP"
@@ -7393,13 +7451,11 @@ local function AtlantisDK()
 	end
 
 	local function Punch()
-			TPBestZone()
-			wait(2)
-			hum.CFrame = CFrame.new(sacoNormal)
-			hum.CFrame = CFrame.new(sacoNormal)
-			hum.CFrame = CFrame.new(sacoNormal)
-			wait(1)
-			while G.Settings.AutoAtlantisEvent2 do
+		TPBestZone()
+		wait(2)
+		humanoid:MoveTo(sacoNormal)
+		wait(1)
+		while G.Settings.AutoAtlantisEvent2 do
 			local args = {
 				[1] = "AquaEvent",
 				[2] = "Tier5"
@@ -7407,7 +7463,7 @@ local function AtlantisDK()
 
 			game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService"):WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
 			wait()
-			end
+		end
 	end
 
 
@@ -7434,6 +7490,16 @@ local function AtlantisHK()
 
 	local plr = game.Players.LocalPlayer
 	local hum = plr.Character.HumanoidRootPart
+	
+	local player = game.Players.LocalPlayer
+
+	local character = player.Character
+	if not character then
+		player.CharacterAdded:Wait()
+		character = player.Character
+	end
+
+	local humanoid = character:WaitForChild("Humanoid")
 
 	local attributeZone = "BestZone"
 	local attributeVip = "VIP"
@@ -7454,7 +7520,7 @@ local function AtlantisHK()
 
 		return bestTier
 	end
-
+	
 	local bestTier = FindBestTier()
 
 	local sacoNormal = game.workspace.Zones.AquaEvent.Interactables.Training.PunchBags["Tier" .. bestTier].Primary.Position
@@ -7563,9 +7629,7 @@ local function AtlantisHK()
 	local function Punch()
 		TPBestZone()
 		wait(2)
-		hum.CFrame = CFrame.new(sacoNormal)
-		hum.CFrame = CFrame.new(sacoNormal)
-		hum.CFrame = CFrame.new(sacoNormal)
+		humanoid:MoveTo(sacoNormal)
 		wait(1)
 		while G.Settings.AutoAtlantisEvent3 do
 			local args = {
@@ -7623,7 +7687,7 @@ LDSHUB.EventAtlantisButton1.MouseButton1Click:Connect(function()
 	}
 
 	game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ZoneService"):WaitForChild("RE"):WaitForChild("teleport"):FireServer(unpack(args))
-	
+
 	LDSHUB.EventAtlantisFrame1.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	wait(2)
 	LDSHUB.EventAtlantisFrame1.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
@@ -7643,7 +7707,7 @@ LDSHUB.EventAtlantisButton3.MouseButton1Click:Connect(function()
 	LDSHUB.EventAtlantisFrame3.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
 	G.Settings.AutoAtlantisEvent3 = not G.Settings.AutoAtlantisEvent3
 	if G.Settings.AutoAtlantisEvent3 == true then
-	AtlantisHK()
+		AtlantisHK()
 	else
 		LDSHUB.EventAtlantisFrame3.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 	end
