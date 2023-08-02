@@ -207,12 +207,17 @@ local function KeyCerta()
 	if game.PlaceId == 13127800756 then
 		Key:Destroy()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/LDSHUBscripts/scripts/main/LDSHub%20AWS"))()
-		print("LDSHubArmWrestleSimulator")
+		print("LDSHub AWS")
 		Key:Destroy()
 	elseif game.PlaceId == 654732683 then
 		Key:Destroy()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/LDSHUBscripts/scripts/main/LDSHub%20CC2"))()
-		print("LDSHubCC2")
+		print("LDSHub CC2")
+		Key:Destroy()
+	elseif game.PlaceId 1962086868 == then
+		Key:Destroy()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/LDSHUBscripts/scripts/main/LDS%20Hub%20TOH"))()
+		print("LDSHub TOH")
 		Key:Destroy()
 	else
 		Key:Destroy()
