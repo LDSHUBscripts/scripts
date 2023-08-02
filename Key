@@ -214,7 +214,7 @@ local function KeyCerta()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/LDSHUBscripts/scripts/main/LDSHub%20CC2"))()
 		print("LDSHub CC2")
 		Key:Destroy()
-	elseif game.PlaceId 1962086868 == then
+	elseif game.PlaceId == 1962086868 then
 		Key:Destroy()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/LDSHUBscripts/scripts/main/LDS%20Hub%20TOH"))()
 		print("LDSHub TOH")
@@ -226,10 +226,10 @@ local function KeyCerta()
 end
 
 local function KeyPremium()
-if game.PlaceId == 13127800756 then
+	if game.PlaceId == 13127800756 then
 		Key:Destroy()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/LDSHUBscripts/scripts/main/PremiumAWSHub"))()
-	print("LDSHubArmWrestleSimulatorPremium")
+		print("LDSHubArmWrestleSimulatorPremium")
 	end
 end
 if table.find(whitelistedusers, tonumber(game:GetService("Players").LocalPlayer.UserId)) then
