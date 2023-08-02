@@ -1998,8 +1998,6 @@ local function bypass()
 		end
 	end
 
-	bypass()
-
 	local playerscripts = game:GetService'Players'.LocalPlayer.PlayerScripts
 
 	local script1 = playerscripts.LocalScript
