@@ -15,6 +15,7 @@ local tableofkeys = {
 }
 
 local whitelistedusers = {
+	976487759, -- ali
 	3417063555, -- benn
 	3165043833, -- Mat
 	3377904454, -- GE・Dany 
