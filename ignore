@@ -314,7 +314,13 @@ tabCoreEscape:addToggle("Explode Core (Need Gamepass)", "", "big", false,  funct
 	end
 end)
 
-tabModifiers:addToggle("click speed", "", "big", false,  function(value) 
+local velocitytocar = nil
+
+tabModifiers:addSlider("Speed", "By adjusting the value of the slider, you car at the speed you are setting | every value is multiplied by 5!", 1, 250, function(value)
+	velocitytocar = value * 5
+end)
+
+tabModifiers:addToggle("click to speed", "", "big", false,  function(value) 
 	if value then
 		local TweenService = game:GetService("TweenService")
 
@@ -327,7 +333,7 @@ tabModifiers:addToggle("click speed", "", "big", false,  function(value)
 			local mainHitbox = car.Car.Body.HitBoxes.Main
 
 			-- Defina a nova velocidade após o movimento (opcional)
-			mainHitbox.Velocity = mainHitbox.CFrame.lookVector * 3000 
+			mainHitbox.Velocity = mainHitbox.CFrame.lookVector * velocitytocar 
 		end
 	end
 end)
