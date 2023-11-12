@@ -7,7 +7,6 @@ local window = lib:start("Car Crushers 2", "1.0 Global", true)
 
 local tabAutoFarm = window:addTab("Auto Farm")
 local tabSelectMaterial = window:addTab("Select Material")
-local tabAutoRace = window:addTab("Auto Race")
 local tabCoreEscape = window:addTab("Core Escape")
 local tabModifiers = window:addTab("Modifiers")
 
@@ -231,24 +230,6 @@ tabAutoFarm:addToggle("Best Auto Farm Car (selected)", "By activating this optio
 	end
 end)
 
-tabAutoFarm:addToggle("click speed", "", "big", false,  function(value) 
-	if value then
-		local TweenService = game:GetService("TweenService")
-
-		local plr = game.Players.LocalPlayer
-		local carCollection = game:GetService("Workspace").CarCollection
-
-		-- Verifique se o jogador está na coleção de carros
-		if carCollection:FindFirstChild(plr.Name) then
-			local car = carCollection:FindFirstChild(plr.Name)
-			local mainHitbox = car.Car.Body.HitBoxes.Main
-
-			-- Defina a nova velocidade após o movimento (opcional)
-			mainHitbox.Velocity = mainHitbox.CFrame.lookVector * 3000 
-		end
-	end
-end)
-
 local comboMaterial = tabSelectMaterial:addCombo("Select Material", "select a Material for automatic change (Need Gamepass)", folderPintura)
 local comboMaterialCar = tabSelectMaterial:addCombo("Select Car", "select a Car for automatic change (Need Gamepass)", foldercar)
 
@@ -333,7 +314,20 @@ tabCoreEscape:addToggle("Explode Core (Need Gamepass)", "", "big", false,  funct
 	end
 end)
 
-tabCoreEscape:addToggle("Auto Core AI (Need Gamepass)", "", "big", false,  function(value) 
+tabModifiers:addToggle("click speed", "", "big", false,  function(value) 
+	if value then
+		local TweenService = game:GetService("TweenService")
 
+		local plr = game.Players.LocalPlayer
+		local carCollection = game:GetService("Workspace").CarCollection
 
+		-- Verifique se o jogador está na coleção de carros
+		if carCollection:FindFirstChild(plr.Name) then
+			local car = carCollection:FindFirstChild(plr.Name)
+			local mainHitbox = car.Car.Body.HitBoxes.Main
+
+			-- Defina a nova velocidade após o movimento (opcional)
+			mainHitbox.Velocity = mainHitbox.CFrame.lookVector * 3000 
+		end
+	end
 end)
