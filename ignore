@@ -1,1 +1,339 @@
+local G = getgenv()
+G.Key = "SAaRlAiS_aBhImRaAdHG2"
 
+local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/RobSilas/lds-hub/main/library.txt"))()
+
+local window = lib:start("Car Crushers 2", "1.0 Global", true)
+
+local tabAutoFarm = window:addTab("Auto Farm")
+local tabSelectMaterial = window:addTab("Select Material")
+local tabAutoRace = window:addTab("Auto Race")
+local tabCoreEscape = window:addTab("Core Escape")
+local tabModifiers = window:addTab("Modifiers")
+
+-- scripts >
+
+local folder = game:GetService("ReplicatedStorage").VehicleInformation
+
+local foldercar = {}
+
+for i, v in pairs(folder:GetChildren()) do
+	table.insert(foldercar, v:FindFirstChild("Name").Value)
+end
+
+local function acharnomecarro(carro)
+	for _, v in pairs(folder:GetChildren()) do
+		if v:FindFirstChild("Name").Value == carro then
+			return v.Name
+		end
+	end
+end
+
+local Pintura = game:GetService("Players").LocalPlayer.PlayerGui.Dealership.Customize.Paint.Materials.Grid
+
+local folderPintura = {}
+
+for i, v in pairs(Pintura:GetChildren()) do
+	if v:IsA("Frame") then
+		table.insert(folderPintura, v.Name)
+	end	
+end
+-- botoes >
+
+local ComboCar = tabAutoFarm:addCombo("Select Car", "select a car for auto farms", foldercar)
+
+tabAutoFarm:addToggle("Auto Farm Up", "By activating this option, you will start farming your best available car until you release the next one to farm the next one.", "big", false,  function(value) 
+	if value then
+		-- services
+		local players = game:GetService("Players")
+		local vu = game:GetService("VirtualUser")
+
+		-- variables
+		local lp = players.LocalPlayer
+		local carCollection = workspace.CarCollection
+		local guiScript = getsenv(lp.PlayerGui:WaitForChild("GUIs"))
+		local openFunc = guiScript["OpenDealership"]
+		local spawnFunc = guiScript["SpawnButton"]
+		local doBreak = false
+
+		-- functions
+		local function getCurrentCar()
+			local car = carCollection:FindFirstChild(lp.Name)
+			if not car then return nil end
+
+			local model = car:FindFirstChild("Car")
+			if not model then return nil end
+
+			local isNotBroken =
+				model:FindFirstChild("Wheels"):FindFirstChildOfClass("Part") and
+				model:FindFirstChild("Body"):FindFirstChild("Engine"):FindFirstChildOfClass("MeshPart")
+
+			return isNotBroken and model or nil
+		end
+
+		local function getCharacter()
+			return lp.Character or lp.CharacterAdded:Wait()
+		end
+
+		local function canSpawn()
+			return lp.SpawnTimer.Value <= 0
+		end
+
+		local function spawnBestCar()
+			openFunc()
+			spawnFunc(true, Enum.UserInputState.Begin)
+		end
+
+		local function destroyCar()
+			local hum = getCharacter():FindFirstChildOfClass("Humanoid")
+			local hrp = getCharacter():FindFirstChild("HumanoidRootPart")
+
+			if not hum or not hrp then return end
+
+			local car = getCurrentCar()
+
+			repeat task.wait() until car.PrimaryPart ~= nil
+
+			-- Destruction of the car!!!
+			repeat task.wait()
+				car = getCurrentCar()
+				if not car then return end
+
+				task.wait(1)
+
+				pcall(function()
+					if not car.PrimaryPart then return end
+					car.PrimaryPart.CFrame = car.PrimaryPart.CFrame * CFrame.new(0,70,0)
+					car.PrimaryPart.Velocity = car.PrimaryPart.CFrame.LookVector * 1000
+				end)
+
+				task.wait(1)
+
+				pcall(function()
+					if not car.PrimaryPart then return end
+					car.PrimaryPart.CFrame = car.PrimaryPart.CFrame * CFrame.new(0,70,0)
+					car.PrimaryPart.Velocity = car.PrimaryPart.CFrame.LookVector * 1000
+				end)
+
+			until not doBreak
+		end
+
+		-- main
+		lp.Idled:Connect(function()
+			vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+			wait(1)
+			vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+		end)
+
+		while task.wait() do
+			if not G.Settings["Auto Farm Up"] then
+				break
+			end
+
+			local character = getCharacter()
+
+			if not character then return end
+
+			if canSpawn() then
+				doBreak = true
+				task.delay(10, function() doBreak = false end)
+				pcall(function()
+					spawnBestCar()
+					destroyCar()
+				end)
+			end
+		end
+	end
+end)
+
+	tabAutoFarm:addToggle("Auto Farm Car (selected)", "By activating this option, you will start farming the selected car.", "big", false,  function(value) 
+		if value then
+			local carValue = ComboCar:getValue()
+			local car = acharnomecarro(carValue)
+
+			local plr = game:GetService("Players").LocalPlayer
+
+			while G.Settings["Auto Farm Car (selected)"] do
+				task.wait()
+				if game:GetService("Workspace").CarCollection:FindFirstChild(plr.Name) then
+					local Car = game:GetService("Workspace").CarCollection:FindFirstChild(plr.Name)
+					pcall(function()
+						local mainHitbox = Car.Car.Body.HitBoxes.Main
+						mainHitbox.CFrame = mainHitbox.CFrame * CFrame.new(0, 60, 0)
+						mainHitbox.Velocity = mainHitbox.CFrame.lookVector * 1000
+						task.wait(0.5)
+					end)
+					if plr.SpawnTimer.Value == 0 then
+						game:GetService("ReplicatedStorage").rF.SpawnVehicle:InvokeServer(car)
+						task.wait(2)
+					end
+				else
+					game:GetService("ReplicatedStorage").rF.SpawnVehicle:InvokeServer(car)
+				end
+			end
+
+		end
+	end)
+
+tabAutoFarm:addToggle("Best Auto Farm Car (selected)", "By activating this option, you will start farming the selected car.", "big", true,  function(value) 
+	if value then
+		local wall = workspace.Crushers["Speed Crash Test"].Scripted.Wall.Wall
+		local player = game.Players.LocalPlayer
+		local carCollection = game:GetService("Workspace").CarCollection
+		local timer = game:GetService("Players").LocalPlayer.PlayerGui.VehicleMenu.Menu.Background.Background.RespawnLabel.Text
+		local carValue = ComboCar:getValue()
+		local carSpawn = acharnomecarro(carValue)
+		
+		local function parede()
+			if wall and player then
+				local car = carCollection:FindFirstChild(player.Name)
+				local mainHitbox = car.Car.Body.HitBoxes.Main
+				
+				local CarPosition = mainHitbox.Position
+				local distance = 300
+				local CarDirection = (mainHitbox.CFrame.lookVector) or Vector3.new(0, 0, 1)
+				local newPosition = CarPosition + CarDirection * distance
+
+				newPosition = Vector3.new(newPosition.X, 15, newPosition.Z)
+
+				wall.Transparency = 0
+				wall.Size = Vector3.new(800, 1000, 50) 
+				wall.Anchored = true
+				wall.Position = newPosition
+			end
+		end
+
+		local function velocidade()
+			if carCollection:FindFirstChild(player.Name) then
+				local car = carCollection:FindFirstChild(player.Name)
+				local mainHitbox = car.Car.Body.HitBoxes.Main
+				mainHitbox.Velocity = mainHitbox.CFrame.lookVector * 1500
+			end
+		end
+
+		while G.Settings["Best Auto Farm Car (selected)"] do
+			task.wait()
+			if game:GetService("Workspace").CarCollection:FindFirstChild(player.Name) then
+				pcall(function()
+					velocidade()
+					task.wait(0.5)
+					parede()
+				end)
+				if player.SpawnTimer.Value == 0 then
+					game:GetService("ReplicatedStorage").rF.SpawnVehicle:InvokeServer(carSpawn)
+					task.wait(2)
+				end
+			else
+				game:GetService("ReplicatedStorage").rF.SpawnVehicle:InvokeServer(carSpawn)
+			end
+		end
+
+	end
+end)
+
+tabAutoFarm:addToggle("click speed", "", "big", false,  function(value) 
+	if value then
+		local TweenService = game:GetService("TweenService")
+
+		local plr = game.Players.LocalPlayer
+		local carCollection = game:GetService("Workspace").CarCollection
+
+		-- Verifique se o jogador está na coleção de carros
+		if carCollection:FindFirstChild(plr.Name) then
+			local car = carCollection:FindFirstChild(plr.Name)
+			local mainHitbox = car.Car.Body.HitBoxes.Main
+
+			-- Defina a nova velocidade após o movimento (opcional)
+			mainHitbox.Velocity = mainHitbox.CFrame.lookVector * 3000 
+		end
+	end
+end)
+
+local comboMaterial = tabSelectMaterial:addCombo("Select Material", "select a Material for automatic change (Need Gamepass)", folderPintura)
+local comboMaterialCar = tabSelectMaterial:addCombo("Select Car", "select a Car for automatic change (Need Gamepass)", foldercar)
+
+tabSelectMaterial:addClick("Change Material (Selected Car)", "By activating this option, you will automatically change the material of the car selection", "big", false,  function(value) 
+	local carValue = comboMaterialCar:getValue()
+	local car = acharnomecarro(carValue)
+
+	local plr = game:GetService("Players").LocalPlayer
+
+	local args = {
+		[1] = {
+			["BodyPaint"] = {
+				["Paint"] = {
+					["Material"] = "Neon"
+				}
+			},
+		},
+		[2] = car
+	}
+
+	game:GetService("ReplicatedStorage").rE.SaveCustoms:FireServer(unpack(args))
+
+end)
+
+tabCoreEscape:addToggle("Auto Escape Core", "", "big", false,  function(value) 
+	local boat = game.Workspace.EnergyCore_Session.Boat
+	local Helicopter = game.Workspace.EnergyCore_Session.Helicopter
+	
+	local function TeleportToSeat(seat)
+		local LocalPlayer = game.Players.LocalPlayer
+		local character = LocalPlayer.Character
+		if character then
+			local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+			if humanoidRootPart then
+				humanoidRootPart.CFrame = seat.CFrame * CFrame.new(0, 0, 0)
+			end
+		end
+	end
+	
+	for _, boatzin in ipairs(boat:GetChildren()) do
+		local seat = boatzin.Seats.Seat
+		if seat then
+			local promt = seat.Prompt
+			if promt then
+				TeleportToSeat(seat)
+			end
+		end
+	end
+	
+	
+end)
+
+tabCoreEscape:addToggle("Active Core (Need Gamepass)", "", "big", false,  function(value) 
+	local click = workspace.EnergyCore.ControlRoom.Enable.ClickDetector
+	fireclickdetector(click)
+end)
+
+tabCoreEscape:addToggle("Explode Core (Need Gamepass)", "", "big", false,  function(value) 
+	local function vertime()
+		local power = workspace.EnergyCore.ControlRoom.Screens.Energy.UI.Frame.Power.Text
+
+		if power == "25000/25000 MWh" then
+			return true
+		else
+			return false
+		end
+
+	end
+	if value then
+		while G.Settings["Explode Core (Need Gamepass)"] do
+			wait(.5)
+			local glass = workspace.EnergyCore.ControlRoom.Glass.ClickDetector
+			local fire = workspace.EnergyCore.ControlRoom.SelfDestruct.ClickDetector
+			if vertime() then
+				fireclickdetector(glass)
+				for i = 1, 100 do 
+					wait(1)
+					fireclickdetector(fire)
+				end
+			end
+		end
+	end
+end)
+
+tabCoreEscape:addToggle("Auto Core AI (Need Gamepass)", "", "big", false,  function(value) 
+
+
+end)
