@@ -1,171 +1,607 @@
-local emojies = {"?","?","?","?","?","?","?","?","?","?","?"}
-    local repo = "https://raw.githubusercontent.com/HTDBarsi/LinoriaLib/main/";
-    local Library = (loadstring(game:HttpGet(repo .. "Library.lua")))();
-    local ThemeManager = (loadstring(game:HttpGet(repo .. "addons/ThemeManager.lua")))();
-    local SaveManager = (loadstring(game:HttpGet(repo .. "addons/SaveManager.lua")))();
-    local color = BrickColor.new("Really red");
-    local plr = game.Players.LocalPlayer;
-    local empty = Vector3.new();
-    local hit = game.ReplicatedStorage.Remotes.ParryAttempt;
-    local cam = workspace.CurrentCamera;
-    local Settings = {
-        Autoparry = {
-            Toggle = false,
-            Cooldown = 0.1,
-            Range = 0.05,
-            ConstantRange = 5
-        }
-    };
-    local Window = Library:CreateWindow({
-        Title = "Asteria BladeBall",
-        Center = true,
-        AutoShow = true,
-        TabPadding = 8,
-        MenuFadeTime = 0
-    });
-    local Tabs = {
-        Main = Window:AddTab("All features"),
-        ["UI Settings"] = Window:AddTab("UI Settings")
-    };
-    local LeftGroupBox = Tabs.Main:AddLeftGroupbox("Main");
-    function getspeed()
-        for i,v in pairs(workspace.Balls:GetChildren()) do
-            if v.zoomies.VectorVelocity ~= empty then
-                return v.zoomies.VectorVelocity.Magnitude;
-            end
-        end
-    end
-    function estimateTime(ball)
-        return (getspeed() and getdistance(ball) / getspeed()) or 69
-    end;
+getgenv().Key = "SAaRlAiS_aBhImRaAdHG2"
 
-    function getdistance(ball)
-        return (ball.Position - plr.Character.HumanoidRootPart.Position).Magnitude
-    end
+local G = getgenv()
 
-    LeftGroupBox:AddToggle("Autoparry Toggle", {
-        Text = "Autoparry "..emojies[math.random(1,#emojies)],
-        Default = false,
-        Tooltip = "Automatically hits the ball for you!",
-        Callback = function(Value)
-            Settings.Autoparry.Toggle = Value;
-        end
-    });
+local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/RobSilas/lds-hub/main/library.txt"))()
 
-    LeftGroupBox:AddSlider("Parry cooldown", {
-        Text = "Parry cooldown",
-        Default = 0.1,
-        Min = 0,
-        Max = 1,
-        Rounding = 2,
-        Compact = false,
-        Callback = function(Value)
-            Settings.Autoparry.Cooldown = Value;
-        end
-    })
+local window = lib:start("Blade Ball", "1.0 Testes", true)
 
-    LeftGroupBox:AddSlider("Parry constant range", {
-        Text = "Parry constant range - studs",
-        Default = 5,
-        Min = 0,
-        Max = 30,
-        Rounding = 0,
-        Compact = false,
-        Callback = function(Value)
-            Settings.Autoparry.ConstantRange = Value;
-        end
-    })
+local tabAutoParry = window:addTab("Auto Block")
+local tabAIModded = window:addTab("AI Modded")
+local tabAbilities = window:addTab("Abilities")
+local tabInfAbilitie = window:addTab("Infinity Ab")
+local tabAutoBuy = window:addTab("Auto Buy")
 
-    LeftGroupBox:AddSlider("Parry range", {
-        Text = "Parry timed range - seconds",
-        Default = 0.05,
-        Min = 0,
-        Max = 1,
-        Rounding = 2,
-        Compact = false,
-        Callback = function(Value)
-            Settings.Autoparry.Range = Value;
-        end
-    })
+-- variaveis
 
-    LeftGroupBox:AddButton({
-        Text = "Blatant aura",
-        Func = function()
-            local function getspeed()
-                for i,v in pairs(workspace.Balls:GetChildren()) do
-                    if v.zoomies.VectorVelocity ~= empty then
-                        return v.zoomies.VectorVelocity;
-                    end
-                end
-            end
-            workspace.Balls.ChildAdded:Connect(function(v)
-                v.Changed:Connect(function(prop)
-                    c = plr.Character
-                    if getspeed().X > getspeed().Z then
-                        c.HumanoidRootPart.CFrame = v.CFrame + Vector3.new(0,5,10);
-                    else
-                        c.HumanoidRootPart.CFrame = v.CFrame + Vector3.new(10,5,0);
-                    end
-                    cam.CameraSubject = v
-                    if prop == "BrickColor" and v[prop] == color then
-                        while v[prop] == color and v and c.Humanoid.Health ~= 0 do
-                            cnt = 0
-                            hit:FireServer(0.5,cam.CFrame,{},workspace.Balls:GetChildren())
-                            while v.BrickColor == color and cnt ~= 20 do cnt += 1 task.wait() end
-                        end
-                        task.wait()
-                    end;
-                end);
-            end);
-        end,
-        DoubleClick = false,
-        Tooltip = "Rejoin to stop!"
-    })
+local runService = game:GetService("RunService")
+local workspace = game:GetService("Workspace")
+local players = game:GetService("Players")
+local localPlayer = players.LocalPlayer
+local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
+local abilitiesFolder = character:WaitForChild("Abilities")
+local UserInputService = game:GetService("UserInputService")
+local replicatedStorage = game:GetService("ReplicatedStorage")
+local heartbeatConnection
+local upgrades = localPlayer.Upgrades
+local UseRage = false
+local sliderValue = 30
 
-    -- Shoutout to bluwu for helping fr
-    local hitcd = false
-    
-    function counter()
-        task.wait(Settings.Autoparry.Cooldown)
-        hitcd = false
-    end
-    workspace.Balls.ChildAdded:Connect(function(v)
-        v:GetPropertyChangedSignal("BrickColor"):Connect(function()
-            if v.BrickColor ~= color then
-                hitcd = false
-            end
-        end)
-        v:GetPropertyChangedSignal("Position"):Connect(function()
-            if Settings.Autoparry.Toggle and v["BrickColor"] == color then
-                if (estimateTime(v) < Settings.Autoparry.Range or getdistance(v) < Settings.Autoparry.ConstantRange) and not hitcd then
-                    hitcd = true
-                    task.spawn(counter)
-                    print("Hit",Settings.Autoparry.Range,Settings.Autoparry.ConstantRange,Settings.Autoparry.Cooldown)
-                    hit:FireServer(0.5,CFrame.new(),{},{})
-                end
-            end
-            task.wait()
-        end)
-    end)
-    
-    local MenuGroup = Tabs["UI Settings"]:AddLeftGroupbox("Menu");
-    (MenuGroup:AddLabel("Menu bind")):AddKeyPicker("MenuKeybind", {
-        Default = "End",
-        NoUI = true,
-        Text = "Menu keybind"
-    });
-    MenuGroup:AddButton("Unload", function()
-        Library:Unload();
-    end);
-    MenuGroup:AddButton("Copy discord invite", function()
-        setclipboard("https://discord.gg/t2cXFpkGBh");
-    end);
-    Library.ToggleKeybind = Options.MenuKeybind;
-    ThemeManager:SetLibrary(Library);
-    SaveManager:SetLibrary(Library);
-    SaveManager:IgnoreThemeSettings();
-    SaveManager:BuildConfigSection(Tabs["UI Settings"]);
-    ThemeManager:SetFolder("Asteria/BB");
-    SaveManager:SetFolder("Asteria/BB");
-    ThemeManager:ApplyToTab(Tabs["UI Settings"]);
-    SaveManager:LoadAutoloadConfig();
+-- chat
+
+local function PrintConsole(Mensagem)
+
+	task.spawn(function()
+		game.CoreGui:WaitForChild("DevConsoleMaster").DevConsoleWindow.DescendantAdded:Connect(function(t)
+			if t.Name == "msg" then
+				t.RichText = true
+			end
+		end)
+	end)
+
+	print("<font color='rgb(255,0,255)'>" .. Mensagem .."</font>")
+
+end
+
+-- Auto Block
+
+local function AutoBlockRush()
+	while G.Settings["Auto Block Rush (obvious)"] do
+		wait()  -- This will control the loop execution rate and prevent it from running too fast.
+
+		local localPlayer = game:GetService("Players").LocalPlayer
+		local character = localPlayer.Character
+		local humanoidRootPart = character and character:FindFirstChild("HumanoidRootPart")
+
+		for _, ball in pairs(workspace.Balls:GetChildren()) do
+			if ball and humanoidRootPart then
+				if character:FindFirstChild("Highlight") then
+					humanoidRootPart.CFrame = ball.CFrame * CFrame.new(0, 0, -ball.Velocity.Magnitude * 0.5)
+					game:GetService("ReplicatedStorage").Remotes.ParryButtonPress:Fire()
+				end
+			end
+		end
+	end
+end
+
+local function startAutoParry()
+	local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
+	local ballsFolder = workspace:WaitForChild("Balls")
+	local parryButtonPress = replicatedStorage.Remotes.ParryButtonPress
+	local abilityButtonPress = replicatedStorage.Remotes.AbilityButtonPress
+	
+	local function onCharacterAdded(newCharacter)
+		character = newCharacter
+	end
+	localPlayer.CharacterAdded:Connect(onCharacterAdded)
+
+	if character then
+		local function chooseNewFocusedBall()
+			local balls = ballsFolder:GetChildren()
+			for _, ball in ipairs(balls) do
+				if ball:GetAttribute("realBall") ~= nil and ball:GetAttribute("realBall") == true then
+					focusedBall = ball
+					break
+				elseif ball:GetAttribute("target") ~= nil then
+					focusedBall = ball
+					break
+				end
+			end
+
+			if focusedBall == nil then
+				print("Debug: Could not find a ball that's the realBall or has a target.")
+			end
+		end
+
+		chooseNewFocusedBall()
+
+		local BASE_THRESHOLD = 0.15
+		local VELOCITY_SCALING_FACTOR_FAST = 0.050
+		local VELOCITY_SCALING_FACTOR_SLOW = 0.1
+
+		local function getDynamicThreshold(ballVelocityMagnitude)
+			if ballVelocityMagnitude > 60 then
+				return math.max(0.20, BASE_THRESHOLD - (ballVelocityMagnitude * VELOCITY_SCALING_FACTOR_FAST))
+			else
+				return math.min(0.01, BASE_THRESHOLD + (ballVelocityMagnitude * VELOCITY_SCALING_FACTOR_SLOW))
+			end
+		end
+
+		local function timeUntilImpact(ballVelocity, distanceToPlayer, playerVelocity)
+			local directionToPlayer = (character.HumanoidRootPart.Position - focusedBall.Position).Unit
+			local velocityTowardsPlayer = ballVelocity:Dot(directionToPlayer) - playerVelocity:Dot(directionToPlayer)
+
+			if velocityTowardsPlayer <= 0 then
+				return math.huge
+			end
+
+			return (distanceToPlayer - sliderValue) / velocityTowardsPlayer
+		end
+
+		local function isWalkSpeedZero()
+			local humanoid = character:FindFirstChildOfClass("Humanoid")
+			if humanoid then
+				return humanoid.WalkSpeed == 0
+			end
+			return false
+		end
+
+		local function checkBallDistance()
+			if not character or not character:FindFirstChild("Highlight") then return end
+
+			local charPos = character.PrimaryPart.Position
+			local charVel = character.PrimaryPart.Velocity
+
+			if focusedBall and not focusedBall.Parent then
+				chooseNewFocusedBall()
+			end
+			if not focusedBall then 
+				chooseNewFocusedBall()
+			end
+
+			local ball = focusedBall
+			local distanceToPlayer = (ball.Position - charPos).Magnitude
+			local ballVelocityTowardsPlayer = ball.Velocity:Dot((charPos - ball.Position).Unit)
+
+			if distanceToPlayer < 10 then
+				parryButtonPress:Fire()
+			end
+			local isCheckingRage = false
+
+			if timeUntilImpact(ball.Velocity, distanceToPlayer, charVel) < getDynamicThreshold(ballVelocityTowardsPlayer) then
+				if character.Abilities["Raging Deflection"].Enabled and UseRage == true then
+					if not isCheckingRage then
+						isCheckingRage = true
+						abilityButtonPress:Fire()
+						if not isWalkSpeedZero() then
+							parryButtonPress:Fire()
+						end
+						isCheckingRage = false
+					end
+				else
+					parryButtonPress:Fire()
+				end
+			end
+		end
+
+		heartbeatConnection = game:GetService("RunService").Heartbeat:Connect(function()
+			checkBallDistance()
+		end)
+	else
+		print("Character not found.")
+		return
+	end
+end
+
+local function stopAutoParry()
+	if heartbeatConnection then
+		heartbeatConnection:Disconnect()
+		heartbeatConnection = nil
+	end
+end
+
+
+-- ai modded
+
+local function AiMoviment()
+	local player = game.Players.LocalPlayer
+	local character = player.Character or player.CharacterAdded:Wait()
+	local humanoid = character:WaitForChild("Humanoid")
+
+	local PathfindingService = game:GetService("PathfindingService")
+	local RADIUS = 50
+	local MOVE_DISTANCE = 60
+
+	local function getAwayFromClosePlayers()
+		local myPos = character:FindFirstChild("HumanoidRootPart").Position
+		local directionAway = Vector3.new()
+
+		for _, otherPlayer in ipairs(game.Players:GetPlayers()) do
+			if otherPlayer ~= player then
+				local otherCharacter = otherPlayer.Character
+				if otherCharacter and otherCharacter:FindFirstChild("HumanoidRootPart") then
+					local otherPos = otherCharacter.HumanoidRootPart.Position
+
+					if (myPos - otherPos).Magnitude < RADIUS then
+						directionAway = (myPos - otherPos).Unit
+						break
+					end
+				end
+			end
+		end
+
+		if directionAway ~= Vector3.new() then
+			local targetPosition = myPos + directionAway * MOVE_DISTANCE
+
+			local path = PathfindingService:CreatePath({
+				AgentRadius = 2,
+				AgentHeight = 5,
+				AgentCanJump = true,
+				AgentJumpHeight = 10,
+				AgentMaxSlope = 45,
+			})
+
+			path:ComputeAsync(myPos, targetPosition)
+			local waypoints = path:GetWaypoints()
+
+			for _, waypoint in pairs(waypoints) do
+				if waypoint.Action == Enum.PathWaypointAction.Walk then
+					humanoid:MoveTo(waypoint.Position)
+				end
+			end
+		end
+	end
+
+	local lastPosition = character.PrimaryPart.Position
+	local stationaryTime = 0
+
+	local KeyPress = function(v)
+		return game:GetService("VirtualInputManager"):SendKeyEvent(true, v, false, game)
+	end
+
+	game:GetService("RunService").Heartbeat:Connect(function(deltaTime)
+		if not G.Settings["AI Moviments"] then
+			return
+		end
+
+		if (character.PrimaryPart.Position - lastPosition).Magnitude < 0.1 then
+			stationaryTime = stationaryTime + deltaTime
+			if stationaryTime >= 5 then
+				if math.random() < 0.5 then
+					local randomDirection = Vector3.new(math.random(-1,1), 0, math.random(-1,1)).Unit
+					local newPosition = character.PrimaryPart.Position + randomDirection * 20
+					humanoid:MoveTo(newPosition)
+				else
+					KeyPress("R")
+					wait(5)
+					KeyPress("R")
+				end
+				stationaryTime = 0
+			end
+		else
+			stationaryTime = 0
+		end
+		lastPosition = character.PrimaryPart.Position
+	end)
+
+	local function randomMovement()
+		if math.random() < 0.5 then
+			humanoid:MoveTo(character.PrimaryPart.Position + Vector3.new(math.random(-10,10), 0, math.random(-10,10)))
+		end
+		if math.random() < 0.2 then
+			character.Humanoid.Jump = true
+		end
+	end
+
+	game:GetService("RunService").Heartbeat:Connect(function()
+		if not G.Settings["AI Moviments"] then
+			return
+		end
+
+		if math.random() < 0.01 then
+			randomMovement()
+		end
+	end)
+
+	-- Parte do raio
+	radiusPart = Instance.new("Part")
+	radiusPart.Size = Vector3.new(RADIUS, 0.1, RADIUS)
+	radiusPart.Anchored = true
+	radiusPart.CanCollide = false
+	radiusPart.BrickColor = BrickColor.new("Bright green")
+	radiusPart.Transparency = 0.5
+	radiusPart.TopSurface = Enum.SurfaceType.Smooth
+	radiusPart.BottomSurface = Enum.SurfaceType.Smooth
+	radiusPart.Parent = game.Workspace
+
+	local cylinderMesh = Instance.new("CylinderMesh")
+	cylinderMesh.Parent = radiusPart
+
+	game:GetService("RunService").Heartbeat:Connect(function()
+		if character and character:FindFirstChild("HumanoidRootPart") then
+			local playerPosition = character.HumanoidRootPart.Position
+			radiusPart.Position = Vector3.new(playerPosition.X, playerPosition.Y - character.HumanoidRootPart.Size.Y/2 - 0.05, playerPosition.Z)
+		end
+	end)
+
+	while G.Settings["AI Moviments"] do
+		wait()
+		getAwayFromClosePlayers()
+	end
+
+	return radiusPart
+end
+
+local function stopAiMoviment()
+
+	if radiusPart then
+		radiusPart:Destroy()
+	end
+
+end
+
+local function AiRush()
+	local plr = game.Players.LocalPlayer
+	local ballsFolder = game:GetService("Workspace").Balls
+	local deadFolder = game:GetService("Workspace").Dead
+
+	local Players = game:GetService("Players")
+	local character = plr.Character or plr.CharacterAdded:Wait()
+	local humanoid = character:WaitForChild("Humanoid")
+
+	-- Função para calcular a distância entre dois pontos
+	local function distance(point1, point2)
+		return (point1 - point2).Magnitude
+	end
+
+	local function moveToPlayer(targetName)
+		local targetPlayer = Players:FindFirstChild(targetName)
+
+		if not targetPlayer or not targetPlayer.Character then
+			return
+		end
+
+		local targetPosition = targetPlayer.Character.PrimaryPart.Position
+		local characterPosition = character.PrimaryPart.Position
+
+		-- Define a distância máxima permitida
+		local maxDistance = 35
+
+		-- Calcula a distância entre o LocalPlayer e o jogador alvo
+		local dist = distance(targetPosition, characterPosition)
+
+		-- Verifica se o LocalPlayer está dentro do raio permitido
+		if dist > maxDistance then
+			-- Calcula a direção do movimento
+			local direction = (targetPosition - characterPosition).unit
+
+			-- Verifica se o personagem não está na pasta Dead
+			if not deadFolder:FindFirstChild(plr.Name) then
+				-- Move o personagem em direção ao alvo, mantendo a distância máxima
+				humanoid:MoveTo(targetPosition - direction * maxDistance)
+			end
+		end
+	end
+
+	while G.Settings["AI Rush"] do
+		wait(0.1)  -- Aguarda um curto período para evitar sobrecarregar o servidor
+
+		for _, ball in ipairs(ballsFolder:GetChildren()) do
+			local targetAttribute = ball:GetAttribute("target")
+
+			if targetAttribute then
+				moveToPlayer(targetAttribute)
+			end
+		end
+	end
+end
+
+local function autowinstandoff()
+	local workspace = game:GetService("Workspace")
+	local players = game:GetService("Players")
+	local pasta = workspace.Alive
+	local localPlayer = players.LocalPlayer
+	local char = localPlayer.Character or localPlayer.CharacterAdded:Wait()
+	local ver = false
+	-- Criar a plataforma
+	local platform = Instance.new("Part")
+	platform.Size = Vector3.new(100, 5, 100)
+	platform.Anchored = true
+	platform.Position = Vector3.new(10000, -100, 10000)
+	platform.BrickColor = BrickColor.new("Bright blue")
+	platform.TopSurface = Enum.SurfaceType.Smooth
+	platform.BottomSurface = Enum.SurfaceType.Smooth
+	platform.Parent = game.Workspace
+
+	local tweenService = game:GetService("TweenService")
+	local distance = (char.HumanoidRootPart.Position - platform.Position).Magnitude
+	local time_to_get_here = distance / 1000
+
+	local targetPosition = platform.CFrame * CFrame.new(0, platform.Size.Y + 5, 0)  -- 5 unidades acima da plataforma
+
+	local function moveToPlatformAndThenFollow()
+		if ver == false then
+			local tween = tweenService:Create(char.HumanoidRootPart, TweenInfo.new(time_to_get_here), {CFrame = targetPosition})
+			wait(0.5)
+			tween:Play()
+			tween.Completed:Connect(function()
+				wait(15)
+				ver = false
+			end)
+		end
+	end
+
+	-- Verificar se há apenas dois jogadores na pasta Alive
+	while G.Settings["AI Auto Win Standoff (beta)"] do
+		wait(.1)
+		local children = pasta:GetChildren()
+		if #children == 2 and (children[1] == localPlayer.Character or children[2] == localPlayer.Character) then
+			local character = localPlayer.Character
+			if character:FindFirstChild("Highlight") then
+				moveToPlatformAndThenFollow()
+				ver = true
+			end
+		end
+	end
+end
+
+ -- Free Abilities
+
+local replicatedStorage = game:GetService("ReplicatedStorage")
+local remotes = replicatedStorage.Remotes
+local store = remotes.Store
+
+local function InvokeStoreAbility(abilityName)
+	store.RequestEquipAbility:InvokeServer(abilityName)
+	store.GetOwnedAbilities:InvokeServer()
+	remotes.kebaind:FireServer()
+end
+
+local function SetAbilityValue(abilityName)
+	local truValue = Instance.new("StringValue")
+	if workspace:FindFirstChild("AbilityThingyk1212") then
+		workspace.AbilityThingyk1212:Remove()
+	end
+	truValue.Parent = game:GetService("Workspace")
+	truValue.Name = "AbilityThingyk1212"
+	truValue.Value = abilityName
+	return truValue
+end
+
+local function EquipAbility(abilityName)
+	for _, v in pairs(abilitiesFolder:GetChildren()) do
+		if v.Enabled == true then
+			spawn(function()
+				SetAbilityValue(abilityName)
+			end)
+			task.wait(0.05)
+			local abilityValue = workspace.AbilityThingyk1212
+			for _, b in pairs(abilitiesFolder:GetChildren()) do
+				if b.Name == abilityValue.Value then
+					v.Enabled = false
+					b.Enabled = true
+				end
+			end
+		end
+	end
+end
+
+local function FreeAbility(abilityName)
+	InvokeStoreAbility(abilityName)
+	EquipAbility(abilityName)
+end
+
+-- block
+
+tabAutoParry:addToggle("Auto Block (Beta)", "By activating this option, every time the ball is close to you, it will be hit. (may contain errors)", "big", false, function(value) 
+	if value == true then
+		PrintConsole("Turn on Auto Block! [Warn LDS HUB!]")
+		startAutoParry()
+	else
+		PrintConsole("Turn off Auto Block! [Warn LDS HUB!]")
+		stopAutoParry()
+	end
+end)
+
+tabAutoParry:addToggle("Auto Block Rush (obvious)", "By activating this option, every time the ball is at you, you will be teleported close to the ball and will defend yourself. (obvious rush)", "big", false, function(value) 
+	if value == true then
+		PrintConsole("Turn on Auto Block Rush! [Warn LDS HUB!]")
+		AutoBlockRush()
+	else
+		PrintConsole("Turn off Auto Block Rush! [Warn LDS HUB!]")
+	end
+end)
+
+-- ai modded
+
+tabAIModded:addToggle("AI Moviments", "By activating this option, the AI ​​system will make you move on your own to make it look like you are playing, this option is cool for those who want to stay AFK (it may contain errors)", "big", false, function(value) 
+	if value == true then
+		local Players = game:GetService("Players")
+		local plr = Players.LocalPlayer
+		PrintConsole("Turn on AI Moviments! [Warn LDS HUB!]")
+		AiMoviment()
+		plr.CharacterAdded:Connect(function()
+			wait(2)
+			AiRush()
+		end)
+	else
+		PrintConsole("Turn off AI Moviments! [Warn LDS HUB!]")
+		stopAiMoviment()
+	end
+end)
+
+tabAIModded:addToggle("AI Rush", "By activating this option, you will start walking towards the players with focus to have a better chance of being the next to hit the ball, use autoblock for better performance (it may contain errors)", "big", true, function(value) 
+	if value == true then
+		local Players = game:GetService("Players")
+		local plr = Players.LocalPlayer
+		PrintConsole("Turn on AI Rush! [Warn LDS HUB!]")
+		AiRush()
+		plr.CharacterAdded:Connect(function()
+			wait(2)
+			AiRush()
+		end)
+	else
+		PrintConsole("Turn off AI Rush! [Warn LDS HUB!]")
+	end
+end)
+
+tabAIModded:addToggle("AI Auto Win Standoff (beta)", "By activating this option, you will make the ball gain speed and after that it will follow the missing player, you will probably win the match, at the moment there is an 85% chance of winning the match!!", "big", true, function(value) 
+	if value == true then
+		local Players = game:GetService("Players")
+		local plr = Players.LocalPlayer
+		PrintConsole("Turn on AI Auto Win Standoff! [Warn LDS HUB!]")
+		autowinstandoff()
+		plr.CharacterAdded:Connect(function()
+			wait(2)
+			AiRush()
+		end)
+	else
+		PrintConsole("Turn off AI Auto Win Standoff! [Warn LDS HUB!]")
+	end
+end)
+
+-- abilities
+
+local abilities = {
+	"Dash",
+	"Super Jump",
+	"Platform",
+	"Invisibility",
+	"Thunder Dash",
+	"Shadow Step",
+	"Wind Cloak",
+    "Freeze",
+	"Forcefield",
+	"Raging Deflection",
+	"Telekinesis",
+	"Pull",
+	"Phase Bypass",
+	"Rapture",
+	"Waypoint",
+	"Infinity"
+
+}
+
+for _, ability in ipairs(abilities) do
+	tabAbilities:addClick("Equip " .. ability, "By activating this option, you will gain the ability: " .. ability .. " | for free", "big", false, function(value) 
+		FreeAbility(ability)
+	end)
+end
+
+local function infAbilityValue(ability)
+	upgrades:WaitForChild(ability).Value = 999999999999999999
+end
+
+local function RemoveinfAbilityValue(ability)
+	upgrades:WaitForChild(ability).Value = -999999999999999999
+end
+
+for _, ability in ipairs(abilities) do
+	if ability ~= "Rapture" then
+		infAbilityValue(ability)  -- Setting the infinite value for each ability
+
+		tabInfAbilitie:addToggle("Inf " .. ability, "By activating this option, you will not have a cooldown on the ability: " .. ability, "big", false, function(value) 
+			if value then
+				infAbilityValue(ability)
+			else
+				RemoveinfAbilityValue(ability)
+			end
+		end)
+	end
+end
+
+-- Auto Buy
+
+tabAutoBuy:addToggle("Explosion Crate", "By activating this option, you will start buying this crate until you run out of money.", "big", false, function(value) 
+	while value do
+		wait()
+		game:GetService("ReplicatedStorage").Remotes.Store.RequestOpenExplosionBox:InvokeServer()
+	end
+end)
+
+tabAutoBuy:addToggle("Sword Skin Crate", "By activating this option, you will start buying this crate until you run out of money.", "big", false, function(value) 
+	while value do
+		wait()
+		game:GetService("ReplicatedStorage").Remotes.Store.RequestOpenSwordBox:InvokeServer()
+	end
+end)
