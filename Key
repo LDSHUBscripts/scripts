@@ -1,30 +1,135 @@
--- Gui to Lua
--- Version: 3.2
 
--- Instances:
+local KeyGratis = "Not Avaliable!"
+local tableofkeys = {
+	-- Key
+	"PZt2xW39aFqD",
+	
+	-- Dev Keys
+	"LimasKey",
+	"TeteuKey",
+	"BielKey",
+	"YtexKey",
+	"MatKey",
+	"BennKey",
+	"BurgerKey"
+}
 
-local WarnLDSHUB = Instance.new("ScreenGui")
+local Key = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
-local CloseButton = Instance.new("TextButton")
 local UICorner = Instance.new("UICorner")
 local Frame_2 = Instance.new("Frame")
 local UICorner_2 = Instance.new("UICorner")
+local TextBox = Instance.new("TextBox")
 local UICorner_3 = Instance.new("UICorner")
+local VerifyKey = Instance.new("TextButton")
+local UICorner_4 = Instance.new("UICorner")
+local GetKey = Instance.new("TextButton")
+local UICorner_5 = Instance.new("UICorner")
 local TextLabel = Instance.new("TextLabel")
 local TextLabel_2 = Instance.new("TextLabel")
-local TextLabel_3 = Instance.new("TextLabel")
-local TextLabel_4 = Instance.new("TextLabel")
+local FreeKey = Instance.new("TextLabel")
+local CloseButton = Instance.new("TextButton")
+local UICorner_6 = Instance.new("UICorner")
 
 --Properties:
 
-WarnLDSHUB.Name = "WarnLDSHUB "
-WarnLDSHUB.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-WarnLDSHUB.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Key.Name = "Key"
+Key.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+Key.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-Frame.Parent = WarnLDSHUB
+Frame.Parent = Key
 Frame.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
 Frame.Position = UDim2.new(0.365676939, 0, 0.370526314, 0)
 Frame.Size = UDim2.new(0.268025011, 0, 0.258947372, 0)
+
+UICorner.Parent = Frame
+
+Frame_2.Parent = Frame
+Frame_2.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+Frame_2.Position = UDim2.new(0.0200190786, 0, 0.375200957, 0)
+Frame_2.Size = UDim2.new(0.95996207, 0, 0.592883468, 0)
+
+UICorner_2.Parent = Frame_2
+
+TextBox.Parent = Frame_2
+TextBox.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+TextBox.Position = UDim2.new(0.117921829, 0, 0.218541741, 0)
+TextBox.Size = UDim2.new(0.756936789, 0, 0.28797707, 0)
+TextBox.Font = Enum.Font.SciFi
+TextBox.PlaceholderText = "Key Here!"
+TextBox.Text = ""
+TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.TextScaled = true
+TextBox.TextSize = 14.000
+TextBox.TextWrapped = true
+
+UICorner_3.Parent = TextBox
+
+VerifyKey.Name = "VerifyKey"
+VerifyKey.Parent = Frame_2
+VerifyKey.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
+VerifyKey.Position = UDim2.new(0.305634111, 0, 0.563785374, 0)
+VerifyKey.Size = UDim2.new(0.381512165, 0, 0.198070675, 0)
+VerifyKey.Font = Enum.Font.FredokaOne
+VerifyKey.Text = "Verify Key!"
+VerifyKey.TextColor3 = Color3.fromRGB(255, 255, 255)
+VerifyKey.TextScaled = true
+VerifyKey.TextSize = 14.000
+VerifyKey.TextWrapped = true
+
+UICorner_4.Parent = VerifyKey
+
+GetKey.Name = "GetKey"
+GetKey.Parent = Frame_2
+GetKey.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
+GetKey.Position = UDim2.new(0.283975005, 0, 0.812265933, 0)
+GetKey.Size = UDim2.new(0.424830258, 0, 0.146595716, 0)
+GetKey.Font = Enum.Font.FredokaOne
+GetKey.Text = "Click here for get Key!"
+GetKey.TextColor3 = Color3.fromRGB(255, 255, 255)
+GetKey.TextScaled = true
+GetKey.TextSize = 14.000
+GetKey.TextWrapped = true
+
+UICorner_5.Parent = GetKey
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(0.0200187974, 0, 0.201462671, 0)
+TextLabel.Size = UDim2.new(0.959961772, 0, 0.190380752, 0)
+TextLabel.Font = Enum.Font.FredokaOne
+TextLabel.Text = "Put the Key to execute the LDS HUB"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+TextLabel_2.Parent = Frame
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.Position = UDim2.new(0.0198268592, 0, 0.0261515081, 0)
+TextLabel_2.Size = UDim2.new(0.959961772, 0, 0.204395592, 0)
+TextLabel_2.Font = Enum.Font.FredokaOne
+TextLabel_2.Text = "Key Checker"
+TextLabel_2.TextColor3 = Color3.fromRGB(170, 0, 255)
+TextLabel_2.TextScaled = true
+TextLabel_2.TextSize = 14.000
+TextLabel_2.TextWrapped = true
+
+FreeKey.Name = "Free Key"
+FreeKey.Parent = Frame
+FreeKey.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FreeKey.BackgroundTransparency = 1.000
+FreeKey.Position = UDim2.new(0.0177088641, 0, 0.391461134, 0)
+FreeKey.Size = UDim2.new(0.95996207, 0, 0.0816831291, 0)
+FreeKey.ZIndex = 10
+FreeKey.Font = Enum.Font.FredokaOne
+FreeKey.Text = "Free Key Here: " .. KeyGratis
+FreeKey.TextColor3 = Color3.fromRGB(85, 255, 0)
+FreeKey.TextScaled = true
+FreeKey.TextSize = 14.000
+FreeKey.TextWrapped = true
 
 CloseButton.Name = "CloseButton"
 CloseButton.Parent = Frame
@@ -41,65 +146,57 @@ CloseButton.TextSize = 14.000
 CloseButton.TextStrokeTransparency = 0.000
 CloseButton.TextWrapped = true
 
-UICorner.Parent = CloseButton
+UICorner_6.Parent = CloseButton
 
-Frame_2.Parent = Frame
-Frame_2.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-Frame_2.Position = UDim2.new(0.0200190693, 0, 0.23054716, 0)
-Frame_2.Size = UDim2.new(0.95996207, 0, 0.737537444, 0)
+local plrGui = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
 
-UICorner_2.Parent = Frame_2
+GetKey.MouseButton1Click:Connect(function()
+	setclipboard("https://discord.gg/DABC3eFusQ")
+	TextBox.PlaceholderText = "Link Copied!"
+	TextBox.Text = ""
+	wait(3)
+	TextBox.PlaceholderText = "Key Here!"
+end)
 
-UICorner_3.Parent = Frame_2
+local function KeyErrada()
+	setclipboard("https://discord.gg/DABC3eFusQ")
+	TextBox.PlaceholderText = "Wrong key! Try Again"
+	TextBox.Text = ""
+	wait(3)
+	TextBox.PlaceholderText = "Key Here!"
+end
 
-TextLabel.Parent = Frame_2
-TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.BackgroundTransparency = 1.000
-TextLabel.Position = UDim2.new(0.0200188346, 0, 0.0440927818, 0)
-TextLabel.Size = UDim2.new(0.959961712, 0, 0.363768399, 0)
-TextLabel.Font = Enum.Font.FredokaOne
-TextLabel.Text = "LDS HUB deactivated for maintenance.."
-TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.TextScaled = true
-TextLabel.TextSize = 14.000
-TextLabel.TextWrapped = true
+local function KeyCerta()
+	if game.PlaceId == 654732683 then
+		Key:Destroy()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/LDSHUBscripts/scripts/main/LDSHub%20Car%20Crushers%202"))()
+		print("LDSHub CC2")
+		Key:Destroy()
+	elseif game.PlaceId == 1962086868 then
+		Key:Destroy()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/LDSHUBscripts/scripts/main/LDSHub%20Tower%20of%20Hell"))()
+		print("LDSHub TOH")
+		Key:Destroy()
+	elseif game.PlaceId == 13772394625 then
+		Key:Destroy()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/LDSHUBscripts/scripts/main/LDSHub%20BladeBall"))()
+		Key:Destroy()
+	else
+		Key:Destroy()
+		print("erro")
+	end
+end
 
-TextLabel_2.Parent = Frame_2
-TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_2.BackgroundTransparency = 1.000
-TextLabel_2.Position = UDim2.new(0.0200188346, 0, 0.407861173, 0)
-TextLabel_2.Size = UDim2.new(0.959961712, 0, 0.419401675, 0)
-TextLabel_2.Font = Enum.Font.FredokaOne
-TextLabel_2.Text = "Thank you in advance for everyone's collaboration and understanding, new news coming soon!!"
-TextLabel_2.TextColor3 = Color3.fromRGB(188, 188, 188)
-TextLabel_2.TextScaled = true
-TextLabel_2.TextSize = 14.000
-TextLabel_2.TextWrapped = true
+VerifyKey.MouseButton1Click:Connect(function()
 
-TextLabel_3.Parent = Frame_2
-TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_3.BackgroundTransparency = 1.000
-TextLabel_3.Position = UDim2.new(0.0200188346, 0, 0.783170581, 0)
-TextLabel_3.Size = UDim2.new(0.959961712, 0, 0.211318359, 0)
-TextLabel_3.Font = Enum.Font.FredokaOne
-TextLabel_3.Text = "Return prediction: (11/14/2023)"
-TextLabel_3.TextColor3 = Color3.fromRGB(85, 255, 127)
-TextLabel_3.TextScaled = true
-TextLabel_3.TextSize = 14.000
-TextLabel_3.TextWrapped = true
+	if table.find(tableofkeys, tostring(TextBox.Text)) then
+		KeyCerta()
+	else
+		KeyErrada()
+	end
 
-TextLabel_4.Parent = Frame
-TextLabel_4.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
-TextLabel_4.BackgroundTransparency = 1.000
-TextLabel_4.Position = UDim2.new(0.0198268592, 0, 0.0261515081, 0)
-TextLabel_4.Size = UDim2.new(0.959961772, 0, 0.204395592, 0)
-TextLabel_4.Font = Enum.Font.FredokaOne
-TextLabel_4.Text = " Warning!"
-TextLabel_4.TextColor3 = Color3.fromRGB(170, 0, 255)
-TextLabel_4.TextScaled = true
-TextLabel_4.TextSize = 14.000
-TextLabel_4.TextWrapped = true
+end)
 
 CloseButton.MouseButton1Click:Connect(function()
-	WarnLDSHUB:Destroy()
+	Key:Destroy()
 end)
