@@ -1,607 +1,299 @@
-getgenv().Key = "SAaRlAiS_aBhImRaAdHG2"
+-- Gui to Lua
+-- Version: 1
 
-local G = getgenv()
+-- Instances:
 
-local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/RobSilas/lds-hub/main/library.txt"))()
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local ScrollingFrame = Instance.new("ScrollingFrame")
+local UIListLayout = Instance.new("UIListLayout")
+local UIPadding = Instance.new("UIPadding")
 
-local window = lib:start("Blade Ball", "1.0 Testes", true)
+--Properties:
 
-local tabAutoParry = window:addTab("Auto Block")
-local tabAIModded = window:addTab("AI Modded")
-local tabAbilities = window:addTab("Abilities")
-local tabInfAbilitie = window:addTab("Infinity Ab")
-local tabAutoBuy = window:addTab("Auto Buy")
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
--- variaveis
+Frame.Parent = ScreenGui
+Frame.AnchorPoint = Vector2.new(0.5, 0.5)
+Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 255)
+Frame.BorderColor3 = Color3.fromRGB(255, 0, 0)
+Frame.BorderSizePixel = 4
+Frame.Position = UDim2.new(0.5, 0, 0.5, 0)
+Frame.Size = UDim2.new(0, 186, 0, 250)
 
-local runService = game:GetService("RunService")
-local workspace = game:GetService("Workspace")
-local players = game:GetService("Players")
-local localPlayer = players.LocalPlayer
-local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
-local abilitiesFolder = character:WaitForChild("Abilities")
-local UserInputService = game:GetService("UserInputService")
-local replicatedStorage = game:GetService("ReplicatedStorage")
-local heartbeatConnection
-local upgrades = localPlayer.Upgrades
-local UseRage = false
-local sliderValue = 30
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderSizePixel = 0
+TextLabel.Size = UDim2.new(0, 186, 0, 50)
+TextLabel.Font = Enum.Font.Bangers
+TextLabel.Text = "COOPER TRE GETTR"
+TextLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
+TextLabel.TextSize = 28.000
 
--- chat
+ScrollingFrame.Parent = Frame
+ScrollingFrame.Active = true
+ScrollingFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScrollingFrame.BackgroundTransparency = 1.000
+ScrollingFrame.BorderSizePixel = 0
+ScrollingFrame.Position = UDim2.new(0, 0, 0.200000003, 0)
+ScrollingFrame.Size = UDim2.new(0, 186, 0, 200)
+ScrollingFrame.ScrollBarThickness = 2
+ScrollingFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y
 
-local function PrintConsole(Mensagem)
+UIPadding.Parent = ScrollingFrame
+UIPadding.PaddingBottom = UDim.new(0, 8)
 
-	task.spawn(function()
-		game.CoreGui:WaitForChild("DevConsoleMaster").DevConsoleWindow.DescendantAdded:Connect(function(t)
-			if t.Name == "msg" then
-				t.RichText = true
+UIListLayout.Parent = ScrollingFrame
+UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.Padding = UDim.new(0, 8)
+
+-- cooper get trre
+local cooper = game.Players.LocalPlayer
+local treeregins = {}
+local treclases = {}
+local replicatedfarts = game.ReplicatedStorage
+local axeclasses = replicatedfarts:WaitForChild("AxeClasses")
+
+for _, cooper in next, workspace:GetChildren() do
+	if cooper.Name == "TreeRegion" then
+		table.insert(treeregins, cooper)
+	end
+end
+
+for _, cooper in next, treeregins do
+	for _, cooper in next, cooper:GetChildren() do
+		if cooper:FindFirstChild("TreeClass") and not table.find(treclases, cooper.TreeClass.Value) then
+			table.insert(treclases, cooper.TreeClass.Value)
+		end
+	end
+end
+
+function getAxStats(axName, treClas)
+	local coopermodule = axeclasses:FindFirstChild("AxeClass_"..axName)
+	if not coopermodule then return end
+	local axStats = require(coopermodule).new()
+	if axStats.SpecialTrees and axStats.SpecialTrees[treClas] then
+		for mini, cooper in next, axStats.SpecialTrees[treClas] do
+			axStats[mini] = cooper
+		end
+	end
+	return axStats
+end
+
+function getModlMass(model)
+	local total = 0
+	local woodsextions = 0
+	for _, v in next, model:GetDescendants() do
+		if v:IsA("BasePart") and v.Name ~= "Leaves" then
+			if v.Name == "WoodSection" then woodsextions = woodsextions + 1 end
+			total = total + v.Mass
+		end
+	end
+	return total, woodsextions
+end
+
+function getTrreOfClas(clas)
+	local posibilitys = {}
+	for _, cooper1 in next, treeregins do
+		for _, cooper2 in next, cooper1:GetChildren() do
+			if cooper2:IsA("Model") and cooper2:FindFirstChild("CutEvent") then
+				local trreclas = cooper2:FindFirstChild("TreeClass")
+				local onwer = cooper2:FindFirstChild("Owner")
+				if onwer and trreclas and onwer.Value == nil and trreclas.Value == clas then
+					local mas, secs = getModlMass(cooper2)
+					if secs > 1 then
+						table.insert(posibilitys, {
+							tre = cooper2,
+							mass = mas
+						})
+					end
+				end
 			end
-		end)
+		end
+	end
+	table.sort(posibilitys, function(cooper1, cooper2)
+		return cooper1.mass > cooper2.mass
 	end)
-
-	print("<font color='rgb(255,0,255)'>" .. Mensagem .."</font>")
-
+	return posibilitys[1] and posibilitys[1].tre or false, "No tree found."
 end
 
--- Auto Block
+function choppy(tre, ax)
+	task.wait()
+	cooper.Character.HumanoidRootPart.CFrame = CFrame.new(tre.WoodSection.Position + Vector3.new(5, 0, 0))
+	task.wait(0.25)
+	local axStats = getAxStats(ax.ToolName.Value, tre.TreeClass.Value)
+	local propertys = {
+		tool = ax,
+		height = 0.3,
+		faceVector = Vector3.new(1, 0, 0),
+		sectionId = 1,
+		hitPoints = axStats.Damage,
+		cooldown = axStats.SwingCooldown,
+		cuttingClass = "Axe"
+	}
 
-local function AutoBlockRush()
-	while G.Settings["Auto Block Rush (obvious)"] do
-		wait()  -- This will control the loop execution rate and prevent it from running too fast.
-
-		local localPlayer = game:GetService("Players").LocalPlayer
-		local character = localPlayer.Character
-		local humanoidRootPart = character and character:FindFirstChild("HumanoidRootPart")
-
-		for _, ball in pairs(workspace.Balls:GetChildren()) do
-			if ball and humanoidRootPart then
-				if character:FindFirstChild("Highlight") then
-					humanoidRootPart.CFrame = ball.CFrame * CFrame.new(0, 0, -ball.Velocity.Magnitude * 0.5)
-					game:GetService("ReplicatedStorage").Remotes.ParryButtonPress:Fire()
-				end
-			end
+	local newtre, trecon = nil, nil
+	trecon = workspace.LogModels.ChildAdded:Connect(function(tre)
+		task.wait()
+		if tre.Owner.Value == cooper then
+			newtre = tre
+			trecon:Disconnect()
+			trecon = nil
 		end
-	end
+	end)
+	repeat
+		replicatedfarts.Interaction.RemoteProxy:FireServer(tre.CutEvent, propertys)
+		task.wait(axStats.SwingCooldown)
+	until newtre ~= nil
+	return newtre
 end
 
-local function startAutoParry()
-	local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
-	local ballsFolder = workspace:WaitForChild("Balls")
-	local parryButtonPress = replicatedStorage.Remotes.ParryButtonPress
-	local abilityButtonPress = replicatedStorage.Remotes.AbilityButtonPress
-	
-	local function onCharacterAdded(newCharacter)
-		character = newCharacter
-	end
-	localPlayer.CharacterAdded:Connect(onCharacterAdded)
-
-	if character then
-		local function chooseNewFocusedBall()
-			local balls = ballsFolder:GetChildren()
-			for _, ball in ipairs(balls) do
-				if ball:GetAttribute("realBall") ~= nil and ball:GetAttribute("realBall") == true then
-					focusedBall = ball
-					break
-				elseif ball:GetAttribute("target") ~= nil then
-					focusedBall = ball
-					break
-				end
-			end
-
-			if focusedBall == nil then
-				print("Debug: Could not find a ball that's the realBall or has a target.")
-			end
-		end
-
-		chooseNewFocusedBall()
-
-		local BASE_THRESHOLD = 0.15
-		local VELOCITY_SCALING_FACTOR_FAST = 0.050
-		local VELOCITY_SCALING_FACTOR_SLOW = 0.1
-
-		local function getDynamicThreshold(ballVelocityMagnitude)
-			if ballVelocityMagnitude > 60 then
-				return math.max(0.20, BASE_THRESHOLD - (ballVelocityMagnitude * VELOCITY_SCALING_FACTOR_FAST))
-			else
-				return math.min(0.01, BASE_THRESHOLD + (ballVelocityMagnitude * VELOCITY_SCALING_FACTOR_SLOW))
-			end
-		end
-
-		local function timeUntilImpact(ballVelocity, distanceToPlayer, playerVelocity)
-			local directionToPlayer = (character.HumanoidRootPart.Position - focusedBall.Position).Unit
-			local velocityTowardsPlayer = ballVelocity:Dot(directionToPlayer) - playerVelocity:Dot(directionToPlayer)
-
-			if velocityTowardsPlayer <= 0 then
-				return math.huge
-			end
-
-			return (distanceToPlayer - sliderValue) / velocityTowardsPlayer
-		end
-
-		local function isWalkSpeedZero()
-			local humanoid = character:FindFirstChildOfClass("Humanoid")
-			if humanoid then
-				return humanoid.WalkSpeed == 0
-			end
-			return false
-		end
-
-		local function checkBallDistance()
-			if not character or not character:FindFirstChild("Highlight") then return end
-
-			local charPos = character.PrimaryPart.Position
-			local charVel = character.PrimaryPart.Velocity
-
-			if focusedBall and not focusedBall.Parent then
-				chooseNewFocusedBall()
-			end
-			if not focusedBall then 
-				chooseNewFocusedBall()
-			end
-
-			local ball = focusedBall
-			local distanceToPlayer = (ball.Position - charPos).Magnitude
-			local ballVelocityTowardsPlayer = ball.Velocity:Dot((charPos - ball.Position).Unit)
-
-			if distanceToPlayer < 10 then
-				parryButtonPress:Fire()
-			end
-			local isCheckingRage = false
-
-			if timeUntilImpact(ball.Velocity, distanceToPlayer, charVel) < getDynamicThreshold(ballVelocityTowardsPlayer) then
-				if character.Abilities["Raging Deflection"].Enabled and UseRage == true then
-					if not isCheckingRage then
-						isCheckingRage = true
-						abilityButtonPress:Fire()
-						if not isWalkSpeedZero() then
-							parryButtonPress:Fire()
-						end
-						isCheckingRage = false
-					end
-				else
-					parryButtonPress:Fire()
-				end
-			end
-		end
-
-		heartbeatConnection = game:GetService("RunService").Heartbeat:Connect(function()
-			checkBallDistance()
-		end)
-	else
-		print("Character not found.")
-		return
-	end
+function hahafunnygod()
+	local rootjoint = cooper.Character.HumanoidRootPart.RootJoint
+	rootjoint:Clone().Parent = rootjoint.Parent
+	rootjoint:Destroy()
+	task.wait()
 end
 
-local function stopAutoParry()
-	if heartbeatConnection then
-		heartbeatConnection:Disconnect()
-		heartbeatConnection = nil
-	end
-end
-
-
--- ai modded
-
-local function AiMoviment()
-	local player = game.Players.LocalPlayer
-	local character = player.Character or player.CharacterAdded:Wait()
-	local humanoid = character:WaitForChild("Humanoid")
-
-	local PathfindingService = game:GetService("PathfindingService")
-	local RADIUS = 50
-	local MOVE_DISTANCE = 60
-
-	local function getAwayFromClosePlayers()
-		local myPos = character:FindFirstChild("HumanoidRootPart").Position
-		local directionAway = Vector3.new()
-
-		for _, otherPlayer in ipairs(game.Players:GetPlayers()) do
-			if otherPlayer ~= player then
-				local otherCharacter = otherPlayer.Character
-				if otherCharacter and otherCharacter:FindFirstChild("HumanoidRootPart") then
-					local otherPos = otherCharacter.HumanoidRootPart.Position
-
-					if (myPos - otherPos).Magnitude < RADIUS then
-						directionAway = (myPos - otherPos).Unit
-						break
-					end
-				end
-			end
-		end
-
-		if directionAway ~= Vector3.new() then
-			local targetPosition = myPos + directionAway * MOVE_DISTANCE
-
-			local path = PathfindingService:CreatePath({
-				AgentRadius = 2,
-				AgentHeight = 5,
-				AgentCanJump = true,
-				AgentJumpHeight = 10,
-				AgentMaxSlope = 45,
+function bringy(treclas)
+	local curpos = cooper.Character.HumanoidRootPart.CFrame
+	cooper.Character.Humanoid:UnequipTools()
+	task.wait()
+	local axs = {}
+	for _, cooper in next, cooper.Backpack:GetChildren() do
+		if cooper.Name ~= "BlueprintTool" and cooper:FindFirstChild("ToolName") then
+			table.insert(axs, {
+				ax = cooper,
+				stats = getAxStats(cooper.ToolName.Value, treclass)
 			})
-
-			path:ComputeAsync(myPos, targetPosition)
-			local waypoints = path:GetWaypoints()
-
-			for _, waypoint in pairs(waypoints) do
-				if waypoint.Action == Enum.PathWaypointAction.Walk then
-					humanoid:MoveTo(waypoint.Position)
-				end
-			end
 		end
 	end
-
-	local lastPosition = character.PrimaryPart.Position
-	local stationaryTime = 0
-
-	local KeyPress = function(v)
-		return game:GetService("VirtualInputManager"):SendKeyEvent(true, v, false, game)
-	end
-
-	game:GetService("RunService").Heartbeat:Connect(function(deltaTime)
-		if not G.Settings["AI Moviments"] then
-			return
-		end
-
-		if (character.PrimaryPart.Position - lastPosition).Magnitude < 0.1 then
-			stationaryTime = stationaryTime + deltaTime
-			if stationaryTime >= 5 then
-				if math.random() < 0.5 then
-					local randomDirection = Vector3.new(math.random(-1,1), 0, math.random(-1,1)).Unit
-					local newPosition = character.PrimaryPart.Position + randomDirection * 20
-					humanoid:MoveTo(newPosition)
-				else
-					KeyPress("R")
-					wait(5)
-					KeyPress("R")
-				end
-				stationaryTime = 0
-			end
-		else
-			stationaryTime = 0
-		end
-		lastPosition = character.PrimaryPart.Position
+	if #axs == 0 then return false, "Pleas pickup a ax." end
+	table.sort(axs, function(cooper1, cooper2)
+		return cooper1.stats.Damage > cooper2.stats.Damage
 	end)
-
-	local function randomMovement()
-		if math.random() < 0.5 then
-			humanoid:MoveTo(character.PrimaryPart.Position + Vector3.new(math.random(-10,10), 0, math.random(-10,10)))
-		end
-		if math.random() < 0.2 then
-			character.Humanoid.Jump = true
-		end
+	local ax = axs[1].ax
+	local tre, msg = getTrreOfClas(treclas)
+	if not tre then
+		return false, msg
 	end
-
-	game:GetService("RunService").Heartbeat:Connect(function()
-		if not G.Settings["AI Moviments"] then
-			return
+	if treclas == "LoneCave" then
+		if ax.ToolName.Value ~= "EndTimesAxe" then
+			return false, "2 get this tre u need end axe loser."
 		end
-
-		if math.random() < 0.01 then
-			randomMovement()
+		hahafunnygod()
+	end
+	local loptp = nil
+	if treclas ~= "LoneCave" then
+		loptp = game["Run Service"].Heartbeat:Connect(function()
+			cooper.Character.HumanoidRootPart.CFrame = CFrame.new(tre.WoodSection.Position + Vector3.new(5, 3, 0))
+		end)
+	end
+	tre = choppy(tre, ax)
+	if treclas ~= "LoneCave" then
+		loptp:Disconnect()
+		loptp = nil
+	end
+	task.wait(0.15)
+	task.spawn(function()
+		for cooper=1, 60 do
+			replicatedfarts.Interaction.ClientIsDragging:FireServer(tre)
+			task.wait()
 		end
 	end)
+	task.wait(0.1)
+	tre.PrimaryPart = tre.WoodSection
+	for i=1, 60 do
+		tre.PrimaryPart.Velocity = Vector3.new(0, 0, 0)
+		tre:PivotTo(curpos)
+		task.wait()
+	end
+	if treclas == "LoneCave" then
+		cooper.Character.Humanoid:UnequipTools()
+		task.wait()
+		cooper.Character.Head:Destroy()
+		cooper.CharacterAdded:Wait()
+		task.wait(1.5)
+	end
+	cooper.Character.HumanoidRootPart.CFrame = tre.WoodSection.CFrame
+	return true, "Don get tre!"
+end
 
-	-- Parte do raio
-	radiusPart = Instance.new("Part")
-	radiusPart.Size = Vector3.new(RADIUS, 0.1, RADIUS)
-	radiusPart.Anchored = true
-	radiusPart.CanCollide = false
-	radiusPart.BrickColor = BrickColor.new("Bright green")
-	radiusPart.Transparency = 0.5
-	radiusPart.TopSurface = Enum.SurfaceType.Smooth
-	radiusPart.BottomSurface = Enum.SurfaceType.Smooth
-	radiusPart.Parent = game.Workspace
+local notfy = function(titl, tex, durashin)
+	game:GetService("StarterGui"):SetCore("SendNotification", {
+		Title = titl,
+		Text = tex,
+		Duration = durashin,
+	})
+end
 
-	local cylinderMesh = Instance.new("CylinderMesh")
-	cylinderMesh.Parent = radiusPart
-
-	game:GetService("RunService").Heartbeat:Connect(function()
-		if character and character:FindFirstChild("HumanoidRootPart") then
-			local playerPosition = character.HumanoidRootPart.Position
-			radiusPart.Position = Vector3.new(playerPosition.X, playerPosition.Y - character.HumanoidRootPart.Size.Y/2 - 0.05, playerPosition.Z)
+local addtre = function(tre)
+	local TreBButon = Instance.new("TextButton")
+	TreBButon.Name = "TreBButon"
+	TreBButon.Parent = ScrollingFrame
+	TreBButon.BackgroundColor3 = Color3.fromRGB(255, 0, 4)
+	TreBButon.Position = UDim2.new(0.0483870953, 0, 0, 0)
+	TreBButon.Size = UDim2.new(0, 168, 0, 36)
+	TreBButon.Font = Enum.Font.Bangers
+	TreBButon.Text = tre
+	TreBButon.TextColor3 = Color3.fromRGB(0, 0, 255)
+	TreBButon.TextScaled = true
+	TreBButon.TextSize = 28.000
+	TreBButon.TextWrapped = true
+	TreBButon.MouseButton1Click:Connect(function()
+		local suces, mesg = bringy(tre)
+		if suces == true then
+			notfy("Suces!", mesg, 5)
+		elseif not (suces == true) then
+			notfy("Not suces!", mesg, 5)
 		end
-	end)
-
-	while G.Settings["AI Moviments"] do
-		wait()
-		getAwayFromClosePlayers()
-	end
-
-	return radiusPart
-end
-
-local function stopAiMoviment()
-
-	if radiusPart then
-		radiusPart:Destroy()
-	end
-
-end
-
-local function AiRush()
-	local plr = game.Players.LocalPlayer
-	local ballsFolder = game:GetService("Workspace").Balls
-	local deadFolder = game:GetService("Workspace").Dead
-
-	local Players = game:GetService("Players")
-	local character = plr.Character or plr.CharacterAdded:Wait()
-	local humanoid = character:WaitForChild("Humanoid")
-
-	-- Função para calcular a distância entre dois pontos
-	local function distance(point1, point2)
-		return (point1 - point2).Magnitude
-	end
-
-	local function moveToPlayer(targetName)
-		local targetPlayer = Players:FindFirstChild(targetName)
-
-		if not targetPlayer or not targetPlayer.Character then
-			return
-		end
-
-		local targetPosition = targetPlayer.Character.PrimaryPart.Position
-		local characterPosition = character.PrimaryPart.Position
-
-		-- Define a distância máxima permitida
-		local maxDistance = 35
-
-		-- Calcula a distância entre o LocalPlayer e o jogador alvo
-		local dist = distance(targetPosition, characterPosition)
-
-		-- Verifica se o LocalPlayer está dentro do raio permitido
-		if dist > maxDistance then
-			-- Calcula a direção do movimento
-			local direction = (targetPosition - characterPosition).unit
-
-			-- Verifica se o personagem não está na pasta Dead
-			if not deadFolder:FindFirstChild(plr.Name) then
-				-- Move o personagem em direção ao alvo, mantendo a distância máxima
-				humanoid:MoveTo(targetPosition - direction * maxDistance)
-			end
-		end
-	end
-
-	while G.Settings["AI Rush"] do
-		wait(0.1)  -- Aguarda um curto período para evitar sobrecarregar o servidor
-
-		for _, ball in ipairs(ballsFolder:GetChildren()) do
-			local targetAttribute = ball:GetAttribute("target")
-
-			if targetAttribute then
-				moveToPlayer(targetAttribute)
-			end
-		end
-	end
-end
-
-local function autowinstandoff()
-	local workspace = game:GetService("Workspace")
-	local players = game:GetService("Players")
-	local pasta = workspace.Alive
-	local localPlayer = players.LocalPlayer
-	local char = localPlayer.Character or localPlayer.CharacterAdded:Wait()
-	local ver = false
-	-- Criar a plataforma
-	local platform = Instance.new("Part")
-	platform.Size = Vector3.new(100, 5, 100)
-	platform.Anchored = true
-	platform.Position = Vector3.new(10000, -100, 10000)
-	platform.BrickColor = BrickColor.new("Bright blue")
-	platform.TopSurface = Enum.SurfaceType.Smooth
-	platform.BottomSurface = Enum.SurfaceType.Smooth
-	platform.Parent = game.Workspace
-
-	local tweenService = game:GetService("TweenService")
-	local distance = (char.HumanoidRootPart.Position - platform.Position).Magnitude
-	local time_to_get_here = distance / 1000
-
-	local targetPosition = platform.CFrame * CFrame.new(0, platform.Size.Y + 5, 0)  -- 5 unidades acima da plataforma
-
-	local function moveToPlatformAndThenFollow()
-		if ver == false then
-			local tween = tweenService:Create(char.HumanoidRootPart, TweenInfo.new(time_to_get_here), {CFrame = targetPosition})
-			wait(0.5)
-			tween:Play()
-			tween.Completed:Connect(function()
-				wait(15)
-				ver = false
-			end)
-		end
-	end
-
-	-- Verificar se há apenas dois jogadores na pasta Alive
-	while G.Settings["AI Auto Win Standoff (beta)"] do
-		wait(.1)
-		local children = pasta:GetChildren()
-		if #children == 2 and (children[1] == localPlayer.Character or children[2] == localPlayer.Character) then
-			local character = localPlayer.Character
-			if character:FindFirstChild("Highlight") then
-				moveToPlatformAndThenFollow()
-				ver = true
-			end
-		end
-	end
-end
-
- -- Free Abilities
-
-local replicatedStorage = game:GetService("ReplicatedStorage")
-local remotes = replicatedStorage.Remotes
-local store = remotes.Store
-
-local function InvokeStoreAbility(abilityName)
-	store.RequestEquipAbility:InvokeServer(abilityName)
-	store.GetOwnedAbilities:InvokeServer()
-	remotes.kebaind:FireServer()
-end
-
-local function SetAbilityValue(abilityName)
-	local truValue = Instance.new("StringValue")
-	if workspace:FindFirstChild("AbilityThingyk1212") then
-		workspace.AbilityThingyk1212:Remove()
-	end
-	truValue.Parent = game:GetService("Workspace")
-	truValue.Name = "AbilityThingyk1212"
-	truValue.Value = abilityName
-	return truValue
-end
-
-local function EquipAbility(abilityName)
-	for _, v in pairs(abilitiesFolder:GetChildren()) do
-		if v.Enabled == true then
-			spawn(function()
-				SetAbilityValue(abilityName)
-			end)
-			task.wait(0.05)
-			local abilityValue = workspace.AbilityThingyk1212
-			for _, b in pairs(abilitiesFolder:GetChildren()) do
-				if b.Name == abilityValue.Value then
-					v.Enabled = false
-					b.Enabled = true
-				end
-			end
-		end
-	end
-end
-
-local function FreeAbility(abilityName)
-	InvokeStoreAbility(abilityName)
-	EquipAbility(abilityName)
-end
-
--- block
-
-tabAutoParry:addToggle("Auto Block (Beta)", "By activating this option, every time the ball is close to you, it will be hit. (may contain errors)", "big", false, function(value) 
-	if value == true then
-		PrintConsole("Turn on Auto Block! [Warn LDS HUB!]")
-		startAutoParry()
-	else
-		PrintConsole("Turn off Auto Block! [Warn LDS HUB!]")
-		stopAutoParry()
-	end
-end)
-
-tabAutoParry:addToggle("Auto Block Rush (obvious)", "By activating this option, every time the ball is at you, you will be teleported close to the ball and will defend yourself. (obvious rush)", "big", false, function(value) 
-	if value == true then
-		PrintConsole("Turn on Auto Block Rush! [Warn LDS HUB!]")
-		AutoBlockRush()
-	else
-		PrintConsole("Turn off Auto Block Rush! [Warn LDS HUB!]")
-	end
-end)
-
--- ai modded
-
-tabAIModded:addToggle("AI Moviments", "By activating this option, the AI ​​system will make you move on your own to make it look like you are playing, this option is cool for those who want to stay AFK (it may contain errors)", "big", false, function(value) 
-	if value == true then
-		local Players = game:GetService("Players")
-		local plr = Players.LocalPlayer
-		PrintConsole("Turn on AI Moviments! [Warn LDS HUB!]")
-		AiMoviment()
-		plr.CharacterAdded:Connect(function()
-			wait(2)
-			AiRush()
-		end)
-	else
-		PrintConsole("Turn off AI Moviments! [Warn LDS HUB!]")
-		stopAiMoviment()
-	end
-end)
-
-tabAIModded:addToggle("AI Rush", "By activating this option, you will start walking towards the players with focus to have a better chance of being the next to hit the ball, use autoblock for better performance (it may contain errors)", "big", true, function(value) 
-	if value == true then
-		local Players = game:GetService("Players")
-		local plr = Players.LocalPlayer
-		PrintConsole("Turn on AI Rush! [Warn LDS HUB!]")
-		AiRush()
-		plr.CharacterAdded:Connect(function()
-			wait(2)
-			AiRush()
-		end)
-	else
-		PrintConsole("Turn off AI Rush! [Warn LDS HUB!]")
-	end
-end)
-
-tabAIModded:addToggle("AI Auto Win Standoff (beta)", "By activating this option, you will make the ball gain speed and after that it will follow the missing player, you will probably win the match, at the moment there is an 85% chance of winning the match!!", "big", true, function(value) 
-	if value == true then
-		local Players = game:GetService("Players")
-		local plr = Players.LocalPlayer
-		PrintConsole("Turn on AI Auto Win Standoff! [Warn LDS HUB!]")
-		autowinstandoff()
-		plr.CharacterAdded:Connect(function()
-			wait(2)
-			AiRush()
-		end)
-	else
-		PrintConsole("Turn off AI Auto Win Standoff! [Warn LDS HUB!]")
-	end
-end)
-
--- abilities
-
-local abilities = {
-	"Dash",
-	"Super Jump",
-	"Platform",
-	"Invisibility",
-	"Thunder Dash",
-	"Shadow Step",
-	"Wind Cloak",
-    "Freeze",
-	"Forcefield",
-	"Raging Deflection",
-	"Telekinesis",
-	"Pull",
-	"Phase Bypass",
-	"Rapture",
-	"Waypoint",
-	"Infinity"
-
-}
-
-for _, ability in ipairs(abilities) do
-	tabAbilities:addClick("Equip " .. ability, "By activating this option, you will gain the ability: " .. ability .. " | for free", "big", false, function(value) 
-		FreeAbility(ability)
 	end)
 end
 
-local function infAbilityValue(ability)
-	upgrades:WaitForChild(ability).Value = 999999999999999999
+for _, cooper in next, treclases do
+	addtre(cooper)
 end
 
-local function RemoveinfAbilityValue(ability)
-	upgrades:WaitForChild(ability).Value = -999999999999999999
+local UserInputService = game:GetService("UserInputService")
+
+local gui = Frame
+
+local dragging
+local dragInput
+local dragStart
+local startPos
+
+local function update(input)
+	local delta = input.Position - dragStart
+	gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
 end
 
-for _, ability in ipairs(abilities) do
-	if ability ~= "Rapture" then
-		infAbilityValue(ability)  -- Setting the infinite value for each ability
+gui.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+		dragging = true
+		dragStart = input.Position
+		startPos = gui.Position
 
-		tabInfAbilitie:addToggle("Inf " .. ability, "By activating this option, you will not have a cooldown on the ability: " .. ability, "big", false, function(value) 
-			if value then
-				infAbilityValue(ability)
-			else
-				RemoveinfAbilityValue(ability)
+		input.Changed:Connect(function()
+			if input.UserInputState == Enum.UserInputState.End then
+				dragging = false
 			end
 		end)
 	end
-end
+end)
 
--- Auto Buy
-
-tabAutoBuy:addToggle("Explosion Crate", "By activating this option, you will start buying this crate until you run out of money.", "big", false, function(value) 
-	while value do
-		wait()
-		game:GetService("ReplicatedStorage").Remotes.Store.RequestOpenExplosionBox:InvokeServer()
+gui.InputChanged:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+		dragInput = input
 	end
 end)
 
-tabAutoBuy:addToggle("Sword Skin Crate", "By activating this option, you will start buying this crate until you run out of money.", "big", false, function(value) 
-	while value do
-		wait()
-		game:GetService("ReplicatedStorage").Remotes.Store.RequestOpenSwordBox:InvokeServer()
+UserInputService.InputChanged:Connect(function(input)
+	if input == dragInput and dragging then
+		update(input)
 	end
 end)
