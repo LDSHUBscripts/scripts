@@ -5,7 +5,7 @@ local character = localPlayer.Character
 local humanoidRootPart = character and character:FindFirstChild("HumanoidRootPart")
 
 local function calculateSpeed(previousPosition, currentPosition, deltaTime)
-	return (currentPosition - previousPosition).Magnitude / deltaTime
+    return (currentPosition - previousPosition).Magnitude / deltaTime
 end
 
 local previousBallPosition = nil
@@ -13,43 +13,37 @@ local previousTimestamp = tick()
 local initialDetectionRadius = 35
 local minDetectionRadius = 35
 local maxDetectionRadius = 50
-local speedIncrement = 5
-local maxSpeed = 0
+local speedMultiplier = 0.1  -- Ajuste conforme necessário
+print("v.5")
+game:GetService("RunService").RenderStepped:Connect(function()
+    wait()
 
-print("v.4")
+    for _, ball in pairs(workspace.Balls:GetChildren()) do
+        if ball and humanoidRootPart then
+            if character:FindFirstChild("Highlight") and ball:GetAttribute("target") ~= nil then
+                local currentBallPosition = ball.Position
+                local currentTimestamp = tick()
+                local deltaTime = currentTimestamp - previousTimestamp
+                local ballSpeed = 0
 
-while true do
-	wait()
+                if previousBallPosition then
+                    ballSpeed = calculateSpeed(previousBallPosition, currentBallPosition, deltaTime)
+                end
 
-	for _, ball in pairs(workspace.Balls:GetChildren()) do
-		if ball and humanoidRootPart then
-			if character:FindFirstChild("Highlight") and ball:GetAttribute("target") ~= nil then
-				local currentBallPosition = ball.Position
-				local currentTimestamp = tick()
-				local deltaTime = currentTimestamp - previousTimestamp
-				local ballSpeed = 0
+                -- Calcula o raio de detecção baseado na velocidade da bola
+                local detectionRadius = initialDetectionRadius + ballSpeed * speedMultiplier
 
-				if previousBallPosition then
-					ballSpeed = calculateSpeed(previousBallPosition, currentBallPosition, deltaTime)
-				end
+                -- Limita o raio de detecção para garantir que esteja entre minDetectionRadius e maxDetectionRadius
+                detectionRadius = math.clamp(detectionRadius, minDetectionRadius, maxDetectionRadius)
 
-				-- Atualiza o valor máximo de velocidade observado
-				maxSpeed = math.max(maxSpeed, ballSpeed)
+                -- Se a bola estiver dentro do raio de detecção, dispare o remote
+                if (currentBallPosition - humanoidRootPart.Position).Magnitude <= detectionRadius then
+                    parryButtonPress:Fire()
+                end
 
-				-- Calcula o raio de detecção baseado na velocidade da bola
-				local detectionRadius = initialDetectionRadius + math.floor(ballSpeed / speedIncrement) * 5
-
-				-- Limita o raio de detecção para garantir que esteja entre minDetectionRadius e maxDetectionRadius
-				detectionRadius = math.clamp(detectionRadius, minDetectionRadius, maxDetectionRadius)
-
-				-- Se a bola estiver dentro do raio de detecção, dispare o remote
-				if (currentBallPosition - humanoidRootPart.Position).Magnitude <= detectionRadius then
-					parryButtonPress:Fire()
-				end
-
-				previousBallPosition = currentBallPosition
-				previousTimestamp = currentTimestamp
-			end
-		end
-	end
-end
+                previousBallPosition = currentBallPosition
+                previousTimestamp = currentTimestamp
+            end
+        end
+    end
+end)
