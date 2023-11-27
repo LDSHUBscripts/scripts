@@ -5,65 +5,74 @@ local character = localPlayer.Character
 local humanoidRootPart = character and character:FindFirstChild("HumanoidRootPart")
 
 local function calculateSpeed(previousPosition, currentPosition, deltaTime)
-	return (currentPosition - previousPosition).Magnitude / deltaTime
+    return (currentPosition - previousPosition).Magnitude / deltaTime
 end
 
 local function timeUntilImpact(ballPosition, ballVelocity, playerPosition, playerVelocity)
-	local directionToPlayer = (playerPosition - ballPosition).Unit
-	local relativeVelocity = ballVelocity - playerVelocity
-	local velocityTowardsPlayer = relativeVelocity:Dot(directionToPlayer)
+    local directionToPlayer = (playerPosition - ballPosition).Unit
+    local relativeVelocity = ballVelocity - playerVelocity
+    local velocityTowardsPlayer = relativeVelocity:Dot(directionToPlayer)
 
-	if velocityTowardsPlayer <= 0 then
-		-- A bola está se afastando ou tem velocidade zero em direção ao jogador
-		return math.huge
-	end
+    if velocityTowardsPlayer <= 0 then
+        -- A bola está se afastando ou tem velocidade zero em direção ao jogador
+        return math.huge
+    end
 
-	local distanceToPlayer = (playerPosition - ballPosition).Magnitude
-	return distanceToPlayer / velocityTowardsPlayer
+    local distanceToPlayer = (playerPosition - ballPosition).Magnitude
+    return distanceToPlayer / velocityTowardsPlayer
 end
 
 local previousBallPosition = nil
 local previousTimestamp = tick()
 local initialDetectionRadius = 35
 local autoParryDistance = 5 -- Distância em que o auto-block será acionado automaticamente
+local parryCooldown = 2 -- Tempo de recarga em segundos
 
 game:GetService("RunService").RenderStepped:Connect(function()
-	wait()
-print("v.1")
-	for _, ball in pairs(workspace.Balls:GetChildren()) do
-		if ball and humanoidRootPart then
-			if character:FindFirstChild("Highlight") and ball:GetAttribute("target") ~= nil then
-				local currentBallPosition = ball.Position
-				local currentTimestamp = tick()
-				local deltaTime = currentTimestamp - previousTimestamp
-				local ballSpeed = 0
+    wait()
+print("v.2")
+    for _, ball in pairs(workspace.Balls:GetChildren()) do
+        if ball and humanoidRootPart then
+            if character:FindFirstChild("Highlight") and ball:GetAttribute("target") ~= nil then
+                local currentBallPosition = ball.Position
+                local currentTimestamp = tick()
+                local deltaTime = currentTimestamp - previousTimestamp
+                local ballSpeed = 0
 
-				if previousBallPosition then
-					ballSpeed = calculateSpeed(previousBallPosition, currentBallPosition, deltaTime)
-				end
+                if previousBallPosition then
+                    ballSpeed = calculateSpeed(previousBallPosition, currentBallPosition, deltaTime)
+                end
 
-				-- Calcula o tempo até o impacto
-				local timeToImpact = timeUntilImpact(
-					currentBallPosition, currentBallPosition - (previousBallPosition or currentBallPosition),
-					humanoidRootPart.Position, localPlayer.Character.HumanoidRootPart.Velocity
-				)
+                -- Calcula o tempo até o impacto
+                local timeToImpact = timeUntilImpact(
+                    currentBallPosition, currentBallPosition - (previousBallPosition or currentBallPosition),
+                    humanoidRootPart.Position, localPlayer.Character.HumanoidRootPart.Velocity
+                )
 
-				-- Calcula o novo raio de detecção baseado no tempo até o impacto
-				local detectionRadius = initialDetectionRadius + timeToImpact
+                -- Calcula o novo raio de detecção baseado no tempo até o impacto
+                local detectionRadius = initialDetectionRadius + timeToImpact
 
-				-- Se a bola estiver muito próxima, rebata automaticamente
-				if (currentBallPosition - humanoidRootPart.Position).Magnitude <= autoParryDistance then
-					parryButtonPress:Fire()
-				end
+                -- Calcula o tempo desde o último uso do parryButtonPress
+                local timeSinceLastParry = currentTimestamp - (character:FindFirstChild("LastParryTimestamp") or 0)
 
-				-- Se a bola estiver dentro do raio de detecção e a velocidade for maior que 0, dispare o remote
-				if ballSpeed > 0 and (currentBallPosition - humanoidRootPart.Position).Magnitude <= detectionRadius then
-					parryButtonPress:Fire()
-				end
+                -- Se a bola estiver muito próxima e o tempo desde o último uso for suficiente, rebata automaticamente
+                if (currentBallPosition - humanoidRootPart.Position).Magnitude <= autoParryDistance and timeSinceLastParry >= parryCooldown then
+                    parryButtonPress:Fire()
+                    character:FindFirstChild("LastParryTimestamp").Value = currentTimestamp
+                end
 
-				previousBallPosition = currentBallPosition
-				previousTimestamp = currentTimestamp
-			end
-		end
-	end
+                -- Se a bola estiver dentro do raio de detecção e a velocidade for maior que 0, dispare o remote
+                if ballSpeed > 0 and (currentBallPosition - humanoidRootPart.Position).Magnitude <= detectionRadius then
+                    -- Verifica se tempo suficiente passou desde o último disparo do parryButtonPress
+                    if timeSinceLastParry >= parryCooldown then
+                        parryButtonPress:Fire()
+                        character:FindFirstChild("LastParryTimestamp").Value = currentTimestamp
+                    end
+                end
+
+                previousBallPosition = currentBallPosition
+                previousTimestamp = currentTimestamp
+            end
+        end
+    end
 end)
