@@ -1,55 +1,125 @@
 local replicatedStorage = game:GetService("ReplicatedStorage")
 local parryButtonPress = replicatedStorage.Remotes.ParryButtonPress
+local abilityButtonPress = replicatedStorage.Remotes.AbilityButtonPress
 local localPlayer = game:GetService("Players").LocalPlayer
-local character = localPlayer.Character
-local humanoidRootPart = character and character:FindFirstChild("HumanoidRootPart")
+local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
+local focusedBall = nil
 
 local function calculateSpeed(previousPosition, currentPosition, deltaTime)
 	return (currentPosition - previousPosition).Magnitude / deltaTime
 end
 
-local previousBallPosition = nil
-local previousTimestamp = tick()
-local initialDetectionRadius = 35
-local minDetectionRadius = 35
-local maxDetectionRadius = 70
-local speedIncrement = 5
-local maxSpeed = 0
+local function timeUntilImpact(ballVelocity, distanceToPlayer, playerVelocity)
+	local directionToPlayer = (character.HumanoidRootPart.Position - focusedBall.Position).Unit
+	local velocityTowardsPlayer = ballVelocity:Dot(directionToPlayer) - playerVelocity:Dot(directionToPlayer)
 
-print("v.6")
+	if velocityTowardsPlayer <= 0 then
+		return math.huge
+	end
 
-while true do
-	wait()
+	return distanceToPlayer / velocityTowardsPlayer
+end
 
-	for _, ball in pairs(workspace.Balls:GetChildren()) do
-		if ball and humanoidRootPart then
-			if character:FindFirstChild("Highlight") and ball:GetAttribute("target") ~= nil then
-				local currentBallPosition = ball.Position
-				local currentTimestamp = tick()
-				local deltaTime = currentTimestamp - previousTimestamp
-				local ballSpeed = 0
+local function isWalkSpeedZero()
+	local humanoid = character:FindFirstChildOfClass("Humanoid")
+	if humanoid then
+		return humanoid.WalkSpeed == 0
+	end
+	return false
+end
 
-				if previousBallPosition then
-					ballSpeed = calculateSpeed(previousBallPosition, currentBallPosition, deltaTime)
+local function startAutoParry()
+	local ballsFolder = workspace:WaitForChild("Balls")
+
+	local function onCharacterAdded(newCharacter)
+		character = newCharacter
+	end
+
+	localPlayer.CharacterAdded:Connect(onCharacterAdded)
+	onCharacterAdded(character)
+
+	if character then
+		local BASE_THRESHOLD = 0.15
+		local VELOCITY_SCALING_FACTOR_FAST = 0.050
+		local VELOCITY_SCALING_FACTOR_SLOW = 0.1
+		local initialDetectionRadius = 35
+		local minDetectionRadius = 35
+		local maxDetectionRadius = 50
+		local speedMultiplier = 0.1
+
+		local function chooseNewFocusedBall()
+			local balls = ballsFolder:GetChildren()
+			for _, ball in ipairs(balls) do
+				if ball:GetAttribute("realBall") ~= nil and ball:GetAttribute("realBall") == true then
+					focusedBall = ball
+					break
+				elseif ball:GetAttribute("target") ~= nil then
+					focusedBall = ball
+					break
 				end
-
-				-- Atualiza o valor máximo de velocidade observado
-				maxSpeed = math.max(maxSpeed, ballSpeed)
-
-				-- Calcula o raio de detecção baseado na velocidade da bola
-				local detectionRadius = initialDetectionRadius + math.floor(ballSpeed / speedIncrement) * 5
-
-				-- Limita o raio de detecção para garantir que esteja entre minDetectionRadius e maxDetectionRadius
-				detectionRadius = math.clamp(detectionRadius, minDetectionRadius, maxDetectionRadius)
-
-				-- Se a bola estiver dentro do raio de detecção, dispare o remote
-				if (currentBallPosition - humanoidRootPart.Position).Magnitude <= detectionRadius then
-					parryButtonPress:Fire()
-				end
-
-				previousBallPosition = currentBallPosition
-				previousTimestamp = currentTimestamp
 			end
 		end
+
+		chooseNewFocusedBall()
+
+		local function getDynamicThreshold(ballVelocityMagnitude)
+			if ballVelocityMagnitude > 60 then
+				return math.max(0.20, BASE_THRESHOLD - (ballVelocityMagnitude * VELOCITY_SCALING_FACTOR_FAST))
+			else
+				return math.min(0.01, BASE_THRESHOLD + (ballVelocityMagnitude * VELOCITY_SCALING_FACTOR_SLOW))
+			end
+		end
+
+		local function checkBallDistance()
+			if not character or not character:FindFirstChild("Highlight") then return end
+
+			local charPos = character.PrimaryPart.Position
+			local charVel = character.PrimaryPart.Velocity
+
+			if focusedBall and not focusedBall.Parent then
+				chooseNewFocusedBall()
+			end
+			if not focusedBall then 
+				chooseNewFocusedBall()
+			end
+
+			local ball = focusedBall
+			local distanceToPlayer = (ball.Position - charPos).Magnitude
+			local ballVelocityTowardsPlayer = ball.Velocity:Dot((charPos - ball.Position).Unit)
+
+			-- Calcula o raio de detecção baseado na velocidade da bola
+			local detectionRadius = initialDetectionRadius + ballVelocityTowardsPlayer * speedMultiplier
+
+			-- Limita o raio de detecção para garantir que esteja entre minDetectionRadius e maxDetectionRadius
+			detectionRadius = math.clamp(detectionRadius, minDetectionRadius, maxDetectionRadius)
+
+			if distanceToPlayer < detectionRadius then
+				parryButtonPress:Fire()
+			end
+
+			local isCheckingRage = false
+
+			if timeUntilImpact(ball.Velocity, distanceToPlayer, charVel) < getDynamicThreshold(ballVelocityTowardsPlayer) then
+				if character.Abilities["Raging Deflection"].Enabled then
+					if not isCheckingRage then
+						isCheckingRage = true
+						abilityButtonPress:Fire()
+						if not isWalkSpeedZero() then
+							parryButtonPress:Fire()
+						end
+						isCheckingRage = false
+					end
+				else
+					parryButtonPress:Fire()
+				end
+			end
+		end
+
+		game:GetService("RunService").Heartbeat:Connect(checkBallDistance)
+	else
+		print("Character not found.")
+		return
 	end
 end
+
+startAutoParry()
