@@ -12,10 +12,13 @@ local previousBallPosition = nil
 local previousTimestamp = tick()
 local initialDetectionRadius = 35
 local minDetectionRadius = 35
-local maxDetectionRadius = 40
+local maxDetectionRadius = 50
+local speedIncrement = 5
+local maxSpeed = 0
 
-print("v.3")
-game:GetService("RunService").RenderStepped:Connect(function()
+print("v.4")
+
+while true do
 	wait()
 
 	for _, ball in pairs(workspace.Balls:GetChildren()) do
@@ -30,8 +33,11 @@ game:GetService("RunService").RenderStepped:Connect(function()
 					ballSpeed = calculateSpeed(previousBallPosition, currentBallPosition, deltaTime)
 				end
 
+				-- Atualiza o valor máximo de velocidade observado
+				maxSpeed = math.max(maxSpeed, ballSpeed)
+
 				-- Calcula o raio de detecção baseado na velocidade da bola
-				local detectionRadius = initialDetectionRadius + ballSpeed * 2
+				local detectionRadius = initialDetectionRadius + math.floor(ballSpeed / speedIncrement) * 5
 
 				-- Limita o raio de detecção para garantir que esteja entre minDetectionRadius e maxDetectionRadius
 				detectionRadius = math.clamp(detectionRadius, minDetectionRadius, maxDetectionRadius)
@@ -46,4 +52,4 @@ game:GetService("RunService").RenderStepped:Connect(function()
 			end
 		end
 	end
-end)
+end
