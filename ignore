@@ -4,7 +4,7 @@ local abilityButtonPress = replicatedStorage.Remotes.AbilityButtonPress
 local localPlayer = game:GetService("Players").LocalPlayer
 local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
 local focusedBall = nil
-
+print("v.7")
 local function calculateSpeed(previousPosition, currentPosition, deltaTime)
 	return (currentPosition - previousPosition).Magnitude / deltaTime
 end
