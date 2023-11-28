@@ -1,66 +1,51 @@
-local replicatedStorage = game:GetService("ReplicatedStorage")
-local parryButtonPress = replicatedStorage.Remotes.ParryButtonPress
-local abilityButtonPress = replicatedStorage.Remotes.AbilityButtonPress
-local localPlayer = game:GetService("Players").LocalPlayer
-local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
-local focusedBall = nil
-print("v.7")
-local function calculateSpeed(previousPosition, currentPosition, deltaTime)
-	return (currentPosition - previousPosition).Magnitude / deltaTime
-end
-
-local function timeUntilImpact(ballVelocity, distanceToPlayer, playerVelocity)
-	local directionToPlayer = (character.HumanoidRootPart.Position - focusedBall.Position).Unit
-	local velocityTowardsPlayer = ballVelocity:Dot(directionToPlayer) - playerVelocity:Dot(directionToPlayer)
-
-	if velocityTowardsPlayer <= 0 then
-		return math.huge
-	end
-
-	return distanceToPlayer / velocityTowardsPlayer
-end
-
-local function isWalkSpeedZero()
-	local humanoid = character:FindFirstChildOfClass("Humanoid")
-	if humanoid then
-		return humanoid.WalkSpeed == 0
-	end
-	return false
-end
-
 local function startAutoParry()
+	local UserInputService = game:GetService("UserInputService")
+	local replicatedStorage = game:GetService("ReplicatedStorage")
+	local heartbeatConnection
+	local players = game:GetService("Players")
+	local localPlayer = players.LocalPlayer
+	local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
 	local ballsFolder = workspace:WaitForChild("Balls")
-
+	local parryButtonPress = replicatedStorage.Remotes.ParryButtonPress
+	local abilityButtonPress = replicatedStorage.Remotes.AbilityButtonPress
+	local UseRage = false
+	
 	local function onCharacterAdded(newCharacter)
 		character = newCharacter
 	end
-
 	localPlayer.CharacterAdded:Connect(onCharacterAdded)
-	onCharacterAdded(character)
 
-	if character then
-		local BASE_THRESHOLD = 0.15
-		local VELOCITY_SCALING_FACTOR_FAST = 0.050
-		local VELOCITY_SCALING_FACTOR_SLOW = 0.1
-		local initialDetectionRadius = 35
-		local minDetectionRadius = 35
-		local maxDetectionRadius = 50
-		local speedMultiplier = 0.1
+	local function chooseNewFocusedBall()
+		local balls = ballsFolder:GetChildren()
+		local bestBall = nil
+		local bestDistance = math.huge
 
-		local function chooseNewFocusedBall()
-			local balls = ballsFolder:GetChildren()
-			for _, ball in ipairs(balls) do
-				if ball:GetAttribute("realBall") ~= nil and ball:GetAttribute("realBall") == true then
-					focusedBall = ball
-					break
-				elseif ball:GetAttribute("target") ~= nil then
-					focusedBall = ball
-					break
+		for _, ball in ipairs(balls) do
+			if ball:GetAttribute("realBall") ~= nil and ball:GetAttribute("realBall") == true then
+				local distance = (ball.Position - character.HumanoidRootPart.Position).Magnitude
+				if distance < bestDistance then
+					bestBall = ball
+					bestDistance = distance
+				end
+			elseif ball:GetAttribute("target") ~= nil then
+				local distance = (ball.Position - character.HumanoidRootPart.Position).Magnitude
+				if distance < bestDistance then
+					bestBall = ball
+					bestDistance = distance
 				end
 			end
 		end
 
+		focusedBall = bestBall
+	end
+
+	if character then
 		chooseNewFocusedBall()
+
+		local SAFE_DISTANCE = 15
+		local BASE_THRESHOLD = 0.15
+		local VELOCITY_SCALING_FACTOR_FAST = 0.050
+		local VELOCITY_SCALING_FACTOR_SLOW = 0.1
 
 		local function getDynamicThreshold(ballVelocityMagnitude)
 			if ballVelocityMagnitude > 60 then
@@ -70,15 +55,35 @@ local function startAutoParry()
 			end
 		end
 
+		local function timeUntilImpact(ballVelocity, distanceToPlayer, playerVelocity)
+			local directionToPlayer = (character.HumanoidRootPart.Position - focusedBall.Position).Unit
+			local velocityTowardsPlayer = ballVelocity:Dot(directionToPlayer) - playerVelocity:Dot(directionToPlayer)
+
+			if velocityTowardsPlayer <= 0 then
+				return math.huge
+			end
+
+			return (distanceToPlayer - SAFE_DISTANCE) / velocityTowardsPlayer
+		end
+
+		local function isWalkSpeedZero()
+			local humanoid = character:FindFirstChildOfClass("Humanoid")
+			if humanoid then
+				return humanoid.WalkSpeed == 0
+			end
+			return false
+		end
+
 		local function checkBallDistance()
 			if not character or not character:FindFirstChild("Highlight") then return end
 
-			local charPos = character.PrimaryPart.Position
-			local charVel = character.PrimaryPart.Velocity
+			local charPos = character.HumanoidRootPart.Position
+			local charVel = character.HumanoidRootPart.Velocity
 
 			if focusedBall and not focusedBall.Parent then
 				chooseNewFocusedBall()
 			end
+
 			if not focusedBall then 
 				chooseNewFocusedBall()
 			end
@@ -87,20 +92,20 @@ local function startAutoParry()
 			local distanceToPlayer = (ball.Position - charPos).Magnitude
 			local ballVelocityTowardsPlayer = ball.Velocity:Dot((charPos - ball.Position).Unit)
 
-			-- Calcula o raio de detecção baseado na velocidade da bola
-			local detectionRadius = initialDetectionRadius + ballVelocityTowardsPlayer * speedMultiplier
+			if distanceToPlayer < SAFE_DISTANCE then
+				-- Move o jogador para longe da bola
+				local moveDirection = (charPos - ball.Position).Unit
+				character:SetPrimaryPartCFrame(CFrame.new(charPos + moveDirection * SAFE_DISTANCE))
+			end
 
-			-- Limita o raio de detecção para garantir que esteja entre minDetectionRadius e maxDetectionRadius
-			detectionRadius = math.clamp(detectionRadius, minDetectionRadius, maxDetectionRadius)
-
-			if distanceToPlayer < detectionRadius then
+			if distanceToPlayer < 10 then
 				parryButtonPress:Fire()
 			end
 
 			local isCheckingRage = false
 
 			if timeUntilImpact(ball.Velocity, distanceToPlayer, charVel) < getDynamicThreshold(ballVelocityTowardsPlayer) then
-				if character.Abilities["Raging Deflection"].Enabled then
+				if character.Abilities["Raging Deflection"].Enabled and UseRage == true then
 					if not isCheckingRage then
 						isCheckingRage = true
 						abilityButtonPress:Fire()
@@ -115,11 +120,13 @@ local function startAutoParry()
 			end
 		end
 
-		game:GetService("RunService").Heartbeat:Connect(checkBallDistance)
+		heartbeatConnection = game:GetService("RunService").Heartbeat:Connect(function()
+			checkBallDistance()
+		end)
 	else
 		print("Character not found.")
 		return
 	end
 end
-
+print("v.8")
 startAutoParry()
