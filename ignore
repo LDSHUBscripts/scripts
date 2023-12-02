@@ -1,132 +1,113 @@
-local function startAutoParry()
-	local UserInputService = game:GetService("UserInputService")
-	local replicatedStorage = game:GetService("ReplicatedStorage")
-	local heartbeatConnection
-	local players = game:GetService("Players")
-	local localPlayer = players.LocalPlayer
-	local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
-	local ballsFolder = workspace:WaitForChild("Balls")
-	local parryButtonPress = replicatedStorage.Remotes.ParryButtonPress
-	local abilityButtonPress = replicatedStorage.Remotes.AbilityButtonPress
-	local UseRage = false
+local G = getgenv()
+G.Key = "SAaRlAiS_aBhImRaAdHG2"
+
+local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/RobSilas/lds-hub/main/library.txt"))()
+
+local window = lib:start("Pet Simulator 99", "1.0 Global", true)
+
+local tabAutoFarm = window:addTab("Auto Farm")
+local tabAutoEgg = window:addTab("Auto Egg")
+local tabAutoBuy = window:addTab("Auto Buy")
+local tabAutoCollect = window:addTab("Auto Collect")
+local tabAutoGame = window:addTab("Auto Games")
+local tabBoostItens = window:addTab("Boost Itens")
+local tabMachines = window:addTab("Machines")
+local tabTeleport = window:addTab("Teleport")
+local tabMisc = window:addTab("Misc")
+
+-- Auto Farm 
+
+local AreaListAF = tabAutoFarm:addCombo("Select Area", "Select one of the options (This section updates automatically!)", {"area"})
+local ModeListAF = tabAutoFarm:addCombo("Select Mode", "Select one of the options (This section updates automatically!)", {"modo"})
+
+tabAutoFarm:addToggle("Auto Farm (Area and Mode)", "By activating this option, you will automatically start farming coins in the selected area!","big", false, function(value) 
 	
-	local function onCharacterAdded(newCharacter)
-		character = newCharacter
-	end
-	localPlayer.CharacterAdded:Connect(onCharacterAdded)
+end)
 
-	local function chooseNewFocusedBall()
-		local balls = ballsFolder:GetChildren()
-		local bestBall = nil
-		local bestDistance = math.huge
+-- Auto Egg
+local pathEgg = game:GetService("ReplicatedStorage").__DIRECTORY.Eggs["Zone Eggs"]
+local eggsTable = {}
 
-		for _, ball in ipairs(balls) do
-			if ball:GetAttribute("realBall") ~= nil and ball:GetAttribute("realBall") == true then
-				local distance = (ball.Position - character.HumanoidRootPart.Position).Magnitude
-				if distance < bestDistance then
-					bestBall = ball
-					bestDistance = distance
-				end
-			elseif ball:GetAttribute("target") ~= nil then
-				local distance = (ball.Position - character.HumanoidRootPart.Position).Magnitude
-				if distance < bestDistance then
-					bestBall = ball
-					bestDistance = distance
-				end
-			end
-		end
-
-		focusedBall = bestBall
-	end
-
-	if character then
-		chooseNewFocusedBall()
-
-		local SAFE_DISTANCE = 15
-		local BASE_THRESHOLD = 0.15
-		local VELOCITY_SCALING_FACTOR_FAST = 0.050
-		local VELOCITY_SCALING_FACTOR_SLOW = 0.1
-
-		local function getDynamicThreshold(ballVelocityMagnitude)
-			if ballVelocityMagnitude > 60 then
-				return math.max(0.20, BASE_THRESHOLD - (ballVelocityMagnitude * VELOCITY_SCALING_FACTOR_FAST))
-			else
-				return math.min(0.01, BASE_THRESHOLD + (ballVelocityMagnitude * VELOCITY_SCALING_FACTOR_SLOW))
-			end
-		end
-
-		local function timeUntilImpact(ballVelocity, distanceToPlayer, playerVelocity)
-			local directionToPlayer = (character.HumanoidRootPart.Position - focusedBall.Position).Unit
-			local velocityTowardsPlayer = ballVelocity:Dot(directionToPlayer) - playerVelocity:Dot(directionToPlayer)
-
-			if velocityTowardsPlayer <= 0 then
-				return math.huge
-			end
-
-			return (distanceToPlayer - SAFE_DISTANCE) / velocityTowardsPlayer
-		end
-
-		local function isWalkSpeedZero()
-			local humanoid = character:FindFirstChildOfClass("Humanoid")
-			if humanoid then
-				return humanoid.WalkSpeed == 0
-			end
-			return false
-		end
-
-		local function checkBallDistance()
-			if not character or not character:FindFirstChild("Highlight") then return end
-
-			local charPos = character.HumanoidRootPart.Position
-			local charVel = character.HumanoidRootPart.Velocity
-
-			if focusedBall and not focusedBall.Parent then
-				chooseNewFocusedBall()
-			end
-
-			if not focusedBall then 
-				chooseNewFocusedBall()
-			end
-
-			local ball = focusedBall
-			local distanceToPlayer = (ball.Position - charPos).Magnitude
-			local ballVelocityTowardsPlayer = ball.Velocity:Dot((charPos - ball.Position).Unit)
-
-			if distanceToPlayer < SAFE_DISTANCE then
-				-- Move o jogador para longe da bola
-				local moveDirection = (charPos - ball.Position).Unit
-				character:SetPrimaryPartCFrame(CFrame.new(charPos + moveDirection * SAFE_DISTANCE))
-			end
-
-			if distanceToPlayer < 10 then
-				parryButtonPress:Fire()
-			end
-
-			local isCheckingRage = false
-
-			if timeUntilImpact(ball.Velocity, distanceToPlayer, charVel) < getDynamicThreshold(ballVelocityTowardsPlayer) then
-				if character.Abilities["Raging Deflection"].Enabled and UseRage == true then
-					if not isCheckingRage then
-						isCheckingRage = true
-						abilityButtonPress:Fire()
-						if not isWalkSpeedZero() then
-							parryButtonPress:Fire()
-						end
-						isCheckingRage = false
-					end
-				else
-					parryButtonPress:Fire()
-				end
-			end
-		end
-
-		heartbeatConnection = game:GetService("RunService").Heartbeat:Connect(function()
-			checkBallDistance()
-		end)
-	else
-		print("Character not found.")
-		return
-	end
+for i, v in pairs(pathEgg:GetChildren()) do
+	local originalName = v.Name
+	local trimmedName = originalName:gsub("%d+ | ", "") -- Remove o "1 | " do nome do egg
+	table.insert(eggsTable, trimmedName)
 end
-print("v.8")
-startAutoParry()
+
+local EggsListAG = tabAutoEgg:addCombo("Select Egg", "Select one of the options (This section updates automatically!)", eggsTable)
+
+tabAutoEgg:addToggle("Auto Egg", "","big", false, function(value) 
+	local text = game:GetService("Players").LocalPlayer.PlayerGui._MACHINES.EggSlotsMachine.Frame.Slots.Items.Title.Remaining.Text
+	local number = tonumber(string.match(text, "(%d+)/%d+"))
+	
+	local args = {
+		[1] = EggsListAG:getValue(),
+		[2] = number
+	}
+
+	game:GetService("ReplicatedStorage").Network.Eggs_RequestPurchase:InvokeServer(unpack(args))
+end)
+
+-- Machines
+local tier = nil
+
+local ModeMachines = tabMachines:addCombo("Select Mode", "Select one of the options (This section updates automatically!)", {"All Machines", "Only Potions", "Only Enchants", "Only Fruits"})
+
+tabMachines:addSlider("Amount Item", "x", 1, 3, function(value)
+	tier = value
+end)
+
+tabMachines:addToggle("Auto Buy Machines", "x","big", false, function(value) 
+	-- variaveis:
+	local Value = ModeMachines:getValue()
+	local machines = {
+		potions = {
+			"PotionVendingMachine1",
+			"PotionVendingMachine2",
+		},
+		Enchants = {
+			"EnchantVendingMachine1",
+			"EnchantVendingMachine2",
+		},
+		Fruits = {
+			"FruitVendingMachine1",
+			"FruitVendingMachine2",
+		}
+	}
+	
+	local function BuyMachines(Machine, Tier)
+		local args = {
+			[1] = Machine,
+			[2] = Tier
+		}
+
+		game:GetService("ReplicatedStorage").Network.VendingMachines_Purchase:InvokeServer(unpack(args))
+	end
+	
+	while G.Settings["Auto Buy Machines"] do
+		wait()
+		if Value then
+			if Value == "All Machines" then
+				for category, machinesList in pairs(machines) do
+					for _, machine in ipairs(machinesList) do
+						BuyMachines(machine, tier)
+					end
+				end
+			elseif Value == "Only Potions" then
+				for _, machine in ipairs(machines["potions"]) do
+					BuyMachines(machine, tier)
+				end
+			elseif Value == "Only Enchants" then
+				for _, machine in ipairs(machines["Enchants"]) do
+					BuyMachines(machine, tier)
+				end
+			elseif Value == "Only Fruits" then
+				for _, machine in ipairs(machines["Fruits"]) do
+					BuyMachines(machine, tier)
+				end
+			end
+		else
+			Value = "All Machines"
+		end
+	end
+end)
