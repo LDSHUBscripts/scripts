@@ -83,7 +83,7 @@ function criarArrayTarget(arrayDeStrings, valorAlvo)
 	return novaArray
 end
 
-local AreaListAF = tabAutoFarm:addCombo("Select Area", "Select one of the options (This section updates automatically!)", AreasList)
+local AreaListAF = tabAutoFarm:addCombo("Select Area", "Select one of the options (This section updates automatically!)", AreasNames)
 local ModeListAF = tabAutoFarm:addCombo("Select Mode", "Select one of the options (This section updates automatically!)", {"modo"})
 
 tabAutoFarm:addToggle("Auto Farm (Area and Mode)", "By activating this option, you will automatically start farming coins in the selected area!","big", false, function(value) 
