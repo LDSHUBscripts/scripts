@@ -17,97 +17,89 @@ local tabMisc = window:addTab("Misc")
 
 -- Auto Farm 
 
-local AreaListAF = tabAutoFarm:addCombo("Select Area", "Select one of the options (This section updates automatically!)", {"area"})
+function transformString(inputString)
+	-- Encontra o índice do caractere '|'
+	local separatorIndex = string.find(inputString, '|')
+
+	-- Se encontrar o caractere '|'
+	if separatorIndex ~= nil then
+		-- Obtém a substring após o caractere '|', removendo espaços em branco no início e no final
+		local transformedString = string.sub(inputString, separatorIndex + 2)
+		transformedString = string.gsub(transformedString, "^%s*(.-)%s*$", "%1") -- Remove espaços em branco no início e final
+
+		return transformedString
+	else
+		-- Se não encontrar o caractere '|', retorna a string original
+		return inputString
+	end
+end
+
+local AreasList = {}
+local AreasNames = {}
+
+for _, v in pairs(workspace.Map:GetChildren()) do
+	if v.Name ~= "SHOP" then
+		table.insert(AreasList, v.Name)
+		table.insert(AreasNames, transformString(v.Name))
+	end
+end
+
+local petsFolder = game:GetService("Players").LocalPlayer.PlayerGui.Inventory.Frame.Main.Pets.EquippedPets
+
+local function getEquippedPets()
+	local pets = {}
+	for _, v in pairs(petsFolder:GetChildren()) do
+		if v:IsA("TextButton") then
+			pets[#pets+1] = v.Name
+		end
+	end
+	return pets
+end
+
+local function findCoin(area)
+	for _, v in pairs(workspace.__THINGS.Breakables:GetChildren()) do
+		if v:IsA("Model") then
+			local parentID = v:GetAttribute("ParentID")
+			local vipBreakable = v:GetAttribute("VIPBreakable")
+
+			if parentID == area and not vipBreakable then
+				return v
+			end
+		end
+	end
+end
+
+
+function criarArrayTarget(arrayDeStrings, valorAlvo)
+	local novaArray = {}
+
+	for _, chave in ipairs(arrayDeStrings) do
+		novaArray[chave] = {
+			targetType = "Breakable",
+			targetValue = valorAlvo
+		}
+	end
+
+	return novaArray
+end
+
+local AreaListAF = tabAutoFarm:addCombo("Select Area", "Select one of the options (This section updates automatically!)", AreasList)
 local ModeListAF = tabAutoFarm:addCombo("Select Mode", "Select one of the options (This section updates automatically!)", {"modo"})
 
 tabAutoFarm:addToggle("Auto Farm (Area and Mode)", "By activating this option, you will automatically start farming coins in the selected area!","big", false, function(value) 
-	
+	while G.Settings["Auto Farm (Area and Mode)"] do
+		if AreaListAF:getValue() ~= "" and findCoin(AreaListAF:getValue()) then	
+			game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Pets_SetTargetBulk"):FireServer(criarArrayTarget(getEquippedPets(), findCoin(AreaListAF:getValue()).Name))
+		end
+		task.wait(4)
+	end
 end)
 
 -- Auto Egg
-local pathEgg = game:GetService("ReplicatedStorage").__DIRECTORY.Eggs["Zone Eggs"]
-local eggsTable = {}
 
-for i, v in pairs(pathEgg:GetChildren()) do
-	local originalName = v.Name
-	local trimmedName = originalName:gsub("%d+ | ", "") -- Remove o "1 | " do nome do egg
-	table.insert(eggsTable, trimmedName)
-end
-
-local EggsListAG = tabAutoEgg:addCombo("Select Egg", "Select one of the options (This section updates automatically!)", eggsTable)
+local EggsListAG = tabAutoEgg:addCombo("Select Egg", "Select one of the options (This section updates automatically!)", {"egg"})
+local ModeListAG = tabAutoEgg:addCombo("Select Mode", "Select one of the options (This section updates automatically!)", {"modo"})
 
 tabAutoEgg:addToggle("Auto Egg", "","big", false, function(value) 
-	local text = game:GetService("Players").LocalPlayer.PlayerGui._MACHINES.EggSlotsMachine.Frame.Slots.Items.Title.Remaining.Text
-	local number = tonumber(string.match(text, "(%d+)/%d+"))
-	
-	local args = {
-		[1] = EggsListAG:getValue(),
-		[2] = number
-	}
 
-	game:GetService("ReplicatedStorage").Network.Eggs_RequestPurchase:InvokeServer(unpack(args))
-end)
-
--- Machines
-local tier = nil
-
-local ModeMachines = tabMachines:addCombo("Select Mode", "Select one of the options (This section updates automatically!)", {"All Machines", "Only Potions", "Only Enchants", "Only Fruits"})
-
-tabMachines:addSlider("Amount Item", "x", 1, 3, function(value)
-	tier = value
-end)
-
-tabMachines:addToggle("Auto Buy Machines", "x","big", false, function(value) 
-	-- variaveis:
-	local Value = ModeMachines:getValue()
-	local machines = {
-		potions = {
-			"PotionVendingMachine1",
-			"PotionVendingMachine2",
-		},
-		Enchants = {
-			"EnchantVendingMachine1",
-			"EnchantVendingMachine2",
-		},
-		Fruits = {
-			"FruitVendingMachine1",
-			"FruitVendingMachine2",
-		}
-	}
-	
-	local function BuyMachines(Machine, Tier)
-		local args = {
-			[1] = Machine,
-			[2] = Tier
-		}
-
-		game:GetService("ReplicatedStorage").Network.VendingMachines_Purchase:InvokeServer(unpack(args))
-	end
-	
-	while G.Settings["Auto Buy Machines"] do
-		wait()
-		if Value then
-			if Value == "All Machines" then
-				for category, machinesList in pairs(machines) do
-					for _, machine in ipairs(machinesList) do
-						BuyMachines(machine, tier)
-					end
-				end
-			elseif Value == "Only Potions" then
-				for _, machine in ipairs(machines["potions"]) do
-					BuyMachines(machine, tier)
-				end
-			elseif Value == "Only Enchants" then
-				for _, machine in ipairs(machines["Enchants"]) do
-					BuyMachines(machine, tier)
-				end
-			elseif Value == "Only Fruits" then
-				for _, machine in ipairs(machines["Fruits"]) do
-					BuyMachines(machine, tier)
-				end
-			end
-		else
-			Value = "All Machines"
-		end
-	end
 end)
