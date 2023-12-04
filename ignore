@@ -133,16 +133,16 @@ tabMachines:addToggle("Auto Buy Machines", "x","big", false, function(value)
 	local Value = ModeMachines:getValue()
 	local machines = {
 		potions = {
-			{Name = "PotionVendingMachine1", CFrame = CFrame.new(Vector3.new(10, 0, 0))},
-			{Name = "PotionVendingMachine2", CFrame = CFrame.new(Vector3.new(20, 0, 0))},
+			{Name = "PotionVendingMachine1", CFrame = workspace.Map["6 | Cherry Blossom"].INTERACT.Machines.PotionVendingMachine1.Pad.CFrame},
+			{Name = "PotionVendingMachine2", CFrame = workspace.Map["35 | Safari"].INTERACT.Machines.PotionVendingMachine2.Pad.CFrame},
 		},
 		Enchants = {
-			{Name = "EnchantVendingMachine1", CFrame = CFrame.new(Vector3.new(0, 10, 0))},
-			{Name = "EnchantVendingMachine2", CFrame = CFrame.new(Vector3.new(0, 20, 0))},
+			{Name = "EnchantVendingMachine1", CFrame = workspace.Map["9 | Misty Falls"].INTERACT.Machines.EnchantVendingMachine1.Pad.CFrame},
+			{Name = "EnchantVendingMachine2", CFrame = workspace.Map["42 | Fire and Ice"].INTERACT.Machines.EnchantVendingMachine2.Pad.CFrame},
 		},
 		Fruits = {
-			{Name = "FruitVendingMachine1", CFrame = CFrame.new(Vector3.new(30, 0, 0))},
-			{Name = "FruitVendingMachine2", CFrame = CFrame.new(Vector3.new(40, 0, 0))},
+			{Name = "FruitVendingMachine1", CFrame = workspace.Map["14 | Mushroom Field"].INTERACT.Machines.FruitVendingMachine1.Pad.CFrame},
+			{Name = "FruitVendingMachine2", CFrame = workspace.Map["26 | Pirate Cove"].INTERACT.Machines.FruitVendingMachine2.Pad.CFrame},
 		}
 	}
 
@@ -230,6 +230,8 @@ tabAutoCollect:addToggle("Auto Reedem Daily", "x","big", false, function(value)
 end)
 
 tabAutoCollect:addToggle("Auto Reedem Gift", "x","big", false, function(value) 
+	while G.Settings["Auto Reedem Gift"] do
+		task.wait(1)
 	for i = 1, 12 do
 		local args = {
 			[1] = i
@@ -238,29 +240,32 @@ tabAutoCollect:addToggle("Auto Reedem Gift", "x","big", false, function(value)
 		game:GetService("ReplicatedStorage").Network["Redeem Free Gift"]:InvokeServer(unpack(args))
 		wait()
 	end
+	end
 end)
 
 tabAutoCollect:addToggle("Auto Spin Whell", "x","big", false, function(value) 
+	while G.Settings["Auto Spin Whell"] do
+		task.wait(1)
 	local args = {
 		[1] = "StarterWheel"
 	}
 
 	game:GetService("ReplicatedStorage").Network["Spinny Wheel: Request Spin"]:InvokeServer(unpack(args))
-
+	end
 end)
 
 tabAutoCollect:addToggle("Auto Shiny Badges", "x","big", false, function(value) 
 	local path = workspace.__THINGS.ShinyRelics
 	local lp = game.Players.LocalPlayer
 
-	while true do
 		for _, shiny in ipairs(path:GetChildren()) do
-			if shiny:IsA("MeshPart") then
-				lp.Character:SetPrimaryPartCFrame(shiny.CFrame)
-				wait(2)
+			if G.Settings["Auto Shiny Badges"] then
+				if shiny:IsA("MeshPart") then
+					lp.Character:SetPrimaryPartCFrame(shiny.CFrame)
+					wait(2)
+				end
 			end
 		end
-	end
 end)
 
 -- MiniGames
