@@ -9,7 +9,7 @@ local tabAutoFarm = window:addTab("Auto Farm")
 local tabAutoEgg = window:addTab("Auto Egg")
 local tabAutoBuy = window:addTab("Auto Buy")
 local tabAutoCollect = window:addTab("Auto Collect")
-local tabAutoGame = window:addTab("Auto Games")
+local tabAutoGame = window:addTab("Mini Games")
 local tabBoostItens = window:addTab("Boost Itens")
 local tabMachines = window:addTab("Machines")
 local tabTeleport = window:addTab("Teleport")
@@ -96,10 +96,182 @@ tabAutoFarm:addToggle("Auto Farm (Area and Mode)", "By activating this option, y
 end)
 
 -- Auto Egg
+local pathEgg = game:GetService("ReplicatedStorage").__DIRECTORY.Eggs["Zone Eggs"]
+local eggsTable = {}
 
-local EggsListAG = tabAutoEgg:addCombo("Select Egg", "Select one of the options (This section updates automatically!)", {"egg"})
-local ModeListAG = tabAutoEgg:addCombo("Select Mode", "Select one of the options (This section updates automatically!)", {"modo"})
+for i, v in pairs(pathEgg:GetChildren()) do
+	local originalName = v.Name
+	local trimmedName = originalName:gsub("%d+ | ", "") -- Remove o "1 | " do nome do egg
+	table.insert(eggsTable, trimmedName)
+end
+
+local EggsListAG = tabAutoEgg:addCombo("Select Egg", "Select one of the options (This section updates automatically!)", eggsTable)
 
 tabAutoEgg:addToggle("Auto Egg", "","big", false, function(value) 
+	local text = game:GetService("Players").LocalPlayer.PlayerGui._MACHINES.EggSlotsMachine.Frame.Slots.Items.Title.Remaining.Text
+	local number = tonumber(string.match(text, "(%d+)/%d+"))
+	
+	local args = {
+		[1] = EggsListAG:getValue(),
+		[2] = number
+	}
+
+	game:GetService("ReplicatedStorage").Network.Eggs_RequestPurchase:InvokeServer(unpack(args))
+end)
+
+-- Machines
+local tier = nil
+
+local ModeMachines = tabMachines:addCombo("Select Mode", "Select one of the options (This section updates automatically!)", {"All Machines", "Only Potions", "Only Enchants", "Only Fruits"})
+
+tabMachines:addSlider("Amount Item", "x", 1, 3, function(value)
+	tier = value
+end)
+
+tabMachines:addToggle("Auto Buy Machines", "x","big", false, function(value) 
+	-- Variáveis
+	local Value = ModeMachines:getValue()
+	local machines = {
+		potions = {
+			{Name = "PotionVendingMachine1", CFrame = CFrame.new(Vector3.new(10, 0, 0))},
+			{Name = "PotionVendingMachine2", CFrame = CFrame.new(Vector3.new(20, 0, 0))},
+		},
+		Enchants = {
+			{Name = "EnchantVendingMachine1", CFrame = CFrame.new(Vector3.new(0, 10, 0))},
+			{Name = "EnchantVendingMachine2", CFrame = CFrame.new(Vector3.new(0, 20, 0))},
+		},
+		Fruits = {
+			{Name = "FruitVendingMachine1", CFrame = CFrame.new(Vector3.new(30, 0, 0))},
+			{Name = "FruitVendingMachine2", CFrame = CFrame.new(Vector3.new(40, 0, 0))},
+		}
+	}
+
+	local function BuyMachines(machineData, Tier)
+		local pl = game.Players.LocalPlayer
+		local args = {
+			[1] = machineData.Name,
+			[2] = Tier
+		}
+		pl.Character:SetPrimaryPartCFrame(machineData.CFrame)
+		local success = game:GetService("ReplicatedStorage").Network.VendingMachines_Purchase:InvokeServer(unpack(args))
+		return success
+	end
+
+	-- Loop principal
+	while G.Settings["Auto Buy Machines"] do
+		wait()
+		if Value then
+			if Value == "All Machines" then
+				for category, machinesList in pairs(machines) do
+					for _, machine in ipairs(machinesList) do
+						BuyMachines(machine, tier)
+					end
+				end
+			elseif Value == "Only Potions" then
+				for _, machine in ipairs(machines["potions"]) do
+					BuyMachines(machine, tier)
+				end
+			elseif Value == "Only Enchants" then
+				for _, machine in ipairs(machines["Enchants"]) do
+					BuyMachines(machine, tier)
+				end
+			elseif Value == "Only Fruits" then
+				for _, machine in ipairs(machines["Fruits"]) do
+					BuyMachines(machine, tier)
+				end
+			end
+		else
+			Value = "All Machines"
+		end
+	end
 
 end)
+
+-- Auto Collect
+
+tabAutoCollect:addToggle("Auto Collect Orbs & Bags", "x","big", false, function(value) 
+	while G.Settings["Auto Collect Orbs & Bags"] do
+		for _, v in pairs(workspace.__THINGS.Lootbags:GetChildren()) do -- Coleta os sacos
+	
+		v:GetChildren()[1].CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+
+		end
+	
+		for _, v in pairs(workspace.__THINGS.Orbs:GetChildren()) do -- Coleta as Orbs
+
+			v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+	
+		end
+	end
+end)
+
+tabAutoCollect:addToggle("Auto Reedem Daily", "x","big", false, function(value) 
+	local rewards = {
+		"SmallDailyDiamonds",
+		"DailyPotions",
+		"DailyEnchants",
+		"DailyItems",
+		"MediumDailyDiamonds",
+		"GroupRewards",
+		"TwitterRewards",
+	}
+
+	local function redeemDailyReward(rewardType)
+		local args = {
+			[1] = rewardType
+		}
+
+		game:GetService("ReplicatedStorage").Network.DailyRewards_Redeem:InvokeServer(unpack(args))
+	end
+
+	for _, rewardType in ipairs(rewards) do
+		redeemDailyReward(rewardType)
+	end
+end)
+
+tabAutoCollect:addToggle("Auto Reedem Gift", "x","big", false, function(value) 
+	for i = 1, 12 do
+		local args = {
+			[1] = i
+		}
+
+		game:GetService("ReplicatedStorage").Network["Redeem Free Gift"]:InvokeServer(unpack(args))
+		wait()
+	end
+end)
+
+tabAutoCollect:addToggle("Auto Spin Whell", "x","big", false, function(value) 
+	local args = {
+		[1] = "StarterWheel"
+	}
+
+	game:GetService("ReplicatedStorage").Network["Spinny Wheel: Request Spin"]:InvokeServer(unpack(args))
+
+end)
+
+tabAutoCollect:addToggle("Auto Shiny Badges", "x","big", false, function(value) 
+	local path = workspace.__THINGS.ShinyRelics
+	local lp = game.Players.LocalPlayer
+
+	while true do
+		for _, shiny in ipairs(path:GetChildren()) do
+			if shiny:IsA("MeshPart") then
+				lp.Character:SetPrimaryPartCFrame(shiny.CFrame)
+				wait(2)
+			end
+		end
+	end
+end)
+
+-- MiniGames
+
+local folderGlobalMG = tabAutoGame:addFolder("All MiniGames") --   [1]
+local folderClassicObby = tabAutoGame:addFolder("Classic Obby") -- [2]
+local folderMiniField = tabAutoGame:addFolder("Mini Field") --     [3]
+local folderJungleObby = tabAutoGame:addFolder("Jungle Obby") --   [4]
+local folderAtlantis = tabAutoGame:addFolder("Atlantis") --        [5]
+local folderFishing = tabAutoGame:addFolder("Fishing") --          [6]
+local folderDigSite = tabAutoGame:addFolder("DigSite") --          [7]
+local folderPyramidObby = tabAutoGame:addFolder("Pyramid Obby") -- [8]
+local folderIceObby = tabAutoGame:addFolder("Ice Obby") --         [9]
+local folderChestRush = tabAutoGame:addFolder("Chest Rush") --    [10]
