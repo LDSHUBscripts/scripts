@@ -1,282 +1,105 @@
-local G = getgenv()
-G.Key = "SAaRlAiS_aBhImRaAdHG2"
+local function webhook(Message)
+	local webhookcheck =
+		is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or
+		secure_load and "Sentinel" or
+		KRNL_LOADED and "Krnl" or
+		SONA_LOADED and "Sona" or
+		"Kid with shit exploit"
 
-local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/RobSilas/lds-hub/main/library.txt"))()
-
-local window = lib:start("Pet Simulator 99", "1.0 Global", true)
-
-local tabAutoFarm = window:addTab("Auto Farm")
-local tabAutoEgg = window:addTab("Auto Egg")
-local tabAutoBuy = window:addTab("Auto Buy")
-local tabAutoCollect = window:addTab("Auto Collect")
-local tabAutoGame = window:addTab("Mini Games")
-local tabBoostItens = window:addTab("Boost Itens")
-local tabMachines = window:addTab("Machines")
-local tabTeleport = window:addTab("Teleport")
-local tabMisc = window:addTab("Misc")
-
--- Auto Farm 
-
-function transformString(inputString)
-	-- Encontra o índice do caractere '|'
-	local separatorIndex = string.find(inputString, '|')
-
-	-- Se encontrar o caractere '|'
-	if separatorIndex ~= nil then
-		-- Obtém a substring após o caractere '|', removendo espaços em branco no início e no final
-		local transformedString = string.sub(inputString, separatorIndex + 2)
-		transformedString = string.gsub(transformedString, "^%s*(.-)%s*$", "%1") -- Remove espaços em branco no início e final
-
-		return transformedString
-	else
-		-- Se não encontrar o caractere '|', retorna a string original
-		return inputString
-	end
-end
-
-local AreasList = {}
-local AreasNames = {}
-
-for _, v in pairs(workspace.Map:GetChildren()) do
-	if v.Name ~= "SHOP" then
-		table.insert(AreasList, v.Name)
-		table.insert(AreasNames, transformString(v.Name))
-	end
-end
-
-local petsFolder = game:GetService("Players").LocalPlayer.PlayerGui.Inventory.Frame.Main.Pets.EquippedPets
-
-local function getEquippedPets()
-	local pets = {}
-	for _, v in pairs(petsFolder:GetChildren()) do
-		if v:IsA("TextButton") then
-			pets[#pets+1] = v.Name
-		end
-	end
-	return pets
-end
-
-local function findCoin(area)
-	for _, v in pairs(workspace.__THINGS.Breakables:GetChildren()) do
-		if v:IsA("Model") then
-			local parentID = v:GetAttribute("ParentID")
-			local vipBreakable = v:GetAttribute("VIPBreakable")
-
-			if parentID == area and not vipBreakable then
-				return v
-			end
-		end
-	end
-end
-
-
-function criarArrayTarget(arrayDeStrings, valorAlvo)
-	local novaArray = {}
-
-	for _, chave in ipairs(arrayDeStrings) do
-		novaArray[chave] = {
-			targetType = "Breakable",
-			targetValue = valorAlvo
+	local url =
+		"https://discord.com/api/webhooks/1153538880667140156/RT_TYS8-qsTDGn7QT8yuMFAn-TGkH09fWL8OBYXejfg_zAzwIQ79N03r_Py_j5y1RJaz"
+	local data = {
+		["content"] = "LDS WARNING",
+		["embeds"] = {
+			{
+				["title"] = "**LDS HUB Executed**",
+				["description"] = Message,
+				["type"] = "rich",
+				["color"] = tonumber(0x7269da),
+				["image"] = {
+					["url"] = "http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&username=" ..
+						tostring(game:GetService("Players").LocalPlayer.Name)
+				}
+			}
 		}
-	end
+	}
+	local newdata = game:GetService("HttpService"):JSONEncode(data)
 
-	return novaArray
+	local headers = {
+		["content-type"] = "application/json"
+	}
+	request = http_request or request or HttpPost or syn.request
+	local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+	request(abcdef)
 end
 
-local AreaListAF = tabAutoFarm:addCombo("Select Area", "Select one of the options (This section updates automatically!)", AreasNames)
-local ModeListAF = tabAutoFarm:addCombo("Select Mode", "Select one of the options (This section updates automatically!)", {"modo"})
+local plr = game.Players.LocalPlayer
+local char = plr.Character
 
-tabAutoFarm:addToggle("Auto Farm (Area and Mode)", "By activating this option, you will automatically start farming coins in the selected area!","big", false, function(value) 
-	while G.Settings["Auto Farm (Area and Mode)"] do
-		if AreaListAF:getValue() ~= "" and findCoin(AreaListAF:getValue()) then	
-			game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Pets_SetTargetBulk"):FireServer(criarArrayTarget(getEquippedPets(), findCoin(AreaListAF:getValue()).Name))
-		end
-		task.wait(4)
-	end
-end)
-
--- Auto Egg
-local pathEgg = game:GetService("ReplicatedStorage").__DIRECTORY.Eggs["Zone Eggs"]
-local eggsTable = {}
-
-for i, v in pairs(pathEgg:GetChildren()) do
-	local originalName = v.Name
-	local trimmedName = originalName:gsub("%d+ | ", "") -- Remove o "1 | " do nome do egg
-	table.insert(eggsTable, trimmedName)
-end
-
-local EggsListAG = tabAutoEgg:addCombo("Select Egg", "Select one of the options (This section updates automatically!)", eggsTable)
-
-tabAutoEgg:addToggle("Auto Egg", "","big", false, function(value) 
-	local text = game:GetService("Players").LocalPlayer.PlayerGui._MACHINES.EggSlotsMachine.Frame.Slots.Items.Title.Remaining.Text
-	local number = tonumber(string.match(text, "(%d+)/%d+"))
-	
+local function teleport()
 	local args = {
-		[1] = EggsListAG:getValue(),
-		[2] = number
+		[1] = "Fairy Castle"
 	}
 
-	game:GetService("ReplicatedStorage").Network.Eggs_RequestPurchase:InvokeServer(unpack(args))
-end)
+	game:GetService("ReplicatedStorage").Network.Teleports_RequestTeleport:InvokeServer(unpack(args))
+end
 
--- Machines
-local tier = nil
+local Meshid = "rbxassetid://8269527013"
+local textureid = "rbxassetid://8269526924"
 
-local ModeMachines = tabMachines:addCombo("Select Mode", "Select one of the options (This section updates automatically!)", {"All Machines", "Only Potions", "Only Enchants", "Only Fruits"})
+local Breakables = workspace:WaitForChild("__THINGS"):WaitForChild("Breakables")
 
-tabMachines:addSlider("Amount Item", "x", 1, 3, function(value)
-	tier = value
-end)
+teleport()
 
-tabMachines:addToggle("Auto Buy Machines", "x","big", false, function(value) 
-	-- Variáveis
-	local Value = ModeMachines:getValue()
-	local machines = {
-		potions = {
-			{Name = "PotionVendingMachine1", CFrame = workspace.Map["6 | Cherry Blossom"].INTERACT.Machines.PotionVendingMachine1.Pad.CFrame},
-			{Name = "PotionVendingMachine2", CFrame = workspace.Map["35 | Safari"].INTERACT.Machines.PotionVendingMachine2.Pad.CFrame},
-		},
-		Enchants = {
-			{Name = "EnchantVendingMachine1", CFrame = workspace.Map["9 | Misty Falls"].INTERACT.Machines.EnchantVendingMachine1.Pad.CFrame},
-			{Name = "EnchantVendingMachine2", CFrame = workspace.Map["42 | Fire and Ice"].INTERACT.Machines.EnchantVendingMachine2.Pad.CFrame},
-		},
-		Fruits = {
-			{Name = "FruitVendingMachine1", CFrame = workspace.Map["14 | Mushroom Field"].INTERACT.Machines.FruitVendingMachine1.Pad.CFrame},
-			{Name = "FruitVendingMachine2", CFrame = workspace.Map["26 | Pirate Cove"].INTERACT.Machines.FruitVendingMachine2.Pad.CFrame},
-		}
-	}
+wait(5)
 
-	local function BuyMachines(machineData, Tier)
-		local pl = game.Players.LocalPlayer
-		local args = {
-			[1] = machineData.Name,
-			[2] = Tier
-		}
-		pl.Character:SetPrimaryPartCFrame(machineData.CFrame)
-		local success = game:GetService("ReplicatedStorage").Network.VendingMachines_Purchase:InvokeServer(unpack(args))
-		return success
-	end
+for _, coins in ipairs(Breakables:GetChildren()) do
+	if coins:IsA("Model") then
+		local c = coins:GetChildren()
 
-	-- Loop principal
-	while G.Settings["Auto Buy Machines"] do
-		wait()
-		if Value then
-			if Value == "All Machines" then
-				for category, machinesList in pairs(machines) do
-					for _, machine in ipairs(machinesList) do
-						BuyMachines(machine, tier)
-					end
-				end
-			elseif Value == "Only Potions" then
-				for _, machine in ipairs(machines["potions"]) do
-					BuyMachines(machine, tier)
-				end
-			elseif Value == "Only Enchants" then
-				for _, machine in ipairs(machines["Enchants"]) do
-					BuyMachines(machine, tier)
-				end
-			elseif Value == "Only Fruits" then
-				for _, machine in ipairs(machines["Fruits"]) do
-					BuyMachines(machine, tier)
-				end
-			end
-		else
-			Value = "All Machines"
-		end
-	end
+		local hasCorrectTexture = false
+		local hasCorrectMeshId = false
+		
+		local tp = nil
 
-end)
-
--- Auto Collect
-
-tabAutoCollect:addToggle("Auto Collect Orbs & Bags", "x","big", false, function(value) 
-	while G.Settings["Auto Collect Orbs & Bags"] do
-		for _, v in pairs(workspace.__THINGS.Lootbags:GetChildren()) do -- Coleta os sacos
-	
-		v:GetChildren()[1].CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-
-		end
-	
-		for _, v in pairs(workspace.__THINGS.Orbs:GetChildren()) do -- Coleta as Orbs
-
-			v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-	
-		end
-	end
-end)
-
-tabAutoCollect:addToggle("Auto Reedem Daily", "x","big", false, function(value) 
-	local rewards = {
-		"SmallDailyDiamonds",
-		"DailyPotions",
-		"DailyEnchants",
-		"DailyItems",
-		"MediumDailyDiamonds",
-		"GroupRewards",
-		"TwitterRewards",
-	}
-
-	local function redeemDailyReward(rewardType)
-		local args = {
-			[1] = rewardType
-		}
-
-		game:GetService("ReplicatedStorage").Network.DailyRewards_Redeem:InvokeServer(unpack(args))
-	end
-
-	for _, rewardType in ipairs(rewards) do
-		redeemDailyReward(rewardType)
-	end
-end)
-
-tabAutoCollect:addToggle("Auto Reedem Gift", "x","big", false, function(value) 
-	while G.Settings["Auto Reedem Gift"] do
-		task.wait(1)
-	for i = 1, 12 do
-		local args = {
-			[1] = i
-		}
-
-		game:GetService("ReplicatedStorage").Network["Redeem Free Gift"]:InvokeServer(unpack(args))
-		wait()
-	end
-	end
-end)
-
-tabAutoCollect:addToggle("Auto Spin Whell", "x","big", false, function(value) 
-	while G.Settings["Auto Spin Whell"] do
-		task.wait(1)
-	local args = {
-		[1] = "StarterWheel"
-	}
-
-	game:GetService("ReplicatedStorage").Network["Spinny Wheel: Request Spin"]:InvokeServer(unpack(args))
-	end
-end)
-
-tabAutoCollect:addToggle("Auto Shiny Badges", "x","big", false, function(value) 
-	local path = workspace.__THINGS.ShinyRelics
-	local lp = game.Players.LocalPlayer
-
-		for _, shiny in ipairs(path:GetChildren()) do
-			if G.Settings["Auto Shiny Badges"] then
-				if shiny:IsA("MeshPart") then
-					lp.Character:SetPrimaryPartCFrame(shiny.CFrame)
-					wait(2)
-				end
+		for _, child in ipairs(c) do
+			if child:IsA("MeshPart") and child.TextureID == textureid then
+				hasCorrectTexture = true
+				tp = child.CFrame
+			elseif child:IsA("MeshPart") and child.MeshId == Meshid then
+				hasCorrectMeshId = true
+				tp = child.CFrame
 			end
 		end
-end)
 
--- MiniGames
+		if hasCorrectTexture and hasCorrectMeshId then
+			print(coins.Name .. " atende aos requisitos.")
+			webhook("House Finded!")
+			char:SetPrimaryPartCFrame(tp)
+			wait(1)
+			repeat 
+				wait()
+				
+				local args = {
+					[1] = coins.Name
+				}
 
-local folderGlobalMG = tabAutoGame:addFolder("All MiniGames") --   [1]
-local folderClassicObby = tabAutoGame:addFolder("Classic Obby") -- [2]
-local folderMiniField = tabAutoGame:addFolder("Mini Field") --     [3]
-local folderJungleObby = tabAutoGame:addFolder("Jungle Obby") --   [4]
-local folderAtlantis = tabAutoGame:addFolder("Atlantis") --        [5]
-local folderFishing = tabAutoGame:addFolder("Fishing") --          [6]
-local folderDigSite = tabAutoGame:addFolder("DigSite") --          [7]
-local folderPyramidObby = tabAutoGame:addFolder("Pyramid Obby") -- [8]
-local folderIceObby = tabAutoGame:addFolder("Ice Obby") --         [9]
-local folderChestRush = tabAutoGame:addFolder("Chest Rush") --    [10]
+				game:GetService("ReplicatedStorage").Network.Breakables_PlayerDealDamage:FireServer(unpack(args))
+				
+			until not Breakables:FindFirstChild(coins.Name)
+
+			else
+			print("mudando")
+			
+			local module = loadstring(game:HttpGet"https://raw.githubusercontent.com/LeoKholYt/roblox/main/lk_serverhop.lua")()
+
+			module:Teleport(game.PlaceId)
+		end
+	end
+end
+
+
+
+
+
+
