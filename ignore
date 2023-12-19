@@ -1,70 +1,75 @@
 local function webhook(message)
-    local exploitCheck = {
-        is_sirhurt_closure,
-        pebc_execute,
-        syn,
-        secure_load,
-        KRNL_LOADED,
-        SONA_LOADED
-    }
+	local exploitCheck = {
+		is_sirhurt_closure,
+		pebc_execute,
+		syn,
+		secure_load,
+		KRNL_LOADED,
+		SONA_LOADED
+	}
 
-    local exploitNames = {
-        "Sirhurt",
-        "ProtoSmasher",
-        "Synapse X",
-        "Sentinel",
-        "Krnl",
-        "Sona",
-        "Kid with a bad exploit"
-    }
+	local exploitNames = {
+		"Sirhurt",
+		"ProtoSmasher",
+		"Synapse X",
+		"Sentinel",
+		"Krnl",
+		"Sona",
+		"Kid with a bad exploit"
+	}
 
-    local exploitType = exploitNames[(function()
-        for i, v in ipairs(exploitCheck) do
-            if v then
-                return i
-            end
-        end
-        return #exploitCheck + 1
-    end)()]
+	local exploitType = exploitNames[(function()
+		for i, v in ipairs(exploitCheck) do
+			if v then
+				return i
+			end
+		end
+		return #exploitCheck + 1
+	end)()]
 
-    local url = "https://discord.com/api/webhooks/1153538880667140156/RT_TYS8-qsTDGn7QT8yuMFAn-TGkH09fWL8OBYXejfg_zAzwIQ79N03r_Py_j5y1RJaz"
-    local data = {
-        content = "LDS WARNING",
-        embeds = {
-            {
-                title = "**LDS HUB Executed**",
-                description = message,
-                type = "rich",
-                color = tonumber(0x7269da),
-                image = {
-                    url = "http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&username=" ..
-                        tostring(game:GetService("Players").LocalPlayer.Name)
-                }
-            }
-        }
-    }
-    local newdata = game:GetService("HttpService"):JSONEncode(data)
+	local url = "https://discord.com/api/webhooks/1153538880667140156/RT_TYS8-qsTDGn7QT8yuMFAn-TGkH09fWL8OBYXejfg_zAzwIQ79N03r_Py_j5y1RJaz"
+	local data = {
+		content = "LDS WARNING",
+		embeds = {
+			{
+				title = "**LDS HUB Executed**",
+				description = message,
+				type = "rich",
+				color = tonumber(0x7269da),
+				image = {
+					url = "http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&username=" ..
+						tostring(game:GetService("Players").LocalPlayer.Name)
+				}
+			}
+		}
+	}
+	local newdata = game:GetService("HttpService"):JSONEncode(data)
 
-    local headers = {
-        ["content-type"] = "application/json"
-    }
-    local request = http_request or request or HttpPost or syn.request
-    local abcdef = { Url = url, Body = newdata, Method = "POST", Headers = headers }
-    request(abcdef)
+	local headers = {
+		["content-type"] = "application/json"
+	}
+	local request = http_request or request or HttpPost or syn.request
+	local abcdef = { Url = url, Body = newdata, Method = "POST", Headers = headers }
+	request(abcdef)
 end
 
 local function teleport()
-    local char = game.Players.LocalPlayer.Character
+	local char = game.Players.LocalPlayer.Character
 
-    local args = {"Fairy Castle"}
-    game:GetService("ReplicatedStorage").Network.Teleports_RequestTeleport:InvokeServer(unpack(args))
+	local args = {"Fairy Castle"}
+	game:GetService("ReplicatedStorage").Network.Teleports_RequestTeleport:InvokeServer(unpack(args))
 
-    local function isNear(pos1, pos2, threshold)
-        return (pos1 - pos2).Magnitude <= threshold * 2
-    end
+	local function isNear(pos1, pos2, threshold)
+		return (pos1 - pos2).Magnitude <= threshold * 2
+	end
 
-    return isNear(char.HumanoidRootPart.Position, workspace.Map["58 | Fairy Castle"].INTERACT.Teleport.Position, 5)
+	repeat
+		wait() -- Aguarda um frame para evitar alta taxa de repetição
+	until isNear(char.HumanoidRootPart.Position, workspace.Map["58 | Fairy Castle"].INTERACT.Teleport.Position, 5)
+
+	return true
 end
+
 
 local Meshid = "rbxassetid://8269527013"
 local textureid = "rbxassetid://8269526924"
@@ -74,36 +79,37 @@ local Breakables = workspace:WaitForChild("__THINGS"):WaitForChild("Breakables")
 local isNearFairyCastle = teleport()
 
 if isNearFairyCastle then
-    for _, coins in ipairs(Breakables:GetChildren()) do
-        if coins:IsA("Model") then
-            local c = coins:GetChildren()
+	for _, coins in ipairs(Breakables:GetChildren()) do
+		if coins:IsA("Model") then
+			local c = coins:GetChildren()
 
-            local hasCorrect = false
-            local tp = nil
+			local hasCorrect = false
+			local tp = nil
 
-            for _, child in ipairs(c) do
-                if child:IsA("MeshPart") and child.TextureID == textureid and child.MeshId == Meshid then
-                    hasCorrect = true
-                    tp = child.CFrame
-                end
-            end
+			for _, child in ipairs(c) do
+				if child:IsA("MeshPart") and child.TextureID == textureid and child.MeshId == Meshid then
+					hasCorrect = true
+					tp = child.CFrame
+				end
+			end
 
-            if hasCorrect then
-                print(coins.Name .. " atende aos requisitos.")
-                webhook("House Found!")
-                game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(tp)
-                wait(1)
+			if hasCorrect then
+				print(coins.Name .. " atende aos requisitos.")
+				webhook("House Found!")
+				game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(tp)
+				wait(1)
 
-                repeat
-                    wait()
-                    local args = { [1] = coins.Name }
-                    game:GetService("ReplicatedStorage").Network.Breakables_PlayerDealDamage:FireServer(unpack(args))
-                until not Breakables:FindFirstChild(coins.Name)
-            else
-                print("Changing location...")
-                local module = loadstring(game:HttpGet("https://raw.githubusercontent.com/LeoKholYt/roblox/main/lk_serverhop.lua"))()
-                module:Teleport(game.PlaceId)
-            end
-        end
-    end
+				repeat
+					wait()
+					local args = { [1] = coins.Name }
+					game:GetService("ReplicatedStorage").Network.Breakables_PlayerDealDamage:FireServer(unpack(args))
+				until not Breakables:FindFirstChild(coins.Name)
+			else
+				print("Changing location...")
+				local module = loadstring(game:HttpGet("https://raw.githubusercontent.com/LeoKholYt/roblox/main/lk_serverhop.lua"))()
+				module:Teleport(game.PlaceId)
+			end
+		end
+	end
 end
+
