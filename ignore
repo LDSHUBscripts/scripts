@@ -55,7 +55,6 @@ end
 
 local function teleport()
 	local char = game.Players.LocalPlayer.Character
-
 	local args = {"Fairy Castle"}
 	game:GetService("ReplicatedStorage").Network.Teleports_RequestTeleport:InvokeServer(unpack(args))
 
@@ -64,12 +63,11 @@ local function teleport()
 	end
 
 	repeat
-		wait() -- Aguarda um frame para evitar alta taxa de repetição
+		wait() -- Wait for a frame to avoid high repetition rates
 	until isNear(char.HumanoidRootPart.Position, workspace.Map["58 | Fairy Castle"].INTERACT.Teleport.Position, 5)
 
 	return true
 end
-
 
 local Meshid = "rbxassetid://8269527013"
 local textureid = "rbxassetid://8269526924"
@@ -77,6 +75,11 @@ local textureid = "rbxassetid://8269526924"
 local Breakables = workspace:WaitForChild("__THINGS"):WaitForChild("Breakables")
 
 local isNearFairyCastle = teleport()
+
+repeat
+	isNearFairyCastle = teleport()
+	wait()
+until isNearFairyCastle
 
 if isNearFairyCastle then
 	for _, coins in ipairs(Breakables:GetChildren()) do
@@ -112,4 +115,3 @@ if isNearFairyCastle then
 		end
 	end
 end
-
