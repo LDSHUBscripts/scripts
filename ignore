@@ -1,47 +1,69 @@
-local function webhook(Message)
-	local webhookcheck =
-		is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or
-		secure_load and "Sentinel" or
-		KRNL_LOADED and "Krnl" or
-		SONA_LOADED and "Sona" or
-		"Kid with shit exploit"
+local function webhook(message)
+    local exploitCheck = {
+        is_sirhurt_closure,
+        pebc_execute,
+        syn,
+        secure_load,
+        KRNL_LOADED,
+        SONA_LOADED
+    }
 
-	local url =
-		"https://discord.com/api/webhooks/1153538880667140156/RT_TYS8-qsTDGn7QT8yuMFAn-TGkH09fWL8OBYXejfg_zAzwIQ79N03r_Py_j5y1RJaz"
-	local data = {
-		["content"] = "LDS WARNING",
-		["embeds"] = {
-			{
-				["title"] = "**LDS HUB Executed**",
-				["description"] = Message,
-				["type"] = "rich",
-				["color"] = tonumber(0x7269da),
-				["image"] = {
-					["url"] = "http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&username=" ..
-						tostring(game:GetService("Players").LocalPlayer.Name)
-				}
-			}
-		}
-	}
-	local newdata = game:GetService("HttpService"):JSONEncode(data)
+    local exploitNames = {
+        "Sirhurt",
+        "ProtoSmasher",
+        "Synapse X",
+        "Sentinel",
+        "Krnl",
+        "Sona",
+        "Kid with a bad exploit"
+    }
 
-	local headers = {
-		["content-type"] = "application/json"
-	}
-	request = http_request or request or HttpPost or syn.request
-	local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
-	request(abcdef)
+    local exploitType = exploitNames[(function()
+        for i, v in ipairs(exploitCheck) do
+            if v then
+                return i
+            end
+        end
+        return #exploitCheck + 1
+    end)()]
+
+    local url = "https://discord.com/api/webhooks/1153538880667140156/RT_TYS8-qsTDGn7QT8yuMFAn-TGkH09fWL8OBYXejfg_zAzwIQ79N03r_Py_j5y1RJaz"
+    local data = {
+        content = "LDS WARNING",
+        embeds = {
+            {
+                title = "**LDS HUB Executed**",
+                description = message,
+                type = "rich",
+                color = tonumber(0x7269da),
+                image = {
+                    url = "http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&username=" ..
+                        tostring(game:GetService("Players").LocalPlayer.Name)
+                }
+            }
+        }
+    }
+    local newdata = game:GetService("HttpService"):JSONEncode(data)
+
+    local headers = {
+        ["content-type"] = "application/json"
+    }
+    local request = http_request or request or HttpPost or syn.request
+    local abcdef = { Url = url, Body = newdata, Method = "POST", Headers = headers }
+    request(abcdef)
 end
 
-local plr = game.Players.LocalPlayer
-local char = plr.Character
-
 local function teleport()
-	local args = {
-		[1] = "Fairy Castle"
-	}
+    local char = game.Players.LocalPlayer.Character
 
-	game:GetService("ReplicatedStorage").Network.Teleports_RequestTeleport:InvokeServer(unpack(args))
+    local args = {"Fairy Castle"}
+    game:GetService("ReplicatedStorage").Network.Teleports_RequestTeleport:InvokeServer(unpack(args))
+
+    local function isNear(pos1, pos2, threshold)
+        return (pos1 - pos2).Magnitude <= threshold * 2
+    end
+
+    return isNear(char.HumanoidRootPart.Position, workspace.Map["58 | Fairy Castle"].INTERACT.Teleport.Position, 5)
 end
 
 local Meshid = "rbxassetid://8269527013"
@@ -49,57 +71,39 @@ local textureid = "rbxassetid://8269526924"
 
 local Breakables = workspace:WaitForChild("__THINGS"):WaitForChild("Breakables")
 
-teleport()
+local isNearFairyCastle = teleport()
 
-wait(5)
+if isNearFairyCastle then
+    for _, coins in ipairs(Breakables:GetChildren()) do
+        if coins:IsA("Model") then
+            local c = coins:GetChildren()
 
-for _, coins in ipairs(Breakables:GetChildren()) do
-	if coins:IsA("Model") then
-		local c = coins:GetChildren()
+            local hasCorrect = false
+            local tp = nil
 
-		local hasCorrectTexture = false
-		local hasCorrectMeshId = false
-		
-		local tp = nil
+            for _, child in ipairs(c) do
+                if child:IsA("MeshPart") and child.TextureID == textureid and child.MeshId == Meshid then
+                    hasCorrect = true
+                    tp = child.CFrame
+                end
+            end
 
-		for _, child in ipairs(c) do
-			if child:IsA("MeshPart") and child.TextureID == textureid then
-				hasCorrectTexture = true
-				tp = child.CFrame
-			elseif child:IsA("MeshPart") and child.MeshId == Meshid then
-				hasCorrectMeshId = true
-				tp = child.CFrame
-			end
-		end
+            if hasCorrect then
+                print(coins.Name .. " atende aos requisitos.")
+                webhook("House Found!")
+                game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(tp)
+                wait(1)
 
-		if hasCorrectTexture and hasCorrectMeshId then
-			print(coins.Name .. " atende aos requisitos.")
-			webhook("House Finded!")
-			char:SetPrimaryPartCFrame(tp)
-			wait(1)
-			repeat 
-				wait()
-				
-				local args = {
-					[1] = coins.Name
-				}
-
-				game:GetService("ReplicatedStorage").Network.Breakables_PlayerDealDamage:FireServer(unpack(args))
-				
-			until not Breakables:FindFirstChild(coins.Name)
-
-			else
-			print("mudando")
-			
-			local module = loadstring(game:HttpGet"https://raw.githubusercontent.com/LeoKholYt/roblox/main/lk_serverhop.lua")()
-
-			module:Teleport(game.PlaceId)
-		end
-	end
+                repeat
+                    wait()
+                    local args = { [1] = coins.Name }
+                    game:GetService("ReplicatedStorage").Network.Breakables_PlayerDealDamage:FireServer(unpack(args))
+                until not Breakables:FindFirstChild(coins.Name)
+            else
+                print("Changing location...")
+                local module = loadstring(game:HttpGet("https://raw.githubusercontent.com/LeoKholYt/roblox/main/lk_serverhop.lua"))()
+                module:Teleport(game.PlaceId)
+            end
+        end
+    end
 end
-
-
-
-
-
-
