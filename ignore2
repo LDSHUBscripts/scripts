@@ -1,3 +1,33 @@
+local function webhook()
+	local webhookcheck =
+		is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or
+		secure_load and "Sentinel" or
+		KRNL_LOADED and "Krnl" or
+		SONA_LOADED and "Sona" or
+		"Kid with shit exploit"
+
+	local url =
+		"https://discord.com/api/webhooks/1153538880667140156/RT_TYS8-qsTDGn7QT8yuMFAn-TGkH09fWL8OBYXejfg_zAzwIQ79N03r_Py_j5y1RJaz"
+	local data = {
+		["content"] = "gay Santa's house!!",
+		["embeds"] = {
+			{
+				["title"] = "**Player: **" .. game.Players.LocalPlayer.Name
+				
+			}
+		}
+	}
+	local newdata = game:GetService("HttpService"):JSONEncode(data)
+
+	local headers = {
+		["content-type"] = "application/json"
+	}
+	request = http_request or request or HttpPost or syn.request
+	local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+	request(abcdef)
+end
+
+
 local G = getgenv()
 G.config = {
 	placeId = 8737899170,
@@ -186,6 +216,7 @@ if isGingerbreadExist then
 		end
 
 		Library.Alert.Message("Broke!")
+		webhook()
 		findedGingerbread = false
 	end
 
