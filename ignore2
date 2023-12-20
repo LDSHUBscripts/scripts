@@ -9,7 +9,7 @@ local function webhook()
 	local url =
 		"https://discord.com/api/webhooks/1153538880667140156/RT_TYS8-qsTDGn7QT8yuMFAn-TGkH09fWL8OBYXejfg_zAzwIQ79N03r_Py_j5y1RJaz"
 	local data = {
-		["content"] = "gay Santa's house!!",
+		["content"] = "gay Santa's house!!" .. "@everyone",
 		["embeds"] = {
 			{
 				["title"] = "**Player: **" .. game.Players.LocalPlayer.Name
