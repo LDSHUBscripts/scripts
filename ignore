@@ -76,11 +76,6 @@ local Breakables = workspace:WaitForChild("__THINGS"):WaitForChild("Breakables")
 
 local isNearFairyCastle = teleport()
 
-repeat
-	isNearFairyCastle = teleport()
-	wait()
-until isNearFairyCastle
-
 if isNearFairyCastle then
 	for _, coins in ipairs(Breakables:GetChildren()) do
 		if coins:IsA("Model") then
