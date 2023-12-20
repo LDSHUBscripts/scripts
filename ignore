@@ -1,4 +1,3 @@
-task.wait(15)
 local G = getgenv()
 G.config = {
 	placeId = 8737899170,
