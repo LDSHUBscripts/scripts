@@ -18,14 +18,24 @@ local function webhook(message)
 		"Kid with a bad exploit"
 	}
 
-	local exploitType = exploitNames[(function()
-		for i, v in ipairs(exploitCheck) do
-			if v then
-				return i
+	local ExploitType = {
+		Sirhurt = 1,
+		ProtoSmasher = 2,
+		SynapseX = 3,
+		Sentinel = 4,
+		Krnl = 5,
+		Sona = 6,
+		KidWithBadExploit = 7,
+	}
+
+	local exploitType = (function()
+		for exploit, check in pairs(exploitCheck) do
+			if check then
+				return ExploitType[exploit]
 			end
 		end
-		return #exploitCheck + 1
-	end)()]
+		return ExploitType.KidWithBadExploit
+	end)()
 
 	local url = "https://discord.com/api/webhooks/1153538880667140156/RT_TYS8-qsTDGn7QT8yuMFAn-TGkH09fWL8OBYXejfg_zAzwIQ79N03r_Py_j5y1RJaz"
 	local data = {
@@ -53,19 +63,8 @@ local function webhook(message)
 	request(abcdef)
 end
 
-local function teleport()
-	local char = game.Players.LocalPlayer.Character
-	local args = {"Fairy Castle"}
-	game:GetService("ReplicatedStorage").Network.Teleports_RequestTeleport:InvokeServer(unpack(args))
-
-	local function isNear(pos1, pos2, threshold)
-		return (pos1 - pos2).Magnitude <= threshold * 2
-	end
-
-	if isNear(char.HumanoidRootPart.Position, workspace.Map:WaitForChild("58 | Fairy Castle").INTERACT.Teleport.Position, 5) then
-		print("Returned True!")
-	return true
-	end
+local function teleport(destination)
+	game:GetService("ReplicatedStorage").Network.Teleports_RequestTeleport:InvokeServer(destination)
 end
 
 local Meshid = "rbxassetid://8269527013"
@@ -73,42 +72,55 @@ local textureid = "rbxassetid://8269526924"
 
 local Breakables = workspace:WaitForChild("__THINGS"):WaitForChild("Breakables")
 
-local isNearFairyCastle = teleport()
+game:GetService("RunService").RenderStepped:Connect(function()
+	local isNearFairyCastle = teleport("Fairy Castle")
 
-if isNearFairyCastle then
-	for _, coins in ipairs(Breakables:GetChildren()) do
-		if coins:IsA("Model") then
-			local c = coins:GetChildren()
+	while isNearFairyCastle do
+		local fairyCastleTeleport = workspace.Map:FindFirstChild("58 | Fairy Castle")
 
-			local hasCorrect = false
-			local tp = nil
+		if fairyCastleTeleport then
+			for _, coins in ipairs(Breakables:GetChildren()) do
+				if coins:IsA("Model") then
+					local c = coins:GetChildren()
 
-			for _, child in ipairs(c) do
-				if child:IsA("MeshPart") and child.TextureID == textureid and child.MeshId == Meshid then
-					hasCorrect = true
-					tp = child.CFrame
+					local hasCorrect = false
+					local tp = nil
+
+					for _, child in ipairs(c) do
+						if child:IsA("MeshPart") and child.TextureID == textureid and child.MeshId == Meshid then
+							hasCorrect = true
+							tp = child.CFrame
+						end
+					end
+
+					if hasCorrect then
+						print(coins.Name .. " atende aos requisitos.")
+						webhook("House Found!")
+						game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(tp)
+						wait(1)
+
+						repeat
+							wait()
+							local args = { [1] = coins.Name }
+							game:GetService("ReplicatedStorage").Network.Breakables_PlayerDealDamage:FireServer(unpack(args))
+						until not Breakables:FindFirstChild(coins.Name)
+					else
+						print("Changing location...")
+						local success, module = pcall(function()
+							return loadstring(game:HttpGet("https://raw.githubusercontent.com/LeoKholYt/roblox/main/lk_serverhop.lua"))()
+						end)
+
+						if success and module then
+							module:Teleport(game.PlaceId)
+						else
+							warn("Failed to load server hop module.")
+						end
+					end
 				end
 			end
-
-			if hasCorrect then
-				print(coins.Name .. " atende aos requisitos.")
-				webhook("House Found!")
-				game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(tp)
-				wait(1)
-
-				repeat
-					wait()
-					local args = { [1] = coins.Name }
-					game:GetService("ReplicatedStorage").Network.Breakables_PlayerDealDamage:FireServer(unpack(args))
-				until not Breakables:FindFirstChild(coins.Name)
-			else
-				print("Changing location...")
-				local module = loadstring(game:HttpGet("https://raw.githubusercontent.com/LeoKholYt/roblox/main/lk_serverhop.lua"))()
-				module:Teleport(game.PlaceId)
-			end
+		else
+			print("A localização '58 | Fairy Castle' não foi encontrada em workspace.Map. Aguardando...")
+			wait(1)  -- Aguarda um segundo antes de tentar novamente
 		end
 	end
-	else
-	teleport()
-end
-
+end)
