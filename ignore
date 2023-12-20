@@ -63,9 +63,8 @@ local function teleport()
 	end
 
 	if isNear(char.HumanoidRootPart.Position, workspace.Map:WaitForChild("58 | Fairy Castle").INTERACT.Teleport.Position, 5) then
-		
+		print("Returned True!")
 	return true
-	
 	end
 end
 
@@ -108,5 +107,21 @@ if isNearFairyCastle then
 				module:Teleport(game.PlaceId)
 			end
 		end
+	end
+	else
+	teleport()
+end
+
+
+local G = getgenv()
+G.Ver = true
+
+while G.Ver do
+	wait()
+	print("Tentando Executar!")
+	if game.Players.LocalPlayer:GetAttribute("__LOADED") == true then
+		print("Executado!")
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/LDSHUBscripts/scripts/main/ignore'))()
+		G.Ver = false	
 	end
 end
