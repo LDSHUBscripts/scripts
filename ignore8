@@ -1,0 +1,210 @@
+
+local G = getgenv()
+G.config = {
+	placeId = 8737899170,
+	eventName = "Gingerbread", -- prob to change it to Comet or Coin Jar
+	servers = {
+		count = 100, -- 10, 25, 50, 100
+		sort = "Desc", -- Desc, Asc
+		pageDeep = math.random(2, 6), -- selected players page
+	},
+	delays = {
+		beforeExecute = 0,
+		beforeBreak = 0,
+		afterBreak = 2.4,
+		hit = 0.03,
+		lootbag = 0.03,
+		beforeTp = 0,
+		whileError = 0,
+	},
+}
+
+if not G.config then
+	G.config = {
+		placeId = 8737899170,
+		eventName = "Gingerbread",
+		servers = {
+			count = 100,  -- 10, 25, 50, 100
+			sort = "Asc", -- Desc, Asc
+			pageDeep = math.random(2, 6), -- selected players page
+		},
+		delays = {
+			beforeExecute = 0.3,
+			beforeBreak = 1.5,
+			afterBreak = 2.4,
+			hit = 0.03,
+			lootbag = 0.03,
+			beforeTp = 2,
+			whileError = 10,
+		},
+	}
+end
+
+repeat
+	task.wait()
+until game.PlaceId ~= nil
+
+if not game:IsLoaded() then
+	game.Loaded:Wait()
+end
+
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local HttpService = game:GetService("HttpService")
+local Players = game:GetService("Players")
+local TeleportService = game:GetService("TeleportService")
+
+task.wait(G.config.delays.beforeExecute)
+
+if game.PlaceId ~= G.config.placeId then
+	print("Gingerbread hunter unloaded, unknown place.")
+	return
+end
+
+local Library = require(ReplicatedStorage:WaitForChild("Library", 2000))
+
+if not Library.Loaded then
+	repeat
+		task.wait()
+	until Library.Loaded ~= false
+end
+
+local RandomEventCmds = Library.RandomEventCmds
+local LocalPlayer = Players.LocalPlayer
+local Character = LocalPlayer.Character
+local Humanoid = Character:WaitForChild("Humanoid", 1000)
+local HumanoidRootPart = Character:WaitForChild("HumanoidRootPart", 1000)
+
+print(HttpService:JSONEncode(G.config))
+
+function tpToPos(cframe)
+	HumanoidRootPart.CFrame = CFrame.new(cframe)
+end
+
+function jumpToServer()
+	local module = loadstring(game:HttpGet("https://raw.githubusercontent.com/LeoKholYt/roblox/main/lk_serverhop.lua"))()
+	module:Teleport(game.PlaceId)
+end
+
+Library.Alert.Message("Finding Gingerbread...")
+
+local activeEvents = RandomEventCmds.GetActive() or RandomEventCmds.GetActive()
+local isGingerbreadExist = false
+
+task.wait(G.config.delays.beforeExecute)
+
+for eventId, event in activeEvents do
+	if event.name == G.config.eventName then
+		isGingerbreadExist = true
+		tpToPos(event.origin + Vector3.new(0, 18, 0))
+	end
+end
+
+-- lootbags listener
+Library.Things:FindFirstChild("Lootbags").ChildAdded:Connect(function(lootbag)
+	task.wait()
+	if lootbag then
+		game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Lootbags_Claim"):FireServer(unpack({ [1] = { [1] = lootbag.Name, }, }))
+	end
+end)
+
+function CollectAllLootbags()
+	pcall(function()
+		for _, lootbag in pairs(Library.Things:FindFirstChild("Lootbags"):GetChildren()) do
+			if lootbag and not lootbag:GetAttribute("Collected") then
+				game:GetService("ReplicatedStorage")
+					:WaitForChild("Network")
+					:WaitForChild("Lootbags_Claim")
+					:FireServer(unpack({ [1] = { [1] = lootbag.Name, }, }))
+				task.wait(G.config.delays.lootbag)
+			end
+		end
+	end)
+end
+
+function findGingerbread()
+	for index, breakable in Library.Things.Breakables:GetChildren() do
+		if breakable.ClassName == "Model" and breakable:GetAttribute("BreakableID") == G.config.eventName then
+			return breakable
+		end
+	end
+end
+
+if isGingerbreadExist then
+	Library.Alert.Message("Gingerbread exist!")
+	task.wait(G.config.delays.beforeBreak)
+	local findedGingerbread = nil
+
+	for i = 1, 5, 1 do
+		findedGingerbread = findGingerbread()
+
+		if findedGingerbread then
+			tpToPos(findedGingerbread.PrimaryPart.Position + Vector3.new(0, 18, 0))
+			break
+		else
+			task.wait(0.5)
+		end
+	end
+
+	if findedGingerbread then
+		Library.Alert.Message("Start breaking!")
+
+		while Library.Things.Breakables:FindFirstChild(findedGingerbread.Name) do
+			local args = { [1] = findedGingerbread.Name, }
+			game:GetService("ReplicatedStorage")
+				:WaitForChild("Network")
+				:WaitForChild("Breakables_PlayerDealDamage")
+				:FireServer(unpack(args))
+			task.wait(G.config.delays.hit)
+		end
+
+		Library.Alert.Message("Broke!")
+		findedGingerbread = false
+	end
+
+	CollectAllLootbags()
+	task.wait(G.config.delays.afterBreak)
+	CollectAllLootbags()
+	task.wait(G.config.delays.afterBreak)
+
+else
+	Library.Alert.Message("Gingerbread not found :c")
+	local Http = game:GetService("HttpService")
+	local TPS = game:GetService("TeleportService")
+	local Api = "https://games.roblox.com/v1/games/"
+
+	local _place = game.PlaceId
+	local _servers = Api.._place.."/servers/Public?sortOrder=Asc&limit=100"
+	function ListServers(cursor)
+		local Raw = game:HttpGet(_servers .. ((cursor and "&cursor="..cursor) or ""))
+		return Http:JSONDecode(Raw)
+	end
+
+	local Server, Next; repeat
+		local Servers = ListServers(Next)
+		Server = Servers.data[1]
+		Next = Servers.nextPageCursor
+	until Server
+
+	TPS:TeleportToPlaceInstance(_place,Server.id,game.Players.LocalPlayer)
+end
+
+Library.Alert.Message("Tp to another server...")
+
+local Http = game:GetService("HttpService")
+local TPS = game:GetService("TeleportService")
+local Api = "https://games.roblox.com/v1/games/"
+
+local _place = game.PlaceId
+local _servers = Api.._place.."/servers/Public?sortOrder=Asc&limit=100"
+function ListServers(cursor)
+	local Raw = game:HttpGet(_servers .. ((cursor and "&cursor="..cursor) or ""))
+	return Http:JSONDecode(Raw)
+end
+
+local Server, Next; repeat
+	local Servers = ListServers(Next)
+	Server = Servers.data[1]
+	Next = Servers.nextPageCursor
+until Server
+
+TPS:TeleportToPlaceInstance(_place,Server.id,game.Players.LocalPlayer)
