@@ -61,12 +61,12 @@ local function teleport()
 	local function isNear(pos1, pos2, threshold)
 		return (pos1 - pos2).Magnitude <= threshold * 2
 	end
-
-	repeat
-		wait() -- Wait for a frame to avoid high repetition rates
-	until isNear(char.HumanoidRootPart.Position, workspace.Map["58 | Fairy Castle"].INTERACT.Teleport.Position, 5)
-
+wait(3)
+	if isNear(char.HumanoidRootPart.Position, workspace.Map["58 | Fairy Castle"].INTERACT.Teleport.Position, 5) then
+		
 	return true
+	
+	end
 end
 
 local Meshid = "rbxassetid://8269527013"
