@@ -11,7 +11,8 @@ tabEvent:addToggle("Sever Hopper for Event!", "By activating this option, every 
 	while G.Settings["Sever Hopper for Event!"] do
 		wait()
 
-		local snowevent = workspace.SNOWSTORM["Beam Holder"]
+		local snowevent = workspace.SNOWSTORM
+		local modelCFrame = snowevent:GetPrimaryPartCFrame()
 		local breakables = workspace.GameObjects.Breakables
 		local plr = game.Players.LocalPlayer
 		local char = plr.Character
@@ -19,7 +20,7 @@ tabEvent:addToggle("Sever Hopper for Event!", "By activating this option, every 
 
 		if x then
 			
-		char:SetPrimaryPartCFrame(snowevent.CFrame)
+			char:SetPrimaryPartCFrame(modelCFrame.CFrame)
 		
 		end
 		
