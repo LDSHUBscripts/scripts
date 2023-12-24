@@ -11,8 +11,6 @@ tabEvent:addToggle("Sever Hopper for Event!", "By activating this option, every 
 	while G.Settings["Sever Hopper for Event!"] do
 		wait()
 
-		local snowevent = workspace.SNOWSTORM
-		local modelCFrame = snowevent:GetPrimaryPartCFrame()
 		local breakables = workspace.GameObjects.Breakables
 		local plr = game.Players.LocalPlayer
 		local char = plr.Character
@@ -48,6 +46,7 @@ tabEvent:addToggle("Sever Hopper for Event!", "By activating this option, every 
 					
 					Obj.HoldDuration = PromptTime
 				else 
+					
 					error("userdata<ProximityPrompt> expected")
 				end
 			end
@@ -61,6 +60,15 @@ tabEvent:addToggle("Sever Hopper for Event!", "By activating this option, every 
 			module:Teleport(game.PlaceId)
 			else
 			x = false
+			
+			while G.Settings["Sever Hopper for Event!"] do
+				wait()
+				if #breakables:GetChildren() == 0 then
+					local module = loadstring(game:HttpGet("https://raw.githubusercontent.com/LeoKholYt/roblox/main/lk_serverhop.lua"))()
+					module:Teleport(game.PlaceId)
+				end
+				
+			end
 		end
 	end
 
