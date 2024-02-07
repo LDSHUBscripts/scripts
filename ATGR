@@ -154,15 +154,15 @@ end)
 tabMachines:addToggle("Auto Teleport to Machine", "z","small", false, function(value) 
 	while G.Settings["Auto Teleport to Machine"] do
 		wait()
-	local Mode = SelectModeMachines:getValue()
-	
+		local Mode = SelectModeMachines:getValue()
+		print(Mode)
 		local remotes = game.ReplicatedStorage.Network
 		local teleportr = remotes.Teleports_RequestTeleport
-		local daily_redeem = remotes.DailyRewards_Redeem
 		local hum = game.Players.LocalPlayer.Character.Humanoid
 
 		local function teleport(destination)
 			teleportr:InvokeServer(destination)
+			
 			repeat task.wait() until hum.FloorMaterial == Enum.Material.Air
 			task.wait(0.5)
 			repeat task.wait() until hum.FloorMaterial == Enum.Material.Plastic
