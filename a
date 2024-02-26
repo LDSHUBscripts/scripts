@@ -1,0 +1,1538 @@
+local G = getgenv()
+G.Key = "SAaRlAiS_aBhImRaAdHG2"
+
+local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/RobSilas/lds-hub/main/library.txt"))()
+
+local window = lib:start("Pet Simulator 99", "1.0 Global", true)
+
+local tabAutoFarm = window:addTab("Auto Farm")
+local tabAutoEgg = window:addTab("Auto Egg")
+local tabAutoBuy = window:addTab("Auto Buy")
+local tabAutoCollect = window:addTab("Auto Collect")
+local tabAutoGame = window:addTab("Mini Games")
+local tabBoostItens = window:addTab("Boost Itens")
+local tabMachines = window:addTab("Machines")
+local tabTeleport = window:addTab("Teleport")
+local tabTradingPlaza = window:addTab("Trading Plaza")
+
+-- Variaveis Pre Definidas
+local Pl = game.Players.LocalPlayer
+local Char = Pl.Character or Pl.CharacterAdded:Wait()
+
+local RS = game:GetService("ReplicatedStorage")
+
+local savemodule = require(RS.Library.Client.Save)
+local SaveFile = savemodule.Get(game.Players.LocalPlayer)
+
+local UnlockedAreas = SaveFile.UnlockedZones
+local Rebirth = SaveFile.Rebirths
+local EggsHatchedNumber = SaveFile.EggsHatched
+local MiscInv = SaveFile.Inventory.Misc
+local InvFruit = SaveFile.Inventory.Fruit
+
+-- Auto Farm 
+
+local folderAutoUp = tabAutoFarm:addFolder("Auto Up")
+
+local ComboFlagsUp = folderAutoUp:addCombo("Select Flag", "", {"Magnet Flag", "Coins Flag", "Hasty Flag", "Diamonds Flag", "Fortune Flag"})
+
+folderAutoUp:addToggle("auto Flags (select)", "x","small", false, function(value) -- PRONTO
+end)
+
+local ComboFruitsUp = folderAutoUp:addMultiCombo("Select Fruits", "", {"Pineapple (Drops)", "Orange (Diamonds)", "Banana (Coins)", "Apple (Damage)", "Rainbow (All Fruits)"})
+
+folderAutoUp:addToggle("use fruits (select)", "","small", false, function(value) -- PRONTO
+end)
+
+folderAutoUp:addToggle("buy pet slot", "x","small", false, function(value) -- PRONTO
+end)
+
+folderAutoUp:addToggle("auto rebirth", "x","small", false, function(value) -- PRONTO FALTA REMOTE
+end)
+
+folderAutoUp:addToggle("until 20 Stage (DayCare)", "x","small", false, function(value)  -- PRONTO
+end)
+
+folderAutoUp:addToggle("Auto Farm Up", "/ Credits: MLGWARFARE!","Big", false, function(value) 
+
+	local savemodule = require(game:GetService("ReplicatedStorage").Library.Client.Save)
+	local SaveFile = savemodule.Get(game.Players.LocalPlayer)
+	
+	local HRP = Char:WaitForChild("HumanoidRootPart")
+	local Mouse = Pl:GetMouse()
+	local MapContainer = workspace:WaitForChild("Map")
+	local AreaModules = game:GetService("ReplicatedStorage"):WaitForChild("__DIRECTORY"):WaitForChild("Zones")
+	local AreaUnlocker = game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Zones_RequestPurchase")
+	local CurrentArea = 0 -- index to get next area
+	local AreaToUnlock = ""
+	local FieldPart = nil -- instance
+	local AreaList = {}
+
+	-- grab new hrp
+	local c
+
+	-- get list of areas
+	for _,v in pairs(AreaModules:GetDescendants()) do
+		if not v:IsA("ModuleScript") then continue end
+		local Info = string.split(v.Name," | ")
+		AreaList[tonumber(Info[1])] = Info[2]
+	end
+
+	------ AUTO GET ORBS/LOOTBAGS
+	local OrbRemote = game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Orbs: Collect")
+	local LootbagRemote = game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Lootbags_Claim")
+	local OrbFolder = workspace:WaitForChild("__THINGS"):WaitForChild("Orbs")
+	local LootbagFolder = workspace:WaitForChild("__THINGS"):WaitForChild("Lootbags")
+
+	OrbFolder.ChildAdded:Connect(function(Orb)
+		task.wait(1.5)
+		Orb:PivotTo(HRP.CFrame)
+		OrbRemote:FireServer({Orb.Name})
+		task.wait()
+		Orb:Destroy()
+	end)
+	LootbagFolder.ChildAdded:Connect(function(Lootbag)
+		task.wait(4)
+		Lootbag:PivotTo(HRP.CFrame)
+		LootbagRemote:FireServer({Lootbag.Name})
+		task.wait()
+		Lootbag:Destroy()
+	end)
+	-------------------
+
+	c = Pl.CharacterAdded:Connect(function(char)
+		Char = char
+		HRP = Char:WaitForChild("HumanoidRootPart")
+	end)
+
+	local function Unlock()
+		return AreaUnlocker:InvokeServer(AreaToUnlock)
+	end
+
+	-- find current area
+	local sortedAreas = {}
+
+	-- Create a sorted copy of UnlockedAreas based on AreaNum
+	for Area, _ in pairs(UnlockedAreas) do
+		local AreaNum = table.find(AreaList, Area)
+		table.insert(sortedAreas, {Area = Area, AreaNum = AreaNum})
+	end
+
+	-- Sort the table based on AreaNum
+	table.sort(sortedAreas, function(a, b) return a.AreaNum < b.AreaNum end)
+
+	-- Iterate through the sortedAreas
+	for _, data in ipairs(sortedAreas) do
+		local Area = data.Area
+		local AreaNum = data.AreaNum
+
+		if AreaNum > CurrentArea then
+			CurrentArea = AreaNum
+			AreaToUnlock = AreaList[AreaNum + 1]
+			FieldPart = MapContainer:WaitForChild(AreaNum .. " | " .. Area):WaitForChild("INTERACT"):WaitForChild("BREAK_ZONES"):WaitForChild("BREAK_ZONE")
+			if AreaNum == 1 then
+				HRP.CFrame = CFrame.new(219.534027, 13.2769918, -205.045715, 0.999996662, 0, 0.00258308463, 0, 1, 0, -0.00258308463, 0, 0.999996662)
+			else
+				HRP.CFrame = FieldPart.CFrame
+			end
+			task.wait(.1)
+		end
+	end
+
+	print("area to unlock:",AreaToUnlock)
+
+	while G.Settings["Auto Farm Up"] do
+
+			-- attempt buy new area
+			if Unlock() then -- unlock succeeded
+				task.wait(3)
+				CurrentArea += 1
+				AreaToUnlock = AreaList[CurrentArea+1]
+				FieldPart = MapContainer:WaitForChild(CurrentArea.." | "..AreaList[CurrentArea]):WaitForChild("INTERACT"):WaitForChild("BREAK_ZONES"):WaitForChild("BREAK_ZONE")
+				HRP.CFrame = FieldPart.CFrame
+
+			if G.Settings["until 20 Stage (DayCare)"] then
+				if CurrentArea == 20 then
+					print("DAYCARE UNLOCKED STOPPING SCRIPT")
+					break
+				end
+			end
+			
+			if G.Settings["auto rebirth"] then
+				if Rebirth == 0 then
+					if CurrentArea == 25 then
+					print("Rebirth 1 baby")
+					
+						local args = {
+							[1] = "1"
+						}
+
+						game:GetService("ReplicatedStorage").Network.Rebirth_Request:InvokeServer(unpack(args))
+					
+						break
+					end
+					
+				elseif Rebirth == 1 then
+					
+					if CurrentArea == 50 then
+						print("Rebirth 2 baby")
+						
+						local args = {
+							[1] = "2"
+						}
+
+						game:GetService("ReplicatedStorage").Network.Rebirth_Request:InvokeServer(unpack(args))
+						
+						break
+					end
+					
+				elseif Rebirth == 2 then
+					
+					if CurrentArea == 75 then
+						print("Rebirth 3 baby")
+
+						local args = {
+							[1] = "3"
+						}
+
+						game:GetService("ReplicatedStorage").Network.Rebirth_Request:InvokeServer(unpack(args))
+
+						break
+					end
+					
+				elseif Rebirth == 3 then
+					print("You already have all the Rebirth")
+						break
+					end
+			end
+			
+			if G.Settings["buy pet slot"] then
+				local slotspath = Pl.PlayerGui._MACHINES.EquipSlotsMachine.Frame.Slots.Items.SlotsSection.Slots
+				local gamepassframe = Pl.PlayerGui._MACHINES.EquipSlotsMachine.Frame.Slots.Items.PetEquippedGamepass
+				local totalowner = 0
+
+				for _, slot in ipairs(slotspath:GetChildren()) do
+					if slot:IsA("TextButton") and slot.Name == "OwnedSlot" then
+						totalowner = totalowner + 1
+					end
+				end
+
+				if gamepassframe.Visible == false then
+					totalowner = totalowner - 15
+				end
+
+				local args = {
+					[1] = totalowner + 1
+				}
+
+				game:GetService("ReplicatedStorage").Network.EquipSlotsMachine_RequestPurchase:InvokeServer(unpack(args))
+
+				totalowner = 0
+			end
+			
+			else
+				HRP.CFrame = FieldPart.CFrame
+			end
+		task.wait(0.5)
+	end
+
+	c:Disconnect()
+
+end)
+
+local folderAutoFarm = tabAutoFarm:addFolder("Auto Farm")
+
+folderAutoFarm:addToggle("Auto Farm Aura", "x","small", false, function(value) 
+	while G.Settings["Auto Farm Aura"] do
+		wait()
+		local path = workspace.__THINGS.Breakables
+		
+		local function calculateDistance(point1, point2)
+			return (point1 - point2).Magnitude
+		end
+
+		local playerPosition = Pl.Character and Char:FindFirstChild("HumanoidRootPart") and Char.HumanoidRootPart.Position
+
+		if playerPosition then
+			for _, coinModel in ipairs(path:GetChildren()) do
+				if coinModel:IsA("Model") then
+					for _, coin in ipairs(coinModel:GetChildren()) do
+						if coin:IsA("MeshPart") then
+							local coinPosition = coin.Position
+							local distance = calculateDistance(playerPosition, coinPosition)
+
+							if distance <= 35 then
+
+								local args = {
+									[1] = coinModel.Name
+								}
+
+								game:GetService("ReplicatedStorage").Network.Breakables_PlayerDealDamage:FireServer(unpack(args))
+
+							end
+						end
+					end
+				end
+			end
+		end
+	end
+end)
+
+local AutoFarmThings = folderAutoFarm:addCombo("Select Thing", "Select one of the options (This section updates automatically!)", {"Comets", "MiniChests", "LuckBlocks", "Diamonds"})
+
+folderAutoFarm:addToggle("Auto Farm Selected Thing", "x","small", false, function(value) 
+	lib:DevWarn()
+end)
+
+local folderGemFarm = tabAutoFarm:addFolder("Auto Farm Gem")
+
+local FlagListGem = folderGemFarm:addCombo("Select Flag", "Select one of the options (This section updates automatically!)", {"Fortune Flag", "Diamonds Flag"})
+
+folderGemFarm:addToggle("Use Flags (Auto Farm Gem Vip)", "By activating this option, you will always use the flag selected in the VIP Area (you need VIP to work!)","small", false, function(value) 
+	local function findVipFrame()
+		local path = game:GetService("Players").LocalPlayer.PlayerGui.ExclusiveShop.Frame.ItemsFrame.Items["Row - Passes"].Pass.Price.Robux
+		if path.Text == "Owned" then
+			return true	
+		else
+			return false
+		end
+	end
+
+	while G.Settings["Use Flags (Auto Farm Gem Vip)"] do
+		wait()
+		if findVipFrame() then
+			if G.Settings["Auto Farm Gem (Vip Area)"] then
+				local cframe = CFrame.new(213.936188, 25.2846737, -587.86438, -0.490476578, 0.871450126, -0.00272836885, -0.004538259, 0.000576545601, 0.99998951, 0.871442556, 0.49048382, 0.00367208407)
+
+				Char.HumanoidRootPart.CFrame = cframe 
+
+				local args = {
+					[1] = FlagListGem:getValue(),
+					[2] = "cdfd76cb44c848a59b0adbe8060da49b"
+				}
+
+				game:GetService("ReplicatedStorage").Network["Flags: Consume"]:InvokeServer(unpack(args))
+				wait(305)
+			end
+		end
+	end
+end)
+
+folderGemFarm:addToggle("Use Fruits (Orange x 20!)", "By activating this option, you will always be using 20 fruits (orange) which is the limit!!","small", false, function(value) 
+	while G.Settings["Use Fruits (Orange x 20!)"] do
+		for i = 1, 20 do
+			local args = {
+				[1] = "6b697a058a004f71ba3f01a2d27cd71b",
+				[2] =  i
+			}
+
+			game:GetService("ReplicatedStorage").Network["Fruits: Consume"]:FireServer(unpack(args))
+			wait(0.1)
+		end
+		wait(1)
+	end
+end)
+
+folderGemFarm:addToggle("Use Potions (Diamonds)", "By activating this option you will automatically start using diamond potions!","small", false, function(value) 
+	lib:DevWarn()
+end)
+
+folderGemFarm:addToggle("Auto Farm Gem (Vip Area)", "By activating this option you will start to be teleported to the VIP area and start farming your diamonds!! (for better performance, activate the auto flag with the desired selected flag!)","big", false, function(value) 
+	local function autoflag()
+		while G.Settings["Auto Farm Gem (Vip Area)"] do
+			local args = {
+				[1] = "Diamonds Flag",
+				[2] = "cdfd76cb44c848a59b0adbe8060da49b"
+			}
+
+			game:GetService("ReplicatedStorage").Network["Flags: Consume"]:InvokeServer(unpack(args))
+			wait(305)
+		end
+	end
+	if value then
+		local cframe = CFrame.new(213.936188, 25.2846737, -587.86438, -0.490476578, 0.871450126, -0.00272836885, -0.004538259, 0.000576545601, 0.99998951, 0.871442556, 0.49048382, 0.00367208407)
+		Char.HumanoidRootPart.CFrame = cframe 
+	end
+end)
+
+folderGemFarm:addToggle("Auto Farm Gem", "x","big", false, function(value) 
+	local IDsDiamonds = {
+		"Diamond Present",
+		"Diamond Pile",
+		"Diamond Crate"
+	}
+
+	local function findDiamond()
+		for _, v in pairs(workspace.__THINGS.Breakables:GetChildren()) do
+			if v:IsA("Model") then
+				local breakID = v:GetAttribute("BreakableID")
+				local vipBreakable = v:GetAttribute("VIPBreakable")
+
+				for _, tipo in pairs(IDsDiamonds) do
+					if breakID == tipo and not vipBreakable then
+						return v
+					end
+				end
+			end
+		end
+	end
+
+	local breakables = workspace.__THINGS.Breakables
+
+	while G.Settings["Auto Farm Gem"] do
+		local diamond = findDiamond()
+		if diamond then
+			local x = diamond:GetChildren()[1].CFrame
+			Char.HumanoidRootPart.CFrame = x 
+			while workspace.__THINGS.Breakables:FindFirstChild(diamond.Name) do
+				local args = {
+					[1] = diamond.Name
+				}
+
+				game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Breakables_PlayerDealDamage"):FireServer(unpack(args))
+				task.wait(0.1)
+			end
+		end
+		task.wait(0.5)
+	end
+end)
+
+-- Auto Egg
+
+local pathEgg = game:GetService("ReplicatedStorage").__DIRECTORY.Eggs["Zone Eggs"]
+local eggsTable = {}
+
+for i, v in pairs(pathEgg:GetChildren()) do
+	local originalName = v.Name
+	local trimmedName = originalName:gsub("%d+ | ", "") -- Remove o "1 | " do nome do egg
+	table.insert(eggsTable, trimmedName)
+end
+
+local EggsListAG = tabAutoEgg:addCombo("Select Egg", "Select one of the options (This section updates automatically!)", eggsTable)
+
+tabAutoEgg:addToggle("Auto Egg", "By activating this option, you will start opening your best egg!! with your best amount of egg","big", false, function(value) 
+	local args = {
+		[1] = EggsListAG:getValue(),
+		[2] = EggsHatchedNumber
+	}
+
+	game:GetService("ReplicatedStorage").Network.Eggs_RequestPurchase:InvokeServer(unpack(args))
+end)
+
+tabAutoEgg:addToggle("Remove Egg Animation", "By activating this option, you will remove the egg hatching animation from your screen.","big", false, function(value) 
+	local Eggs = Pl.PlayerScripts.Scripts.Game['Egg Opening Frontend']
+	local EggModule = getsenv(Eggs)
+
+	if EggModule.PlayEggAnimation then
+		if value then
+			EggModule.PlayEggAnimation = function() return end
+		else
+			EggModule.PlayEggAnimation = function()
+			end
+		end
+	end
+
+end)
+
+local folderAutoEggFarm = tabAutoEgg:addFolder("Auto Egg Farm")
+
+local AreasNames = {}
+local eggsTableR = {}
+
+local areaPath = game:GetService("ReplicatedStorage").__DIRECTORY.Zones
+
+for _, areazinhas in ipairs(areaPath:GetChildren()) do
+	for _, areas in ipairs(areazinhas:GetChildren()) do
+		table.insert(AreasNames, areas.Name)
+	end
+end
+
+for i, v in pairs(pathEgg:GetChildren()) do
+	local originalName = v.Name
+	table.insert(eggsTableR, originalName)
+end
+
+local AreaListAGF = folderAutoEggFarm:addCombo("Select Area", "Select one of the options (This section updates automatically!)", AreasNames)
+local EggListAGF = folderAutoEggFarm:addCombo("Select Egg", "Select one of the options (This section updates automatically!)",  eggsTableR)
+
+folderAutoEggFarm:addToggle("Auto Egg Farm", "x","big", false, function(value) 
+	
+	lib:DevWarn()
+
+end)
+
+-- Auto Buy
+
+tabAutoBuy:addToggle("Auto Buy Slot Pets", "By activating this option, you will buy all possible pet slots with your gems","big", false, function(value) 
+	while G.Settings["Auto Buy Slot Pets"] do
+		wait()
+		local slotspath = Pl.PlayerGui._MACHINES.EquipSlotsMachine.Frame.Slots.Items.SlotsSection.Slots
+		local gamepassframe = Pl.PlayerGui._MACHINES.EquipSlotsMachine.Frame.Slots.Items.PetEquippedGamepass
+		local totalowner = 0
+
+		for _, slot in ipairs(slotspath:GetChildren()) do
+			if slot:IsA("TextButton") and slot.Name == "OwnedSlot" then
+				totalowner = totalowner + 1
+			end
+		end
+
+		if gamepassframe.Visible == false then
+			totalowner = totalowner - 15
+		end
+
+		local args = {
+			[1] = totalowner + 1
+		}
+
+		game:GetService("ReplicatedStorage").Network.EquipSlotsMachine_RequestPurchase:InvokeServer(unpack(args))
+
+		totalowner = 0
+	end
+end)
+
+tabAutoBuy:addToggle("Auto Buy Slot Eggs", "By activating this option, you will buy all possible eggs slots with your gems","big", false, function(value) 
+	while G.Settings["Auto Buy Slot Eggs"] do
+		wait()
+		local slotspath = Pl.PlayerGui._MACHINES.EggSlotsMachine.Frame.Slots.Items.SlotsSection.Slots
+		local gamepassframe = Pl.PlayerGui._MACHINES.EggSlotsMachine.Frame.Slots.Items.GamepassSection
+		local totalowner = 0
+
+		for _, slot in ipairs(slotspath:GetChildren()) do
+			if slot:IsA("TextButton") and slot.Name == "OwnedSlot" then
+				totalowner = totalowner + 1
+			end
+		end
+
+		if gamepassframe.Visible == false then
+			totalowner = totalowner - 15
+		end
+
+		local args = {
+			[1] = totalowner + 1
+		}
+
+		game:GetService("ReplicatedStorage").Network.EggHatchSlotsMachine_RequestPurchase:InvokeServer(unpack(args))
+
+
+		totalowner = 0
+	end
+end)
+
+local folderMerchant = tabAutoBuy:addFolder("Merchant")
+
+folderMerchant:addToggle("Auto Buy All Item", "","big", false, function(value) 
+	
+	local Merchants = {
+		{"RegularMerchant";"Oasis"};
+		{"AdvancedMerchant"; "Ice Rink"}
+	}
+	
+	local remotes = game.ReplicatedStorage.Network
+	local teleportr = remotes.Teleports_RequestTeleport
+	local hum = game.Players.LocalPlayer.Character.Humanoid
+	local merchant_buy = remotes.Merchant_RequestPurchase
+	
+	local function teleport(destination)
+		teleportr:InvokeServer(destination)
+		repeat task.wait() until hum.FloorMaterial == Enum.Material.Air
+		task.wait(0.5)
+		repeat task.wait() until hum.FloorMaterial == Enum.Material.Plastic
+		hum:ChangeState(Enum.HumanoidStateType.Jumping)
+		task.wait(1)
+		hum:ChangeState(Enum.HumanoidStateType.Jumping)
+	end
+
+	for i,v in ipairs(Merchants) do
+		teleport(v[2])
+		task.wait(1)
+		local a, b
+		for i = 1, 6, 1 do
+			repeat
+				a,b = merchant_buy:InvokeServer(v[1], i)
+				task.wait(0.1)
+			until a == false
+		end
+
+	end
+	
+end)
+
+local folderMachine = tabAutoBuy:addFolder("VendingMachines")
+
+folderMachine:addToggle("Auto Buy Vending Machine", "z","big", false, function(value) 
+	
+	local machines = {
+		{"PotionVendingMachine1";"Cherry Blossom"};
+		{"PotionVendingMachine2";"Safari"};
+		{"EnchantVendingMachine1";"Misty Falls"};
+		{"EnchantVendingMachine2";"Fire and Ice"};
+		{"FruitVendingMachine1";"Mushroom Field"};
+		{"FruitVendingMachine2";"Pirate Cove"};
+	}
+	
+	local remotes = game.ReplicatedStorage.Network
+	local teleportr = remotes.Teleports_RequestTeleport
+	local vending_buy = remotes.VendingMachines_Purchase
+	local hum = game.Players.LocalPlayer.Character.Humanoid
+	
+	local function teleport(destination)
+		teleportr:InvokeServer(destination)
+		repeat task.wait() until hum.FloorMaterial == Enum.Material.Air
+		task.wait(0.5)
+		repeat task.wait() until hum.FloorMaterial == Enum.Material.Plastic
+		hum:ChangeState(Enum.HumanoidStateType.Jumping)
+		task.wait(1)
+		hum:ChangeState(Enum.HumanoidStateType.Jumping)
+	end
+
+	for i,v in ipairs(machines) do
+		teleport(v[2])
+		local a, b
+		for i2, v2 in pairs(workspace.Map:GetChildren()) do
+			if string.find(v2.Name,v[2], 1, true) then
+				hum.Parent:PivotTo(v2.INTERACT.Machines[v[1]].PrimaryPart.CFrame * CFrame.new(0,9,0)) 
+			end
+		end
+
+		repeat a,b = vending_buy:InvokeServer(v[1], 1)
+			task.wait(0.1) 
+		until a == false
+	end
+	
+end)
+
+
+-- Machine
+
+local SaveModule = require(game:GetService("ReplicatedStorage").Library.Client.Save)
+local SaveFile = SaveModule.Get(Pl)
+local PetInventory = SaveFile.Inventory.Pet
+
+local petIdsNormal = {}
+local petIdsDayCare = {}
+local petIdsGolden = {}
+local petIdsRainbow = {}
+
+local function findID(namePet)
+	for petName, petData in pairs(PetInventory) do
+		if namePet == petData.id then
+			local Vrs = (petData.pt == 1 and "Golden ") or (petData.pt == 2 and "Rainbow ") or "Normal"
+			if Vrs == "Normal" and petData._am and petData._am >= 10 then
+				return petName
+			end
+		end
+	end
+end
+
+local function findAmount(namePet)
+	for petName, petData in pairs(PetInventory) do
+		if namePet == petData.id then
+			local Vrs = (petData.pt == 1 and "Golden ") or (petData.pt == 2 and "Rainbow ") or "Normal"
+			if Vrs == "Normal" and petData._am and petData._am >= 10 then
+				return petData._am
+			end
+		end
+	end
+end
+
+for petName, petData in pairs(PetInventory) do
+	local Vrs = (petData.pt == 1 and "Golden ") or (petData.pt == 2 and "Rainbow ") or "Normal"
+	if Vrs == "Normal" and petData._am and petData._am >= 10 then
+		table.insert(petIdsNormal, petData.id)
+	end
+end
+
+for petName, petData in pairs(PetInventory) do
+	if petData._am and petData._am >= 10 then
+		local Vrs = (petData.pt == 1 and "Golden ") or (petData.pt == 2 and "Rainbow ") or "Normal"
+		table.insert(petIdsDayCare, petData.id .. " | " .. Vrs)
+	end
+end	
+
+for petName, petData in pairs(PetInventory) do
+	if petData.pt == 1 and "Golden " and petData._am and petData._am >= 10 then
+		table.insert(petIdsGolden, petData.id)
+	end
+end
+
+for petName, petData in pairs(PetInventory) do
+	if petData.pt == 2 and "Rainbow " and petData._am and petData._am >= 10 then
+		table.insert(petIdsRainbow, petData.id)
+	end
+end
+
+--
+local folderMachineGolden = tabMachines:addFolder("Golden Machine")
+
+local ComboGolden = folderMachineGolden:addMultiCombo("Select Pet", "", petIdsNormal)
+
+folderMachineGolden:addToggle("Use Pet Selected to Golden", "z","small", false, function(value) 
+end)
+
+folderMachineGolden:addToggle("Use All Pets to Golden", "z","small", false, function(value) 
+end)
+
+folderMachineGolden:addToggle("Auto Teleport to Machine Golden", "z","small", false, function(value) 
+end)
+
+folderMachineGolden:addToggle("Auto Golden", "z","big", false, function(value) 
+	
+	while G.Settings["Auto Golden"] do
+		wait()
+
+		if G.Settings["Use All Pets"] then
+			local pets = petIdsNormal
+
+			for _, pet in pairs(pets) do
+				local amountPet = findAmount(pet)
+				local petID = findID(pet)
+				if amountPet then
+					print(petID, pet, amountPet, math.floor(amountPet / 10))
+					local args = {
+						[1] = petID,
+						[2] = math.floor(amountPet / 10)
+					}
+
+					game:GetService("ReplicatedStorage").Network.GoldMachine_Activate:InvokeServer(unpack(args))
+					wait(2.5)
+				end
+			end
+			petIdsNormal = {}
+		end
+	end
+	
+end)
+
+--
+
+local folderMachineRainbow = tabMachines:addFolder("Rainbow Machine")
+
+local ComboRainbow = folderMachineRainbow:addMultiCombo("Select Pet", "", petIdsGolden)
+
+folderMachineRainbow:addToggle("Use Pet Selected to Rainbow", "z","small", false, function(value) 
+end)
+
+folderMachineRainbow:addToggle("Use All Pets to Rainbow", "z","small", false, function(value) 
+end)
+
+folderMachineRainbow:addToggle("Auto Teleport to Machine Rainbow", "z","small", false, function(value) 
+end)
+	
+folderMachineRainbow:addToggle("Auto Rainbow", "z","big", false, function(value) 
+	while G.Settings["Auto Rainbow"] do
+		wait()
+
+		if G.Settings["Use All Pets"] then
+			local pets = petIdsNormal
+
+			for _, pet in pairs(pets) do
+				local amountPet = findAmount(pet)
+				local petID = findID(pet)
+				if amountPet then
+					print(petID, pet, amountPet, math.floor(amountPet / 10))
+					local args = {
+						[1] = petID,
+						[2] = math.floor(amountPet / 10)
+					}
+
+					game:GetService("ReplicatedStorage").Network.RainbowMachine_Activate:InvokeServer(unpack(args))
+					wait(2.5)
+				end
+			end
+			petIdsNormal = {}
+		end
+	end
+end)
+
+--
+
+local folderDayCare = tabMachines:addFolder("DayCare Machine")
+
+local ComboDayCare = folderDayCare:addCombo("Select Pet", "", petIdsNormal)
+
+folderDayCare:addToggle("Use pet (Selected)", "z","small", false, function(value) 
+	
+end)
+
+folderDayCare:addToggle("Use the best pets (damage)", "z","small", false, function(value) 
+	lib:DevWarn()
+end)
+
+folderDayCare:addToggle("View Time until Daycare", "z","big", false, function(value) 
+	lib:DevWarn()
+
+end)
+
+folderDayCare:addToggle("Auto DayCare", "z","big", false, function(value) 
+	local args = {
+		[1] = {
+			["e4d276670b9f41fe851a54c37aa37de1"] = 1,
+			["5f33690b7c4441f8b16e9f96143129be"] = 9
+		}
+	}
+
+	game:GetService("ReplicatedStorage").Network:FindFirstChild("Daycare: Enroll"):InvokeServer(unpack(args)) 
+
+
+end)
+
+folderDayCare:addToggle("Auto Claim DayCare", "z","big", false, function(value) 
+	lib:DevWarn()
+
+end)
+
+-- Auto Collect
+
+tabAutoCollect:addToggle("Auto Collect Orbs & Bags", "By activating this option, you will automatically collect the orbs and bags!","big", false, function(value) 
+	while G.Settings["Auto Collect Orbs & Bags"] do
+		wait()
+		for _, v in pairs(workspace.__THINGS.Lootbags:GetChildren()) do -- Coleta os sacos
+
+			v:GetChildren()[1].CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+
+		end
+
+		for _, v in pairs(workspace.__THINGS.Orbs:GetChildren()) do -- Coleta as Orbs
+
+			v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+
+		end
+	end
+end)
+
+tabAutoCollect:addToggle("Auto Reedem Daily", "By activating this option, you will collect daily rewards spread across the map.","big", false, function(value) 
+	
+		local DailyRedeemables = {
+			{"Castle"; "SmallDailyDiamonds"};
+			{"Jungle";"DailyPotions"};
+			{"Red Desert"; "MediumDailyDiamonds"};
+		}
+		
+	local remotes = game.ReplicatedStorage.Network
+	local teleportr = remotes.Teleports_RequestTeleport
+	local daily_redeem = remotes.DailyRewards_Redeem
+	local hum = game.Players.LocalPlayer.Character.Humanoid
+
+	local function teleport(destination)
+		teleportr:InvokeServer(destination)
+		repeat task.wait() until hum.FloorMaterial == Enum.Material.Air
+		task.wait(0.5)
+		repeat task.wait() until hum.FloorMaterial == Enum.Material.Plastic
+		hum:ChangeState(Enum.HumanoidStateType.Jumping)
+		task.wait(1)
+		hum:ChangeState(Enum.HumanoidStateType.Jumping)
+	end
+
+	for i,v in ipairs(DailyRedeemables) do
+		teleport(v[1])
+		daily_redeem:InvokeServer(v[2])
+	end
+
+end)
+
+tabAutoCollect:addToggle("Auto Reedem Gift", "By activating this option you will automatically collect all available gifts.","big", false, function(value) 
+	while G.Settings["Auto Reedem Gift"] do
+		task.wait(1)
+		for i = 1, 12 do
+			local args = {
+				[1] = i
+			}
+
+			game:GetService("ReplicatedStorage").Network["Redeem Free Gift"]:InvokeServer(unpack(args))
+			wait()
+		end
+	end
+end)
+
+tabAutoCollect:addToggle("Auto Spin Whell", "By activating this option, whenever the roulette wheel is available you will use it!","big", false, function(value) 
+	while G.Settings["Auto Spin Whell"] do
+		task.wait(1)
+		local args = {
+			[1] = "StarterWheel"
+		}
+
+		game:GetService("ReplicatedStorage").Network["Spinny Wheel: Request Spin"]:InvokeServer(unpack(args))
+	end
+end)
+
+tabAutoCollect:addToggle("Auto Teleport Shiny Badges", "Activating this option will teleport you to the shiny relics that you are still missing every 3 seconds","big", false, function(value) 
+	local path = workspace.__THINGS.ShinyRelics
+	local lp = game.Players.LocalPlayer
+	local char = lp.Character
+
+	for _, shiny in ipairs(path:GetChildren()) do
+		if G.Settings["Auto Shiny Badges"] then
+			if shiny:IsA("MeshPart") and shiny:FindFirstChild("ClickDetector") then
+				char.HumanoidRootPart.CFrame = shiny.CFrame
+				wait(3)
+			end
+		end
+	end
+
+end)
+
+-- MiniGames
+
+local folderWorld1 = tabAutoGame:addFolder("World 1") --   [1]
+
+local folderStairway = folderWorld1:addFolder("Stairway to Heaven") -- [&]
+
+local folderClassicObby = folderWorld1:addFolder("Classic Obby") -- [2]
+
+folderClassicObby:addToggle("Auto Win Classic Obby", "x","big", false, function(value) 
+	while G.Settings["Auto Win Classic Obby"] do
+		wait()
+		local plr = game.Players.LocalPlayer
+		local char = plr.Character
+
+		local spawnObby = workspace.__THINGS.__INSTANCE_CONTAINER.Active:WaitForChild("SpawnObby")
+		local sign = spawnObby:WaitForChild("Sign").CFrame
+		local goalPad = spawnObby.Goal:WaitForChild("Pad").CFrame
+
+		if G.Minigames == true then
+			wait(1)
+			char.HumanoidRootPart.CFrame = sign
+			wait(0.5)
+			char.HumanoidRootPart.CFrame = goalPad
+			G.Minigames = false
+		end
+	end
+end)
+
+folderClassicObby:addToggle("Remove Obstacules (Classic Obby)", "x","big", false, function(value) 
+	while G.Settings["Remove Obstacules (Classic Obby)"] do
+		wait()
+		local active = workspace.__THINGS.__INSTANCE_CONTAINER.Active:WaitForChild("SpawnObby")
+		local Lava = active.Lava
+		local Spinny = active.Spinny
+
+		local interactables = {Lava, Spinny}
+
+		for _, interactable in ipairs(interactables) do
+			interactable:Destroy()
+		end
+	end
+end)
+
+local folderMiniField = folderWorld1:addFolder("Mini Field") --     [3]
+
+folderMiniField:addToggle("Auto Win Mini Field", "x","big", false, function(value) 
+	while G.Settings["Auto Win Mini Field"] do
+		wait()
+		local path = workspace.__THINGS.__INSTANCE_CONTAINER.Active.Minefield.Mines
+
+		-- Função para criar um nome baseado no índice
+		local function getMineName(index)
+			return tostring(index)
+		end
+
+		-- Itera sobre as minas e renomeia
+		for index, mine in ipairs(path:GetChildren()) do
+			mine.Name = getMineName(index)
+		end
+
+		local function isRed(pad)
+			return pad.BrickColor == BrickColor.new("Really red")  -- Verifica se a cor é vermelha
+		end
+
+		local function isGreen(pad)
+			return pad.BrickColor == BrickColor.new("Lime green")  -- Verifica se a cor é verde
+		end
+
+		-- Verifica se algum dos mines de 435 a 450 está verde
+		local function checkGreenMines()
+			for i = 435, 450 do
+				local mine = path:FindFirstChild(getMineName(i))
+				if mine and mine:IsA("Model") and isGreen(mine.Pad) then
+					return true
+				end
+			end
+			return false
+		end
+
+		-- Verifica se algum dos mines de 435 a 450 já está verde antes de começar as verificações
+		if checkGreenMines() then
+			local Plr = game.Players.LocalPlayer
+			local Char = Plr.Character
+			local tp = workspace.__THINGS.__INSTANCE_CONTAINER.Active.Minefield.Model.Part.CFrame -- Adiciona 5 blocos à posição Z
+			Char.HumanoidRootPart.CFrame = tp
+		else
+			-- Se nenhum estiver verde, inicia a interação
+			local function interactWithMine(index)
+				local mine = path:FindFirstChild(getMineName(index))
+				if mine and mine:IsA("Model") then
+					local pad = mine.Pad
+					local x = index
+
+					if isRed(pad) then
+						print("Bloco vermelho encontrado, aguardando e tentando próximo bloco.")
+						wait()
+						interactWithMine(index + 1)
+					else
+						local args = {
+							[1] = "Minefield",
+							[2] = "PressedMine",
+							[3] = x
+						}
+
+						game:GetService("ReplicatedStorage").Network.Instancing_FireCustomFromClient:FireServer(unpack(args))
+
+						interactWithMine(index + 15)
+					end
+				end
+			end
+
+			-- Inicia a interação a partir do bloco 1
+			interactWithMine(1)
+		end
+	end
+end)
+
+folderMiniField:addToggle("Explode Cat (maybe this is personal 😈)", "It took so long to create Auto Farm MineField, that I got angry with this cat, in other words, he deserves this wonderful script, click for a surprise 😏","big", false, function(value)
+	while G.Settings["Explode Cat (maybe this is personal 😈)"] do
+		wait()
+		local function explodeModel(model)
+			for _, descendant in ipairs(model:GetDescendants()) do
+				if descendant:IsA("BasePart") then
+					local explosion = Instance.new("Explosion")
+					explosion.Position = descendant.Position
+					explosion.Parent = descendant
+				end
+			end
+		end
+		local active = workspace.__THINGS.__INSTANCE_CONTAINER.Active:WaitForChild("Minefield")
+		local petAnimation =active.Interactable.PetAnimation
+
+		if petAnimation and petAnimation:IsA("Model") then
+			explodeModel(petAnimation)
+			wait(1) 
+			petAnimation:Destroy()
+		end
+	end
+end)
+
+local folderJungleObby = folderWorld1:addFolder("Jungle Obby") --   [4]
+
+folderJungleObby:addToggle("Auto Win Jungle Obby", "x","big", false, function(value) 
+	while G.Settings["Auto Win Jungle Obby"] do
+		wait()
+		local path = workspace.__THINGS.__INSTANCE_CONTAINER.Active:WaitForChild("JungleObby")
+		local End = path.Interactable.Goal:WaitForChild("Pad").CFrame
+		local placa = path:WaitForChild("Sign2").CFrame
+
+		local plr = game.Players.LocalPlayer
+		local char = plr.Character
+
+
+		if G.Minigames == true then
+			wait(1)
+			char.HumanoidRootPart.CFrame = placa
+			wait(0.5)
+			char.HumanoidRootPart.CFrame = End
+			G.Minigames = false
+		end
+	end
+end)
+
+folderJungleObby:addToggle("Remove Obstacules (Jungle Obby)", "x","big", false, function(value) 
+	while G.Settings["Remove Obstacules (Jungle Obby)"] do
+		wait()
+
+		local active =  workspace.__THINGS.__INSTANCE_CONTAINER.Active:WaitForChild("JungleObby")
+
+		local Boulders = active.Interactable.Boulders
+		local Axe = active.Interactable.Axes
+
+		local interactables = {Boulders, Axe}
+
+		for _, interactable in ipairs(interactables) do
+			interactable:Destroy()
+		end
+	end
+end)
+
+local folderAtlantis = folderWorld1:addFolder("Atlantis") --        [5]
+
+folderAtlantis:addToggle("Auto Win Atlantis", "x","big", false, function(value) 
+	local path = workspace.__THINGS.__INSTANCE_CONTAINER.Active:WaitForChild("Atlantis")
+	local rings = path:WaitForChild("Rings")
+
+	while G.Settings["Auto Win Atlantis"] do
+		wait()
+
+		if G.Minigames == true then
+			wait(1)
+			for i = 1, 31 do
+				local Plr = game.Players.LocalPlayer
+				local Char = Plr.Character
+				local RTT = rings[i].Collision.CFrame
+
+				Char.HumanoidRootPart.CFrame = RTT
+				wait(0.5)
+			end
+			G.Minigames = false
+		end
+	end
+end)
+
+local folderFishing = folderWorld1:addFolder("Fishing") --          [6]
+G.Fishing = false
+folderFishing:addToggle("Auto Fishing", "x","big", false, function(value) 
+	while G.Settings["Auto Fishing"] do
+		wait()
+		if G.Fishing == false then
+			G.Fishing = true
+			local args = {
+				[1] = "Fishing",
+				[2] = "RequestCast",
+				[3] = Vector3.new(1133.49658203125, 75.91413116455078, -3446.258056640625)
+			}
+
+			game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Instancing_FireCustomFromClient"):FireServer(unpack(args))
+			task.wait(2.7)
+			game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool").Rod:WaitForChild("FishingLine").Attachment1.Parent:GetPropertyChangedSignal("CFrame"):Wait()
+			task.wait(0.5)	
+			local args = {
+				[1] = "Fishing",
+				[2] = "RequestReel"
+			}
+
+			game:GetService("ReplicatedStorage").Network.Instancing_FireCustomFromClient:FireServer(unpack(args))
+
+			task.wait(4.5)
+
+			local args = {
+				[1] = "Fishing",
+				[2] = "FishingResult",
+				[3] = true
+			}
+
+			game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Instancing_FireCustomFromClient"):FireServer(unpack(args))
+			game:GetService("Players").LocalPlayer.PlayerGui._INSTANCES.FishingGame.Enabled = false
+			G.Fishing = false
+		end
+	end
+end)
+
+local folderDigSite = folderWorld1:addFolder("DigSite") --          [7]
+
+local DigMode = folderDigSite:addCombo("Select Mode", "Select one of the options", {"Random Blocks", "Specific block", "All in order"})
+local DigBlock = folderDigSite:addCombo("Select the specific block", "Select one of the options", {"Dirt", "Stones", "Ores"})
+
+folderDigSite:addToggle("Auto Break Chests", "x","big", false, function(value) 
+
+	local path = workspace.__THINGS.__INSTANCE_CONTAINER.Active.Digsite.Important.ActiveChests
+
+	while G.Settings["Auto Break Chests"] do
+		task.wait()
+		for _, chest in ipairs(path:GetChildren()) do
+			if not G.Settings["Auto Break Chests"] then
+				break
+			end
+			local Plr = game.Players.LocalPlayer
+			local Char = Plr.Character
+			local Cord = chest.Top.CFrame
+			Char.HumanoidRootPart.CFrame = Cord*CFrame.new(0,4.5,0)
+
+			local x = chest:GetAttribute("Coord")
+
+			for i = 1, 3, 1 do
+				local args = {
+					[1] = "Digsite",
+					[2] = "DigChest",
+					[3] = x
+				}
+
+				game:GetService("ReplicatedStorage").Network.Instancing_FireCustomFromClient:FireServer(unpack(args))
+				task.wait(0.1)
+			end	
+			task.wait(0.6)
+		end
+	end
+
+end)
+
+folderDigSite:addToggle("Auto Break Blocks", "x","big", false, function(value) 
+
+	local pathBlocks = workspace.__THINGS.__INSTANCE_CONTAINER.Active.Digsite.Important.ActiveBlocks
+	local pathChests = workspace.__THINGS.__INSTANCE_CONTAINER.Active.Digsite.Important.ActiveChests
+
+	while G.Settings["Auto Break Blocks"] do
+		task.wait()
+		local mode = DigMode:getValue()
+		local specific = DigBlock:getValue()
+		
+		if mode == "Random Blocks" then
+			for _, blocks in ipairs(pathBlocks:GetChildren()) do
+				if not G.Settings["Auto Break Blocks"] then
+					break
+				end
+				local Plr = game.Players.LocalPlayer
+				local Char = Plr.Character
+				local Cord = blocks.CFrame
+
+				local x = blocks:GetAttribute("Coord")
+				local args = {
+					[1] = "Digsite",
+					[2] = "DigBlock",
+					[3] = x
+				}
+				blocks.Name = "Breaking"
+				local tempo = 0
+				while pathBlocks:FindFirstChild("Breaking") do
+					task.wait(0.1)
+					tempo += 0.1
+					Char.HumanoidRootPart.CFrame = Cord*CFrame.new(0,8,0)
+					game:GetService("ReplicatedStorage").Network.Instancing_FireCustomFromClient:FireServer(unpack(args))
+					if tempo > 10 then
+						blocks:Destroy()
+						break
+					end
+				end
+				task.wait(0.4)
+				Char.HumanoidRootPart.Anchored = false
+			end
+		elseif mode == "Specific block" then
+			
+			local Plr = game.Players.LocalPlayer
+			local Char = Plr.Character
+			
+			local function breakBlock(blocks)
+				local Cord = blocks.CFrame
+				
+
+				local x = blocks:GetAttribute("Coord")
+				local args = {
+					[1] = "Digsite",
+					[2] = "DigBlock",
+					[3] = x
+				}
+				blocks.Name = "Breaking"
+				local tempo = 0
+				while pathBlocks:FindFirstChild("Breaking") do
+					task.wait(0.1)
+					tempo += 0.1
+					Char.HumanoidRootPart.CFrame = Cord*CFrame.new(0,8,0)
+					game:GetService("ReplicatedStorage").Network.Instancing_FireCustomFromClient:FireServer(unpack(args))
+					if tempo > 10 then
+						blocks:Destroy()
+						break
+					end
+				end
+				task.wait(0.4)
+				Char.HumanoidRootPart.Anchored = false
+			end
+			
+			for _, blocks in ipairs(pathBlocks:GetChildren()) do
+				if not G.Settings["Auto Break Blocks"] then
+					break
+				end
+				local colorHave
+				local oreHave
+				if specific == "Dirt" then
+					colorHave = Color3.fromRGB(105, 64, 40)
+					oreHave = false
+				elseif specific == "Stones" then
+					colorHave = false
+					oreHave = false
+				elseif specific == "Ores" then
+					colorHave = false
+					oreHave = true
+				end
+				if colorHave and blocks.Color == colorHave or not colorHave and not oreHave and blocks.Color ~= Color3.fromRGB(105, 64, 40) and not blocks:FindFirstChild("Ore") or not colorHave and oreHave and blocks:FindFirstChild("Ore") then -- Dirt
+					breakBlock(blocks)
+				end
+			end
+		elseif mode == "All in order" then
+			local function findByPos(pos)
+				for _, v in pairs(pathBlocks:GetChildren()) do
+					if v:GetAttribute("Coord") == pos then
+						return v
+					end
+				end
+				for _, v in pairs(pathChests:GetChildren()) do
+					if v:GetAttribute("Coord") == pos then
+						return v
+					end
+				end
+				return nil
+			end
+
+			for y=1, 52, 1 do
+				if not G.Settings["Auto Break Blocks"] then
+					break
+				end
+				for x=1, 8, 1 do
+					if not G.Settings["Auto Break Blocks"] then
+						break
+					end
+					for z=1, 8, 1 do
+						if not G.Settings["Auto Break Blocks"] then
+							break
+						end
+						local Plr = game.Players.LocalPlayer
+						local Char = Plr.Character
+						if findByPos(Vector3.new(x,y,z)) and findByPos(Vector3.new(x,y,z)).Parent.Name ~= "ActiveChests" then
+							Char.HumanoidRootPart.CFrame = findByPos(Vector3.new(x,y,z)).CFrame*CFrame.new(0,8,0)
+							while findByPos(Vector3.new(x,y,z)) do
+								task.wait(0.07)
+								local args = {
+									[1] = "Digsite",
+									[2] = "DigBlock",
+									[3] = Vector3.new(x,y,z)
+								}
+								game:GetService("ReplicatedStorage").Network.Instancing_FireCustomFromClient:FireServer(unpack(args))
+							end
+						elseif findByPos(Vector3.new(x,y,z)) and findByPos(Vector3.new(x,y,z)).Parent.Name == "ActiveChests" then
+							Char.HumanoidRootPart.CFrame = findByPos(Vector3.new(x,y,z)).Bottom.CFrame*CFrame.new(0,8,0)
+							local args = {
+								[1] = "Digsite",
+								[2] = "DigChest",
+								[3] = Vector3.new(x,y,z)
+							}
+
+							game:GetService("ReplicatedStorage").Network.Instancing_FireCustomFromClient:FireServer(unpack(args))
+						end
+					end
+				end
+			end
+		end
+	end
+end)
+
+folderDigSite:addToggle("Esp Chests", "x","big", false, function(value) 
+
+	while G.Settings["Esp Chests"] do
+		wait()
+		local path = workspace.__THINGS.__INSTANCE_CONTAINER.Active:WaitForChild("Digsite").Important.ActiveChests
+		for _, chest in ipairs(path:GetChildren()) do
+			if not chest:FindFirstChild("Esp") then
+				local hl = Instance.new("Highlight")
+				hl.Name = "Esp"
+				hl.FillColor = Color3.new(170, 0, 255)
+				hl.OutlineColor = Color3.new(170, 0, 255)
+				hl.Parent = chest
+			end
+		end
+	end
+
+end)
+
+local folderPyramidObby = folderWorld1:addFolder("Pyramid Obby") -- [8]
+
+folderPyramidObby:addToggle("Auto Win Pyramids Obby", "x","big", false, function(value) 
+	while G.Settings["Auto Win Pyramids Obby"] do
+		wait()
+		if G.Minigames == true then
+			wait(1)
+			local path = workspace.__THINGS.__INSTANCE_CONTAINER.Active:WaitForChild("PyramidObby")
+			local x = path.Interactable.Goal:WaitForChild("Pad").CFrame
+			local plr = game.Players.LocalPlayer
+			local char = plr.Character
+			wait(1)
+			char.HumanoidRootPart.CFrame = x
+			G.Minigames = false
+		end
+	end
+end)
+
+folderPyramidObby:addToggle("Remove Obstacules (Pyramids Obby)", "x","big", false, function(value) 
+	while G.Settings["Remove Obstacules (Pyramids Obby)"] do
+		wait()
+		local obstaculos = {
+			workspace.__THINGS.__INSTANCE_CONTAINER.Active.PyramidObby.Interactable.Spikes,
+			workspace.__THINGS.__INSTANCE_CONTAINER.Active.PyramidObby.Interactable.Fists,
+		}
+
+		for _, obstacle in ipairs(obstaculos) do
+			obstacle:Destroy()
+		end
+	end
+end)
+
+local folderIceObby = folderWorld1:addFolder("Ice Obby") --         [10]
+
+folderIceObby:addToggle("Auto Win Icy Obby", "x","big", false, function(value) 
+	while G.Settings["Auto Win Icy Obby"] do
+		wait()
+		if G.Minigames == true then
+			wait(1)
+			local path = workspace.__THINGS.__INSTANCE_CONTAINER.Active:WaitForChild("IceObby")
+			local placa = path:WaitForChild("Sign").CFrame
+			local End = path.Interactable.Goal:WaitForChild("Pad").CFrame
+			local plr = game.Players.LocalPlayer
+			local char = plr.Character
+			char.HumanoidRootPart.CFrame = placa
+			wait(0.5)
+			char.HumanoidRootPart.CFrame = End
+			G.Minigames = false
+		end
+	end
+end)
+
+folderIceObby:addToggle("Remove Obstacules (Icy Obby)", "x","big", false, function(value) 
+	while G.Settings["Remove Obstacules (Icy Obby)"] do
+		wait()
+		local active = workspace.__THINGS.__INSTANCE_CONTAINER.Active:WaitForChild("IceObby")
+		local obstaculos = {
+			active.Interactable.Ball1,
+			active.Interactable.Ball2,
+			active.Interactable.Spikes,
+			active.Interactable.FallingBalls
+		}
+
+		for _, obstacle in ipairs(obstaculos) do
+			obstacle:Destroy()
+		end
+	end
+end)
+
+local folderSledRace = folderWorld1:addFolder("Sled Race") --    [9]
+
+folderSledRace:addToggle("Auto Win Sled Race", "x","big", false, function(value) 
+	while G.Settings["Auto Win Sled Race"] do
+		wait()
+		if G.Minigames == true then
+			wait(1)
+			local path = workspace.__THINGS.__INSTANCE_CONTAINER.Active:WaitForChild("SledRace")
+			local sleds = path:WaitForChild("Sleds"):GetChildren()
+			local End = workspace.__THINGS.__INSTANCE_CONTAINER.Active.SledRace.Parts.FinishArea:WaitForChild("Floor").CFrame
+			local seat = nil
+
+			local plr = game.Players.LocalPlayer
+			local char = plr.Character
+
+			for _, sled in pairs(sleds) do
+				if sled.VehicleSeat.Occupant == plr.Name then
+					seat = sled
+				end
+			end
+
+			if seat then
+				seat.CFrame = End
+			end
+
+			
+			G.Minigames = false
+		end
+	end
+end)
+
+local folderChestRush = folderWorld1:addFolder("Chest Rush") --    [11]
+
+
+folderChestRush:addToggle("Auto Win Chest Rush", "x","big", false, function(value) 
+
+	local path = workspace.__THINGS.Breakables
+
+	for _, a in ipairs(path:GetChildren()) do
+		while true do
+			wait()
+			if a:IsA("Model") then
+				local args = {
+					[1] = a.Name
+				}
+
+				game:GetService("ReplicatedStorage").Network.Breakables_PlayerDealDamage:FireServer(unpack(args))
+			end
+		end
+	end
+
+end)
+
+
+local folderGarden = folderWorld1:addFolder("Garden") --    [12]
+
+local folderCart = folderWorld1:addFolder("Cart Ride") --    [13]
+
+folderCart:addToggle("Auto Win Cart Ride", "x","big", false, function(value) 
+	while G.Settings["Auto Win Cart Ride"] do
+		wait()
+		if G.Minigames == true then
+			wait(1)
+			local path = workspace.__THINGS.__INSTANCE_CONTAINER.Active:WaitForChild("Minecart")
+			local placa = path.PARTS:WaitForChild("Sign2").CFrame
+			local End = path.Interactable.Goal:WaitForChild("Pad").CFrame
+			local plr = game.Players.LocalPlayer
+			local char = plr.Character
+			char.HumanoidRootPart.CFrame = placa
+			wait(0.5)
+			char.HumanoidRootPart.CFrame = End
+			G.Minigames = false
+		end
+	end
+
+end)
+
+local folderADigside = folderWorld1:addFolder("Advanced Digside") --    [14]
+
+local folderLuckyBlock = folderWorld1:addFolder("Lucky Block") --    [15]
+
+folderLuckyBlock:addToggle("Auto farm Best Lucky Block", "x","big", false, function(value) 
+	
+	local luckblocks = {}
+	
+	spawn(function() -- att as luckblocks
+		while G.Settings["Auto farm Best Lucky Block"] and wait(0.5) do
+			for _, block in pairs(workspace.__THINGS.Breakables:GetChildren()) do
+				if block:IsA("Model") then
+					local ID = block:GetAttribute("BreakableID")
+					local UID = block:GetAttribute("BreakableUID")
+					local ParentID = block:GetAttribute("ParentID")
+
+					if ID and UID and ParentID == "LuckyBlocks" then
+						luckblocks[UID] = ID
+					end
+				end
+			end
+		end
+	end)
+
+	local function Teleport(ID)
+		local Breakables = workspace.__THINGS:WaitForChild("Breakables")
+		local Block = Breakables:FindFirstChild(ID)
+		
+			local plr = game.Players.LocalPlayer
+			local char = plr.Character
+			local primaryPart = Block.PrimaryPart 
+			
+			char:SetPrimaryPartCFrame(primaryPart.CFrame)
+
+		for i = 1, 10000 do
+			if Breakables:FindFirstChild() then
+				for petID, data in pairs(SaveFile.EquippedPets) do
+					local args = {
+						[1] = ID,
+						[2] = petID
+					}
+
+					game:GetService("ReplicatedStorage").Network.Breakables_JoinPet:FireServer(unpack(args))
+				end
+			else
+				break
+			end
+		end
+	end
+
+	while G.Settings["Auto farm Best Lucky Block"] do
+		wait() 
+
+		local blockOrder = {"Black Lucky Block", "Rainbow Lucky Block", "Pink Lucky Block", "Blue Lucky Block"}
+
+		for _, ID in ipairs(blockOrder) do
+			local UID = luckblocks[ID]
+
+			if UID then
+				Teleport(UID)
+			repeat wait() until not workspace.__THINGS.Breakables:FindFirstChild(UID)
+			end
+		end
+	end
+
+
+end)
+
+
+local folderAFishing = folderWorld1:addFolder("Advanced Fishing") --    [16]
+
+
