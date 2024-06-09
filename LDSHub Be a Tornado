@@ -1,0 +1,124 @@
+local G = getgenv()
+G.Key = "SAaRlAiS_aBhImRaAdHG2"
+
+local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/RobSilas/lds-hub/main/library.txt"))()
+
+local window = lib:start("Be a Tornado", "1.0 Global", true)
+
+local MainTab = window:addTab("Main") 
+
+local Player = game:GetService("Players").LocalPlayer
+
+
+MainTab:addSlider("Speed Tornado", "coloca velocidade no tornado", 1, 500, function(value)
+	local TornadoPlayer = workspace.Eater:FindFirstChild(Player.Name)
+	if TornadoPlayer then
+		local ControllerGround = TornadoPlayer.ControllerManager.GroundController
+		ControllerGround.MoveSpeedFactor = value	
+	end
+end)
+
+MainTab:addToggle("Auto Farm", "a","Big", false, function(value) 
+	local TornadoPlayer = workspace:WaitForChild("Eater"):FindFirstChild(Player.Name)
+	local TornadoRoot = TornadoPlayer:FindFirstChild("Root")
+	local FolderFood = workspace:WaitForChild("Food")
+
+	local function NearFood()
+		local closestFood = nil
+		local closestDistance = math.huge
+
+		for _, food in pairs(FolderFood:GetChildren()) do
+			local MainPart = food:FindFirstChild("MeshPart")
+			local BillFood = food:FindFirstChild("FoodNametagBill")
+			if MainPart and BillFood then
+				if tonumber(BillFood.SizeTxt.Text) <= TornadoPlayer:GetAttribute("Size") then
+					local distance = (TornadoRoot.Position - MainPart.Position).Magnitude
+					if distance < closestDistance then
+						closestDistance = distance
+						closestFood = food
+					end
+				end
+			end
+		end
+
+		return closestFood
+	end
+
+	while G.Settings["Auto Farm"] do
+		wait(0.5)
+		if TornadoRoot then
+			local nearestFood = NearFood()
+			if nearestFood then
+				TornadoRoot.CFrame = nearestFood.MeshPart.CFrame
+			end
+		end
+	end
+end)
+
+MainTab:addToggle("Auto Kill Players", "a","Big", false, function(value) 
+	local TornadoPlayer = workspace:WaitForChild("Eater"):FindFirstChild(Player.Name)
+	local TornadoRoot = TornadoPlayer:FindFirstChild("Root")
+	
+	local function GetPlayer()
+		for _, player in ipairs(workspace.Eater:GetChildren()) do
+			if player.Name ~= Player.Name then
+				print("sim")	
+				return player
+			end
+		end
+		return nil
+	end
+	
+	while G.Settings["Auto Kill Players"] do
+		wait(0.5)
+		if TornadoRoot then
+			local randomPlayer = GetPlayer()
+			if randomPlayer then
+				if TornadoPlayer:GetAttribute("Size") > randomPlayer:GetAttribute("Size") then
+					local randomPlayerRoot = randomPlayer:FindFirstChild("Root")
+					if randomPlayerRoot then
+						TornadoRoot.CFrame = randomPlayerRoot.CFrame
+					end
+				end
+			end
+		end
+	end
+end)
+
+MainTab:addToggle("Auto Farm Op", "a","Big", true, function(value) 
+	local TornadoPlayer = workspace:WaitForChild("Eater"):FindFirstChild(Player.Name)
+	local TornadoRoot = TornadoPlayer:FindFirstChild("Root")
+	local FolderFood = workspace:WaitForChild("Food")
+	
+	local function NearFood()
+		local closestFood = nil
+		local closestDistance = math.huge
+
+		for _, food in pairs(FolderFood:GetChildren()) do
+			local MainPart = food:FindFirstChild("MeshPart")
+			local BillFood = food:FindFirstChild("FoodNametagBill")
+			if MainPart and BillFood then
+				if tonumber(BillFood.SizeTxt.Text) <= TornadoPlayer:GetAttribute("Size") then
+					local distance = (TornadoRoot.Position - MainPart.Position).Magnitude
+					if distance < closestDistance then
+						closestDistance = distance
+						closestFood = food
+					end
+				end
+			end
+		end
+
+		return closestFood
+	end
+	
+	while G.Settings["Auto Farm Op"] do
+		wait(0.5)
+		if TornadoRoot then
+			local nearestFood = NearFood()
+			if nearestFood then
+				TornadoPlayer:SetAttribute("Size", 1000000000)
+				TornadoRoot.CFrame = nearestFood.MeshPart.CFrame
+			end
+		end
+	end
+end)
