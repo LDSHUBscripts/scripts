@@ -1,0 +1,162 @@
+repeat task.wait() until game:IsLoaded()
+repeat task.wait() until game:GetService("Players").LocalPlayer
+repeat task.wait() until not game.Players.LocalPlayer.PlayerGui:FindFirstChild("__INTRO")
+
+local LocalPlayer = game.Players.LocalPlayer
+local HRP = LocalPlayer.Character.HumanoidRootPart
+local HttpService = game:GetService("HttpService")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Library = require(ReplicatedStorage.Library)
+local Network = ReplicatedStorage:WaitForChild("Network")
+if game.PlaceId ~= 17503543197 then
+	Network.World3Teleport:InvokeServer()
+end
+
+--[[ ANTIAFK ]] game.Players.LocalPlayer.PlayerScripts.Scripts.Core["Idle Tracking"].Enabled = false; game.Players.LocalPlayer.Idled:connect(function() game:GetService("VirtualUser"):Button2Down(Vector2.new(0, 0), workspace.CurrentCamera.CFrame) task.wait(1) game:GetService("VirtualUser"):Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame) end)
+--[[ CollectLootBag ]] game:GetService("Workspace").__THINGS:FindFirstChild("Lootbags").ChildAdded:Connect(function(lootbag) task.wait() if lootbag then game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Lootbags_Claim"):FireServer(unpack( { [1] = { [1] = lootbag.Name, }, } )) lootbag:Destroy() end end)
+--[[ CollectOrb ]] game:GetService("Workspace").__THINGS:FindFirstChild("Orbs").ChildAdded:Connect(function(orb) task.wait() if orb then game:GetService("ReplicatedStorage"):WaitForChild("Network"):FindFirstChild("Orbs: Collect"):FireServer(unpack( { [1] = { [1] = tonumber(orb.Name), }, } )) orb:Destroy() end end)
+--[[ INFSPEED ]] hookfunction(require(game.ReplicatedStorage.Library.Client.PlayerPet).CalculateSpeedMultiplier,function() return 200 end)
+
+repeat HRP.CFrame = CFrame.new(workspace.Map3["210 | Hacker Matrix"].PERSISTENT.Teleport.Position) task.wait(1) until workspace.Map3["210 | Hacker Matrix"]:FindFirstChild("INTERACT")
+
+local Breakables = workspace['__THINGS'].Breakables
+
+function CheckForEgg()
+	for i, v in pairs(workspace.__THINGS.CustomEggs:GetChildren()) do
+		if v.Name ~= "Highlight" then
+			return v
+		end
+	end
+	return false
+end
+
+function getServer()
+	servers = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. tostring(game.PlaceId) .. '/servers/Public?sortOrder=Asc&limit=100')).data
+	local server = servers[Random.new():NextInteger(5, 100)]
+	return server
+end
+
+function EggFunc()
+	for i, b in pairs(workspace.Map3["210 | Hacker Matrix"].PERSISTENT.Breaches:GetChildren()) do
+		HRP.CFrame = b.Chest.CFrame
+		task.wait(1)
+		if CheckForEgg() then
+			HRP.CFrame = CheckForEgg().Egg.CFrame
+			for _, v in ipairs(workspace.Map3["210 | Hacker Matrix"].PERSISTENT.Breaches:GetDescendants()) do
+				if v:IsA("Part") and v.Name == "Chest" and (v.Position - HRP.Position).Magnitude <= 50 then
+					print("Egg Multiplier: ", v:GetAttribute("Multiplier"))
+					if v:GetAttribute("Multiplier") < 50 then
+						print("Egg Multiplier is less than 50x, server hopping!")
+						pcall(function()
+							game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, getServer().id, game.Players.LocalPlayer)
+						end)
+					end
+				end
+			end
+			break
+		end
+	end
+end
+
+function CheckForOrb()
+	for _, v in ipairs(Breakables:GetChildren()) do
+		if v:GetAttribute("BreakableID") == "Virus Orb" or v:GetAttribute("BreakableID") == "Virus Chest" then
+			return true
+		end
+	end
+	return false
+end
+
+Shield = true
+function CheckForShield()
+	for _, v in ipairs(workspace.Map3["210 | Hacker Matrix"].PERSISTENT.Breaches:GetDescendants()) do
+		if v:IsA("Part") and v.Name == "Shield" and (v.Position - HRP.Position).Magnitude <= 120 then
+			if v.Transparency == 1 then
+				Shield = false
+				return false
+			end
+		end
+	end
+	return true
+end
+
+local TableIDPetsEquippeds = {}
+
+function ForceHit(ID)
+	local savemodule = require(ReplicatedStorage.Library.Client.Save)
+	local SaveFile = savemodule.Get(game.Players.LocalPlayer)
+
+	for _, PetID in pairs(TableIDPetsEquippeds) do
+		local args = {
+			[1] = {
+				[PetID] = ID
+			}
+		}
+
+		game:GetService("ReplicatedStorage").Network.Breakables_JoinPetBulk:FireServer(unpack(args))
+	end
+end
+
+local function Farm(Target)
+	if Target:GetAttribute("BreakableID") == "Virus Orb" then
+		print("Breaking Orb : ", Target.Name)
+		while Breakables:FindFirstChild(Target.Name) do
+			HRP.CFrame = (Target:FindFirstChildWhichIsA("MeshPart") or Target:FindFirstChildWhichIsA("Part")).CFrame
+			Network.Breakables_PlayerDealDamage:FireServer(Target.Name)
+			ForceHit(Target.Name)
+			task.wait()
+		end
+		print("Broken Orb : ", Target.Name)
+	elseif Target:GetAttribute("BreakableID") == "Virus Chest" then
+		task.wait(.5) 
+		CheckForShield()
+		if not Shield then
+			print("Breaking Chest")
+			while Breakables:FindFirstChild(Target.Name) do
+				HRP.CFrame = (Target:FindFirstChildWhichIsA("MeshPart") or Target:FindFirstChildWhichIsA("Part")).CFrame
+				Network.Breakables_PlayerDealDamage:FireServer(Target.Name)
+				ForceHit(Target.Name)
+				task.wait()
+			end 
+			task.wait(1)
+			EggFunc()
+		end
+	end
+end
+
+EggFunc()
+
+repeat HRP.CFrame = CFrame.new(workspace.Map3["210 | Hacker Matrix"].PERSISTENT.Teleport.Position) task.wait(1) until workspace.Map3["210 | Hacker Matrix"]:FindFirstChild("INTERACT")
+repeat task.wait() until CheckForOrb()
+
+local remotehook
+
+remotehook = hookmetamethod(game, "__namecall", function(self, ...)
+	local args = {...}
+	local method = getnamecallmethod()
+	if tostring(self) == "Pets_SetTargetBulk" and method == "FireServer" then
+		for i, g in pairs(args) do
+			for h, j in pairs(g) do
+				table.insert(TableIDPetsEquippeds, h)  -- Certifique-se de que os valores são inseridos corretamente na tabela
+			end
+		end
+	end
+	return remotehook(self, unpack(args))
+end)
+
+repeat
+	game:GetService("ReplicatedStorage").Network.Pets_ToggleFavoriteMode:FireServer()
+	wait(2)
+until #TableIDPetsEquippeds > 0  -- Verifica o tamanho da tabela Lua
+
+while true do
+	for _, Target in ipairs(Breakables:GetChildren()) do
+		Farm(Target)
+	end
+	task.wait(1)
+end
+
+
+
+
+
