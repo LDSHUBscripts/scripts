@@ -121,7 +121,7 @@ tabEvent:addToggle("Auto Train Event (Selected)", "","big", false, function(valu
 	end
 end)
 
-local folderBossEvent = tabEvent:addFolder("Auto Biss")
+local folderBossEvent = tabEvent:addFolder("Auto Boss")
 
 local BossesEventTable = {
 	["Summer"] = {"Captain Fin", "Coco Chiller", "Scuba Diver", "Deep Diver", "Lifeguard Brad"},
@@ -159,6 +159,7 @@ folderBossEvent:addToggle("Auto Boss Event (Selected)", "","big", false, functio
 		end
 		
 		if CorrectNameBoss and WorldSelectedBoss then
+			print(CorrectNameBoss, WorldSelectedBoss)
 			while G.Settings["Auto Boss Event (Selected)"] do 
 				wait()
 				local args = {
