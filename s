@@ -176,7 +176,7 @@ end)
 
 local folderEggEvent = tabEvent:addFolder("Auto Egg")
 
-local ComboEggEvent = folderEggEvent :addCombo("Select Egg", "Select the Mode for the auto egg event", {"Sand Egg", "Pirate Egg", "Kraken Egg", "Splashy Egg", "Floaty Egg"})
+local ComboEggEvent = folderEggEvent:addCombo("Select Egg", "Select the Mode for the auto egg event", {"Sand Egg", "Pirate Egg", "Kraken Egg", "Splashy Egg", "Floaty Egg"})
 
 folderEggEvent :addToggle("Remove Egg Animation", "","small", false, function(value) 	
 	local gui = game.Players.LocalPlayer.PlayerGui.OpenerUI
@@ -190,7 +190,7 @@ end)
 folderEggEvent:addToggle("Auto Egg Event (Selected)", "","big", false, function(value) 
 	if value then
 		local ComboEgg = ComboEggEvent:getValue()
-		while G.Settings["Auto Open Egg (Selected)"] and wait() do
+		while G.Settings["Auto Egg Event (Selected)"] and wait() do
 
 			local Octo, Triple = Pl:GetAttribute("OctoEggs"), Pl:GetAttribute("TripleEggs")
 			local eggSelected = ComboEgg:getValue()
