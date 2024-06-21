@@ -151,7 +151,7 @@ folderBossEvent:addToggle("Auto Boss Event (Selected)", "","big", false, functio
 		end
 		
 		for World, Table in pairs(BossesEventTable) do
-			for nameBoss, _ in pairs(Table) do
+			for _, nameBoss in pairs(Table) do
 				if nameBoss == SelectedBoss then
 					WorldSelectedBoss = World
 				end
@@ -193,7 +193,7 @@ folderEggEvent:addToggle("Auto Egg Event (Selected)", "","big", false, function(
 
 			local Octo, Triple = Pl:GetAttribute("OctoEggs"), Pl:GetAttribute("TripleEggs")
 			local eggSelected = ComboEggEvent:getValue()
-			eggSelected = string.gsub(eggSelected, " Egg", "")
+			eggSelected = string.gsub(eggSelected, " Egg", "")	
 
 			local function SendRemote(Args)
 				game:GetService("ReplicatedStorage").Packages.Knit.Services.EggService.RF.purchaseEgg:InvokeServer(unpack(Args))
