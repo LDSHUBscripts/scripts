@@ -189,11 +189,10 @@ end)
 
 folderEggEvent:addToggle("Auto Egg Event (Selected)", "","big", false, function(value) 
 	if value then
-		local ComboEgg = ComboEggEvent:getValue()
 		while G.Settings["Auto Egg Event (Selected)"] and wait() do
 
 			local Octo, Triple = Pl:GetAttribute("OctoEggs"), Pl:GetAttribute("TripleEggs")
-			local eggSelected = ComboEgg:getValue()
+			local eggSelected = ComboEggEvent:getValue()
 			eggSelected = string.gsub(eggSelected, " Egg", "")
 
 			local function SendRemote(Args)
