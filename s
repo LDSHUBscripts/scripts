@@ -199,7 +199,7 @@ folderEggEvent:addToggle("Auto Egg Event (Selected)", "","big", false, function(
 				game:GetService("ReplicatedStorage").Packages.Knit.Services.EggService.RF.purchaseEgg:InvokeServer(unpack(Args))
 			end
 
-			while G.Settings["Auto Egg (Selected)"] do
+			while G.Settings["Auto Egg Event (Selected)"] do
 				wait()
 				if Octo then
 					local args = { [1] = eggSelected, [2] = {}, [4] = false, [5] = true }
