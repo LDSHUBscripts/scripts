@@ -1,0 +1,1736 @@
+local G = getgenv()
+G.Key = "SAaRlAiS_aBhImRaAdHG2"
+
+local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/RobSilas/lds-hub/main/library.txt"))()
+
+local window = lib:start("Arm Wrestle Simulator", "4.0", true)
+
+local tabAtlantisEvent = window:addTab("Atlantis Event")
+local tabTrain = window:addTab("Auto Train")
+local tabBoss = window:addTab("Auto Boss")
+local tabEggs = window:addTab("Auto Egg")
+local tabMachines = window:addTab("Machines")
+local tabIndex = window:addTab("Auto Index")
+local tabMerchant = window:addTab("Auto Merchant")
+local tabRebirth = window:addTab("Auto Rebirth")
+local tabMisc = window:addTab("Misc Options")
+local tabFTeleport = window:addTab("Fast Teleport")
+
+local Pl = game.Players.LocalPlayer
+local Char = Pl.Character or Pl:WaitForChild("Character")
+local PetsPlayerTable = {}
+local ArmsPlayerTable = {}	
+
+local function UpdateDataPlayer(Method)
+	local Service = nil
+	local PlayerTable = nil
+
+	if Method == "Pets" then
+		Service = "PetService"
+		PlayerTable = PetsPlayerTable
+	elseif Method == "Arms" then
+		Service = "ArmsService"
+		PlayerTable = ArmsPlayerTable
+	else
+		warn("Invalid method: " .. tostring(Method))
+		return false
+	end
+
+	local success, errorMessage = pcall(function()
+		for k in pairs(PlayerTable) do -- Excluir tudo na antiga tabela (Refresh)
+			PlayerTable[k] = nil
+		end
+
+		local ServiceObject = game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild(Service)
+		local PlayerData = ServiceObject.RF.getOwned:InvokeServer(Pl)
+
+		for ID, Table in pairs(PlayerData) do
+			PlayerTable[ID] = {}
+			for typeobj, value in pairs(Table) do
+				PlayerTable[ID][typeobj] = value
+			end    
+		end
+	end)
+
+	if not success then
+		warn("Failed to update " .. Method .. "PlayerTable: " .. errorMessage)
+		return false
+	else
+		return true, PlayerTable
+	end
+end
+
+UpdateDataPlayer("Arms")
+UpdateDataPlayer("Pets")
+
+local function TeleportTo(Cords)
+	Char:SetPrimaryPartCFrame(Cords * CFrame.new(0, 5, 0))
+end
+
+local function createIndicatorTween(targetCFrame)
+	local TweenService = game:GetService("TweenService")
+
+	local tweenInfo = TweenInfo.new(
+		1,  
+		Enum.EasingStyle.Linear,
+		Enum.EasingDirection.Out, 
+		0, 
+		false,  
+		0
+	)
+	return TweenService:Create(Char.PrimaryPart, tweenInfo, { CFrame = targetCFrame })
+end
+
+-- Atlantis Event
+
+local ComboEventWorld= tabAtlantisEvent:addCombo("Select World", "Select a World to be able to use the auto farm options	", {"Summer", "Pirate", "Waterpark", "Atlantis"})
+
+local function SaveBestDumbellEvent()
+	local player = game.Players.LocalPlayer
+	if player.Character then
+		local character = player.Character
+		if character:FindFirstChildWhichIsA("Tool") then
+			return true
+		end
+	end
+	return false
+end
+
+local function FindBestTierEvent()
+	local SelectedWorld = ComboEventWorld:getValue()
+
+	local PunchBags = nil
+	for _, zone in pairs(workspace.Zones:GetChildren()) do
+		if string.find(zone.Name, SelectedWorld) then
+			PunchBags = zone.Interactables.Training.PunchBags
+			break
+		end
+	end
+
+	for i = 6, 1, -1 do
+		local Punchs = PunchBags:FindFirstChild("Tier" .. i)
+		if Punchs then
+			local StrengthReq = Punchs:GetAttribute("StrengthRequired")
+			local StrengthPlr = Pl:GetAttribute("TotalSummerKnuckles")
+			if math.round(StrengthPlr) > math.round(StrengthReq) then
+				return Punchs
+			end
+		end
+	end
+
+	return nil
+end
+
+local function FindBestToolEvent(Type)
+	game:GetService("ReplicatedStorage").Packages.Knit.Services.ToolService.RE.onUnequipRequest:FireServer()
+	local Vip = Pl:GetAttribute("VIP")
+	local SelectedWorld = ComboEventWorld:getValue()
+
+	if Type == "Knucles" then
+		local Tier = FindBestTierEvent()
+		if Tier then
+			local punchBagName = Vip and "VIP" or Tier
+			wait(5)
+			TeleportTo(workspace.Zones[SelectedWorld].Interactables.Training.PunchBags[punchBagName].Primary.CFrame)
+
+			while G.Settings["Auto Train Event (Selected)"] do
+				local args = {
+					[1] = SelectedWorld,
+					[2] = Vip and "VIP" or Tier,
+					[3] = not Vip
+				}
+				game:GetService("ReplicatedStorage").Packages.Knit.Services.PunchBagService.RE.onGiveStats:FireServer(unpack(args))
+				wait()
+			end
+		end
+	else
+		local toolsFolder = game:GetService("ReplicatedStorage").Tools[Type]
+		local Request = (Type == "Dumbells" or Type == "Grips") and "onGuiEquipRequest" or "onEquipRequest"
+		local NumberRequest = nil; if Type == "Dumbells" or Type == "Grips" then NumberRequest = 12 elseif Type == "Barbells" then NumberRequest = 3 end
+		local ferramentasValidas = {}
+
+		for i = NumberRequest, 1, -1 do
+			wait(0.5)
+			if not SaveBestDumbellEvent() then
+				local args = {
+					[1] = tonumber(),
+					[2] = Type,
+					[3] = SelectedWorld .. i
+				}
+				game:GetService("ReplicatedStorage").Packages.Knit.Services.ToolService.RE[Request]:FireServer(unpack(args))
+			else
+				return true
+			end
+		end
+	end
+end
+
+local ComboTrainEvent = tabAtlantisEvent:addCombo("Select Train", "Select the Mode for the auto train event", {"Dumbells", "Barbells", "Grips", "Knucles"})
+
+tabAtlantisEvent:addToggle("Auto Train Event (Selected)", "By activating this option you will automatically start farming the selected training mode in the selected world!","big", false, function(value) 
+	local SelectedMode = ComboTrainEvent:getValue()
+	if value then
+		if SelectedMode then
+			lib:SendNotification("Looking for the best ".. SelectedMode .. "!!", "It may take a few seconds!", true)
+			if FindBestToolEvent(SelectedMode) then
+				if SelectedMode ~= "Knucles" then
+					while G.Settings["Auto Train Event (Selected)"] and wait() do
+						game:GetService("ReplicatedStorage").Packages.Knit.Services.ToolService.RE.onClick:FireServer()
+					end
+				end
+			end
+		elseif SelectedMode == nil or SelectedMode == "" or not SelectedMode then
+			lib:activatedWarn()
+		end
+	end
+end)
+
+local folderBossEvent = tabAtlantisEvent:addFolder("Auto Boss")
+
+local BossesEventTable = {
+	["Summer"] = {"Captain Fin", "Coco Chiller", "Scuba Diver", "Deep Diver", "Lifeguard Brad"},
+	["PirateCove"] = {"The Explorer", "Long Beard", "Treasure Hunter", "Lady No-Beard", "Mister Tentacles", "Almighty Kraken"},
+	["Waterpark"] = {"Mad Swimmer", "Park Owner", "Lifeguard Marina", "Flopper The Fish", "Chad", "Small Ryan", "Emily The Brute", "Garry Gecko", "Chomper"},
+	["Atlantis"] = {"Atlantic Defender", "Atlantian Mermaid", "Deep Sea Explorer", "Sea Warlock", "Chomper Senior", "Neptune", "Mr Shrimp", "KingCrab"}
+}
+
+local ComboBossEvent = folderBossEvent:addCombo("Select Boss", "Select the Mode for the auto boss event", {"Captain Fin", "Coco Chiller", "Scuba Diver", "Deep Diver", "Lifeguard Brad", "The Explorer", "Long Beard", "Treasure Hunter", "Lady No-Beard", "Mister Tentacles", "Mad Swimmer", "Park Owner", "Lifeguard Marina", "Flopper The Fish", "Chad", "Small Ryan", "Emily The Brute", "Garry Gecko", "Chomper", "Almighty Kraken", "Atlantic Defender", "Atlantian Mermaid", "Deep Sea Explorer", "Sea Warlock", "Chomper Senior", "Neptune", "Mr Shrimp", "KingCrab"})
+
+folderBossEvent:addToggle("Auto Click Boss", "Activating the option will make you click to kill the boss automatically","big", false, function(value) 
+	if value then
+		while G.Settings["Auto Click Boss"] do
+			wait()
+			game:GetService("ReplicatedStorage").Packages.Knit.Services.ArmWrestleService.RE.onClickRequest:FireServer()
+		end
+	end
+end)
+
+folderBossEvent:addToggle("Auto Boss Event (Selected)", "By activating this option you will automatically farm the selected Boss (remember to select the boss!)","big", false, function(value) 
+	if value then
+		local SelectedBoss = ComboBossEvent:getValue()
+		local CorrectNameBoss = SelectedBoss:gsub(" ", "")
+		local WorldSelectedBoss = nil
+
+		for World, Table in pairs(BossesEventTable) do
+			for _, nameBoss in pairs(Table) do
+				if nameBoss == SelectedBoss then
+					WorldSelectedBoss = World
+				end
+			end
+		end
+
+		if CorrectNameBoss and WorldSelectedBoss then
+			while G.Settings["Auto Boss Event (Selected)"] do 
+				wait()
+				local args = {
+					[1] = CorrectNameBoss,
+					[2] = workspace.GameObjects.ArmWrestling[WorldSelectedBoss].NPC[CorrectNameBoss].Table,
+					[3] = WorldSelectedBoss
+				}
+
+				game:GetService("ReplicatedStorage").Packages.Knit.Services.ArmWrestleService.RE.onEnterNPCTable:FireServer(unpack(args))
+			end
+		end
+	end	
+end)
+
+local folderEggEvent = tabAtlantisEvent:addFolder("Auto Egg")
+
+local ComboEggEvent = folderEggEvent:addCombo("Select Egg", "Select the Mode for the auto egg event", {"Sand Egg", "Pirate Egg", "Kraken Egg", "Splashy Egg", "Floaty Egg", "Sea Egg", "Atlantian Egg"})
+
+folderEggEvent :addToggle("Remove Egg Animation", "Activating this option will remove the egg opening animation from your screen.","small", false, function(value) 	
+	local gui = game.Players.LocalPlayer.PlayerGui.OpenerUI
+	if value then
+		gui.Enabled = false
+	else
+		gui.Enabled = true
+	end
+end)
+
+folderEggEvent:addToggle("Auto Egg Event (Selected)", "Activating this option you will automatically open the selected egg (this option adjusts to your available gamepass, if you have 8x eggs you will open 8x eggs)","big", false, function(value) 
+	if value then
+		while G.Settings["Auto Egg Event (Selected)"] and wait() do
+
+			local Octo, Triple = Pl:GetAttribute("OctoEggs"), Pl:GetAttribute("TripleEggs")
+			local eggSelected = ComboEggEvent:getValue()
+			eggSelected = string.gsub(eggSelected, " Egg", "")	
+
+			local function SendRemote(Args)
+				game:GetService("ReplicatedStorage").Packages.Knit.Services.EggService.RF.purchaseEgg:InvokeServer(unpack(Args))
+			end
+
+			while G.Settings["Auto Egg Event (Selected)"] do
+				wait()
+				if Octo then
+					local args = { [1] = eggSelected, [2] = {}, [4] = false, [5] = true }
+					SendRemote(args)
+				elseif Triple then
+					local args = { [1] = eggSelected, [2] = {}, [3] = true, [4] = false }
+					SendRemote(args)
+				else
+					local args = { [1] = eggSelected, [2] = {}, [3] = false}
+					SendRemote(args)
+				end
+			end
+		end
+	end
+end)
+
+local folderMerchantEvent = tabAtlantisEvent:addFolder("Auto Merchant")
+
+local ComboMerchantEvent = folderMerchantEvent:addCombo("Select Merchant", "Select the Mode for the Auto Merchant", {"All Merchants","Summer Merchant", "Pirate Merchant", "Poolside Merchant", "Atlantis Merchant"})
+local ComboMerchantItemEvent = folderMerchantEvent:addCombo("Select Item", "Select the Mode for the Auto Merchant", {"All Item", "Green Item", "Blue Item", "Red Item"})
+
+folderMerchantEvent:addToggle("Auto Merchant Event (Selected)", "By activating this option you will start purchasing items from the selected merchant in which you selected","big", false, function(value) 
+	if value then
+		local SelectedItem = ComboMerchantItemEvent:getValue()
+		local SelectedMerchant = ComboMerchantEvent:getValue()
+
+		local function Invoke(args)
+			game:GetService("ReplicatedStorage").Packages.Knit.Services.LimitedMerchantService.RF.BuyItem:InvokeServer(unpack(args))
+		end
+
+		local ArgsList = {}
+		local MerchantArl = {}
+
+		if SelectedMerchant == "All Merchants" then
+			table.insert(MerchantArl, "Summer Merchant")
+			table.insert(MerchantArl, "Pirate Merchant")
+			table.insert(MerchantArl, "Poolside Merchant")
+			table.insert(MerchantArl, "Atlantis Merchant")
+		else
+			table.insert(MerchantArl, SelectedMerchant)
+		end
+
+		for _, merchant in ipairs(MerchantArl) do
+			if SelectedItem == "All Item" then
+				table.insert(ArgsList, {merchant, 1})
+			elseif SelectedItem == "Green Item" then
+				table.insert(ArgsList, {merchant, 1})
+				table.insert(ArgsList, {merchant, 2})
+				table.insert(ArgsList, {merchant, 3})
+			elseif SelectedItem == "Blue Item" then
+				table.insert(ArgsList, {merchant, 4})
+			elseif SelectedItem == "Red Item" then
+				table.insert(ArgsList, {merchant, 5})
+			end
+		end
+
+		while G.Settings["Auto Merchant Event (Selected)"] do
+			wait()
+			for _, args in ipairs(ArgsList) do
+				Invoke(args)
+			end
+		end
+	end
+end)
+
+local folderMiscEvent = tabAtlantisEvent:addFolder("Misc Option")
+
+folderMiscEvent:addToggle("Auto Spin Fortune Kraken", "By activating this option you will spin the wheel automatically (you need tickets)","big", false, function(value) 
+	if value then
+		while G.Settings["Auto Spin Fortune Kraken"] do
+			wait()
+			game:GetService("ReplicatedStorage").Packages.Knit.Services.SpinnerService.RF.Spin:InvokeServer("Atlantis Fortune")
+		end
+	end
+end)
+
+folderMiscEvent:addToggle("Auto Spin Fortune Atlantis", "By activating this option you will spin the wheel automatically (you need tickets)","big", false, function(value) 
+	if value then
+		while G.Settings["Auto Spin Fortune Atlantis"] do
+			wait()
+			game:GetService("ReplicatedStorage").Packages.Knit.Services.SpinnerService.RF.Spin:InvokeServer("Kraken's Fortune")
+		end
+	end
+end)
+
+folderMiscEvent:addToggle("Auto Open Atlantis Chest", "By activating this option you will open the chest automatically (you need the keys)","big", false, function(value) 
+	if value then
+		while G.Settings["Auto Open Atlantis Chest"] do
+			wait()
+			game:GetService("ReplicatedStorage").Packages.Knit.Services.ChestService.RF.Open:InvokeServer("AtlantisChest")
+		end
+	end
+end)
+
+folderMiscEvent:addToggle("Auto Open Summer Chest", "By activating this option you will open the chest automatically (you need the keys)","big", false, function(value) 
+	if value then
+		while G.Settings["Auto Open Summer Chest"] do
+			wait()
+			game:GetService("ReplicatedStorage").Packages.Knit.Services.ChestService.RF.Open:InvokeServer("SummerChest")
+		end
+	end
+end)
+
+local ComboQuestEvent = folderMiscEvent:addCombo("Select Quest to Beat", "Select a quest for auto farm quest", {"Lifeguard 100 Times", "Almighty Kraken 1000 Times", "Emily The Brute 1000 Times", "Small Ryan 1000 Times"})
+
+folderMiscEvent:addToggle("Auto Quest Event (Selected)", "By activating this option you will start killing the bosses as many times as necessary until you finish the quest!","big", false, function(value) 
+	if value then
+
+		spawn(function()
+			while G.Settings["Auto Quest Event (Selected)"] do
+				wait()
+				game:GetService("ReplicatedStorage").Packages.Knit.Services.ArmWrestleService.RE.onClickRequest:FireServer()
+			end
+		end)
+
+		local SelectedQuest = ComboQuestEvent:getValue()
+		local CorrectNameBoss = SelectedQuest:gsub(" ", "")
+		local NameSpace = SelectedQuest:gsub("%d+", ""):gsub("Times", ""):gsub("^%s*(.-)%s*$", "%1")
+		local function RemoveNumbersAndTimes(str)
+			return str:gsub("%d+", ""):gsub("Times", ""):gsub("^%s*(.-)%s*$", "%1")
+		end
+
+		local CleanedNameBoss = RemoveNumbersAndTimes(CorrectNameBoss)
+		local WorldSelectedBoss = nil
+		local Wave = nil
+
+		if SelectedQuest == "Lifeguard 100 Times" then
+			Wave = "Heatwave1"
+		elseif SelectedQuest == "Almighty Kraken 1000 Times" then
+			Wave = "Heatwave2"
+		elseif SelectedQuest == "Emily The Brute 1000 Times" then
+			Wave = "Heatwave3"
+		elseif SelectedQuest == "Small Ryan 1000 Times" then
+			Wave = "Heatwave4"
+		end
+
+		local PathQuest = workspace.GameObjects.QuestLeaderboard[Wave].Info.SurfaceGui.Frame.Progress.TextLabel
+		local text = PathQuest.Text
+
+		local function NumberSep(Text)
+			local var1, var2 = Text:match("(%d+)/(%d+)")
+			if var1 >= var2 then
+				return true
+			else
+				return false
+			end
+		end
+
+		for World, Table in pairs(BossesEventTable) do
+			for _, nameBoss in pairs(Table) do
+				if nameBoss == NameSpace then
+					WorldSelectedBoss = World
+				end
+			end
+		end
+
+		if CleanedNameBoss and WorldSelectedBoss then
+			while G.Settings["Auto Quest Event (Selected)"] do
+				wait()
+				if NumberSep(text) then
+					local args = {
+						[1] = CleanedNameBoss,
+						[2] = workspace.GameObjects.ArmWrestling[WorldSelectedBoss].NPC[CleanedNameBoss].Table,
+						[3] = WorldSelectedBoss
+					}
+
+					game:GetService("ReplicatedStorage").Packages.Knit.Services.ArmWrestleService.RE.onEnterNPCTable:FireServer(unpack(args))
+				else
+					break
+				end
+			end
+		end
+	end
+end)
+
+local folderScavengerEvent = tabAtlantisEvent:addFolder("Scavenger")
+
+local inputScavenger = folderScavengerEvent:addInputBox("Select Amount Coconuts")
+
+folderScavengerEvent:addClick("Scavenger (Amount)", "Select the amount of Coconuts you want to use to create shells","big", false, function(value) 
+	local AmountSelected = inputScavenger:getValue()
+	local AmountCorrect = tonumber(AmountSelected)
+	local args = {
+		[1] = "Atlantis",
+		[2] = AmountCorrect
+	}
+
+	game:GetService("ReplicatedStorage").Packages.Knit.Services.AtmService.RF.Exchange:InvokeServer(unpack(args))
+end)
+
+folderScavengerEvent:addToggle("Auto Scavenger (Amount)", "By activating this option you will automatically exchange coconuts (selected) for shells","big", false, function(value) 
+	while G.Settings["Auto Scavenger (Amount)"] do
+		wait()
+		local AmountSelected = inputScavenger:getValue()
+		local AmountCorrect = tonumber(AmountSelected)
+		local args = {
+			[1] = "Atlantis",
+			[2] = AmountCorrect
+		}
+
+		game:GetService("ReplicatedStorage").Packages.Knit.Services.AtmService.RF.Exchange:InvokeServer(unpack(args))
+	end
+end)
+
+
+-- Auto Train
+
+local ComboTrain = tabTrain:addCombo("Select Mode", "Select the Mode for the auto train", {"Dumbells", "Barbells", "Grips", "Knucles"})
+
+local function SaveBestDumbell()
+	local player = game.Players.LocalPlayer
+	if player.Character then
+		local character = player.Character	
+		if character:FindFirstChildWhichIsA("Tool") then
+			return true
+		end
+	end
+	return false
+end
+
+local function FindBestTier()
+	local SelectedWorld = Pl:GetAttribute("BestZone")
+
+	local PunchBags = nil
+	for _, zone in pairs(workspace.Zones:GetChildren()) do
+		if string.find(zone.Name, SelectedWorld) then
+			PunchBags = zone.Interactables.Training.PunchBags
+			break
+		end
+	end
+
+	for i = 6, 1, -1 do
+		local Punchs = PunchBags:FindFirstChild("Tier" .. i)
+		if Punchs then
+			local StrengthReq = Punchs:GetAttribute("StrengthRequired")
+			local StrengthPlr = Pl.leaderstats.Knuckles
+			if math.round(StrengthPlr.Value) > math.round(StrengthReq) then
+				return Punchs
+			end
+		end
+	end
+
+	return nil
+end
+
+local function extrairNumero(nome, tipo)
+	if tipo == "Barbells" then
+		return tonumber(nome:match("Tier(%d+)"))
+	else
+		return tonumber(nome:match("(%d+)Kg"))
+	end
+end
+
+local function FindBestTool(Type)
+	game:GetService("ReplicatedStorage").Packages.Knit.Services.ToolService.RE.onUnequipRequest:FireServer()
+
+	local BestZone = Pl:GetAttribute("BestZone")
+	local Vip = Pl:GetAttribute("VIP")
+	
+	local locations = workspace.Zones:FindFirstChild(BestZone).Interactables.Teleports.Locations:GetChildren()
+	if Type == "Knucles" then
+		local Tier = FindBestTier()
+
+		if BestZone then
+			if #locations > 0 then
+				game:GetService("ReplicatedStorage").Packages.Knit.Services.ZoneService.RE.teleport:FireServer(locations[1])
+			end
+		end
+		
+		repeat wait(0.5) until game:GetService("Players").LocalPlayer.PlayerGui.TeleportScreen.Frame.Position == UDim2.new(0, 0, 1, 0)
+		wait(0.5)
+		if Tier then
+			local punchBagName = Vip and "VIP" or Tier
+	
+			local Teleport = createIndicatorTween(workspace.Zones[tostring(BestZone)].Interactables.Training.PunchBags[tostring(Tier)].Primary.CFrame + Vector3.new(0, 5, 0))
+			Teleport:Play()
+
+			while G.Settings["Auto Train (Selected)"] do
+				if Vip then
+					local args = {
+						[1] = tostring(BestZone),
+						[2] = "VIP",
+						[3] = Vip
+					}
+					game:GetService("ReplicatedStorage").Packages.Knit.Services.PunchBagService.RE.onGiveStats:FireServer(unpack(args))
+				else
+					local args = {
+						[1] = tostring(BestZone),
+						[2] = tostring(Tier)
+					}
+
+					game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PunchBagService"):WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
+				end
+				wait()
+			end
+		end
+	else
+		local toolsFolder = game:GetService("ReplicatedStorage").Tools[Type]
+		local Request = (Type == "Dumbells" or Type == "Grips") and "onGuiEquipRequest" or "onEquipRequest"
+		local ferramentasValidas = {}
+
+		for _, ferramenta in pairs(toolsFolder:GetChildren()) do
+			if ferramenta:IsA("Tool") then
+				local numero = extrairNumero(ferramenta.Name, Type)
+				if numero then
+					table.insert(ferramentasValidas, {ferramenta = ferramenta, numero = numero})
+				end
+			end
+		end
+
+		table.sort(ferramentasValidas, function(a, b)
+			return a.numero > b.numero
+		end)
+
+		for _, item in ipairs(ferramentasValidas) do
+			wait(0.5)
+			if not SaveBestDumbell() then
+				local args = {
+					[1] = BestZone,
+					[2] = Type,
+					[3] = item.ferramenta.Name
+				}
+				game:GetService("ReplicatedStorage").Packages.Knit.Services.ToolService.RE[Request]:FireServer(unpack(args))
+			else
+				return true
+			end
+		end
+	end
+end
+
+tabTrain:addToggle("Auto Train (Selected)", "By activating this option you will start training in the selected mode automatically!","big", false, function(value) 
+	local SelectedMode = ComboTrain:getValue()
+	if value then
+		if SelectedMode then
+			lib:SendNotification("Looking for the best ".. SelectedMode .. "!!", "It may take a few seconds!", true)
+			if FindBestTool(SelectedMode) then
+				if SelectedMode ~= "Knucles" then
+					while G.Settings["Auto Train (Selected)"] and wait() do
+						game:GetService("ReplicatedStorage").Packages.Knit.Services.ToolService.RE.onClick:FireServer()
+					end
+				end
+			end
+		elseif SelectedMode == nil or SelectedMode == "" or not SelectedMode then
+			lib:activatedWarn()
+		end
+	end
+end)
+
+-- Auto Boss
+
+local BossPath = require(game:GetService("ReplicatedStorage").Enums.ArmWrestleNPCTypes)
+local BossTable = {}
+
+for _, boss in pairs(BossPath) do
+	table.insert(BossTable, boss)
+end
+
+local ComboBoss = tabBoss:addCombo("Select Boss", "Select the Boss for the auto boss", BossTable)
+
+tabBoss:addToggle("Auto Boss (Selected)", "By activating this option you will automatically farm the selected Boss (remember to select the boss!)","big", false, function(value) 	
+	if value then
+		while G.Settings["Auto Boss (Selected)"] do
+			wait()
+			local SelectedBoss = ComboBoss:getValue()
+			local pathZones = workspace:WaitForChild("GameObjects"):WaitForChild("ArmWrestling")
+			for _, zones in pairs(pathZones:GetChildren()) do
+				if zones:IsA("Folder") and (zones.Name ~= "6_OLD" and zones.Name ~= "Easter" and zones.Name ~= "GreekEvent") then
+					local NPC = zones.NPC
+					if NPC:FindFirstChild(SelectedBoss) then
+						local ZoneId = zones.Name
+						wait()
+						local args = { [1] = SelectedBoss, [2] = workspace.GameObjects.ArmWrestling[ZoneId].NPC[SelectedBoss].Table, [3] = ZoneId}
+						game:GetService("ReplicatedStorage").Packages.Knit.Services.ArmWrestleService.RE.onEnterNPCTable:FireServer(unpack(args))
+
+					end	
+				end
+			end
+		end
+	end
+end)
+
+tabBoss:addToggle("Auto Click", "Activating the option will make you click to kill the boss automatically","big", false, function(value) 
+	while G.Settings["Auto Click"] do
+		wait()
+		game:GetService("ReplicatedStorage").Packages.Knit.Services.ArmWrestleService.RE.onClickRequest:FireServer()
+	end
+end)
+
+-- Auto Egg
+
+local EggPath = game:GetService("ReplicatedStorage"):WaitForChild("Eggs")
+local EggsTable = {}
+
+for _, egg in pairs(EggPath:GetChildren()) do
+	table.insert(EggsTable, egg.Name)
+end
+
+local ComboEgg = tabEggs:addCombo("Select Egg", "Select the Egg for the auto open egg", EggsTable)
+
+tabEggs:addToggle("Remove Egg Animation", "Activating this option will disable the egg animation on your screen.","small", false, function(value) 	
+	local gui = game.Players.LocalPlayer.PlayerGui.OpenerUI
+	if value then
+		gui.Enabled = false
+	else
+		gui.Enabled = true
+	end
+end)
+
+tabEggs:addToggle("Auto Open Egg (Selected)", "Activating this option you will automatically open the selected egg (this option adjusts to your available gamepass, if you have 8x eggs you will open 8x eggs)","big", false, function(value) 	
+	if value then
+		local SelectEgg = ComboEgg:getValue()
+		while G.Settings["Auto Open Egg (Selected)"] and wait() do
+
+			local Octo, Triple = Pl:GetAttribute("OctoEggs"), Pl:GetAttribute("TripleEggs")
+			local eggSelected = ComboEgg:getValue()
+			eggSelected = string.gsub(eggSelected, " Egg", "")
+
+			local function SendRemote(Args)
+				game:GetService("ReplicatedStorage").Packages.Knit.Services.EggService.RF.purchaseEgg:InvokeServer(unpack(Args))
+			end
+
+			while G.Settings["Auto Egg (Selected)"] do
+				wait()
+				if Octo then
+					local args = { [1] = eggSelected, [2] = {}, [4] = false, [5] = true }
+					SendRemote(args)
+				elseif Triple then
+					local args = { [1] = eggSelected, [2] = {}, [3] = true, [4] = false }
+					SendRemote(args)
+				else
+					local args = { [1] = eggSelected, [2] = {} }
+					SendRemote(args)
+				end
+			end
+		end
+	end
+end)
+
+tabEggs:addToggle("Auto Open Egg (Event/8x)", "By activating this option you will automatically start opening event eggs (8x for free!) (you need to have the eggs)","big", false, function(value) 	
+	if value then
+		while G.Settings["Auto Open Egg (Event/8x)"] do
+			wait()
+			local args = {[1] = 8,}
+			game:GetService("ReplicatedStorage").Packages.Knit.Services.EventService.RF.ClaimEgg:InvokeServer(unpack(args))
+			local args = {
+				[1] = 8
+			}
+
+			game:GetService("ReplicatedStorage").Packages.Knit.Services.EventService.RF.ClaimEgg:InvokeServer(unpack(args))
+
+		end
+	end
+end)
+
+-- Player Upgrade
+
+local folderPUpgrade = tabMachines:addFolder("Player Upgrade")
+
+folderPUpgrade:addToggle("Auto Roll Title", "By activating this option you will automatically start spinning the title roulette wheel!","big", false, function(value) 	
+	if value then
+		while G.Settings["Auto Roll Title"] and wait() do
+			game:GetService("ReplicatedStorage").Packages.Knit.Services.TitleService.RF.Roll:InvokeServer()
+		end
+	end
+end)
+
+folderPUpgrade:addToggle("Auto Buy Trail (Trophy)", "By activating this option you will buy all available trails with their trophies!","big", false, function(value) 	
+	if value then
+		while G.Settings["Auto Buy Trail (Trophy)"] and wait() do
+			local TrailUi = Pl.PlayerGui.GameUI.Menus.CharacterMods.Windows.Trails.Inv.Content
+			local frameData = {}
+
+			for _, Frame in pairs(TrailUi:GetChildren()) do
+				if Frame:IsA("Frame") and Frame:GetAttribute("Currency") == "Wins" then
+					table.insert(frameData, {Frame = Frame, Price = Frame:GetAttribute("Price")})
+				end
+			end
+
+			table.sort(frameData, function(a, b)
+				return a.Price < b.Price
+			end)
+
+			for _, data in ipairs(frameData) do
+				if Pl.leaderstats.Wins.Value >= data.Price then
+					game:GetService("ReplicatedStorage").Packages.Knit.Services.PurchaseService.RE.onPurchaseRequest:FireServer("Trails", data.Frame.Name)
+				end
+			end
+		end
+	end
+end)
+
+-- Garden
+
+local folderGarden = tabMachines:addFolder("Auto Garden")
+
+local SeedInventory = game:GetService("Players").LocalPlayer.PlayerGui.GameUI.Menus.Inventory.Display.Items.MainFrame.ScrollingFrame.SeedsStorage.Objects
+local UpgradeFruits = game:GetService("Players").LocalPlayer.PlayerGui.GameUI.Menus.ItemCrafting.Logic.List.ScrollingFrame
+local ModuleMerchant = require(game:GetService("ReplicatedStorage").Data.Merchant)
+
+local SeedTable = {}
+
+local UpgradeToCombo = {}
+local UpgradeFruitsTable = {}
+
+local FarmerToCombo = {}
+local FarmerMerchantTable = {}
+local FishermanMerchantTable = {}
+
+table.insert(FarmerToCombo, "All")
+table.insert(UpgradeToCombo, "All")
+
+for _, seed in pairs(SeedInventory:GetChildren()) do
+	if seed:IsA("Frame") then
+		local SeedCorrectText = seed.Name:match("^(.-)/")
+		table.insert(SeedTable, SeedCorrectText)
+	end
+end
+
+for _, seed in pairs(UpgradeFruits:GetChildren()) do
+	if seed:IsA("Frame") then
+		local SeedCorrectText = seed.Name:gsub("/", "")
+		local text, number = SeedCorrectText:match("([^%d]+)(%d+)")
+		UpgradeFruitsTable[text] = number
+		table.insert(UpgradeToCombo, text)
+	end
+end
+
+for NumeroItem, Table in  pairs(ModuleMerchant.MerchantTypes.Farmer) do
+	table.insert(FarmerToCombo, Table.Trade.Title)
+	FarmerMerchantTable[NumeroItem] = {Table.Trade.Title, Table.Stock}
+end
+
+local ComboSeed = folderGarden:addCombo("Select Seed", "Select the Seed for the auto seed plant", SeedTable)
+
+folderGarden:addToggle("Auto Plant/Harvest (Selected)", "By activating this option you will automatically harvest and plant the selected seeds","Big", false, function(value) 	
+	if value then
+		local SeedSelected = ComboSeed:getValue()
+
+		while G.Settings["Auto Plant/Harvest (Selected)"] and wait() do
+			spawn(function()
+				for i = 1, 6 do 
+					game:GetService("ReplicatedStorage").Packages.Knit.Services.ItemPlantingService.RF.Harvest:InvokeServer(tostring(i))
+				end
+			end)
+			spawn(function()
+				for i = 1, 6 do 
+					local args = {
+						[1] = SeedSelected,
+						[2] = "1",
+						[3] = tostring(i)
+					}
+
+					game:GetService("ReplicatedStorage").Packages.Knit.Services.ItemPlantingService.RF.Plant:InvokeServer(unpack(args))
+				end
+			end)
+		end
+	end
+end)
+
+--folderGarden:addToggle("Auto Casting/Fishing", "","Big", true, function(value) 	
+--	if value then
+--		local Fishing = false
+--		local GuiProgress = game:GetService("Players").LocalPlayer.PlayerGui.NetCasting.Progress
+--		TeleportTo(workspace.Zones.Garden.Interactables.NetSetup.Touch.Region.Touch.CFrame * CFrame.new(0,5,0))
+--		while G.Settings["Auto Casting/Fishing"] and wait() do
+
+--			game:GetService("ReplicatedStorage").Packages.Knit.Services.NetService.RF.StartCatching:InvokeServer("Regular")
+
+--			repeat
+--				wait()
+--				local Rotation = game:GetService("Players").LocalPlayer.PlayerGui.NetCasting.Progress.Circle.Rotation
+
+--				local args = {
+--					[1] = Rotation,
+--					[2] = Rotation
+--				}
+
+--				game:GetService("ReplicatedStorage").Packages.Knit.Services.NetService.RF.VerifyCatch:InvokeServer(unpack(args))
+--			until not GuiProgress.Visible or not G.Settings["Auto Casting/Fishing"]
+
+--		end
+--	end
+--end)
+
+local ComboFarmerMerchant = folderGarden:addCombo("Select Item (Farmer)", "", FarmerToCombo)
+local CombUpgrades = folderGarden:addCombo("Select Item (Upgrade Fruits)", "", UpgradeToCombo)
+
+folderGarden:addToggle("Auto Buy All Farmer (Selected)", "By activating this option you will automatically purchase the selected options","Big", false, function(value)
+	if value then
+		while G.Settings["Auto Buy All Farmer (Selected)"] and wait() do
+			local SelectedItem = ComboFarmerMerchant:getValue()
+			for NumeroItem, Data in pairs(FarmerMerchantTable) do
+				local title = Data[1] 
+				local Stock = Data[2] 
+				if SelectedItem ~= "All" then
+					if title == SelectedItem then
+						for i = 1, Stock do
+							game:GetService("ReplicatedStorage").Packages.Knit.Services.MerchantService.RF.BuyItem:InvokeServer("Farmer", NumeroItem)
+							if not G.Settings["Auto Buy All Farmer (Selected)"] then
+								break
+							end
+						end
+					end
+				else
+					for i = 1, Stock do
+						game:GetService("ReplicatedStorage").Packages.Knit.Services.MerchantService.RF.BuyItem:InvokeServer("Farmer", NumeroItem)
+						if not G.Settings["Auto Buy All Farmer (Selected)"] then
+							break
+						end
+					end
+				end
+			end
+		end
+	end
+end)
+
+folderGarden:addToggle("Auto Upgrade All (Selected)", "By activating this option you will automatically upgrade all options","Big", false, function(value)
+	if value then
+		while G.Settings["Auto Upgrade All (Selected)"] and wait() do
+			local SelectedItem = CombUpgrades:getValue()
+			for Text, Data in pairs(UpgradeFruitsTable) do
+				if SelectedItem ~= "All" then
+					if SelectedItem == Text then
+						game:GetService("ReplicatedStorage").Packages.Knit.Services.ItemCraftingService.RF.UpgradeSnack:InvokeServer({["Item"] = Text,["Tier"] = Data})
+					end
+				else
+					game:GetService("ReplicatedStorage").Packages.Knit.Services.ItemCraftingService.RF.UpgradeSnack:InvokeServer({["Item"] = Text,["Tier"] = Data})
+				end
+			end
+		end
+	end
+end)
+
+-- Auto Golden
+
+local folderAutoGolden = tabMachines:addFolder("Auto Golden")
+
+local ComboSelectModeGolden = folderAutoGolden:addCombo("Select Mode", "Select mode for auto golden", {"Pets", "Arms"})
+local ComboSelectChanceGolden = folderAutoGolden:addCombo("Select Amount Chance", "Select the number of pets you want to use to create 1 pet", {"20%", "40%", "60%", "80%", "100%"})
+
+folderAutoGolden:addToggle("Auto Golden (Selected)", "By activating this option you will automatically transform all your pets/arms (select whichever you prefer) into golden, according to the selected quantity!","Big", false, function(value)
+	while G.Settings["Auto Golden (Selected)"] and wait(1) do
+		if value then
+			local ModeSelected = ComboSelectModeGolden:getValue()
+			local chanceSelected = ComboSelectChanceGolden:getValue()
+
+			if ModeSelected and chanceSelected then
+
+				local RefreshDataPlayer, TableData = UpdateDataPlayer(ModeSelected)
+
+				local chanceToNumber = {
+					["20%"] = 1,
+					["40%"] = 2,
+					["60%"] = 3,
+					["80%"] = 4,
+					["100%"] = 5,
+				}
+				local NumberPetsTo = chanceToNumber[chanceSelected]
+				local CanDoTable = {}
+
+				local Service = nil
+				local RemoteName = nil
+
+				if ModeSelected == "Pets" then
+					Service = "PetService"
+					RemoteName = "goldify"
+				elseif ModeSelected == "Arms" then
+					Service = "ArmsService"
+					RemoteName = "EvolveArms"
+				end
+
+				local function SendRemote()
+					for _, Table in pairs(CanDoTable) do
+						local NameTo = Table.NameS
+						local IDs = Table.IDs
+						local args = {}
+
+						for i = 1, NumberPetsTo do
+							wait(0.1)
+							if IDs[i] then
+								table.insert(args, IDs[i])
+							else
+								break
+							end
+						end
+
+						if #args == NumberPetsTo then
+							game:GetService("ReplicatedStorage").Packages.Knit.Services[Service].RF[RemoteName]:InvokeServer(args)
+						end
+					end
+				end
+
+				local function findEntryByName(name)
+					for _, Entry in ipairs(CanDoTable) do
+						if Entry.NameS == name then
+							return Entry
+						end
+					end
+					return nil
+				end
+
+				if RefreshDataPlayer then
+					for ID, Table in pairs(TableData) do
+						local NameOBJ, TierOBJ, CraftTypeOBJ = nil, nil, nil
+						local TypeTable = {}
+
+						if ModeSelected == "Pets" then
+							NameOBJ = Table.Key
+							TierOBJ = Table.Tier
+							CraftTypeOBJ = Table.CraftType
+						elseif ModeSelected == "Arms" then
+							NameOBJ = Table.ArmKey
+							TierOBJ = Table.Tier
+						end
+
+						if TierOBJ == "Normal" then
+							local Entry = findEntryByName(NameOBJ)
+							if not Entry then
+								table.insert(CanDoTable, {NameS = NameOBJ, IDs = {ID}})
+							else
+								table.insert(Entry.IDs, ID)
+							end
+						end
+					end
+				end    
+
+				SendRemote()
+
+			else
+				lib:activatedWarn()
+			end
+		end
+	end
+end)
+
+-- Auto Goliath
+
+local folderAutoGoliath = tabMachines:addFolder("Auto Goliath")
+
+folderAutoGoliath:addClick("Open Goliath Machine", "Clicking on this option will open the Goliath UI","small", false, function(value) 
+	Pl.PlayerGui.GameUI.Menus.Goliath.Visible = not Pl.PlayerGui.GameUI.Menus.Goliath.Visible	
+end)
+
+folderAutoGoliath:addToggle("Auto Claim Goliath Pets When Done", "By activating this option you will automatically get the pets ready from the goliath machine","small", false, function(value)
+	if value then
+		while G.Settings["Auto Claim Goliath Pets When Done"] and wait(1) do
+			for _, Frames in pairs(Pl.PlayerGui.GameUI.Menus.Goliath.Holder.SlotPage.Container:GetChildren()) do
+				if Frames:IsA("Frame") and Frames.Pending.Visible and Frames.Pending.Claim.Timer.Text == "Claim" then
+					local args = {[2] = Frames.Name}
+					game:GetService("ReplicatedStorage").Packages.Knit.Services.PetGoliathService.RE.onClaim:FireServer(unpack(args))
+				end
+			end
+		end
+	end
+
+end)
+
+folderAutoGoliath:addToggle("Auto Goliath", "By activating this option you will automatically create all your Huge pets into goliath pets","Big", false, function(value)
+	if value then
+		while G.Settings["Auto Goliath"] and wait() do
+			local updateDataPet, Table = UpdateDataPlayer("Pets")
+
+			if updateDataPet then
+				local function SendRemote(Id, Slot)
+					game:GetService("ReplicatedStorage").Packages.Knit.Services.PetGoliathService.RE.onPurchase:FireServer(Id, Slot)
+				end
+
+				local function EmptySlot()
+					for _, Frames in pairs(Pl.PlayerGui.GameUI.Menus.Goliath.Holder.SlotPage.Container:GetChildren()) do
+						if Frames:IsA("Frame") and not Frames.Pending.Visible then
+							return Frames.Name
+						end
+					end
+				end
+
+				for ID, info in pairs(Table) do
+					if info.CraftType == "Huge" then
+						local SL = EmptySlot()
+						if SL then SendRemote(ID, SL) end
+					end
+				end
+			end
+		end
+	end
+end)
+
+-- Auto Void
+
+local folderAutoVoid = tabMachines:addFolder("Auto Void")
+
+folderAutoVoid:addToggle("Auto Claim Void Pets When Done", "By activating this option you will automatically get the pets ready from the void machine","small", false, function(value)
+	if value then
+		while G.Settings["Auto Claim Void Pets When Done"] and wait(5) do
+			local x = game:GetService("ReplicatedStorage").Packages.Knit.Services.PetVoidService.RF.init:InvokeServer(game.Players.LocalPlayer)
+			for i, g in pairs(x) do
+				game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PetVoidService"):WaitForChild("RE"):WaitForChild("onClaim"):FireServer(g.Guid)
+			end
+		end
+	end
+end)
+
+folderAutoVoid:addToggle("Auto Void", "By activating this option you will automatically create all your golden pets into void pets","Big", false, function(value)
+	if value then
+		while G.Settings["Auto Void"] and wait() do
+			local updatedata, TableData = UpdateDataPlayer("Pets")
+
+			if updatedata then
+				for ID, Table in pairs(TableData) do
+					local TierOBJ = Table.Tier
+					if TierOBJ == "Golden" then
+						game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PetVoidService"):WaitForChild("RE"):WaitForChild("onCraftToVoid"):FireServer(ID)
+					end
+				end
+			end
+		end
+	end
+end)
+
+-- Auto Mutate
+
+local folderAutoMutate = tabMachines:addFolder("Auto Mutate")
+
+folderAutoMutate:addClick("Open Mutate Machine", "Clicking on this option will open the Mutate Ui","small", false, function(value) 
+	Pl.PlayerGui.GameUI.Menus.Mutate.Visible = not Pl.PlayerGui.GameUI.Menus.Mutate.Visible
+end)
+
+local PetsActives = {}
+local PetsPlayerLast = {}
+local PetsPlayerComp = {}
+
+local function UpdatePetsTable(bolean)
+	local result = game:GetService("ReplicatedStorage").Packages.Knit.Services.PetService.RF.getOwned:InvokeServer(Pl)
+	for i, g in pairs(result) do
+		local Id = i
+		local Key = g.Key
+		local Cure = g.Cure
+
+		if not table.find(PetsActives, Key) then
+			table.insert(PetsActives, Key)
+		end
+
+		if bolean then
+			PetsPlayerLast[Id] = {Key, Cure}
+		else
+			PetsPlayerComp[Id] = {Key, Cure}
+		end
+	end
+end
+
+UpdatePetsTable()
+
+local ComboPetMutate = folderAutoMutate:addCombo("Select Pet", "", PetsActives)
+local ComboModeMutate = folderAutoMutate:addCombo("Select Mode", "", {"Glowing", "Rainbow", "Ghost"})
+
+folderAutoMutate:addClick("Mutate All Pets (No Kits!)", "By activating this option you will start to automatically mutate all your pets","Big", false, function(value)
+	if value then
+		UpdatePetsTable(true)
+
+		for IdPet, petData in pairs(PetsPlayerLast) do
+			if petData[2] == nil then
+				local args = {[1] = IdPet, [2] = {}}
+				game:GetService("ReplicatedStorage").Packages.Knit.Services.PetCombineService.RF.mutate:InvokeServer(unpack(args))
+			end
+		end
+	end
+end)	
+
+folderAutoMutate:addToggle("Auto Mutate (Selected Pet/Mode)", "By activating this option you will start to automatically mutate all your pets according to the selected options but will cure them if the mutation is not the one selected. (you need to have a medical kit)","Big", false, function(value) 
+	local PetSelected = ComboPetMutate:getValue()
+	local ModeSelected = ComboModeMutate:getValue()
+	local Using = false
+
+
+	if value then
+		while G.Settings["Auto Mutate (Selected Pet/Mode)"] and wait() do
+			if PetSelected and ModeSelected then
+				UpdatePetsTable(true)
+				for IdPet, petData in pairs(PetsPlayerLast) do
+					if not Using then
+						if petData[1] == PetSelected and petData[2] == nil then
+							Using = true
+							local args = {[1] = IdPet, [2] = {}}
+							game:GetService("ReplicatedStorage").Packages.Knit.Services.PetCombineService.RF.mutate:InvokeServer(unpack(args))
+							UpdatePetsTable(false)
+							for IdPetS, petDataS in pairs(PetsPlayerComp) do
+								if not PetsPlayerLast[IdPetS] and petDataS[2] ~= nil then
+									local Key = petDataS[1]
+									local Cure = petDataS[2]
+									if Cure ~= ModeSelected then
+										game:GetService("ReplicatedStorage").Packages.Knit.Services.PetCombineService.RF.cure:InvokeServer(IdPetS)
+										Using = false
+									end
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+	end
+end)	
+
+local folderAutoSlime = tabMachines:addFolder("Auto Slime")
+
+local ComboSlime = folderAutoSlime :addCombo("Select Slime", "Select the Slime Color for the auto slimer pet", {"Yellow", "Blue", "Purple", "Red", "Black"})
+
+folderAutoSlime:addToggle("Open Cure Slime", "Activating this option will open the slime cure machine","small", false, function(value) 	
+	if value then
+		game:GetService("Players").LocalPlayer.PlayerGui.GameUI.Menus.Deslime.Visible = true
+	else
+		game:GetService("Players").LocalPlayer.PlayerGui.GameUI.Menus.Deslime.Visible = false
+	end
+end)
+
+folderAutoSlime:addToggle("Auto Lock Slimed Pet", "By activating this option, every time you catch a pet with the selected slime it will automatically block","small", false, function(value) 	
+end)
+
+folderAutoSlime:addToggle("Auto Slime (Selected)", "Activating this option you will start making slime on available pets and healing them until they all turn the color of the selected slime.","big", false, function(value) 
+	if value then
+		local InvPets = game:GetService("Players").LocalPlayer.PlayerGui.GameUI.Menus.Inventory.Display.Pets.ScrollingFrame.Pets
+		local DeslimeGui = game:GetService("Players").LocalPlayer.PlayerGui.GameUI.Menus.Deslime
+		local Timer = DeslimeGui.Progress.Timer
+		local SlimeSelected = ComboSlime:getValue()
+		if SlimeSelected then
+			while G.Settings["Auto Slime (Selected)"] do
+				wait(0.5)
+				if DeslimeGui.Progress.Visible then
+					if Timer.Text == "READY!" then
+						game:GetService("ReplicatedStorage").Packages.Knit.Services.PetDeslimeService.RE.onClaim:FireServer() 
+					else
+						repeat
+							wait(0.5)
+						until Timer.Text == "READY!"
+						game:GetService("ReplicatedStorage").Packages.Knit.Services.PetDeslimeService.RE.onClaim:FireServer() 
+					end
+				end
+
+				local PetMaking = false
+
+				for _, pets in ipairs(InvPets:GetChildren()) do
+					if pets:IsA("Frame") and pets:FindFirstChild("Toggle") then
+						local Toggle = pets.Toggle
+						local CraftType = Toggle:GetAttribute("CraftType")
+						local Slime = Toggle:GetAttribute("Slime")
+						local Lock = Toggle.LockPet
+						local ID = Toggle:GetAttribute("GUID")
+						local NamePet = Toggle:GetAttribute("Key")
+						if G.Settings["Auto Lock Slimed Pet"] then
+							if Slime == SlimeSelected then
+								local args = {
+									[1] = {
+										[ID] = true
+									}
+								}
+
+								game:GetService("ReplicatedStorage").Packages.Knit.Services.PetService.RF.updateLocked:InvokeServer(unpack(args))
+							end 
+						end
+						if not Lock.Visible and CraftType == "Goliath" and (Slime ~= SlimeSelected) then
+							if not PetMaking then
+								if Slime then
+									local usingCure = false
+
+									if not usingCure then
+										usingCure = true
+										game:GetService("ReplicatedStorage").Packages.Knit.Services.PetDeslimeService.RE.onPurchase:FireServer(ID)
+										wait(5)
+										repeat
+											wait(0.5)
+										until Timer.Text == "READY!"
+
+										game:GetService("ReplicatedStorage").Packages.Knit.Services.PetDeslimeService.RE.onClaim:FireServer() 
+										usingCure = false
+									end
+								elseif (Slime ~= SlimeSelected) or Slime == nil then
+									game:GetService("ReplicatedStorage").Packages.Knit.Services.PetService.RF.slimify:InvokeServer(ID)
+								end
+							end
+							PetMaking = true
+						end
+					end
+				end
+			end
+		else
+			lib:activatedWarn()	
+			G.Settings["Auto Slime (Selected)"] = false
+		end
+	end
+end)
+
+-- Auto Forge Arms
+
+local folderForgeArms = tabMachines:addFolder("Auto Forge Arms")
+
+folderForgeArms:addClick("Open Mutate Machine", "Clicking on this option will open the Forge Ui","small", false, function(value) 
+	Pl.PlayerGui.GameUI.Menus.Forge.Visible = not Pl.PlayerGui.GameUI.Menus.Forge.Visible
+end)
+
+folderForgeArms:addToggle("Auto Forge All Arms", "By activating this option you will start forging all your arms!","Big", false, function(value)
+	if value then
+		while G.Settings["Auto Forge All Arms"] and wait() do
+			local updatedata, TableData = UpdateDataPlayer("Arms")
+			local OrganizedTable = {}
+
+			if updatedata then
+				for IdArm, Info in pairs(TableData) do
+					local NameArm = Info.ArmKey
+					local Tier = Info.Tier
+					local Strength = Info.StrengthTier
+
+					if not OrganizedTable[NameArm] then
+						OrganizedTable[NameArm] = {["Id"] = {IdArm}, ["Tier"] = {Tier}, ["Str"] = {Strength}}
+					else
+						table.insert(OrganizedTable[NameArm]["Id"], IdArm)
+						table.insert(OrganizedTable[NameArm]["Tier"], Tier)
+						table.insert(OrganizedTable[NameArm]["Str"], Strength)
+					end
+				end
+			end
+
+			for NameArm, Info in pairs(OrganizedTable) do
+				local previousTier = nil
+				local previousStr = nil
+				for i = 1, #Info.Id do
+					local currentTier = Info.Tier[i]
+					local currentStr = Info.Str[i]
+
+					if currentTier == previousTier and currentStr == previousStr then
+						local args = {
+							[1] = NameArm .. "/" .. currentTier .. "/" .. currentStr,
+							[2] = {
+								Info.Id[i - 1],
+								Info.Id[i]
+							}
+						}
+
+						game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("ForgeService"):WaitForChild("RF"):WaitForChild("Forge"):InvokeServer(unpack(args))
+					end
+					previousTier = currentTier
+					previousStr = currentStr
+				end
+			end
+		end
+	end	
+end)
+
+-- Auto Index 
+
+tabIndex:addClick("Open Index Machine", "Clicking on this option will open the Index Ui","small", false, function(value) 
+	Pl.PlayerGui.GameUI.Menus.Index.Visible = not Pl.PlayerGui.GameUI.Menus.Index.Visible
+end)
+
+tabIndex:addToggle("Auto Delete Pets You Already Have", "By activating this option you will automatically exclude the pets caught by the auto index","small", true, function(value) end)
+
+tabIndex:addToggle("Auto Index", "By activating this option you will start buying eggs until you find the pets you need in the index (starts from the cheapest egg to the most expensive!)","Big", false, function(value)
+	local AllEggs = require(game:GetService("ReplicatedStorage").Data.EggData)
+	local PetsArlInIndex = game:GetService("ReplicatedStorage").Packages.Knit.Services.PetService.RF.getIndex:InvokeServer(game.Players.LocalPlayer)
+	local EggsIndex = require(game:GetService("ReplicatedStorage").Data.WorldEggIndexes)
+
+	local WhiteListEggTable = {}
+	local PetsToIndex = {}
+	local eggsList = {}
+
+	for i, g in pairs(EggsIndex) do
+		for NameEgg, j in pairs(g.Eggs) do
+			if type(j) ~= "table" then
+				table.insert(WhiteListEggTable, NameEgg)
+			end
+		end
+	end
+
+	for NameEgg, Info in pairs(AllEggs) do
+		if table.find(WhiteListEggTable, NameEgg) then
+			PetsToIndex[NameEgg] = {Cost = Info.Cost, Pets = {}}
+			local PetsChance = Info.Chances
+			local IgnoreIndex = Info.IgnoreInIndex
+
+			for NamePet, _ in pairs(PetsChance) do
+				if not IgnoreIndex then
+					table.insert(PetsToIndex[NameEgg].Pets, NamePet)
+				end
+			end
+		end
+	end
+
+	for NamePet, _ in pairs(PetsArlInIndex) do
+		if string.find(NamePet, "Normal") then
+			local RemoveNormal = string.gsub(NamePet, "Normal", "")
+			local CorrectNamePet = string.gsub(RemoveNormal, "_", "")
+
+			for EggName, Info in pairs(PetsToIndex) do
+				local petIndex = table.find(Info.Pets, CorrectNamePet)
+				if petIndex then
+					table.remove(Info.Pets, petIndex)
+				end
+			end
+		end
+	end
+
+	for egg, info in pairs(PetsToIndex) do
+		table.insert(eggsList, {Name = egg, Cost = info.Cost, Pets = info.Pets})
+	end
+
+	table.sort(eggsList, function(a, b) return a.Cost < b.Cost end)
+
+	for _, eggInfo in ipairs(eggsList) do
+		if not G.Settings["Auto Index"] then
+			break
+		end
+
+		local PlayerWins = game:GetService("Players").LocalPlayer.leaderstats.Wins
+
+		if #eggInfo.Pets ~= 0 then
+			repeat
+				if PlayerWins.Value >= eggInfo.Cost then
+					local Petgeted = nil
+
+					local args = {
+						[1] = eggInfo.Name,
+						[2] = {},
+						[4] = false
+					}
+
+					local x = game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("purchaseEgg"):InvokeServer(unpack(args))
+
+					for _, petbuyed in pairs(x) do
+						local petIndex = table.find(eggInfo.Pets, petbuyed)
+						Petgeted = petbuyed
+						if petIndex then
+							table.remove(eggInfo.Pets, petIndex)
+						end
+					end
+
+					if G.Settings["Auto Delete Pets You Already Have"] then
+						local petspl = game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PetService"):WaitForChild("RF"):WaitForChild("getOwned"):InvokeServer(game:GetService("Players").LocalPlayer)
+
+						for PetId, Info in pairs(petspl) do
+							local NamePet = Info.Key
+							local Craft = Info.CraftType
+							if NamePet == Petgeted and Craft == "Baby" then
+								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PetService"):WaitForChild("RF"):WaitForChild("delete"):InvokeServer(PetId)
+							end
+						end
+					end
+				else
+					break
+				end
+				wait(1)
+			until #eggInfo.Pets == 0 or not G.Settings["Auto Index"]
+		end
+	end
+
+end)
+
+-- Auto Merchant
+
+local TableMerchantsDis = {}
+for Merchants, Info in pairs(ModuleMerchant.MerchantTypes) do
+	if Merchants ~= "Farmer" then
+		table.insert(TableMerchantsDis, Merchants)
+	end
+end
+
+local ComboMerchant = tabMerchant:addMultiCombo("Select Merchant", "Select Merchant to auto merchant", TableMerchantsDis)
+local ComboMerchantSlot = tabMerchant:addMultiCombo("Select Slot To Buy", "Select Slot Merchant to auto merchant", {"Slot 1", "Slot 2", "Slot 3", "Slot 4"})
+
+tabMerchant:addToggle("Auto Buy Merchant (Selected)", "By activating this option you will start purchasing items from the selected merchant in which you selected","Big", false, function(value)
+	if value then
+		local SelectedMerchant = ComboMerchant:getValue()
+		local SelectedSlot = ComboMerchantSlot:getValue()
+
+		local function SendRemote(Mec, Num)
+			local args = { Mec, tonumber(Num) }
+			game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("MerchantService"):WaitForChild("RF"):WaitForChild("BuyItem"):InvokeServer(unpack(args))
+		end
+
+		local TableMerc = {}
+		local TableNumbers = {}
+		local Args = {}
+		
+		for _, v in pairs(SelectedMerchant) do
+			table.insert(TableMerc, v)
+		end
+		for _, v in pairs(SelectedSlot) do
+			local Cleaned = string.gsub(v, "Slot", "")
+			table.insert(TableNumbers, tonumber(Cleaned))
+		end
+		for _, merchant in ipairs(TableMerc) do
+			for _, number in ipairs(TableNumbers) do
+				table.insert(Args, {merchant, number })
+			end
+		end
+
+		while G.Settings["Auto Buy Merchant (Selected)"] do
+			wait()
+			for _, args in ipairs(Args) do
+				SendRemote(args[1], args[2])
+			end
+		end
+	end
+end)
+
+-- Rebirth
+
+local Rranks = require(game:GetService("ReplicatedStorage").Data.RebirthRanks) -- nome dos rebirths
+local Rcust = require(game:GetService("ReplicatedStorage").Data.RebirthRequirements) -- valor dos rebirths
+
+local TotalRebirth = Pl:GetAttribute("Rebirths") -- qual rebirth o player esta
+local RebirthWinsRequired = Pl:GetAttribute("RebirthWinsRequired") -- quantas wins que é pro proximo rebirth
+local MaxRebirth = Pl:GetAttribute("MaxRebirths") -- se for true entao esta no maximo de rebirth
+local TotalWins = Pl:WaitForChild("leaderstats").Wins -- Total de wins do player
+
+tabRebirth:addToggle("Auto Rebirth", "","Big", false, function(value)
+	local function SendRemote()
+		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("RebirthService"):WaitForChild("RE"):WaitForChild("onRebirthRequest"):FireServer()
+	end
+
+	while G.Settings["Auto Rebirth"] and wait(1) do
+		if value then
+			if TotalWins.Value >= RebirthWinsRequired then
+				SendRemote()
+			end
+		end
+	end
+end)
+
+tabRebirth:addClick("AI Auto Rebirth", "","Big", false, function(value)
+	
+	local BestWorld = Pl:GetAttribute("BestZone")
+	local Vip = Pl:GetAttribute("VIP")
+	local PlStrength = Pl:GetAttribute("TotalStrength")
+
+	local BossesTable = {}
+	local BossesCal = {}
+
+	local NPCmodule = require(game:GetService("ReplicatedStorage").Data.ArmWrestleNPCs)[BestWorld]
+	local locations = workspace.Zones:FindFirstChild(BestWorld).Interactables.Teleports.Locations:GetChildren()
+	local BossesPath = workspace.GameObjects.ArmWrestling[BestWorld].NPC
+	
+	local function SendRemote()
+		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("RebirthService"):WaitForChild("RE"):WaitForChild("onRebirthRequest"):FireServer()
+	end
+	
+	local function TrainKnucles()
+		local Tier = FindBestTier()
+
+		if BestWorld then
+			if #locations > 0 then
+				game:GetService("ReplicatedStorage").Packages.Knit.Services.ZoneService.RE.teleport:FireServer(locations[1])
+			end
+		end
+
+		repeat wait(0.5) until game:GetService("Players").LocalPlayer.PlayerGui.TeleportScreen.Frame.Position == UDim2.new(0, 0, 1, 0)
+		wait(0.5)
+		if Tier then
+			local punchBagName = Vip and "VIP" or Tier
+
+			local Teleport = createIndicatorTween(workspace.Zones[tostring(BestWorld)].Interactables.Training.PunchBags[tostring(Tier)].Primary.CFrame + Vector3.new(0, 5, 0))
+			Teleport:Play()
+
+			while true do
+				if Vip then
+					local args = {
+						[1] = tostring(BestWorld),
+						[2] = "VIP",
+						[3] = Vip
+					}
+					game:GetService("ReplicatedStorage").Packages.Knit.Services.PunchBagService.RE.onGiveStats:FireServer(unpack(args))
+				else
+					local args = {
+						[1] = tostring(BestWorld),
+						[2] = tostring(Tier)
+					}
+
+					game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PunchBagService"):WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
+				end
+				wait()
+			end
+		end
+	end
+
+	for i, g in pairs(NPCmodule) do -- inserindo os bosses com os valores de wins que eles dao ao morrer
+		local Boss1 = {Name = i, Wins = g.Wins, Strength = g.Strength}
+		table.insert(BossesTable, Boss1)
+	end
+
+	local function Calculadora(WinsBoss)
+		local QuantidadeNecessaria = 0
+		local Meta = RebirthWinsRequired - TotalWins.Value
+
+		-- Verificar quantas vezes WinsBoss precisa ser multiplicado para alcançar ou exceder a Meta
+		for i = 1, 50 do
+			if WinsBoss * i >= Meta then
+				QuantidadeNecessaria = i
+				break
+			end
+		end
+
+		-- Se não encontrar um valor dentro de 50 multiplicações, mantém QuantidadeNecessaria em 0
+		if QuantidadeNecessaria == 0 then
+			return nil
+		end
+
+		return QuantidadeNecessaria
+	end
+
+	for i, g in ipairs(BossesTable) do
+		local resultado = Calculadora(g.Wins)
+		local Boss = {Name = g.Name, Res = resultado, Strength = g.Strength}
+		table.insert(BossesCal, Boss)
+	end
+
+	if #BossesCal == 0 then
+		print("Nenhum resultado encontrado na tabela BossesCal.") -- entao treine!
+	else
+		local menorRes = BossesCal[1].Res
+		local menorBoss = BossesCal[1].Name
+		local maiorStrength = BossesCal[1].Strength
+
+		for i, boss in ipairs(BossesCal) do
+			if boss.Res < menorRes or (boss.Res == menorRes and boss.Strength > maiorStrength) then
+				menorRes = boss.Res
+				menorBoss = boss.Name
+				maiorStrength = boss.Strength
+			end
+		end
+
+		print("O menor Res é de " .. menorBoss .. " com um valor de " .. menorRes)
+		
+		if PlStrength < maiorStrength then
+			local percentDifference = ((maiorStrength - PlStrength) / maiorStrength) * 100
+			print("A força do jogador é " .. percentDifference .. "% menor do que a força do boss " .. menorBoss)
+		else
+			print("A força do jogador é maior que a do boss!")
+		end
+	end
+end)
+
+
+-- Misc Options
+
+tabMisc:addToggle("Auto Spin Roulette", "By activating this option you will spin the wheel automatically (you need tickets)","Big", false, function(value)
+	while G.Settings["Auto Spin Roulette"] and wait() do
+		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("SpinService"):WaitForChild("RE"):WaitForChild("onSpinRequest"):FireServer(true)
+	end	
+end)
+
+tabMisc:addToggle("Auto Claim Daily Rewards", "By activating this option you will start getting all daily rewards","Big", false, function(value)
+	while G.Settings["Auto Claim Daily Rewards"] and wait() do
+		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("DailyRewardService"):WaitForChild("RE"):WaitForChild("onClaimReward"):FireServer()
+	end
+end)
+
+tabMisc:addToggle("Auto Claim Free Gifts", "By activating this option you will start receiving all free gifts automatically","Big", false, function(value)
+	while G.Settings["Auto Claim Free Gifts"] and wait() do
+		for i = 1, 12 do
+			game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("TimedRewardService"):WaitForChild("RE"):WaitForChild("onClaim"):FireServer(i)
+		end
+	end
+end)
+
+tabMisc:addToggle("Auto Op Pet Quest", "Activating this option after you spend the necessary time in the game, it will kill the initial boss as many times as necessary to get the quest pet.","Big", false, function(value)
+	if value then
+		repeat
+			wait(1)
+		until Pl:GetAttribute("QuestTimeNormal") >= 3600 or not G.Settings["Auto Op Pet Quest"]
+
+		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("ZoneService"):WaitForChild("RE"):WaitForChild("teleport"):FireServer(workspace:WaitForChild("Zones"):WaitForChild("1"):WaitForChild("Interactables"):WaitForChild("Teleports"):WaitForChild("Locations"):WaitForChild("BackToSchool"))
+		wait(1)
+		for i = 1, 10 do
+			if not G.Settings["Auto Op Pet Quest"] then break end
+				spawn(function()
+					while G.Settings["Auto Op Pet Quest"] and wait() do
+						game:GetService("ReplicatedStorage").Packages.Knit.Services.ArmWrestleService.RE.onClickRequest:FireServer()
+					end
+				end)
+			local args = {
+				[1] = "Bully",
+				[2] = workspace:WaitForChild("GameObjects"):WaitForChild("ArmWrestling"):WaitForChild("1"):WaitForChild("NPC"):WaitForChild("Bully"):WaitForChild("Table"),
+				[3] = "1"
+			}
+			game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
+				wait(0.5)
+			repeat
+				wait()
+			until Pl.PlayerGui.GameUI.Wrestle.Visible == false or not G.Settings["Auto Op Pet Quest"]
+		end
+	end
+end)
+
+local QuestsTable = {}
+local QuestLeaderboard = workspace.GameObjects.QuestLeaderboard	
+for _, model in pairs(QuestLeaderboard:GetChildren()) do
+	table.insert(QuestsTable, model.Name)
+end
+
+local ComboQuests= tabMisc:addCombo("Select Quest", "Select Quest to auto quest", QuestsTable)
+
+tabMisc:addToggle("Auto Quest (Selected)", "Activating this option will kill the boss of the selected quest the amount necessary to earn its reward.","Big", false, function(value)
+	if value then
+		local SelectedQuest = ComboQuests:getValue()
+		local path = QuestLeaderboard:FindFirstChild(SelectedQuest)
+		local descriptionText = path.Info.SurfaceGui.Frame.Description.Text
+		local CorrectQuest = descriptionText:gsub("Beat", ""):gsub("Times!", ""):gsub("%d", ""):gsub("%s", ""):gsub(",", "")
+
+		spawn(function()
+			while G.Settings["Auto Quest (Selected)"] do
+				wait()
+				game:GetService("ReplicatedStorage").Packages.Knit.Services.ArmWrestleService.RE.onClickRequest:FireServer()
+			end
+		end)
+
+		local function NumberSep(Text)
+			local var1, var2 = Text:match("(%d+)/(%d+)")
+			var1 = tonumber(var1)
+			var2 = tonumber(var2)
+
+			if var1 and var2 then
+				if var1 == 0 then
+					var1 = var1 + 1
+				end
+				if var1 >= var2 then
+					return false
+				else
+					return true
+				end
+			end
+		end
+		
+		while G.Settings["Auto Quest (Selected)"] and wait() do
+			local fds = path.Info.SurfaceGui.Frame.Progress.TextLabel
+			local fds2 = NumberSep(fds.Text)
+			if fds2 then
+					local pathZones = workspace:WaitForChild("GameObjects"):WaitForChild("ArmWrestling")
+					for _, zones in pairs(pathZones:GetChildren()) do
+						if zones:IsA("Folder") then
+							local NPC = zones.NPC
+							if NPC:FindFirstChild(CorrectQuest) then
+								local ZoneId = zones.Name
+								local args = {
+									[1] = CorrectQuest,
+									[2] = workspace:WaitForChild("GameObjects"):WaitForChild("ArmWrestling"):WaitForChild(ZoneId):WaitForChild("NPC"):WaitForChild(CorrectQuest):WaitForChild("Table"),
+									[3] = ZoneId 
+								}
+
+								game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
+							end    
+						end
+					end
+				else
+				break
+			end
+		end
+	end
+end)	
+
+-- Fast Teleport
+local IDsImage = {}
+
+local x = require(game:GetService("ReplicatedStorage").Data.ZoneRequirements)
+
+for i, g in pairs(x) do
+	local NameArea = g.Name
+	local CFrameTp = workspace.Zones[i].Interactables.Teleports.Locations.Spawn.CFrame
+	lib:addTPButton(NameArea, table.find(IDsImage, NameArea), CFrameTp)
+end
+
+tabFTeleport:addToggle("Show Fast Teleport", "","Big", false, function(value)
+	if G.Settings["Show Fast Teleport"] then
+		lib:showFastTP()
+	else
+		lib:hideFastTP()
+	end
+end)
