@@ -1499,11 +1499,13 @@ tabRebirth:addToggle("AI Auto Rebirth", "","Big", true, function(value)
 	local locations = workspace.Zones:FindFirstChild(BestWorld).Interactables.Teleports.Locations:GetChildren()
 	local BossesPath = workspace.GameObjects.ArmWrestling[BestWorld].NPC
 	
-	local function SendRemote()
+	local AutoRebirthFuncs = {}
+	
+	function AutoRebirthFuncs.SendRemote()
 		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("RebirthService"):WaitForChild("RE"):WaitForChild("onRebirthRequest"):FireServer()
 	end
 	
-	local function Calculadora(WinsBoss)
+	function AutoRebirthFuncs.Calculadora(WinsBoss)
 		local QuantidadeNecessaria = 0
 		local Meta = RebirthWinsRequired - TotalWins.Value
 
@@ -1521,7 +1523,7 @@ tabRebirth:addToggle("AI Auto Rebirth", "","Big", true, function(value)
 		return QuantidadeNecessaria
 	end
 	
-	local function TrainKnucles()
+	function AutoRebirthFuncs.TrainKnucles()
 		local Tier = FindBestTier()
 
 		if BestWorld then
@@ -1556,10 +1558,11 @@ tabRebirth:addToggle("AI Auto Rebirth", "","Big", true, function(value)
 				end
 				wait()
 			end
+			AutoRebirthFuncs.Algoritimo()
 		end
 	end
 	
-	local function EggsToBuy()
+	function AutoRebirthFuncs.EggsToBuy()
 		local PlMaxPets = Pl:GetAttribute("MaxEquippedPets")
 
 		local updatedata, TableData = UpdateDataPlayer("Pets")
@@ -1584,51 +1587,53 @@ tabRebirth:addToggle("AI Auto Rebirth", "","Big", true, function(value)
 		end
 	end
 
-	for i, g in pairs(NPCmodule) do -- inserindo os bosses com os valores de wins que eles dao ao morrer
-		local Boss1 = {Name = i, Wins = g.Wins, Strength = g.Strength}
-		table.insert(BossesTable, Boss1)
-	end
-
-	for i, g in ipairs(BossesTable) do
-		local resultado = Calculadora(g.Wins)
-		local Boss = {Name = g.Name, Res = resultado, Strength = g.Strength}
-		table.insert(BossesCal, Boss)
-	end
-
-	if #BossesCal == 0 then
-		print("Nenhum resultado encontrado na tabela BossesCal.") -- entao proximo mundo! farmar para ele
-	else
-		local menorRes = BossesCal[1].Res
-		local menorBoss = BossesCal[1].Name
-		local menorStrength = BossesCal[1].Strength
-
-		for i, boss in ipairs(BossesCal) do
-			if boss.Res < menorRes or (boss.Res == menorRes and boss.Strength < menorStrength) then
-				menorRes = boss.Res
-				menorBoss = boss.Name
-				menorStrength = boss.Strength
-			end 
+	function AutoRebirthFuncs.Algoritimo()
+		for i, g in pairs(NPCmodule) do -- inserindo os bosses com os valores de wins que eles dao ao morrer
+			local Boss1 = {Name = i, Wins = g.Wins, Strength = g.Strength}
+			table.insert(BossesTable, Boss1)
 		end
 
-		print("O menor Res é de " .. menorBoss .. " com um valor de " .. menorRes)
-		
-		if PlStrength < menorStrength then
-			local percentDifference = ((menorStrength - PlStrength) / menorStrength) * 100
-			
-			if percentDifference < 30 then
-				print("A força do boss " .. menorBoss .. " é menos de 30% maior que a força do jogador!") -- ja é possivel tentar matar ele
-			else
-				print("A força do jogador é " .. percentDifference .. "% menor do que a força do boss " .. menorBoss) -- tem que treinar ate ficar forte
-					spawn(function()
-						TrainKnucles()
-					end)
-				
-				G.Settings["RebirthTrainAI"] = true
-				wait(300)
-				G.Settings["RebirthTrainAI"] = false
-			end
+		for i, g in ipairs(BossesTable) do
+			local resultado = AutoRebirthFuncs.Calculadora(g.Wins)
+			local Boss = {Name = g.Name, Res = resultado, Strength = g.Strength}
+			table.insert(BossesCal, Boss)
+		end
+
+		if #BossesCal == 0 then
+			print("Nenhum resultado encontrado na tabela BossesCal.") -- entao proximo mundo! farmar para ele
 		else
-			print("A força do jogador é maior que a do boss!") -- ja é 100% possivel ganhar do boss
+			local menorRes = BossesCal[1].Res
+			local menorBoss = BossesCal[1].Name
+			local menorStrength = BossesCal[1].Strength
+
+			for i, boss in ipairs(BossesCal) do
+				if boss.Res < menorRes or (boss.Res == menorRes and boss.Strength < menorStrength) then
+					menorRes = boss.Res
+					menorBoss = boss.Name
+					menorStrength = boss.Strength
+				end 
+			end
+
+			print("O menor Res é de " .. menorBoss .. " com um valor de " .. menorRes)
+
+			if PlStrength < menorStrength then
+				local percentDifference = ((menorStrength - PlStrength) / menorStrength) * 100
+
+				if percentDifference < 30 then
+					print("A força do boss " .. menorBoss .. " é menos de 30% maior que a força do jogador!") -- ja é possivel tentar matar ele
+				else
+					print("A força do jogador é " .. percentDifference .. "% menor do que a força do boss " .. menorBoss) -- tem que treinar ate ficar forte
+					spawn(function()
+						AutoRebirthFuncs.TrainKnucles()
+					end)
+
+					G.Settings["RebirthTrainAI"] = true
+					wait(300)
+					G.Settings["RebirthTrainAI"] = false
+				end
+			else
+				print("A força do jogador é maior que a do boss!") -- ja é 100% possivel ganhar do boss
+			end
 		end
 	end
 end)
