@@ -1486,12 +1486,12 @@ tabRebirth:addToggle("Auto Rebirth", "","Big", false, function(value)
 	end
 end)
 
-tabRebirth:addClick("AI Auto Rebirth", "","Big", false, function(value)
+tabRebirth:addToggle("AI Auto Rebirth", "","Big", false, function(value)
 	
 	local BestWorld = Pl:GetAttribute("BestZone")
 	local Vip = Pl:GetAttribute("VIP")
 	local PlStrength = Pl:GetAttribute("TotalStrength")
-
+	
 	local BossesTable = {}
 	local BossesCal = {}
 
@@ -1501,6 +1501,24 @@ tabRebirth:addClick("AI Auto Rebirth", "","Big", false, function(value)
 	
 	local function SendRemote()
 		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("RebirthService"):WaitForChild("RE"):WaitForChild("onRebirthRequest"):FireServer()
+	end
+	
+	local function Calculadora(WinsBoss)
+		local QuantidadeNecessaria = 0
+		local Meta = RebirthWinsRequired - TotalWins.Value
+
+		for i = 1, 50 do
+			if WinsBoss * i >= Meta then
+				QuantidadeNecessaria = i
+				break
+			end
+		end
+
+		if QuantidadeNecessaria == 0 then
+			return nil
+		end
+
+		return QuantidadeNecessaria
 	end
 	
 	local function TrainKnucles()
@@ -1540,30 +1558,35 @@ tabRebirth:addClick("AI Auto Rebirth", "","Big", false, function(value)
 			end
 		end
 	end
+	
+	local function EggsToBuy()
+		local PlMaxPets = Pl:GetAttribute("MaxEquippedPets")
+
+		local updatedata, TableData = UpdateDataPlayer("Pets")
+		if updatedata then
+			local multipliers = {}
+
+			for i, g in pairs(TableData) do
+				local roundedMultiplier = math.floor(g.Multiplier + 0.5)
+				table.insert(multipliers, roundedMultiplier)
+			end
+
+			table.sort(multipliers, function(a, b) return a > b end)
+
+			local topMultipliers = {}
+			for i = 1, math.min(PlMaxPets, #multipliers) do
+				table.insert(topMultipliers, multipliers[i])
+			end
+
+			for i, multiplier in ipairs(topMultipliers) do
+				print("Top " .. i .. " Multiplier: " .. multiplier)
+			end
+		end
+	end
 
 	for i, g in pairs(NPCmodule) do -- inserindo os bosses com os valores de wins que eles dao ao morrer
 		local Boss1 = {Name = i, Wins = g.Wins, Strength = g.Strength}
 		table.insert(BossesTable, Boss1)
-	end
-
-	local function Calculadora(WinsBoss)
-		local QuantidadeNecessaria = 0
-		local Meta = RebirthWinsRequired - TotalWins.Value
-
-		-- Verificar quantas vezes WinsBoss precisa ser multiplicado para alcançar ou exceder a Meta
-		for i = 1, 50 do
-			if WinsBoss * i >= Meta then
-				QuantidadeNecessaria = i
-				break
-			end
-		end
-
-		-- Se não encontrar um valor dentro de 50 multiplicações, mantém QuantidadeNecessaria em 0
-		if QuantidadeNecessaria == 0 then
-			return nil
-		end
-
-		return QuantidadeNecessaria
 	end
 
 	for i, g in ipairs(BossesTable) do
@@ -1577,23 +1600,27 @@ tabRebirth:addClick("AI Auto Rebirth", "","Big", false, function(value)
 	else
 		local menorRes = BossesCal[1].Res
 		local menorBoss = BossesCal[1].Name
-		local maiorStrength = BossesCal[1].Strength
+		local menorStrength = BossesCal[1].Strength
 
 		for i, boss in ipairs(BossesCal) do
-			if boss.Res < menorRes or (boss.Res == menorRes and boss.Strength > maiorStrength) then
+			if boss.Res < menorRes or (boss.Res == menorRes and boss.Strength < menorStrength) then
 				menorRes = boss.Res
 				menorBoss = boss.Name
-				maiorStrength = boss.Strength
-			end
+				menorStrength = boss.Strength
+			end 
 		end
 
 		print("O menor Res é de " .. menorBoss .. " com um valor de " .. menorRes)
 		
-		if PlStrength < maiorStrength then
-			local percentDifference = ((maiorStrength - PlStrength) / maiorStrength) * 100
-			print("A força do jogador é " .. percentDifference .. "% menor do que a força do boss " .. menorBoss)
+		if PlStrength < menorStrength then
+			local percentDifference = ((menorStrength - PlStrength) / menorStrength) * 100
+			print("A força do jogador é " .. percentDifference .. "% menor do que a força do boss " .. menorBoss) -- tem que treinar ate ficar forte
+			
+			if percentDifference < 30 then
+				print("A força do boss " .. menorBoss .. " é menos de 30% maior que a força do jogador!") -- ja é possivel tentar matar ele
+			end
 		else
-			print("A força do jogador é maior que a do boss!")
+			print("A força do jogador é maior que a do boss!") -- ja é 100% possivel ganhar do boss
 		end
 	end
 end)
