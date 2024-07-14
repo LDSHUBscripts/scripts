@@ -1486,7 +1486,7 @@ tabRebirth:addToggle("Auto Rebirth", "","Big", false, function(value)
 	end
 end)
 
-tabRebirth:addToggle("AI Auto Rebirth", "","Big", false, function(value)
+tabRebirth:addToggle("AI Auto Rebirth", "","Big", true, function(value)
 	
 	local BestWorld = Pl:GetAttribute("BestZone")
 	local Vip = Pl:GetAttribute("VIP")
@@ -1538,7 +1538,7 @@ tabRebirth:addToggle("AI Auto Rebirth", "","Big", false, function(value)
 			local Teleport = createIndicatorTween(workspace.Zones[tostring(BestWorld)].Interactables.Training.PunchBags[tostring(Tier)].Primary.CFrame + Vector3.new(0, 5, 0))
 			Teleport:Play()
 
-			while true do
+			while G.Settings["RebirthTrainAI"] do
 				if Vip then
 					local args = {
 						[1] = tostring(BestWorld),
@@ -1596,7 +1596,7 @@ tabRebirth:addToggle("AI Auto Rebirth", "","Big", false, function(value)
 	end
 
 	if #BossesCal == 0 then
-		print("Nenhum resultado encontrado na tabela BossesCal.") -- entao treine!
+		print("Nenhum resultado encontrado na tabela BossesCal.") -- entao proximo mundo! farmar para ele
 	else
 		local menorRes = BossesCal[1].Res
 		local menorBoss = BossesCal[1].Name
@@ -1614,10 +1614,18 @@ tabRebirth:addToggle("AI Auto Rebirth", "","Big", false, function(value)
 		
 		if PlStrength < menorStrength then
 			local percentDifference = ((menorStrength - PlStrength) / menorStrength) * 100
-			print("A força do jogador é " .. percentDifference .. "% menor do que a força do boss " .. menorBoss) -- tem que treinar ate ficar forte
 			
 			if percentDifference < 30 then
 				print("A força do boss " .. menorBoss .. " é menos de 30% maior que a força do jogador!") -- ja é possivel tentar matar ele
+			else
+				print("A força do jogador é " .. percentDifference .. "% menor do que a força do boss " .. menorBoss) -- tem que treinar ate ficar forte
+					spawn(function()
+						TrainKnucles()
+					end)
+				
+				G.Settings["RebirthTrainAI"] = true
+				wait(300)
+				G.Settings["RebirthTrainAI"] = false
 			end
 		else
 			print("A força do jogador é maior que a do boss!") -- ja é 100% possivel ganhar do boss
