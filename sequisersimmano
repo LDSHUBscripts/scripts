@@ -1599,6 +1599,10 @@ tabRebirth:addToggle("AI Auto Rebirth", "","Big", true, function(value)
 			table.insert(BossesCal, Boss)
 		end
 
+		for	i, g in pairs(BossesTable) do
+			print(i, g)
+		end
+
 		if #BossesCal == 0 then
 			print("Nenhum resultado encontrado na tabela BossesCal.") -- entao proximo mundo! farmar para ele
 		else
