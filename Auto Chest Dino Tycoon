@@ -1,0 +1,67 @@
+-- Auto Chest Dino Tycoon (Made By LDS!)
+local G = getgenv()
+
+local Breakables = workspace.__THINGS.Breakables
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local Pl = Players.LocalPlayer
+local Char = Pl.Character or Pl.CharacterAdded:Wait()
+local Hum = Char:WaitForChild("Humanoid")
+local HumRootPart = Char:WaitForChild("HumanoidRootPart")
+
+local function TeleportTo(Cords)
+    Char:SetPrimaryPartCFrame(Cords * CFrame.new(0, 5, 0))
+    return true
+end
+
+local function Request_Break(ID)
+    local PetNetworking = require(ReplicatedStorage.Library.Client.PetNetworking)
+    local EquippedPets = PetNetworking.EquippedPets()
+    local TableIDPetsEquippeds = {}
+
+    for i, _ in pairs(EquippedPets) do
+        table.insert(TableIDPetsEquippeds, i)
+    end
+
+    for _, PetID in pairs(TableIDPetsEquippeds) do
+        local args = { [1] = { [PetID] = ID } }
+        ReplicatedStorage.Network.Breakables_JoinPetBulk:FireServer(unpack(args))
+    end
+end
+
+local function Tap(ID)
+    while G.AutoTap or G.AutoChestDino do
+        wait()
+        ReplicatedStorage.Network.Breakables_PlayerDealDamage:FireServer(ID)
+    end
+end
+
+while G.AutoChestDino do
+    wait(G.CoolDownLoop)
+    for _, models in pairs(Breakables:GetChildren()) do
+        if models:IsA("Model") then
+            if models:GetAttribute("BreakableClass") == "Chest" and models:GetAttribute("BreakableID") == "Dino Island Chest" then
+                local UID = models:GetAttribute("BreakableUID")
+                local LastPositionPL = HumRootPart.CFrame
+                local PP = models.PrimaryPart
+
+                if PP and TeleportTo(PP.CFrame) then
+                    coroutine.wrap(Request_Break)(UID)
+
+                    if G.AutoTap then
+                        coroutine.wrap(Tap)(UID)
+                    end
+
+                    repeat
+                        wait()
+                    until not Breakables:FindFirstChild(UID)
+                    wait(4)
+                    if G.BackToLastPosition then
+                        TeleportTo(LastPositionPL)
+                    end
+                end
+            end
+        end
+    end
+end
