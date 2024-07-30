@@ -1,0 +1,34 @@
+script_key="RvPZHnkubcXiTJGiddHzlybVjuFJjoYW";
+
+getgenv().autoPlaza = {
+    Sniper = {
+        Enabled = true,
+
+        DISCORD_ID = "",
+        WEBHOOK_URL = "https://discord.com/api/webhooks/1239362954483204266/4Aphf9YbK7SL9KW8R2s3r-5Uh8YQzO0Z7YsNAy3Ai7F4VwSlYlxJC7oPAy26uwf8RJzc",
+
+        SEND_SNPES = true,
+        PING_SNPES = false,
+
+        SEND_FAILS = true,
+        PING_FAILS = false,
+
+        PING_ALL_EXCLUSIVES = true,
+        BUY_ANY_EXCLUSIVE_PRICE = 100000,
+        BUY_ANY_HUGE_PRICE = 40000000,
+        BUY_ANY_TITANIC_PRICE = 1000000000,
+
+        BUY_CUSTOM = { -- Rules
+                {Class = "Misc", Item = {id = "Mini Chest"}, Cost = 32000},
+        },
+
+        MIN_CANDIDATES = 3, -- (for stats tracker)
+        STATS_TRACKER = true, -- Send timed stats for loading, checking, and finding, etc.
+
+        MIN_BOOTH_CHECKS = 3, -- Require this # of searches through current servers booths before serverhopping
+        MIN_FOUND_SERVERS = 1, -- Require this # of servers to attempt joining before serverhopping
+        SERVER_HOPPER = true,
+    }
+}
+
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/0d84cef5d85a2d44b742e621e67018aa.lua"))() 
