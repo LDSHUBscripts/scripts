@@ -1,5 +1,10 @@
 script_key="RvPZHnkubcXiTJGiddHzlybVjuFJjoYW";
 
+queueteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
+game.Players.LocalPlayer.OnTeleport:Connect(function()
+queueteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/LDSHUBscripts/scripts/main/Boufi'))()")
+end)
+
 getgenv().autoPlaza = {
     Sniper = {
         Enabled = true,
